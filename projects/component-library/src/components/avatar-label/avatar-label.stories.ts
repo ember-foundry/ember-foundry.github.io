@@ -21,7 +21,6 @@ const meta: Meta<AvatarLabelComponent> = {
   args: {
     bordered: false,
     image_url: 'https://mockmind-api.uifaces.co/content/human/1.jpg',
-    // link: 'https://www.example.com',
     name: 'Jane Doe'
   },
   tags: ['autodocs', 'avatar']
@@ -92,17 +91,3 @@ export const AvatarNameAndLink: Story = {
     label: 'View Profile'
   }
 };
-
-// export const WithInternalLink: Story = {
-//   args: {
-//     ...Sample.args,
-//     link: '/users/jane-doe'
-  // }
-// };
-
-// export const WithExternalLink: Story = {
-//   args: {
-//     ...Sample.args,
-//     link: 'https://example.com'
-//   }
-// }
