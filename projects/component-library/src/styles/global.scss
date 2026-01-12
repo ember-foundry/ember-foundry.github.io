@@ -14,3 +14,7 @@ img, svg {
   max-height: 100%;
   max-width: 100%;
 }
+
+body {
+  color: light-dark(rgb(0 0 0), rgb(255 255 255));
+}

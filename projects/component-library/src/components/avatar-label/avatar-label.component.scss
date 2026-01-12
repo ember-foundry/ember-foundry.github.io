@@ -1,9 +1,12 @@
 :host {
   align-items: center;
-  color: black;
   display: inline-flex;
   font-size: 0.9em;
   gap: 8px;
+}
+
+.name {
+  font-weight: bolder;
 }
 
 .text-column {
@@ -12,7 +15,7 @@
   flex-direction: column;
 }
 
-a {
-  color: rgb(0 0 0 / 80%);
+.label, ::ng-deep [ngProjectAs="label"] {
+  color: light-dark(rgb(0 0 0 / 80%), rgb(255 255 255 /80%));
   font-size: 0.8em;
 }
