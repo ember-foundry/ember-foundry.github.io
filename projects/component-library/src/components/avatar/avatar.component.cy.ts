@@ -215,16 +215,17 @@ describe('AvatarComponent [IMAGE]', () => {
   })
 
   it('should display ONLY the image when both name and image are provided', () => {
+    cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request_2');
     mount(`<lib-avatar name='${ExampleValues.name}' image_url='${ExampleValues.image_url}?=${cache_bust_random_number()}' />`, {
       imports: [
         AvatarComponent
       ]
     });
 
+    cy.wait('@image_request_2')
+
     cy.get('.avatar')
-      .screenshot('AvatarComponent', {
-        overwrite: true
-      })
+      .screenshot('avatar');
   });
 })
 

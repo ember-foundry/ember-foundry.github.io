@@ -31,10 +31,7 @@ describe('BaselineAvailability', () => {
     cy.wait('@safari_image_request');
 
     cy.get('.baseline-availability')
-      .screenshot('baseline-availability/baseline-availability-all-supported.png', {
-        overwrite: true,
-        padding: 10
-      });
+      .screenshot('baseline-availability-all-supported');
   });
 
   it('Mixed Support', () => {
@@ -66,10 +63,7 @@ describe('BaselineAvailability', () => {
     cy.wait('@safari_image_request');
 
     cy.get('.baseline-availability')
-      .screenshot('baseline-availability/baseline-availability-mixed-support.png', {
-        overwrite: true,
-        padding: 10
-      });
+      .screenshot('baseline-availability-mixed-support');
   });
 
   it('All Unsupported', () => {
@@ -101,9 +95,6 @@ describe('BaselineAvailability', () => {
     cy.wait('@safari_image_request');
 
     cy.get('.baseline-availability')
-      .screenshot('baseline-availability/baseline-availability-all-unsupported.png', {
-        overwrite: true,
-        padding: 10
-      });
+      .screenshot('baseline-availability-all-unsupported');
   });
 })

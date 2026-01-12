@@ -1,19 +1,19 @@
 import {beforeEach, describe, expect, it} from "vitest";
 import {TestBed} from '@angular/core/testing';
 import {provideRouter} from '@angular/router';
-import {UserTileComponent} from './user-tile.component';
+import {AvatarLabelComponent} from './avatar-label.component';
 
-describe('UserTileComponent', () => {
+describe('AvatarLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserTileComponent],
+      imports: [AvatarLabelComponent],
       providers: [provideRouter([])]
     }).compileComponents();
   });
 
   it('should create and display the required name', () => {
-    const fixture = TestBed.createComponent(UserTileComponent);
+    const fixture = TestBed.createComponent(AvatarLabelComponent);
     const component = fixture.componentInstance;
 
     fixture.componentRef.setInput('name', 'John Doe');
@@ -26,7 +26,7 @@ describe('UserTileComponent', () => {
   });
 
   it('should handle external links correctly', () => {
-    const fixture = TestBed.createComponent(UserTileComponent);
+    const fixture = TestBed.createComponent(AvatarLabelComponent);
 
     fixture.componentRef.setInput('name', 'Jane Doe');
     fixture.componentRef.setInput('link', 'https://example.com');

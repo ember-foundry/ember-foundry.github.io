@@ -25,3 +25,8 @@ declare global {
 }
 
 Cypress.Commands.add('mount', mount)
+
+Cypress.Screenshot.defaults({
+  overwrite: true,
+  disableTimersAndAnimations: true
+});
