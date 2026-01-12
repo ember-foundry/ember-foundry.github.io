@@ -19,7 +19,7 @@ describe('AvatarCheckboxComponent', () => {
     cy.wait('@image_request');
 
     cy.get('.avatar-checkbox')
-      .screenshot('avatar-checkbox/avatar-checkbox-unselected', {overwrite: true})
+      .screenshot('avatar-checkbox-unselected');
   });
 
   it('should display render unselected (size:7xl)', () => {
@@ -39,7 +39,7 @@ describe('AvatarCheckboxComponent', () => {
     cy.wait('@image_request');
 
     cy.get('.avatar-checkbox')
-      .screenshot('avatar-checkbox/avatar-checkbox-unselected-7xl', {overwrite: true})
+      .screenshot('avatar-checkbox-unselected-7xl');
   });
 
   it('should display render unselected then once clicked, should be selected', () => {
@@ -83,7 +83,7 @@ describe('AvatarCheckboxComponent', () => {
     cy.wait('@image_request');
 
     cy.get('.avatar-checkbox')
-      .screenshot('avatar-checkbox/avatar-checkbox-selected', {overwrite: true})
+      .screenshot('avatar-checkbox-selected');
   });
 
   it('should display render unselected then once clicked, should be selected (size:7xl)', () => {
@@ -127,6 +127,6 @@ describe('AvatarCheckboxComponent', () => {
     cy.wait('@image_request');
 
     cy.get('.avatar-checkbox')
-      .screenshot('avatar-checkbox/avatar-checkbox-selected-7xl', {overwrite: true})
+      .screenshot('avatar-checkbox-selected-7xl');
   });
 })

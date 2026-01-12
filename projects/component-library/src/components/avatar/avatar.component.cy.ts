@@ -225,7 +225,7 @@ describe('AvatarComponent [IMAGE]', () => {
     cy.wait('@image_request_2')
 
     cy.get('.avatar')
-      .screenshot('avatar/avatar', {overwrite: true})
+      .screenshot('avatar');
   });
 })
 
