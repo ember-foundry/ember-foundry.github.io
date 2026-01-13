@@ -39,6 +39,15 @@ export const AvatarNameAndPosition: Story = {
   }
 };
 
+export const YouTubeChannel: Story = {
+  name: 'YouTube Channel Avatar and Subscribers',
+  args: {
+    name: 'CNN',
+    image_url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA4CAMAAABuU5ChAAAAbFBMVEXMAAD////LAAD98vLUJyfihobQAAD66OjrmJj++/vfaGjYSEj32Nj00tLZUVH54ODxubnSGBjfYGDWPDztqKjecnLgb2/uvLzssbHxyMjcWFjomprnoKDYQkLUMDDcT0/if3/mkJDTICDRDw/mWHvcAAAB/UlEQVRIie2U25arIAyGCVgtyql4BKfWw/u/4wS0s9vRWbOv9toX/jeyIh8JCQkhp06d+j9Eg7bFi+1rRf6Y36hbWRRFgou7mrcddFYlieu5KJb7PdlRpGmlEELXJO2EduNqbaQWXYkgVULOztXfPNLSZRA1kSp82BSs92g0A4ZoAZKMXd45mmsAcbFK+WTOoCqvIDxu7oAp/NWTwPEdRz2ea9O8Mqa1Dwa3j9JAlRKqoSr6GrSnRxydJbCb5zHOi2KQ6tZyVlPkrg0rOqiWQ+6Dw73BO2VSyiZyzPbhWsjlYPKMNQccHRz0DwBZxAJGDpzVMK5cln+ASQ64OgPlQC9rzVeOjVeQSeSgtQJqv+d6dMVgK83GoUMJ48qxsedy5DuuAuMxie8cny5Ms8jFM+Te3wHHNRfWIYIc04BnwF/FySsDfcMiJ69ce3fAHeSFI5R5s3JlC33OfqvDY+VIB90j3k+SOuOq+6Xu4X0HjmIB/TVyt7SFLtnl8/2dBUUOHcob7wNHlYbHuO+Hl3cdVC2MTZQOodpjHThMuU7dwH7uoygDLMcumji3SoALEQlsrgm0/bFvV7UpGlMTQs9CgULOQwcv5JuecyJKdkM4ly6V1HLaiuVwYgwHg2mbS0HDNrgoLf1zK11UQY7m2TYHv4bh0/SyPqROnTr1b/UJq2cjfpeutjEAAAAASUVORK5CYII=',
+    label: '19.2m subscribers'
+  }
+};
+
 export const BBCNewsContributor: Story = {
   parameters: {
     docs: {
@@ -78,11 +87,11 @@ export const AvatarNameAndLink: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-user-tile ${inputs}>
-          <a ngProjectAs="text" href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
+        <lib-avatar-label ${inputs}>
+          <a ngProjectAs="label" href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
-       </lib-user-tile>
+       </lib-avatar-label>
       `
     }
   },

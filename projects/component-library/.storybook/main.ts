@@ -1,14 +1,14 @@
-import type { StorybookConfig } from '@storybook/angular';
+import type {StorybookConfig} from '@storybook/angular/dist';
 
 const config: StorybookConfig = {
-  'stories': [
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'
-  ],
+  'framework': '@storybook/angular',
   'addons': [
     '@storybook/addon-a11y',
     '@storybook/addon-docs'
   ],
-  'framework': '@storybook/angular'
+  'stories': [
+    '../src/**/*.stories.ts'
+  ]
 };
+
 export default config;
