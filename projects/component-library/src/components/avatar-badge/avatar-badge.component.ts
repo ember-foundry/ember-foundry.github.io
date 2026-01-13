@@ -8,13 +8,13 @@ import {BaseComponent} from '../_base/base.component';
   selector: 'lib-avatar-badge',
   templateUrl: './avatar-badge.component.html',
   styleUrl: 'avatar-badge.component.scss',
+  imports: [
+    AvatarComponent
+  ],
   host: {
     '[class]': 'host_css_classes()',
     '[style.--size]': 'css_size_var()'
   },
-  imports: [
-    AvatarComponent
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarBadgeComponent extends BaseComponent {
