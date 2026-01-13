@@ -10,8 +10,8 @@ import {
 import {AvatarComponent} from '../avatar/avatar.component';
 import {WholeNumberPipe} from '../../pipes/whole-number/whole-number.pipe';
 import {PixelsPipe} from '../../pipes/pixels/pixels.pipe';
-import {tailwind_size} from '../../types/tailwind-sizes.type';
 import {BaseComponent} from '../_base/base.component';
+import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Component({
   selector: 'lib-avatar-group',
@@ -39,7 +39,7 @@ export class AvatarGroupComponent extends BaseComponent {
   bordered = input<boolean>();
   layering = input<'first_on_top' | 'last_on_top'>('last_on_top');
   limit = input<number, number | string | undefined>(undefined, {transform: this.whole_number_pipe.transform});
-  size = input<tailwind_size>();
+  size = input<tailwind_sizes>();
 
   protected avatar_items_as_html = contentChildren(AvatarComponent, {read: ElementRef});
   private avatar_items_as_component = contentChildren(AvatarComponent);

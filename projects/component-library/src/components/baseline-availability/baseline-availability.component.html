@@ -1,9 +1,4 @@
-@let group_config = [
-  { browsers: groups().supported, status: 'supported' },
-  { browsers: groups().unsupported, status: 'unsupported' }
-];
-
-@for (group of group_config; track group.status) {
+@for (group of groups(); track group.status) {
   @if (group.browsers.length) {
     <div [class]="group.status + ' group'">
       @for (browser of group.browsers; track browser) {

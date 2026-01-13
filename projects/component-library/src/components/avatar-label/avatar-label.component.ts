@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
-import {tailwind_size} from '../../types/tailwind-sizes.type';
 import {BaseComponent} from '../_base/base.component';
+import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Component({
   selector: 'lib-avatar-label',
@@ -18,5 +18,5 @@ export class AvatarLabelComponent extends BaseComponent {
   image_url = input<string>();
   label = input<string>();
   name = input.required<string>();
-  size = input<tailwind_size>();
+  size = input<tailwind_sizes>();
 }

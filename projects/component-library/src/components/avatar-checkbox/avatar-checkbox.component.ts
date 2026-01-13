@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, effect, input, signal} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarBadgeComponent} from '../avatar-badge/avatar-badge.component';
-import {tailwind_size} from '../../types/tailwind-sizes.type';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
 
@@ -22,7 +21,7 @@ import {BaseComponent} from '../_base/base.component';
 export class AvatarCheckboxComponent extends BaseComponent {
 
   image_url = input<string>('https://mockmind-api.uifaces.co/content/human/1.jpg?v=' + new Date().getTime());
-  size = input<tailwind_size>(tailwind_sizes.md);
+  size = input<tailwind_sizes>(tailwind_sizes.md);
   selected = input(false);
 
   protected real_selected_value = signal(this.selected());

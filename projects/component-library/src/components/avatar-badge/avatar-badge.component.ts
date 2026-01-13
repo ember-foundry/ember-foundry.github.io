@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, computed, contentChildren, input} from '@angular/core';
-import {tailwind_size} from '../../types/tailwind-sizes.type';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
@@ -19,7 +18,7 @@ import {BaseComponent} from '../_base/base.component';
 })
 export class AvatarBadgeComponent extends BaseComponent {
   status = input<'away' | 'busy' | 'focus' | 'offline' | 'online' | 'reachable'>('offline');
-  size = input<tailwind_size>(tailwind_sizes.md);
+  size = input<tailwind_sizes>(tailwind_sizes.md);
   mode = input<'notch'|'overlay'>('notch')
 
   private avatars = contentChildren(AvatarComponent);
