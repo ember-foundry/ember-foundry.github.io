@@ -17,7 +17,7 @@ const meta: Meta<BaselineAvailabilityComponent> = {
       control: 'select'
     },
     supported: {
-      options: ['chrome', 'safari', 'firefox', 'edge'],
+      options: ['chrome', 'edge', 'firefox', 'safari'],
       control: 'check'
     }
   },
