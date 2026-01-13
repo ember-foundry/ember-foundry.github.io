@@ -1,5 +1,6 @@
 import {mount} from 'cypress/angular-zoneless'
-import {AvatarComponent, AvatarBadgeComponent} from 'component-library';
+import {AvatarComponent} from '../avatar/avatar.component';
+import {AvatarBadgeComponent} from '../avatar-badge/avatar-badge.component';
 
 const imports = [
   AvatarComponent,

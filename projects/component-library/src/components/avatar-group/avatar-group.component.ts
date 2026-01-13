@@ -44,7 +44,7 @@ export class AvatarGroupComponent {
   protected avatar_items_as_html = contentChildren(AvatarComponent, {read: ElementRef});
   private avatar_items_as_component = contentChildren(AvatarComponent);
 
-  protected surplus_text = computed(() => {
+  protected surplus_text = computed<undefined|string>(() => {
     const limit = this.limit();
     if (!limit || limit <= 0) {
       return undefined;

@@ -12,6 +12,9 @@ import {BaseComponent} from '../_base/base.component';
     '[class]': 'host_css_classes()',
     '[style.--size]': 'css_size_var()'
   },
+  imports: [
+    AvatarComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarBadgeComponent extends BaseComponent {
@@ -30,6 +33,6 @@ export class AvatarBadgeComponent extends BaseComponent {
 
   protected css_size_var = computed(() => {
     const s = this.size();
-    return s ? `var(--size-${s})` : null;
+    return `var(--size-${s})`;
   });
 }
