@@ -5,17 +5,19 @@
   gap: 8px;
 }
 
-.name {
-  font-weight: bolder;
-}
-
 .text-column {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
 }
 
+.name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .label, ::ng-deep [ngProjectAs="label"] {
   color: light-dark(rgb(0 0 0 / 80%), rgb(255 255 255 / 80%));
-  font-size: 0.8em;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
