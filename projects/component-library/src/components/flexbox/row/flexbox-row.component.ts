@@ -6,6 +6,7 @@ import type {
   SupportedJustifyContent
 } from '../flexbox.types';
 import {PixelsPipe} from '../../../pipes/pixels/pixels.pipe';
+import {BaseComponent} from '../../_base/base.component';
 
 @Component({
   selector: 'lib-row',
@@ -16,7 +17,6 @@ import {PixelsPipe} from '../../../pipes/pixels/pixels.pipe';
     PixelsPipe
   ],
   host: {
-    class: 'row',
     '[class]': 'direction_css_class()',
     '[style.--direction]': 'direction()',
     '[style.--gap]': 'gap()',
@@ -26,7 +26,7 @@ import {PixelsPipe} from '../../../pipes/pixels/pixels.pipe';
     '[style.--align-content]': 'align_content()'
   }
 })
-export class FlexboxRowComponent {
+export class FlexboxRowComponent extends BaseComponent {
   px_pipe = inject(PixelsPipe);
   direction = input<SupportedDirections>()
   inline = input<boolean>()

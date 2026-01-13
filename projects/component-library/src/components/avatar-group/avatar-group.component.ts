@@ -11,6 +11,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {WholeNumberPipe} from '../../pipes/whole-number/whole-number.pipe';
 import {PixelsPipe} from '../../pipes/pixels/pixels.pipe';
 import {tailwind_size} from '../../types/tailwind-sizes.type';
+import {BaseComponent} from '../_base/base.component';
 
 @Component({
   selector: 'lib-avatar-group',
@@ -24,14 +25,13 @@ import {tailwind_size} from '../../types/tailwind-sizes.type';
     PixelsPipe
   ],
   host: {
-    'class': 'avatar-group',
     '[class]': 'density()',
     '[style.--item-count]': 'avatar_items_as_html().length',
     '[style.--avatar-group-overlap]': 'overlap()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AvatarGroupComponent {
+export class AvatarGroupComponent extends BaseComponent {
   private whole_number_pipe = inject(WholeNumberPipe);
   private px_pipe = inject(PixelsPipe);
   density = input<'compact'|'loose'>('compact');
@@ -54,38 +54,36 @@ export class AvatarGroupComponent {
     return surplus > 0 ? `+ ${surplus}` : undefined;
   });
 
-  constructor() {
-    effect(() => {
-      const layering = this.layering();
-      const limit = this.limit();
-      const group_bordered = this.bordered;
-      const group_size = this.size;
-      const html_items = this.avatar_items_as_html();
-      const component_items = this.avatar_items_as_component();
-      const total_items = html_items.length;
+  protected update_avatar_look_and_feel = effect(() => {
+    const layering = this.layering();
+    const limit = this.limit();
+    const group_bordered = this.bordered;
+    const group_size = this.size;
+    const html_items = this.avatar_items_as_html();
+    const component_items = this.avatar_items_as_component();
+    const total_items = html_items.length;
 
-      component_items.forEach((component_item, index) => {
-        if (component_item.bordered() === undefined) {
-          component_item.bordered = group_bordered;
-        }
+    component_items.forEach((component_item, index) => {
+      if (component_item.bordered() === undefined) {
+        component_item.bordered = group_bordered;
+      }
 
-        if (component_item.size() === undefined) {
-          component_item.size = group_size;
-        }
+      if (component_item.size() === undefined) {
+        component_item.size = group_size;
+      }
 
-        const avatar_html_item_ref = html_items[index];
-        if (!avatar_html_item_ref) {
-          return;
-        }
+      const avatar_html_item_ref = html_items[index];
+      if (!avatar_html_item_ref) {
+        return;
+      }
 
-        const avatar_html_element = avatar_html_item_ref.nativeElement;
+      const avatar_html_element = avatar_html_item_ref.nativeElement;
 
-        avatar_html_element.style.zIndex = layering === 'first_on_top' ? `${total_items - index}` : '';
+      avatar_html_element.style.zIndex = layering === 'first_on_top' ? `${total_items - index}` : '';
 
-        const is_collapsed = limit !== undefined && limit > 0 && index >= limit;
-        avatar_html_element.classList.toggle('collapsed', is_collapsed);
-        avatar_html_element.style.display = is_collapsed ? 'none' : 'inherit';
-      });
+      const is_collapsed = limit !== undefined && limit > 0 && index >= limit;
+      avatar_html_element.classList.toggle('collapsed', is_collapsed);
+      avatar_html_element.style.display = is_collapsed ? 'none' : 'inherit';
     });
-  }
+  });
 }

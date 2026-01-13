@@ -3,6 +3,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarGroupComponent} from '../avatar-group/avatar-group.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {tailwind_size} from '../../types/tailwind-sizes.type';
+import {BaseComponent} from '../_base/base.component';
 
 export type BrowserKey = 'chrome' | 'edge' | 'firefox' | 'safari';
 
@@ -21,12 +22,9 @@ const BROWSER_CONFIG = {
   ],
   templateUrl: './baseline-availability.component.html',
   styleUrl: './baseline-availability.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    class: 'baseline-availability'
-  }
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaselineAvailabilityComponent {
+export class BaselineAvailabilityComponent extends BaseComponent {
   size = input<tailwind_size>(tailwind_sizes['3xs']);
   supported = input<BrowserKey[]>([]);
 
