@@ -35,5 +35,5 @@ export class FlexboxRowComponent {
   justify_content = input<SupportedJustifyContent | null>(null)
   align_content = input<SupportedAlignContent>('stretch')
 
-  direction_css_class = computed(() => `flex-direction-${this.direction()}`);
+  direction_css_class = computed<string>(() => `flex-direction-${this.direction()}`);
 }

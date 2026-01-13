@@ -56,6 +56,13 @@ module.exports = ts_eslint.config(
       '@angular-eslint/prefer-standalone': 'off',
       '@angular-eslint/use-component-view-encapsulation': 'warn',
       'comma-dangle': ['error', 'never'],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'CallExpression[callee.name="computed"][typeArguments=undefined]',
+          message: 'Computed properties must be explicitly typed, e.g., computed<string>(() => ...)',
+        },
+      ]
     },
   },
   {

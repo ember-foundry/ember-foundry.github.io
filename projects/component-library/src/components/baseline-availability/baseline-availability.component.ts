@@ -6,6 +6,13 @@ import {tailwind_size} from '../../types/tailwind-sizes.type';
 
 export type BrowserKey = 'chrome' | 'edge' | 'firefox' | 'safari';
 
+const BROWSER_CONFIG = {
+  'chrome': { id: 'chrome', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-chrome-icon.svg' },
+  'firefox': { id: 'firefox', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/firefox-browser-icon.svg' },
+  'edge': { id: 'edge', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/edge-browser-icon.svg' },
+  'safari': { id: 'safari', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/safari-icon.svg' }
+} as const;
+
 @Component({
   selector: 'lib-baseline-availability',
   imports: [
@@ -28,21 +35,14 @@ export class BaselineAvailabilityComponent {
 
   private readonly ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'] as const;
 
-  private readonly BROWSER_CONFIG = {
-    'chrome': { id: 'chrome', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-chrome-icon.svg' },
-    'firefox': { id: 'firefox', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/firefox-browser-icon.svg' },
-    'edge': { id: 'edge', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/edge-browser-icon.svg' },
-    'safari': { id: 'safari', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/safari-icon.svg' }
-  } as const;
-
-  protected groups = computed(() => {
+  protected groups = computed<{ supported: typeof BROWSER_CONFIG[BrowserKey][], unsupported: typeof BROWSER_CONFIG[BrowserKey][] }>(() => {
     const supported_browsers = this.supported();
 
     return {
-      supported: supported_browsers.map(key => this.BROWSER_CONFIG[key]),
+      supported: supported_browsers.map(key => BROWSER_CONFIG[key]),
       unsupported: this.ALL_BROWSERS
         .filter(key => !supported_browsers.includes(key))
-        .map(key => this.BROWSER_CONFIG[key])
+        .map(key => BROWSER_CONFIG[key])
     };
   });
 }
