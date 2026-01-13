@@ -12,6 +12,9 @@ import {BaseComponent} from '../_base/base.component';
     '[class]': 'host_css_classes()',
     '[style.--size]': 'css_size_var()'
   },
+  imports: [
+    AvatarComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarBadgeComponent extends BaseComponent {
@@ -21,15 +24,15 @@ export class AvatarBadgeComponent extends BaseComponent {
 
   private avatars = contentChildren(AvatarComponent);
 
-  protected host_css_classes = computed(() => {
+  protected host_css_classes = computed<string>(() => {
     const status = this.status();
     const mode = this.mode();
 
     return `${status} ${mode}`
   });
 
-  protected css_size_var = computed(() => {
+  protected css_size_var = computed<string>(() => {
     const s = this.size();
-    return s ? `var(--size-${s})` : null;
+    return `var(--size-${s})`;
   });
 }

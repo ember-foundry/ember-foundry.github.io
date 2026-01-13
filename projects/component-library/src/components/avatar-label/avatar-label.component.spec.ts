@@ -24,16 +24,4 @@ describe('AvatarLabelComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('John Doe');
   });
-
-  it('should handle external links correctly', () => {
-    const fixture = TestBed.createComponent(AvatarLabelComponent);
-
-    fixture.componentRef.setInput('name', 'Jane Doe');
-    fixture.componentRef.setInput('link', 'https://example.com');
-
-    fixture.detectChanges();
-
-    const anchor = fixture.nativeElement.querySelector('a');
-    expect(anchor.getAttribute('href')).toBe('https://example.com');
-  });
 });

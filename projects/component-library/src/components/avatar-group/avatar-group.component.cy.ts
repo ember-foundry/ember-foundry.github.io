@@ -30,7 +30,8 @@ describe('AvatarGroupComponent', () => {
       .find('.avatar')
       .should('have.length', 10);
   });
-  it('No Avatars', () => {
+
+  it('Should have 2 dummy avatars when none are provided', () => {
     mount(`<lib-avatar-group />`, {
       imports: [
         AvatarGroupComponent
@@ -38,7 +39,16 @@ describe('AvatarGroupComponent', () => {
     });
 
     cy.get('.avatar-group')
-      .should('exist')
-      .should('contain.text', 'No Avatars Found');
+      .should('exist');
+
+    cy.get('.avatar-group')
+      .children()
+      .should('have.length', 2);
+
+    cy.get('.avatar-group .avatar')
+      .should('have.length', 2)
+      .each(i => {
+        expect(i).to.have.text('UU');
+      })
   });
 })

@@ -21,8 +21,9 @@ describe('AvatarComponent', () => {
     expect(component).toBeTruthy();
     expect(fixture.debugElement.query(By.css('img'))).toBeNull();
     expect(fixture.debugElement.nativeElement.textContent).to.have.lengthOf(2);
-    expect(fixture.debugElement.nativeElement.textContent).to.have.string('UU');
-    // await expect(fixture.debugElement.nativeElement).toMatchScreenshot('avatar-unknown-user');
+    await expect.element(fixture.debugElement.nativeElement).toBeInTheDocument();
+    await expect.element(fixture.debugElement.nativeElement).toHaveTextContent('UU');
+    await expect.element(fixture.debugElement.nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)')
   });
 
   it('should display initials when no image url is provided', () => {

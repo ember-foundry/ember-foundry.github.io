@@ -1,4 +1,7 @@
-<ng-content select="lib-avatar">No Avatars Found</ng-content>
+<ng-content select="lib-avatar">
+  <lib-avatar />
+  <lib-avatar />
+</ng-content>
 @if(surplus_text()){
-  <lib-avatar [name]="surplus_text()" [bordered]="bordered()" [size]="size()"></lib-avatar>
+  <lib-avatar class="surplus" [name]="surplus_text()" [bordered]="bordered()" [size]="size()" />
 }
