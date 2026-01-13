@@ -1,8 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it} from 'vitest';
 import {AvatarGroupComponent} from './avatar-group.component';
-import {AvatarComponent} from '../avatar/avatar.component';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 describe('AvatarGroupComponent', () => {
   let component: AvatarGroupComponent;
