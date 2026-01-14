@@ -2,12 +2,14 @@ import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angu
 import {InitialsPipe} from '../../pipes/initials/initials.pipe';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
+import {AvatarImageDirective} from '../../directives/avatar-image/avatar-image.directive';
 
 @Component({
   selector: 'lib-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
   imports: [
+    AvatarImageDirective,
     InitialsPipe
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

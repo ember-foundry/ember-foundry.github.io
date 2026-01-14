@@ -1,7 +1,7 @@
 @if (!image_url() || image_load_error()) {
-  <ng-content select="image">
+  <ng-content select="[libAvatarImage]">
     <span class="text">{{ name() | initials }}</span>
   </ng-content>
 } @else {
-  <img [src]="image_url()" alt="Avatar Image" loading="lazy" (error)="on_image_error()"/>
+  <img [src]="image_url()" libAvatarImage alt="Avatar Image" loading="lazy" (error)="on_image_error()"/>
 }
