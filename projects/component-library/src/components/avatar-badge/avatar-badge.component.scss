@@ -1,11 +1,6 @@
 @use '../../styles/colors';
-@use '../../styles/mixins';
-
-$medium-size: 4em;
 
 :host {
-  @include mixins.generate-size-variables($medium-size);
-
   container-type: inline-size;
   display: inline-flex;
   line-height: 0;

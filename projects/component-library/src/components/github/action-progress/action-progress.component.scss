@@ -1,18 +1,13 @@
-@use '../../../styles/mixins';
-
 :host {
-  @include mixins.generate-size-variables(64px);
-
   --color: orange;
 
   display: flex;
   font-size: 0;
-  width: var(--size-md);
+  width: min(var(--size, var(--size-md)), 100cqmin);
 }
 
 svg {
   animation: rotate 1s linear infinite;
-
   // animation-play-state: paused;
 }
 

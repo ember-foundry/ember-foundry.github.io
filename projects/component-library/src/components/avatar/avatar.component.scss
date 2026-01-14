@@ -1,11 +1,6 @@
-@use '../../styles/mixins';
 @use '../../styles/colors';
 
-$medium-size: 4em;
-
 :host {
-  @include mixins.generate-size-variables($medium-size);
-
   --avatar-border-width: max(3px, calc(var(--size, var(--size-md)) * 0.04));
 
   align-items: center;
@@ -15,10 +10,11 @@ $medium-size: 4em;
   border-radius: var(--avatar-border-radius, 50%);
   border-style: var(--avatar-border-style, none);
   border-width: var(--avatar-border-width);
-  color:rgb(0 0 0 / 50%);
+  color: rgb(0 0 0 / 50%);
   container-type: inline-size;
   display: inline-flex;
   justify-content: center;
+  padding: var(--avatar-padding, 0);
   position: relative;
   user-select: none;
   width: min(var(--size, var(--size-md)), 100cqmin);
