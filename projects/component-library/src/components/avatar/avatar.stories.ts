@@ -1,5 +1,5 @@
-import {Meta, StoryObj} from '@storybook/angular';
-import {AvatarComponent} from 'component-library';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {AvatarComponent, AvatarImageDirective} from 'component-library';
 import {expect} from 'storybook/test';
 import {InputType} from 'storybook/internal/csf';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
@@ -11,6 +11,13 @@ const size_arg_type: InputType = {
 
 const meta: Meta<AvatarComponent> = {
   component: AvatarComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        AvatarImageDirective
+      ]
+    })
+  ],
   tags: ['autodocs','avatar'],
   argTypes: {
     bordered: {
@@ -135,7 +142,7 @@ export const WithCustomPNGImage: Story = {
     ].join(' ');
     return {
       template: `<lib-avatar ${inputs}>
-            <img ngProjectAs="image" src="https://mockmind-api.uifaces.co/content/human/222.jpg" />
+            <img libAvatarImage src="https://mockmind-api.uifaces.co/content/human/222.jpg" />
         </lib-avatar>
       `
     }
@@ -149,7 +156,7 @@ export const WithCustomSVGImage: Story = {
     ].join(' ');
     return {
       template: `<lib-avatar ${inputs}>
-            <svg ngProjectAs="image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" height="63" viewBox="0 0 63 63" width="63">
+            <svg libAvatarImage xmlns="http://www.w3.org/2000/svg" fill="none" height="63" viewBox="0 0 63 63" width="63">
                 <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="34.9087" x2="7.63224" y1="61.029" y2="13.7847">
                     <stop offset="0" stop-color="#1e8e3e"/>
                     <stop offset="1" stop-color="#34a853"/>

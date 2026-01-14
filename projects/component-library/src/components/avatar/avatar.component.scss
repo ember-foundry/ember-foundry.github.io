@@ -28,10 +28,3 @@ $medium-size: 4em;
   font-size: 40cqmin;
   line-height: 1;
 }
-
-img, ::ng-deep [ngProjectAs="image"] {
-  border-radius: inherit;
-  height: 100%;
-  object-fit: var(--avatar-image-object-fit, cover);
-  width: 100%;
-}

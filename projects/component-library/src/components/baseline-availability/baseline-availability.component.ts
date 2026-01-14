@@ -3,6 +3,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarGroupComponent} from '../avatar-group/avatar-group.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
+import {AvatarImageDirective} from '../../directives/avatar-image/avatar-image.directive';
 
 const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
@@ -11,7 +12,8 @@ type Browser = (typeof ALL_BROWSERS)[number];
   selector: 'lib-baseline-availability',
   imports: [
     AvatarGroupComponent,
-    AvatarComponent
+    AvatarComponent,
+    AvatarImageDirective
   ],
   templateUrl: './baseline-availability.component.html',
   styleUrl: './baseline-availability.component.scss',

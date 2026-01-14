@@ -27,7 +27,7 @@ ng generate component $component_name --project component-library --dry-run
 ### Directives
 ```shell
 directive_name=""
-ng generate directive $directive_name --project component-library
+ng generate directive $directive_name --project component-library --dry-run
 ```
 
 ### Enum

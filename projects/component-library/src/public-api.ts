@@ -9,6 +9,7 @@ export * from './components/flexbox/row/flexbox-row.component';
 export * from './components/github/action-progress/action-progress.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
+export * from './directives/avatar-image/avatar-image.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './pipes/initials/initials.pipe';
 export * from './pipes/pixels/pixels.pipe';
