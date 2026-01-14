@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 import {InitialsPipe} from '../../pipes/initials/initials.pipe';
-import {tailwind_size} from '../../types/tailwind-sizes.type';
 import {BaseComponent} from '../_base/base.component';
+import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Component({
   selector: 'lib-avatar',
@@ -21,7 +21,7 @@ export class AvatarComponent extends BaseComponent {
   bordered = input<boolean>();
   image_url = input<string>();
   name = input<string>();
-  size = input<tailwind_size>();
+  size = input<tailwind_sizes>();
 
   protected css_size_variable = computed<string | undefined>(() => {
     const size = this.size();

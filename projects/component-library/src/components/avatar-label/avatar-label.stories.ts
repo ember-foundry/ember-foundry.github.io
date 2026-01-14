@@ -20,8 +20,7 @@ const meta: Meta<AvatarLabelComponent> = {
   },
   args: {
     bordered: false,
-    image_url: 'https://mockmind-api.uifaces.co/content/human/1.jpg',
-    name: 'Jane Doe'
+    image_url: 'https://mockmind-api.uifaces.co/content/human/1.jpg'
   },
   tags: ['autodocs', 'avatar']
 }
@@ -30,11 +29,9 @@ export default meta;
 
 type Story = StoryObj<AvatarLabelComponent>;
 
-export const Sample: Story = {};
-
-export const AvatarNameAndPosition: Story = {
+export const Sample: Story = {
   args: {
-    ...Sample.args,
+    name: 'Jane Doe',
     label: 'CEO Alphabet Inc.'
   }
 };
@@ -96,7 +93,7 @@ export const AvatarNameAndLink: Story = {
     }
   },
   args: {
-    ...Sample.args,
+    name: 'Jane Doe',
     label: 'View Profile'
   }
 };

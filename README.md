@@ -68,20 +68,3 @@ ng config projects.component-library.schematics.@schematics/angular:pipe.typeSep
 ng config projects.component-library.schematics.@schematics/angular:enum.path projects/component-library/src/enums
 ng config projects.component-library.schematics.@schematics/angular:enum.type enum
 ```
-
----
-
-## TODO:
-* [ ] https://vitest.dev/guide/browser/
-* [ ] User Tile text does not adjust to the avatar size
-* [ ] Avatar, Avatar-Group, Baseline and User Tile all use very similar inputs to avatar, find a better way
-* [ ] Code Coverage Cypress?
-* [ ] Code Coverage report artifact
-* [ ] Diagonal stack
-* [ ] GitHub Actions Bot
-* [ ] precommit
-* [ ] Colorful Icon Library
-  * [ ] Google Chrome
-  * [ ] Firefox
-  * [ ] Edge
-  * [ ] Safari
