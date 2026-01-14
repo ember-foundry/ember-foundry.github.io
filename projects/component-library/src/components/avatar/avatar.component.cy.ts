@@ -105,50 +105,6 @@ describe('AvatarComponent [TEXT]', () => {
   afterEach(() => {
     base_checks()
   })
-  it('should display UU when no input is provided', () => {
-    mount(`<lib-avatar />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-    initials_checks('UU')
-  });
-
-  it('display a single uppercase initial when only the first name is provided', () => {
-    mount(`<lib-avatar name='Jane' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-    initials_checks('J')
-  });
-
-  it('display a single uppercase initial when only the first name is provided in lowercase', () => {
-    mount(`<lib-avatar name='jane' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-    initials_checks('J')
-  });
-
-  it('display uppercase initials when the name is provided in lowercase', () => {
-    mount(`<lib-avatar name='${ExampleValues.name.toLowerCase()}' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-    initials_checks(ExampleValues.initials)
-  });
-
-  it('should display ONLY the user initials when no image is provided', () => {
-    mount(`<lib-avatar name='${ExampleValues.name}' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-    initials_checks(ExampleValues.initials)
-  });
 
   it('when the container has a width of 60px, the avatar size should not exceed the container', () => {
     mount(`<div class='container' style="width:60px;height:200px;display:flex;container-type:size;background:blue;justify-items:start;align-items: start;"><lib-avatar name='${ExampleValues.name}' /></div>`, {
@@ -182,14 +138,6 @@ describe('AvatarComponent [IMAGE]', () => {
     cy.wait(`@image_request`);
   })
 
-  it('should display ONLY the image when no name is provided', () => {
-    mount(`<lib-avatar image_url='${ExampleValues.image_url}?=${cache_bust_random_number()}' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-  });
-
   it('when the container width is smaller than the avatar size, the avatar size should not exceed the container', () => {
     mount(`
       <div class='container' style="width: 60px;height: 200px;display:flex;container-type:size;background:blue;justify-items:start;align-items: start;">
@@ -213,20 +161,6 @@ describe('AvatarComponent [IMAGE]', () => {
       ]
     });
   })
-
-  it('should display ONLY the image when both name and image are provided', () => {
-    cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request_2');
-    mount(`<lib-avatar name='${ExampleValues.name}' image_url='${ExampleValues.image_url}?=${cache_bust_random_number()}' />`, {
-      imports: [
-        AvatarComponent
-      ]
-    });
-
-    cy.wait('@image_request_2')
-
-    cy.get('.avatar')
-      .screenshot('avatar');
-  });
 })
 
 // ensure text is in the center of the circle

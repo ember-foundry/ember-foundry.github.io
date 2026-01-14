@@ -1,11 +1,29 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {describe, it, expect, beforeEach, vi} from 'vitest';
+import {describe, it, expect, afterEach, beforeEach, vi} from 'vitest';
 import {AvatarComponent} from './avatar.component';
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
   let fixture: ComponentFixture<AvatarComponent>;
+
+  const component_base_checks = () => {
+    expect(component).toBeTruthy();
+    expect(fixture.debugElement.nativeElement).toBeInTheDocument();
+    expect(fixture.debugElement.nativeElement).toHaveStyle('border-radius: 50%');
+  }
+
+  const initials_checks = (expected_initials: string) => {
+    expect(fixture.debugElement.nativeElement.textContent.length).toBeLessThanOrEqual(2);
+    expect(fixture.debugElement.nativeElement).toHaveTextContent(expected_initials);
+
+    const span = fixture.debugElement.query(By.css('.text'));
+    expect(span).toBeTruthy();
+    expect(span.nativeElement).toHaveTextContent(expected_initials);
+
+    const img = fixture.debugElement.query(By.css('img'));
+    expect(img).toBeNull();
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,28 +35,44 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Should display an Unknown User Avatar', async () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    component_base_checks();
+  })
+
+  it('Should display an Unknown User Avatar', () => {
     expect(fixture.debugElement.query(By.css('img'))).toBeNull();
-    expect(fixture.debugElement.nativeElement.textContent).to.have.lengthOf(2);
-    await expect.element(fixture.debugElement.nativeElement).toBeInTheDocument();
-    await expect.element(fixture.debugElement.nativeElement).toHaveTextContent('UU');
-    await expect.element(fixture.debugElement.nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)')
+    expect(fixture.debugElement.nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)');
+    initials_checks('UU');
   });
 
-  it('should display initials when no image url is provided', () => {
-    fixture.componentRef.setInput('name', 'John Doe');
+  it('should display only initials when no image url is provided', () => {
+    fixture.componentRef.setInput('name', 'john doe');
+    fixture.detectChanges();
+    initials_checks('JD');
+    const img = fixture.debugElement.query(By.css('img'));
+    expect(img).toBeNull();
+  });
+
+  it('should display only one letter when no image url is provided and just the first name is provided', () => {
+    fixture.componentRef.setInput('name', 'john');
+    fixture.detectChanges();
+    initials_checks('J');
+  });
+
+  it('should display image when only image url is provided', () => {
+    const test_url = 'https://mockmind-api.uifaces.co/content/human/1.jpg';
+    fixture.componentRef.setInput('image_url', test_url);
     fixture.detectChanges();
 
     const img = fixture.debugElement.query(By.css('img'));
     const span = fixture.debugElement.query(By.css('.text'));
 
-    expect(img).toBeNull();
-    expect(span).toBeTruthy();
-    expect(span.nativeElement.textContent).toBe('JD');
+    expect(span).toBeNull();
+    expect(img).toBeTruthy();
+    expect(img.nativeElement.src).toBe(test_url);
   });
 
-  it('should display image when image url is provided', () => {
+  it('should display image only when both name and image url are provided', () => {
     const test_url = 'https://mockmind-api.uifaces.co/content/human/1.jpg';
     fixture.componentRef.setInput('image_url', test_url);
     fixture.detectChanges();
@@ -61,13 +95,7 @@ describe('AvatarComponent', () => {
 
     img.triggerEventHandler('error', null);
     fixture.detectChanges();
-
-    const span = fixture.debugElement.query(By.css('.text'));
-    const missing_img = fixture.debugElement.query(By.css('img'));
-
-    expect(missing_img).toBeNull();
-    expect(span).toBeTruthy();
-    expect(span.nativeElement.textContent).toBe('JD');
+    initials_checks('JD');
   });
 
   it('should call on_image_error when image fails to load', () => {
@@ -84,9 +112,7 @@ describe('AvatarComponent', () => {
 
   it('should use default name if not provided', () => {
     fixture.detectChanges();
-
-    const span = fixture.debugElement.query(By.css('.text'));
-    expect(span.nativeElement.textContent).toBe('UU');
+    initials_checks('UU');
   });
 
   it('should apply bordered styles when bordered is true', () => {
@@ -94,6 +120,7 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
     const hostElement = fixture.nativeElement;
     expect(hostElement.style.getPropertyValue('--avatar-border-style')).toBe('solid');
+    initials_checks('UU');
   });
 
   it('should apply size styles when size is provided', () => {
@@ -101,6 +128,7 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
     const hostElement = fixture.nativeElement;
     expect(hostElement.style.getPropertyValue('--size')).toBe('var(--size-sm)');
+    initials_checks('UU');
   });
 
   it('should not apply size styles when size is undefined', () => {
@@ -108,6 +136,7 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
     const hostElement = fixture.nativeElement;
     expect(hostElement.style.getPropertyValue('--size')).toBe('');
+    initials_checks('UU');
   });
 
   it('should handle all input properties correctly', () => {
@@ -122,29 +151,30 @@ describe('AvatarComponent', () => {
     expect(hostElement.getAttribute('aria-label')).toBe('Test User');
     expect(hostElement.style.getPropertyValue('--avatar-border-style')).toBe('');
     expect(hostElement.style.getPropertyValue('--size')).toBe('var(--size-lg)');
+    initials_checks('TU');
   });
 
   it('should fully exercise css_size_variable computed signal', () => {
-    // Test the 'undefined' path (Line 31: return size)
     fixture.componentRef.setInput('size', undefined);
     fixture.detectChanges();
+    component_base_checks();
     expect(component['css_size_variable']()).toBeUndefined();
 
-    // Test the 'defined' path (Line 31: return `var(...)`)
     fixture.componentRef.setInput('size', 'lg');
     fixture.detectChanges();
     expect(component['css_size_variable']()).toBe('var(--size-lg)');
+    initials_checks('UU');
   });
 
   it('should exercise all input signal definitions', () => {
     fixture.componentRef.setInput('bordered', true);
-    fixture.componentRef.setInput('image_url', 'https://test.com');
+    fixture.componentRef.setInput('image_url', 'https://mockmind-api.uifaces.co/content/human/1.jpg');
     fixture.componentRef.setInput('name', 'Test');
     fixture.componentRef.setInput('size', 'xl');
     fixture.detectChanges();
 
     expect(component.bordered()).toBe(true);
-    expect(component.image_url()).toBe('https://test.com');
+    expect(component.image_url()).toBe('https://mockmind-api.uifaces.co/content/human/1.jpg');
     expect(component.name()).toBe('Test');
     expect(component.size()).toBe('xl');
   });
