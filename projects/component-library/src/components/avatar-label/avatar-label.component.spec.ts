@@ -7,8 +7,7 @@ describe('AvatarLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AvatarLabelComponent],
-      providers: [provideRouter([])]
+      imports: [AvatarLabelComponent]
     }).compileComponents();
   });
 

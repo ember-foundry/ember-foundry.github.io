@@ -1,77 +1,115 @@
+import { BaselineAvailabilityComponent } from './baseline-availability.component';
+import {expect, it, describe, beforeEach} from 'vitest';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {describe, it, expect, beforeEach} from 'vitest';
-import {BaselineAvailabilityComponent, BrowserKey} from './baseline-availability.component';
-import {ComponentRef} from '@angular/core';
+import {By} from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
 
 describe('BaselineAvailabilityComponent', () => {
   let component: BaselineAvailabilityComponent;
-  let componentRef: ComponentRef<BaselineAvailabilityComponent>;
   let fixture: ComponentFixture<BaselineAvailabilityComponent>;
+
+  const component_base_checks = () => {
+    expect(component).toBeTruthy();
+    const image_tags = fixture.debugElement.queryAll(By.css('img'));
+    expect(image_tags.length, 'Should be no image tags in the document').toBe(0);
+    const svg_elements = fixture.debugElement.queryAll(By.css('svg'));
+    expect(svg_elements.length, 'There should be svgs for each icon and browser').toBe(4 + 4);
+  }
+
+  const baseline_group_checks = (baseline_group: DebugElement) => {
+    expect(baseline_group.nativeElement).toBeInTheDocument();
+    expect(baseline_group.nativeElement).toBeTruthy();
+
+    Array.from<HTMLElement>(baseline_group.nativeElement.children).forEach((avatar_group: HTMLElement) => {
+      expect(avatar_group, 'Each Browser Group should have the relevant avatar group css class').toHaveClass('avatar-group');
+      expect(avatar_group, 'Each Browser Group should have a loose density grouping').toHaveClass('loose');
+      expect(avatar_group.children, 'Each browser group should only have 2 children').to.have.length(2);
+      Array.from(avatar_group.children).forEach(avatar => {
+        expect(avatar, 'Every child in the browser group should be an avatar').toHaveClass('avatar');
+      })
+
+      expect(avatar_group.children[0], 'The first avatar should be for the browser').toHaveClass('browser');
+      expect(avatar_group.children[1], 'The second avatar should be the support status').toHaveClass('icon');
+    })
+  }
+
+  const avatar_checks = () => {
+    const all_avatars = fixture.debugElement.queryAll(By.css('.avatar'));
+    all_avatars.forEach(avatar => {
+      expect(avatar.nativeElement.style.getPropertyValue('--size')).toBe('var(--size-3xs)');
+    })
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BaselineAvailabilityComponent]
     }).compileComponents();
-
     fixture = TestBed.createComponent(BaselineAvailabilityComponent);
     component = fixture.componentInstance;
-    componentRef = fixture.componentRef;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render all browsers as unsupported when none are provided', async () => {
+    component_base_checks();
+
+    expect(fixture.debugElement.nativeElement.children, 'Component should only have 1 child').to.have.length(1);
+    expect(fixture.debugElement.nativeElement.children[0], 'The only child should be the unsupported group').toHaveClass('group', 'unsupported');
+
+    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    expect(supported_group).not.toBeInTheDocument();
+    expect(supported_group).toBeFalsy();
+
+    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    baseline_group_checks(unsupported_group);
+    expect(unsupported_group.nativeElement.children, 'Should have avatar groups for each browser').to.have.length(4);
+
+
+    avatar_checks();
+    // todo test contrast ratio
   });
 
-  it('should categorize all browsers as unsupported by default', () => {
-    // Using bracket notation allows access to protected members in tests
-    // without losing type safety or using 'any'
-    const groups = component['groups']();
-
-    expect(groups.supported).toHaveLength(0);
-    expect(groups.unsupported).toHaveLength(4);
-
-    const ids = groups.unsupported.map(b => b.id);
-    expect(ids).toContain('chrome');
-    expect(ids).toContain('edge');
-    expect(ids).toContain('firefox');
-    expect(ids).toContain('safari');
-  });
-
-  it('should correctly categorize supported and unsupported browsers', () => {
-    const supported: BrowserKey[] = ['chrome', 'firefox'];
-    componentRef.setInput('supported', supported);
+  it('should split browsers correctly between supported and unsupported', async () => {
+    fixture.componentRef.setInput('supported', ['chrome', 'firefox']);
     fixture.detectChanges();
 
-    const groups = component['groups']();
+    component_base_checks();
 
-    expect(groups.supported.map(b => b.id)).toEqual(['chrome', 'firefox']);
-    expect(groups.unsupported.map(b => b.id)).toEqual(['edge', 'safari']);
+    expect(fixture.debugElement.nativeElement.children, 'Component should only 2 groups').to.have.length(2);
+    expect(fixture.debugElement.nativeElement.children[0], 'First group should always be the supported group').toHaveClass('group', 'supported');
+    expect(fixture.debugElement.nativeElement.children[1], 'Second group should always be the unsupported group').toHaveClass('group', 'unsupported');
+
+    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    baseline_group_checks(supported_group);
+
+    expect(supported_group.nativeElement.children, 'Supported group should have 2 children').to.have.length(2);
+    expect(supported_group.nativeElement.children[0], 'First child should be for the chrome browser').toHaveClass('chrome');
+    expect(supported_group.nativeElement.children[1], 'Second child should be for the firefox browser').toHaveClass('firefox');
+
+    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    baseline_group_checks(unsupported_group);
+    expect(unsupported_group.nativeElement.children, 'Unsupported group should have 2 children').to.have.length(2);
+    expect(unsupported_group.nativeElement.children[0], 'First child should be for the edge browser').toHaveClass('edge');
+    expect(unsupported_group.nativeElement.children[1], 'Second child should be for the safari browser').toHaveClass('safari');
+
+    avatar_checks();
   });
 
-  it('should handle all browsers being supported', () => {
-    const allBrowsers: BrowserKey[] = ['chrome', 'edge', 'firefox', 'safari'];
-    componentRef.setInput('supported', allBrowsers);
+  it('should apply the correct size class to all avatars', async () => {
+    fixture.componentRef.setInput('size', 'xs');
     fixture.detectChanges();
+    component_base_checks();
 
-    const groups = component['groups']();
-    expect(groups.supported).toHaveLength(4);
-    expect(groups.unsupported).toHaveLength(0);
-  });
+    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    expect(supported_group).not.toBeInTheDocument();
+    expect(supported_group).toBeFalsy();
 
-  it('should render the correct number of groups in the DOM', () => {
-    componentRef.setInput('supported', ['chrome']);
-    fixture.detectChanges();
+    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    baseline_group_checks(unsupported_group);
+    expect(unsupported_group.nativeElement.children, 'Should have avatar groups for each browser').to.have.length(4);
 
-    const compiled = fixture.nativeElement as HTMLElement;
-
-    const supportedGroup = compiled.querySelector('.supported.group');
-    const unsupportedGroup = compiled.querySelector('.unsupported.group');
-
-    expect(supportedGroup).not.toBeNull();
-    expect(unsupportedGroup).not.toBeNull();
-
-    const avatarGroups = compiled.querySelectorAll('lib-avatar-group');
-    expect(avatarGroups.length).toBe(4);
+    const all_avatars = fixture.debugElement.queryAll(By.css('.avatar'));
+    all_avatars.forEach(avatar => {
+      expect(avatar.nativeElement.style.getPropertyValue('--size')).toBe('var(--size-xs)');
+    })
   });
 });

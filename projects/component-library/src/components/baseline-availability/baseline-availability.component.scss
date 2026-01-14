@@ -18,10 +18,18 @@
   row-gap: var(--baseline-availability-gap);
 
   &.supported {
-    background: #d7eddf;
+    background: light-dark(#ceead6,rgba(34, 197, 94, 0.1));
+
+    .avatar.icon path {
+      fill: #099949;
+    }
   }
 
   &.unsupported {
-    background: hsl(34.36deg 100% 87.6%);
+    background: hsl(34.36deg 100% 45.88% / 25%);
+
+    .avatar.icon path {
+      fill: #ea8600;
+    }
   }
 }

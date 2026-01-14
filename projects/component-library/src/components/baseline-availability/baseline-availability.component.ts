@@ -18,6 +18,7 @@ type Browser = (typeof ALL_BROWSERS)[number];
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaselineAvailabilityComponent extends BaseComponent {
+
   size = input<tailwind_sizes>(tailwind_sizes['3xs']);
   supported = input<Browser[]>([]);
 
