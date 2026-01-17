@@ -7,22 +7,15 @@ runs:
       shell: bash
       run: |
         echo "Checking for Angular updates..."
-        # Capture the output
-          UPDATES=$(npx ng update 2>&1)
+        UPDATES=$(npx ng update 2>&1)
+        echo "$UPDATES"
 
-          # Print it so we can see it in logs
-          echo "$UPDATES"
-
-          # Check for multiple possible indicators of available updates
-          if echo "$UPDATES" | grep -qiE "available|packages to update|command to update"; then
+        # Check for multiple possible indicators of available updates
+        if echo "$UPDATES" | grep -qiE "available|packages to update|command to update"; then
           echo ""
           echo "--------------------------------------------------------"
-        echo "ERROR: Angular updates are available!"
-          echo "The following updates were found:"
-          # Use -- to tell grep that "->" is a pattern, not a command-line flag
-          echo "$UPDATES" | grep -iE -- "->|ng update @"
-          echo "--------------------------------------------------------"
+          echo "ERROR: Angular updates are available!"
           exit 1
-          else
+        else
           echo "No Angular updates found. Project is up to date."
-          fi
+        fi
