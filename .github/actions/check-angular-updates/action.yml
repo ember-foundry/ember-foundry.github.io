@@ -1,0 +1,25 @@
+name: 'Check Angular Updates'
+description: 'Fails if ng update returns any available updates'
+runs:
+  using: "composite"
+  steps:
+    - name: Run ng update check
+      shell: bash
+      run: |
+        echo "Checking for Angular updates..."
+        # We use npx to ensure we use the project's local CLI version
+        # We redirect stderr to stdout to catch all possible output
+        UPDATES=$(npx ng update 2>&1)
+        echo "$UPDATES"
+
+        # The logic: If the output contains "available" or "update is available",
+        # it means there are pending updates for core packages.
+        if echo "$UPDATES" | grep -qiE "available|update is available"; then
+          echo "--------------------------------------------------------"
+          echo "ERROR: Angular updates are available!"
+          echo "Please run 'ng update' locally and commit the changes."
+          echo "--------------------------------------------------------"
+          exit 1
+        else
+          echo "No Angular updates found. Project is up to date."
+        fi
