@@ -1,14 +1,13 @@
-import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
-import {AvatarLabelComponent} from 'component-library';
-import {provideRouter} from '@angular/router';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {AvatarLabelComponent, AvatarLabelDirective} from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
 const meta: Meta<AvatarLabelComponent> = {
   component: AvatarLabelComponent,
   decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
+    moduleMetadata({
+      imports: [
+        AvatarLabelDirective
       ]
     })
   ],
@@ -85,7 +84,7 @@ export const AvatarNameAndLink: Story = {
     return {
       template: `
         <lib-avatar-label ${inputs}>
-          <a ngProjectAs="label" href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
+          <a libAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
        </lib-avatar-label>

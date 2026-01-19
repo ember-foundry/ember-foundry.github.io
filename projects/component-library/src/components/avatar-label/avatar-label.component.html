@@ -1,9 +1,9 @@
 <lib-avatar [image_url]="image_url()" [name]="name()" [size]="size()" [bordered]="bordered()"/>
 <div class="text-column">
   <span class="name">{{ name() }}</span>
-  <ng-content select="label">
+  <ng-content select="[libAvatarLabel]">
     @if(label()){
-      <span class="label">{{ label() }}</span>
+      <span class="label" libAvatarLabel>{{ label() }}</span>
     }
   </ng-content>
 </div>

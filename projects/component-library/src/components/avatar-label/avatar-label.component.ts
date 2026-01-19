@@ -1,7 +1,16 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Directive, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
+
+@Directive({
+  selector: '[libAvatarLabel]',
+  host: {
+    '[style.font-size]': "'0.8rem'",
+    '[style.font-weight]': "'400'"
+  }
+})
+export class AvatarLabelDirective {}
 
 @Component({
   selector: 'lib-avatar-label',
@@ -9,7 +18,8 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
   templateUrl: 'avatar-label.component.html',
   styleUrl: 'avatar-label.component.scss',
   imports: [
-    AvatarComponent
+    AvatarComponent,
+    AvatarLabelDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
