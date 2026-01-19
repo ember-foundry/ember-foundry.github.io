@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {AvatarWithLabelComponent, AvatarLabelDirective} from 'component-library';
+import {AvatarWithLabelComponent, AvatarLabelComponent} from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
 const meta: Meta<AvatarWithLabelComponent> = {
@@ -7,7 +7,8 @@ const meta: Meta<AvatarWithLabelComponent> = {
   decorators: [
     moduleMetadata({
       imports: [
-        AvatarLabelDirective
+        // AvatarLabelDirective
+        AvatarLabelComponent
       ]
     })
   ],
@@ -75,6 +76,13 @@ export const BBCNewsReporter: Story = {
 };
 
 export const AvatarNameAndLink: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'This example uses a content projected label'
+      }
+    }
+  },
   render: (args) => {
     const inputs = [
       args.size ? `[size]="'${args.size}'"` : '',
@@ -83,11 +91,11 @@ export const AvatarNameAndLink: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-label ${inputs}>
+        <lib-avatar-with-label ${inputs}>
           <a libAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
-       </lib-avatar-label>
+       </lib-avatar-with-label>
       `
     }
   },

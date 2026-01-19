@@ -1,16 +1,22 @@
-import {ChangeDetectionStrategy, Component, Directive, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
-@Directive({
-  selector: '[libAvatarLabel]',
-  host: {
-    '[style.font-size]': "'0.8rem'",
-    '[style.font-weight]': "'400'"
-  }
+@Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: '[lib-avatar-label], [libAvatarLabel]',
+  standalone: true,
+  template: `<ng-content />`,
+  styles: `
+    :host {
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AvatarLabelDirective {}
+export class AvatarLabelComponent {}
 
 @Component({
   selector: 'lib-avatar-with-label',
@@ -19,7 +25,7 @@ export class AvatarLabelDirective {}
   styleUrl: 'avatar-with-label.component.scss',
   imports: [
     AvatarComponent,
-    AvatarLabelDirective
+    AvatarLabelComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
