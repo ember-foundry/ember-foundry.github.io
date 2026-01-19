@@ -31,7 +31,7 @@
   }
 
   ::ng-deep {
-    .avatar {
+    lib-avatar {
       $notch-size: 15cqmin;
       $notch-position: 100cqmin - $notch-size;
       $smooth-edge: 0.5%;

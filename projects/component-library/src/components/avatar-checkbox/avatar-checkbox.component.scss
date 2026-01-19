@@ -8,7 +8,7 @@
   display: inline-flex;
 }
 
-:host ::ng-deep .avatar {
+:host ::ng-deep lib-avatar {
   // have to use ng-deep because border-width is a value that uses container queries
   padding: var(--avatar-border-width);
 }

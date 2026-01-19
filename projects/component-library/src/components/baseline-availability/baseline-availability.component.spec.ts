@@ -53,13 +53,13 @@ describe('BaselineAvailabilityComponent', () => {
     component_base_checks();
 
     expect(fixture.debugElement.nativeElement.children, 'Component should only have 1 child').to.have.length(1);
-    expect(fixture.debugElement.nativeElement.children[0], 'The only child should be the unsupported group').toHaveClass('group', 'unsupported');
+    expect(fixture.debugElement.nativeElement.children[0], 'The only child should be the unsupported group').toHaveClass('availability-group', 'unsupported');
 
-    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    const supported_group = fixture.debugElement.query(By.css('.availability-group.supported'));
     expect(supported_group).not.toBeInTheDocument();
     expect(supported_group).toBeFalsy();
 
-    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    const unsupported_group = fixture.debugElement.query(By.css('.availability-group.unsupported'));
     baseline_group_checks(unsupported_group);
     expect(unsupported_group.nativeElement.children, 'Should have avatar groups for each browser').to.have.length(4);
 
@@ -75,17 +75,17 @@ describe('BaselineAvailabilityComponent', () => {
     component_base_checks();
 
     expect(fixture.debugElement.nativeElement.children, 'Component should only 2 groups').to.have.length(2);
-    expect(fixture.debugElement.nativeElement.children[0], 'First group should always be the supported group').toHaveClass('group', 'supported');
-    expect(fixture.debugElement.nativeElement.children[1], 'Second group should always be the unsupported group').toHaveClass('group', 'unsupported');
+    expect(fixture.debugElement.nativeElement.children[0], 'First group should always be the supported group').toHaveClass('availability-group', 'supported');
+    expect(fixture.debugElement.nativeElement.children[1], 'Second group should always be the unsupported group').toHaveClass('availability-group', 'unsupported');
 
-    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    const supported_group = fixture.debugElement.query(By.css('.availability-group.supported'));
     baseline_group_checks(supported_group);
 
     expect(supported_group.nativeElement.children, 'Supported group should have 2 children').to.have.length(2);
     expect(supported_group.nativeElement.children[0], 'First child should be for the chrome browser').toHaveClass('chrome');
     expect(supported_group.nativeElement.children[1], 'Second child should be for the firefox browser').toHaveClass('firefox');
 
-    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    const unsupported_group = fixture.debugElement.query(By.css('.availability-group.unsupported'));
     baseline_group_checks(unsupported_group);
     expect(unsupported_group.nativeElement.children, 'Unsupported group should have 2 children').to.have.length(2);
     expect(unsupported_group.nativeElement.children[0], 'First child should be for the edge browser').toHaveClass('edge');
@@ -99,11 +99,11 @@ describe('BaselineAvailabilityComponent', () => {
     fixture.detectChanges();
     component_base_checks();
 
-    const supported_group = fixture.debugElement.query(By.css('.group.supported'));
+    const supported_group = fixture.debugElement.query(By.css('.availability-group.supported'));
     expect(supported_group).not.toBeInTheDocument();
     expect(supported_group).toBeFalsy();
 
-    const unsupported_group = fixture.debugElement.query(By.css('.group.unsupported'));
+    const unsupported_group = fixture.debugElement.query(By.css('.availability-group.unsupported'));
     baseline_group_checks(unsupported_group);
     expect(unsupported_group.nativeElement.children, 'Should have avatar groups for each browser').to.have.length(4);
 

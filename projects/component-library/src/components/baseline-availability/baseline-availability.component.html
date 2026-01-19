@@ -1,6 +1,6 @@
 @for (group of groups(); track group.status) {
   @if (group.browsers.length) {
-    <div [class]="group.status + ' group'">
+    <div [class]="group.status + ' availability-group'">
       @for (browser of group.browsers; track browser) {
         <lib-avatar-group layering="first_on_top" density="loose" [size]="size()" [class]="browser">
           <lib-avatar class="browser">

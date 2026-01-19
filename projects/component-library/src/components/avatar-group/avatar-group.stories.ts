@@ -1,7 +1,7 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {
   AvatarComponent,
-  AvatarGroupComponent, RandomMilkyBackgroundDirective
+  AvatarGroupComponent, AvatarWithinGroupDirective, RandomMilkyBackgroundDirective
 } from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
@@ -11,6 +11,7 @@ const meta: Meta<AvatarGroupComponent> = {
     moduleMetadata({
       imports: [
         AvatarComponent,
+        AvatarWithinGroupDirective,
         RandomMilkyBackgroundDirective
       ]
     })

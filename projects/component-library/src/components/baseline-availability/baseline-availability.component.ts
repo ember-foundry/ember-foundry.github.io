@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
-import {AvatarGroupComponent} from '../avatar-group/avatar-group.component';
+import {AvatarGroupComponent, AvatarWithinGroupDirective} from '../avatar-group/avatar-group.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
 import {AvatarImageDirective} from '../avatar/avatar.component';
@@ -11,8 +11,9 @@ type Browser = (typeof ALL_BROWSERS)[number];
 @Component({
   selector: 'lib-baseline-availability',
   imports: [
-    AvatarGroupComponent,
     AvatarComponent,
+    AvatarGroupComponent,
+    AvatarWithinGroupDirective,
     AvatarImageDirective
   ],
   templateUrl: './baseline-availability.component.html',
