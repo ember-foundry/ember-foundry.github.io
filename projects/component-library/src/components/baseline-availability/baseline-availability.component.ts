@@ -3,7 +3,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarGroupComponent} from '../avatar-group/avatar-group.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
-import {AvatarImageDirective} from '../../directives/avatar-image/avatar-image.directive';
+import {AvatarImageDirective} from '../avatar/avatar.component';
 
 const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
