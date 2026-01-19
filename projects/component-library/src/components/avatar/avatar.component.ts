@@ -4,7 +4,7 @@ import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Directive({
-  selector: '[libAvatarImage]',
+  selector: 'img[libAvatarImage], svg[libAvatarImage]',
   host: {
     '[style.border-radius]': "'inherit'",
     '[style.height]': "'100%'",
