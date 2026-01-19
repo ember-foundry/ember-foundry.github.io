@@ -13,17 +13,17 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 export class AvatarLabelDirective {}
 
 @Component({
-  selector: 'lib-avatar-label',
+  selector: 'lib-avatar-with-label',
   standalone: true,
-  templateUrl: 'avatar-label.component.html',
-  styleUrl: 'avatar-label.component.scss',
+  templateUrl: 'avatar-with-label.component.html',
+  styleUrl: 'avatar-with-label.component.scss',
   imports: [
     AvatarComponent,
     AvatarLabelDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AvatarLabelComponent extends BaseComponent {
+export class AvatarWithLabelComponent extends BaseComponent {
   bordered = input(false);
   image_url = input<string>();
   label = input<string>();

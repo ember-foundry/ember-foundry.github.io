@@ -1,9 +1,9 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {AvatarLabelComponent, AvatarLabelDirective} from 'component-library';
+import {AvatarWithLabelComponent, AvatarLabelDirective} from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
-const meta: Meta<AvatarLabelComponent> = {
-  component: AvatarLabelComponent,
+const meta: Meta<AvatarWithLabelComponent> = {
+  component: AvatarWithLabelComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -26,7 +26,7 @@ const meta: Meta<AvatarLabelComponent> = {
 
 export default meta;
 
-type Story = StoryObj<AvatarLabelComponent>;
+type Story = StoryObj<AvatarWithLabelComponent>;
 
 export const Sample: Story = {
   args: {
