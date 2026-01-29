@@ -25,5 +25,5 @@ export class AvatarCheckboxComponent extends BaseComponent {
   selected = input(false);
 
   protected real_selected_value = signal(this.selected());
-  private when_selected_input_changed = effect(() => this.real_selected_value.set(this.selected()))
+  private readonly when_selected_input_changed = effect(() => this.real_selected_value.set(this.selected()))
 }

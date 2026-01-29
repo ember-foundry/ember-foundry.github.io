@@ -3,6 +3,7 @@ import {describe, expect, beforeEach, it} from 'vitest';
 import {AvatarCheckboxComponent} from './avatar-checkbox.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {By} from '@angular/platform-browser';
+import {tailwind_sizes_values} from '../../constants/tailwind-sizes';
 
 describe('AvatarCheckboxComponent', () => {
   let component: AvatarCheckboxComponent;
@@ -26,24 +27,23 @@ describe('AvatarCheckboxComponent', () => {
     expect(component.size()).toBe(tailwind_sizes.md);
   });
 
-  it('should toggle selection on click', () => {
+  it('should toggle selection on click', async () => {
     const hostElement = fixture.nativeElement;
 
-    // Initial state (default is false)
     expect(hostElement.classList.contains('selected')).toBe(false);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Click to select
     hostElement.click();
     fixture.detectChanges();
     expect(hostElement.classList.contains('selected')).toBe(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Click to deselect
     hostElement.click();
     fixture.detectChanges();
     expect(hostElement.classList.contains('selected')).toBe(false);
   });
 
-  it('should be preselected when the selected input is true', async () => {
+  it('should be preselected when the selected input is true', () => {
     fixture.componentRef.setInput('selected', true);
     fixture.detectChanges();
 
@@ -55,6 +55,24 @@ describe('AvatarCheckboxComponent', () => {
 
     // expect(fixture.nativeElement).toMatchScreenshot('avatar-checkbox-selected');
   });
+
+  tailwind_sizes_values.forEach(size => {
+    it(`when selected the padding should match the border width (size: ${size})`, () => {
+      fixture.componentRef.setInput('size', size);
+      fixture.componentRef.setInput('selected', true);
+      fixture.detectChanges();
+
+      const avatar = fixture.debugElement.query(By.css('lib-avatar'));
+      expect(avatar).toBeTruthy();
+
+      const computed_avatar_styles = window.getComputedStyle(avatar.nativeElement);
+
+      console.log(size, 'borderWidth', computed_avatar_styles.borderWidth);
+      console.log(size, 'padding', computed_avatar_styles.padding);
+      expect(computed_avatar_styles.padding).toBe(computed_avatar_styles.borderWidth);
+    });
+  })
+
 
   it('should render only the avatar when not selected', () => {
     fixture.componentRef.setInput('selected', false);

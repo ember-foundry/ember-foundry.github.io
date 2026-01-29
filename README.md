@@ -68,3 +68,13 @@ ng config projects.component-library.schematics.@schematics/angular:pipe.typeSep
 ng config projects.component-library.schematics.@schematics/angular:enum.path projects/component-library/src/enums
 ng config projects.component-library.schematics.@schematics/angular:enum.type enum
 ```
+
+---
+## Testing
+
+testing a specific file
+
+```shell
+test_file="src/components/avatar-checkbox/avatar-checkbox.component.spec.ts"
+npm run test -- --watch --testFile $test_file
+```

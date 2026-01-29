@@ -1,7 +1,7 @@
 @use '../../styles/colors';
 
 :host {
-  --avatar-border-width: max(3px, calc(var(--size, var(--size-md)) * 0.04));
+  --avatar-border-width: round(max(2px, calc(var(--size, var(--size-md)) * 0.04)), 1px);
 
   align-items: center;
   aspect-ratio: 1;
