@@ -1,14 +1,25 @@
-import {ChangeDetectionStrategy, Component, effect, input, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Directive, effect, input, signal} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarBadgeComponent} from '../avatar-badge/avatar-badge.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
 
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: 'lib-avatar-checkbox lib-avatar',
+  host: {
+    '[style.--avatar-padding]': "'var(--avatar-border-width)'"
+  }
+})
+export class AvatarInsideCheckboxDirective {}
+
+
 @Component({
   selector: 'lib-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,
-    AvatarComponent
+    AvatarComponent,
+    AvatarInsideCheckboxDirective
   ],
   templateUrl: './avatar-checkbox.component.html',
   styleUrl: './avatar-checkbox.component.scss',

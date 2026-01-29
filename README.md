@@ -70,8 +70,8 @@ ng config projects.component-library.schematics.@schematics/angular:enum.type en
 ```
 
 ---
-## Testing
 
+## Testing
 testing a specific file
 
 ```shell
