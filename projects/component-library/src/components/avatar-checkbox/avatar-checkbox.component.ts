@@ -11,7 +11,7 @@ import {BaseComponent} from '../_base/base.component';
     '[style.--avatar-padding]': "'var(--avatar-border-width)'"
   }
 })
-export class AvatarInsideCheckboxDirective {}
+export class AvatarInsideAvatarCheckboxDirective {}
 
 
 @Component({
@@ -19,7 +19,7 @@ export class AvatarInsideCheckboxDirective {}
   imports: [
     AvatarBadgeComponent,
     AvatarComponent,
-    AvatarInsideCheckboxDirective
+    AvatarInsideAvatarCheckboxDirective
   ],
   templateUrl: './avatar-checkbox.component.html',
   styleUrl: './avatar-checkbox.component.scss',

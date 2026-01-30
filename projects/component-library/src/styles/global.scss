@@ -3,6 +3,7 @@
 
 :root {
   @include mixins.generate-size-variables(4rem);
+  @include mixins.generate-color-variables();
 }
 
 html {

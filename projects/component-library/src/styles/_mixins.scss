@@ -1,4 +1,5 @@
 @use "sass:math";
+@use 'colors';
 
 /// Generate tailwind css variables from a given medium size
 ///
@@ -28,4 +29,8 @@
   --size-5xl: #{$medium-size * math.div(64, 28)};
   --size-6xl: #{$medium-size * math.div(72, 28)};
   --size-7xl: #{$medium-size * math.div(80, 28)};
+}
+
+@mixin generate-color-variables() {
+  --color-status-offline: #{colors.$status-offline}
 }
