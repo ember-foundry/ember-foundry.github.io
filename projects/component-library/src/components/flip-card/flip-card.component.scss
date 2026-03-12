@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  background-color: transparent;
+  height: 200px;
+  // @Junie, what does this perspective property do? What do different values mean?
+  perspective: 1000px;
+  width: 300px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+$rotation_degrees: 180deg;
+:host.flip_axis-y {
+  &.flip_on-hover:hover,
+  &.flip_on-click.flipped {
+    .inner {
+      transform: rotateY($rotation_degrees);
+    }
+  }
+  .back {
+    transform: rotateY($rotation_degrees);
+  }
+}
+
+:host.flip_axis-x {
+  &.flip_on-hover:hover,
+  &.flip_on-click.flipped {
+    .inner {
+      transform: rotateX($rotation_degrees);
+    }
+  }
+  .back {
+    transform: rotateX($rotation_degrees);
+  }
+}
+
