@@ -52,6 +52,22 @@ export const Sample: Story = {
     }
   }
 };
+export const AvatarWithNoImageAndWithBadge: Story = {
+  render: (args) => {
+    const inputs = [
+      args.size ? `[size]="'${args.size}'"` : '',
+      args.status ? `[status]="'${args.status}'"` : '',
+      args.mode ? `[mode]="'${args.mode}'"` : ''
+    ].join(' ')
+    return {
+      template: `
+        <lib-avatar-badge ${inputs}>
+          <lib-avatar name="Craig Wayne" />
+       </lib-avatar-badge>
+      `
+    }
+  }
+};
 
 export const Away: Story = { ...Sample, ...{ args: {status: 'away'}}}
 

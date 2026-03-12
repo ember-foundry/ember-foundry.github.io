@@ -10,7 +10,7 @@ ng g @schematics/angular:refactor-jasmine-vitest --add-imports
 # touch touch projects/component-library/vitest.config.ts
 # disable globals using the vitest define config
 npm install -D @vitest/browser-playwright
-ng config projects.component-library.architect.test.options.browsers.1 "firefox"
+`ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
 
 npm install @analogjs/platform --save-dev
 ? ng g @analogjs/platform:setup-vitest --project component-library

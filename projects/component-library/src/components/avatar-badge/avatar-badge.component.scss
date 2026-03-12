@@ -30,8 +30,8 @@
     transform: translate(-16%, -16%);
   }
 
-  ::ng-deep {
-    lib-avatar {
+  ::ng-deep lib-avatar{
+    img, svg, .text {
       $notch-size: 15cqmin;
       $notch-position: 100cqmin - $notch-size;
       $smooth-edge: 0.5%;
