@@ -8,9 +8,13 @@ import {BaseComponent} from '../_base/base.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DiceFlatComponent extends BaseComponent {
-  public border_thickness = input<number>(16);
-  public size = input<number>(192);
+  public size = input<number>(188);
   public value = input<number|undefined>();
 
+  protected border_thickness = computed<number>(() => this.size() * 0.085);
+  protected border_radius = computed<number>(() => this.size() * 0.125);
   protected border_width = computed<number>(() => this.size() - this.border_thickness());
+  protected circle_radius = computed<number>(() => this.size() * 0.085);
+  protected inner_width = computed<number>(() => this.size() - this.border_thickness() * 2);
+  protected view_box = computed<string>(() => `0 0 ${this.size()} ${this.size()}`);
 }

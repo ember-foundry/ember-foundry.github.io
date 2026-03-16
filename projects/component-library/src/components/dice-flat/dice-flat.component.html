@@ -1,11 +1,14 @@
-<svg class="dice" [attr.viewBox]="'0 0 ' + size() + ' ' +  size()" fill="none" xmlns="http://www.w3.org/2000/svg">
+@let half_border_thickness = border_thickness() / 2;
+@let one_third_inner_width = inner_width() / 3;
+@let one_sixth_inner_width = one_third_inner_width / 2;
+<svg class="dice" [attr.viewBox]="view_box()" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect
-    [attr.x]="border_thickness()/2"
-    [attr.y]="border_thickness()/2"
+    [attr.x]="half_border_thickness"
+    [attr.y]="half_border_thickness"
     [attr.width]="border_width()"
     [attr.height]="border_width()"
     [attr.stroke-width]="border_thickness()"
-    rx="24"
+    [attr.rx]="border_radius()"
     fill="none"
     stroke="currentColor"
     stroke-linecap="round"
@@ -14,44 +17,152 @@
   <g fill="currentColor">
     @switch (value()) {
       @case (1) {
-        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2"/>
+        <circle
+          class="center"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size() / 2"
+          [attr.cy]="size() / 2"
+        />
       }
       @case (2) {
-        <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
-
-        <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
+        <circle
+          class="top left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+        <circle
+          class="bottom right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
       }
       @case (3) {
-        <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
-
-        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2" />
-
-        <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
+        <circle
+          class="top left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+        <circle
+          class="center"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size() / 2"
+          [attr.cy]="size() / 2"
+        />
+        <circle
+          class="bottom right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
       }
       @case (4) {
-        <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="52" cy="144"/>
+        <circle
+          class="top left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
 
-        <circle [attr.r]="border_thickness()" cx="140" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
+        <circle
+          class="bottom left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
+
+        <circle
+          class="top right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+
+        <circle
+          class="bottom right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
+
+
       }
       @case (5) {
-        <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="52" cy="144"/>
+        <circle
+          class="top left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
 
-        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2" />
+        <circle
+          class="bottom left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
 
-        <circle [attr.r]="border_thickness()" cx="140" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
+        <circle
+          class="center"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size() / 2"
+          [attr.cy]="size() / 2"
+        />
+
+        <circle
+          class="top right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+
+        <circle
+          class="bottom right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
       }
       @case (6) {
-        <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="52" cy="96"/>
-        <circle [attr.r]="border_thickness()" cx="52" cy="144"/>
+        <circle
+          class="top left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+        <circle
+          class="center left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+((one_third_inner_width )+(one_sixth_inner_width))"
+        />
+        <circle
+          class="bottom left"
+          [attr.r]="circle_radius()"
+          [attr.cx]="border_thickness()+(one_sixth_inner_width)"
+          [attr.cy]="size() - border_thickness() - (one_sixth_inner_width)"
+        />
 
-        <circle [attr.r]="border_thickness()" cx="140" cy="48"/>
-        <circle [attr.r]="border_thickness()" cx="140" cy="96"/>
-        <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
+        <circle
+          class="top right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-border_thickness()-(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+(one_sixth_inner_width)"
+        />
+        <circle
+          class="center right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size()-(border_thickness())-(one_sixth_inner_width)"
+          [attr.cy]="border_thickness()+((one_third_inner_width)+(one_sixth_inner_width))"
+        />
+        <circle
+          class="bottom right"
+          [attr.r]="circle_radius()"
+          [attr.cx]="size() - border_thickness() - one_sixth_inner_width"
+          [attr.cy]="size() - border_thickness() - one_sixth_inner_width"
+        ></circle>
       }
       @default {
         <path
@@ -62,3 +173,11 @@
     }
   </g>
 </svg>
+<template #bottom_right>
+  <circle
+    class="bottom right"
+    [attr.r]="circle_radius()"
+    [attr.cx]="size() - border_thickness() - one_sixth_inner_width"
+    [attr.cy]="size() - border_thickness() - one_sixth_inner_width"
+  ></circle>
+</template>

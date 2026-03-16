@@ -5,10 +5,6 @@ const meta: Meta<DiceFlatComponent> = {
   component: DiceFlatComponent,
   tags: ['autodocs','dice','svg'],
   argTypes: {
-    border_thickness: {
-      type: 'number',
-      min: 0
-    },
     size: {
       type: 'number',
       min: 0
@@ -21,7 +17,6 @@ const meta: Meta<DiceFlatComponent> = {
     }
   },
   args: {
-    border_thickness: 16,
     size: 192,
     value: 6
   }
