@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Prototype</title>
+  <link rel="stylesheet" href="./shorts-ui-controls-purified.css"/>
+
+</head>
+<body>
+<div class="player-controls style-scope ytd-reel-video-renderer">
+  <ytd-shorts-player-controls
+    class="style-scope ytd-reel-video-renderer">
+    <div id="left-controls" class="style-scope ytd-shorts-player-controls">
+      <yt-button-shape id="play-pause-button-shape" class="style-scope ytd-shorts-player-controls">
+        <button
+          class="yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button"
+          title="Play (k)" aria-label="Play (k)" aria-disabled="false" style="background-color: rgba(0, 0, 0, 0.3);">
+          <div aria-hidden="true" class="yt-spec-button-shape-next__icon"><span class="ytIconWrapperHost"
+                                                                                style="width: 24px; height: 24px;"><span
+            class="yt-icon-shape ytSpecIconShapeHost"><div
+            style="width: 100%; height: 100%; display: block; filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3)); fill: currentcolor;"><svg
+            xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+            aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+            d="M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"></path></svg></div></span></span>
+          </div>
+          <yt-touch-feedback-shape aria-hidden="true"
+                                   class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--overlay-touch-response-inverse">
+            <div class="yt-spec-touch-feedback-shape__stroke"></div>
+            <div class="yt-spec-touch-feedback-shape__fill"></div>
+          </yt-touch-feedback-shape>
+        </button>
+      </yt-button-shape>
+      <volume-controls class="ytdVolumeControlsHost style-scope ytd-shorts-player-controls">
+        <div class="ytdVolumeControlsVolumeControlsContainer">
+          <div class="ytdVolumeControlsBackgroundScrim"></div>
+          <div>
+            <button class="ytdVolumeControlsMuteIconButton" aria-label="Mute" title="Mute"><span
+              class="ytIconWrapperHost ytdVolumeControlsMuteIcon" role="img" aria-label="Mute" style=""><span
+              class="yt-icon-shape ytSpecIconShapeHost"><div
+              style="width: 100%; height: 100%; display: block; fill: currentcolor;"><svg
+              xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+              aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+              d="M11.485 2.143 3.913 6.687A6 6 0 001 11.832v.338a6 6 0 002.913 5.144l7.572 4.543A1 1 0 0013 21V3a1.001 1.001 0 00-1.515-.857Zm6.88 2.079a1 1 0 00-.001 1.414 9 9 0 010 12.728 1 1 0 001.414 1.414 11 11 0 000-15.556 1 1 0 00-1.413 0Zm-2.83 2.828a1 1 0 000 1.415 5 5 0 010 7.07 1 1 0 001.415 1.415 6.999 6.999 0 000-9.9 1 1 0 00-1.415 0Z"></path></svg></div></span></span>
+            </button>
+          </div>
+          <div class="ytdVolumeControlsSliderContainer ytdVolumeControlsSliderContainerWithScrim"><input
+            aria-label="Volume" title="Volume" type="range" class="ytdVolumeControlsNativeSlider" id="volume-input"
+            role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-valuetext="100% volume"
+            style="--gradient-percent: 100%;">
+          </div>
+        </div>
+      </volume-controls>
+    </div>
+    <div id="right-controls" class="style-scope ytd-shorts-player-controls">
+      <div id="closed-captioning-button-container" class="style-scope ytd-shorts-player-controls">
+        <ytm-closed-captioning-button class="ytmClosedCaptioningButtonHost">
+          <button class="ytmClosedCaptioningButtonButton" title="Subtitles/CC turned off"
+                  aria-label="Subtitles/CC turned off" aria-pressed="false"><span
+            class="ytIconWrapperHost ytmClosedCaptioningButtonYtIconOverlay"><span
+            class="yt-icon-shape ytSpecIconShapeHost"><div
+            style="width: 100%; height: 100%; display: block; fill: currentcolor;"><svg
+            xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+            aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+            d="M21 3H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2ZM3 19V5h18v14H3ZM6.972 8.346c-.631.336-1.131.881-1.466 1.526A4.6 4.6 0 005 12c-.004.74.17 1.47.506 2.128.336.645.835 1.191 1.466 1.526a2.86 2.86 0 002.066.257c.697-.178 1.294-.606 1.737-1.176a1 1 0 00-1.578-1.228c-.21.27-.444.413-.654.467a.86.86 0 01-.632-.085c-.222-.119-.453-.342-.631-.684A2.64 2.64 0 017 12a2.6 2.6 0 01.281-1.205c.177-.342.408-.565.63-.684a.86.86 0 01.632-.085c.209.054.444.197.654.467a1 1 0 001.578-1.228c-.443-.57-1.04-.998-1.737-1.176a2.86 2.86 0 00-2.066.257Zm8 0c-.631.336-1.131.881-1.466 1.526A4.6 4.6 0 0013 12c-.004.74.17 1.47.506 2.128.336.645.835 1.191 1.466 1.526a2.86 2.86 0 002.066.257c.697-.178 1.294-.606 1.737-1.176a1 1 0 00-1.578-1.228c-.21.27-.444.413-.654.467a.86.86 0 01-.632-.085c-.222-.119-.453-.342-.631-.684A2.64 2.64 0 0115 12a2.6 2.6 0 01.281-1.205c.177-.342.408-.565.63-.684a.86.86 0 01.632-.085c.209.054.444.197.654.467a1 1 0 001.578-1.228c-.443-.57-1.04-.998-1.737-1.176a2.86 2.86 0 00-2.066.257Z"></path></svg></div></span></span>
+          </button>
+        </ytm-closed-captioning-button>
+      </div>
+      <div id="menu-button" class="button-container style-scope ytd-shorts-player-controls">
+        <ytd-menu-renderer three-dot-size="L" tonal-override="" use-overlay-dark=""
+                           class="style-scope ytd-shorts-player-controls" safe-area=""
+                           menu-active="">
+          <div id="top-level-buttons-computed" class="top-level-buttons style-scope ytd-menu-renderer"></div>
+          <div id="flexible-item-buttons" class="style-scope ytd-menu-renderer"></div>
+          <yt-icon-button id="button"
+                          class="dropdown-trigger style-scope ytd-menu-renderer" style-target="button"
+                          hidden="">
+            <button id="button" class="style-scope yt-icon-button" aria-label="More actions">
+              <yt-icon class="style-scope ytd-menu-renderer">
+                <span
+                  class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"><div
+                  style="width: 100%; height: 100%; display: block; fill: currentcolor;"><svg
+                  xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+                  aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+                  d="M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z"></path></svg></div></span>
+              </yt-icon>
+            </button>
+            <yt-interaction
+              id="interaction"
+              class="circular style-scope yt-icon-button">
+              <div class="stroke style-scope yt-interaction"></div>
+              <div class="fill style-scope yt-interaction"></div>
+            </yt-interaction>
+          </yt-icon-button>
+          <yt-button-shape id="button-shape"
+                           class="style-scope ytd-menu-renderer">
+            <button
+              class="yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button"
+              title="" aria-label="More actions" style="color: rgb(255, 255, 255); background-color: transparent;">
+              <div aria-hidden="true" class="yt-spec-button-shape-next__icon"><span class="ytIconWrapperHost"
+                                                                                    style="width: 24px; height: 24px;"><span
+                class="yt-icon-shape ytSpecIconShapeHost"><div
+                style="width: 100%; height: 100%; display: block; filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3)); fill: currentcolor;"><svg
+                xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+                aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+                d="M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z"></path></svg></div></span></span>
+              </div>
+              <yt-touch-feedback-shape aria-hidden="true"
+                                       class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--overlay-touch-response-inverse">
+                <div class="yt-spec-touch-feedback-shape__stroke"></div>
+                <div class="yt-spec-touch-feedback-shape__fill"></div>
+              </yt-touch-feedback-shape>
+            </button>
+          </yt-button-shape>
+        </ytd-menu-renderer>
+      </div>
+      <yt-button-shape id="fullscreen-button-shape" class="style-scope ytd-shorts-player-controls">
+        <button
+          class="yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button"
+          title="Enter Full Screen (f)" aria-label="Enter Full Screen (f)" aria-disabled="false"
+          style="background-color: transparent;">
+          <div aria-hidden="true" class="yt-spec-button-shape-next__icon"><span class="ytIconWrapperHost"
+                                                                                style="width: 24px; height: 24px;"><span
+            class="yt-icon-shape ytSpecIconShapeHost"><div
+            style="width: 100%; height: 100%; display: block; filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3)); fill: currentcolor;"><svg
+            xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false"
+            aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path
+            d="M10 3H3v7c0 .265.105.52.293.707.187.188.442.293.707.293.265 0 .52-.105.707-.293C4.895 10.52 5 10.265 5 10V6.414l4.293 4.293.076.068c.192.155.435.233.68.22.247-.014.48-.118.654-.292.174-.174.278-.407.291-.653.014-.246-.064-.489-.219-.681l-.068-.076L6.414 5H10c.265 0 .52-.105.707-.293C10.895 4.52 11 4.265 11 4c0-.265-.105-.52-.293-.707C10.52 3.105 10.265 3 10 3Zm10 10c-.265 0-.52.105-.707.293-.188.187-.293.442-.293.707v3.586l-4.293-4.293-.076-.068c-.192-.155-.435-.233-.68-.22-.247.014-.48.118-.654.292-.174.174-.278.407-.291.653-.014.246.064.489.219.681l.068.076L17.586 19H14c-.265 0-.52.105-.707.293-.188.187-.293.442-.293.707 0 .265.105.52.293.707.187.188.442.293.707.293h7v-7c0-.265-.105-.52-.293-.707C20.52 13.105 20.265 13 20 13Z"></path></svg></div></span></span>
+          </div>
+          <yt-touch-feedback-shape aria-hidden="true"
+                                   class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--overlay-touch-response-inverse">
+            <div class="yt-spec-touch-feedback-shape__stroke"></div>
+            <div class="yt-spec-touch-feedback-shape__fill"></div>
+          </yt-touch-feedback-shape>
+        </button>
+      </yt-button-shape>
+    </div>
+  </ytd-shorts-player-controls>
+</div>
+</body>
+</html>
