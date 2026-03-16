@@ -14,7 +14,7 @@
   <g fill="currentColor">
     @switch (value()) {
       @case (1) {
-        <circle [attr.r]="border_thickness()" cx="96" cy="96"/>
+        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2"/>
       }
       @case (2) {
         <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
@@ -24,7 +24,7 @@
       @case (3) {
         <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
 
-        <circle [attr.r]="border_thickness()" cx="96" cy="96"/>
+        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2" />
 
         <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
       }
@@ -39,7 +39,7 @@
         <circle [attr.r]="border_thickness()" cx="52" cy="48"/>
         <circle [attr.r]="border_thickness()" cx="52" cy="144"/>
 
-        <circle [attr.r]="border_thickness()" cx="96" cy="96"/>
+        <circle [attr.r]="border_thickness()" [attr.cx]="size()/2" [attr.cy]="size()/2" />
 
         <circle [attr.r]="border_thickness()" cx="140" cy="48"/>
         <circle [attr.r]="border_thickness()" cx="140" cy="144"/>
