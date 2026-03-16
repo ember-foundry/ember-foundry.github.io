@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {DiceFlatComponent, FlipCardComponent} from 'component-library';
+import {DiceFlatComponent} from 'component-library';
 
 const meta: Meta<DiceFlatComponent> = {
   component: DiceFlatComponent,
@@ -24,6 +24,38 @@ const meta: Meta<DiceFlatComponent> = {
 
 export default meta;
 
-type Story = StoryObj<FlipCardComponent>;
+type Story = StoryObj<DiceFlatComponent>;
 
-export const Sample: Story = {}
+export const Sample: Story = {
+  render: (args) => {
+    const inputs = [
+      args.size ? `[size]="${args.size}"` : '',
+      args.value ? `[value]="${args.value}"` : ''
+    ].join(' ')
+    const template = `
+      <div style="width: 400px; aspect-ratio: 1">
+        <lib-dice-flat ${inputs} />
+      </div>
+    `;
+    return {
+      template: template
+    };
+  }
+}
+
+export const InheritsColor: Story = {
+  render: (args) => {
+    const inputs = [
+      args.size ? `[size]="${args.size}"` : '',
+      args.value ? `[value]="${args.value}"` : ''
+    ].join(' ')
+    const template = `
+      <div style="width: 400px; aspect-ratio: 1; color: gray">
+        <lib-dice-flat ${inputs} />
+      </div>
+    `;
+    return {
+      template: template
+    };
+  }
+}

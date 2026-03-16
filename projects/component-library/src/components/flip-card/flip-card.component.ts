@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, input, signal} from '@angular/core';
-import {BaseComponent} from 'component-library/components/_base/base.component';
+import {BaseComponent} from '../_base/base.component';
 
 @Component({
   selector: 'lib-flip-card',
