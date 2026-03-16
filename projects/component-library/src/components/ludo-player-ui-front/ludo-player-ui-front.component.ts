@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, input, model} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
+import {DiceFlatComponent} from '../dice-flat/dice-flat.component';
 
 @Component({
   selector: 'lib-ludo-player-ui-front',
@@ -9,12 +10,15 @@ import {BaseComponent} from '../_base/base.component';
     '[class.active]': 'is_my_turn()',
     '[style.--character-color]': 'color()'
   },
+  imports: [
+    DiceFlatComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LudoPlayerUIFrontComponent extends BaseComponent {
   public avatar = input.required<string>();
   public color = input.required<'red' | 'blue' | 'green' | 'yellow'>();
   public is_my_turn = model<boolean>(false);
-  public last_roll = model<number | null>(null);
+  public last_roll = model<number | undefined>(undefined);
   public name = input.required<string>();
 }

@@ -42,9 +42,9 @@ export const FlippingLudoUI: Story = {
     ].join(' ');
     return {
       template: `
-        <lib-flip-card >
-            <lib-ludo-player-ui ngProjectAs="front" ${inputs}/>
-            <lib-ludo-player-ui ngProjectAs="back" [name]="'John Doe'" [color]="'blue'" [avatar]="'http://localhost:4200/assets/images/ahmed.png'" />
+        <lib-flip-card>
+            <lib-ludo-player-ui-front ngProjectAs="front" ${inputs}/>
+            <lib-ludo-player-ui-front ngProjectAs="back" [name]="'John Doe'" [color]="'blue'" [avatar]="'http://localhost:4200/assets/images/ahmed.png'" />
        </lib-flip-card>
       `
     }

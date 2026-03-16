@@ -23,13 +23,6 @@ $spacing: 8px;
   }
 }
 
-button {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-}
-
 .d-flex {
   display: flex;
 }
@@ -75,7 +68,7 @@ button {
   text-align: center;
 }
 
-.dice {
+lib-dice-flat {
   color: #D6D7D8;
   cursor: pointer;
 }

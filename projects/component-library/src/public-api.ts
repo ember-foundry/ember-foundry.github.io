@@ -8,7 +8,7 @@ export * from './components/dice-flat/dice-flat.component';
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';
 export * from './components/flip-card/flip-card.component';
-export * from './components/ludo-player-ui/ludo-player-ui-front.component';
+export * from './components/ludo-player-ui-front/ludo-player-ui-front.component';
 export * from './components/github/action-progress/action-progress.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
