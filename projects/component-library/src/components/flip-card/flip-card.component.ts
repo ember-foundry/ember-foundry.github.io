@@ -15,7 +15,9 @@ import {BaseComponent} from 'component-library/components/_base/base.component';
 export class FlipCardComponent extends BaseComponent {
   public flip_axis = input<'x' | 'y'>('y');
   public flip_on = input<'click' | 'hover'>('hover');
-  protected readonly host_css_classes = this.computed_host_css_classes_from('flip_axis', 'flip_on');
+  public horizontal_alignment = input<'none' | 'center'>('center');
+  public vertical_alignment = input<'none' | 'center'>('center');
+  protected readonly host_css_classes = this.computed_host_css_classes_from('vertical_alignment', 'horizontal_alignment', 'flip_axis', 'flip_on');
 
   protected flipped = signal<boolean|undefined>(undefined);
 

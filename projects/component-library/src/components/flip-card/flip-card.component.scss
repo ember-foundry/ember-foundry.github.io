@@ -1,37 +1,47 @@
 :host {
-  display: block;
-  background-color: transparent;
-  height: 200px;
-  // @Junie, what does this perspective property do? What do different values mean?
+  display: inline-flex;
   perspective: 1000px;
-  width: 300px;
+
+  &.horizontal_alignment-center {
+    .side {
+      justify-content: center;
+    }
+  }
+
+  &.vertical_alignment-center {
+    .side {
+      align-items: center;
+    }
+  }
+
+  [ngprojectas=front]{
+    background: red;
+  }
 }
 
-.inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+.flipper {
+  display: grid;
+  height: fit-content;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  width: fit-content;
 }
 
-.front, .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.side {
   backface-visibility: hidden;
+  display: flex;
+  grid-area: 1 / 1;
 }
 
 $rotation_degrees: 180deg;
 :host.flip_axis-y {
   &.flip_on-hover:hover,
   &.flip_on-click.flipped {
-    .inner {
+    .flipper {
       transform: rotateY($rotation_degrees);
     }
   }
-  .back {
+  .side.back {
     transform: rotateY($rotation_degrees);
   }
 }
@@ -39,11 +49,11 @@ $rotation_degrees: 180deg;
 :host.flip_axis-x {
   &.flip_on-hover:hover,
   &.flip_on-click.flipped {
-    .inner {
+    .flipper {
       transform: rotateX($rotation_degrees);
     }
   }
-  .back {
+  .side.back {
     transform: rotateX($rotation_degrees);
   }
 }
