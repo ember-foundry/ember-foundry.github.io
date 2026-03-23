@@ -3,6 +3,17 @@
 ng add @angular-eslint/schematics
 ```
 
+### Building and Using the Library
+see here for more info: https://angular.dev/tools/libraries/creating-libraries
+
+1. Build component library
+2. publish library from dist folder
+```shell
+ng build component-library
+ng build component-library --configuration production
+cd dist/component-library
+```
+
 ### Vitest Angular Browser Testing
 ```shell
 # for migrating from jasmine tests to vitest
@@ -78,3 +89,10 @@ testing a specific file
 test_file="src/components/avatar-checkbox/avatar-checkbox.component.spec.ts"
 npm run test -- --watch --testFile $test_file
 ```
+
+
+### TODO:
+* https://angular.dev/tools/libraries/creating-librariess
+* i want to run something like this:
+  * ng add @angular/material
+  * but for the component library to be used in other
