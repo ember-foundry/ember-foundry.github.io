@@ -18,7 +18,7 @@ export class AvatarImageDirective {
 }
 
 @Component({
-  selector: 'lib-avatar',
+  selector: 'ode-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
   imports: [

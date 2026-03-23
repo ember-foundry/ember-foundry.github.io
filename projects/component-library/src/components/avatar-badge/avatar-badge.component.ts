@@ -4,7 +4,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 
 @Component({
-  selector: 'lib-avatar-badge',
+  selector: 'ode-avatar-badge',
   templateUrl: './avatar-badge.component.html',
   styleUrl: 'avatar-badge.component.scss',
   imports: [

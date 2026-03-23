@@ -3,7 +3,7 @@ import {ActionProgressComponent} from 'component-library';
 
 describe('ActionProgressComponent', () => {
   it('should render', () => {
-    mount(`<lib-action-progress />`, {
+    mount(`<ode-action-progress />`, {
       imports: [
         ActionProgressComponent
       ]

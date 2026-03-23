@@ -16,7 +16,7 @@ export const Sample: Story = {
       styles: [
         ':host{display:block;min-height:50px;}'
       ],
-      template: '<lib-theme-customizer-trigger />'
+      template: '<ode-theme-customizer-trigger />'
     }
   }
 };

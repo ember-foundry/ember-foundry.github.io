@@ -141,9 +141,9 @@ export const WithCustomPNGImage: Story = {
       args.size ? `[size]="'${args.size}'"` : ''
     ].join(' ');
     return {
-      template: `<lib-avatar ${inputs}>
+      template: `<ode-avatar ${inputs}>
             <img libAvatarImage src="https://mockmind-api.uifaces.co/content/human/222.jpg" />
-        </lib-avatar>
+        </ode-avatar>
       `
     }
   }
@@ -155,7 +155,7 @@ export const WithCustomSVGImage: Story = {
       args.size ? `[size]="'${args.size}'"` : ''
     ].join(' ');
     return {
-      template: `<lib-avatar ${inputs}>
+      template: `<ode-avatar ${inputs}>
             <svg libAvatarImage xmlns="http://www.w3.org/2000/svg" fill="none" height="63" viewBox="0 0 63 63" width="63">
                 <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="34.9087" x2="7.63224" y1="61.029" y2="13.7847">
                     <stop offset="0" stop-color="#1e8e3e"/>
@@ -175,7 +175,7 @@ export const WithCustomSVGImage: Story = {
                 <path d="m31.499 43.9688c6.8863 0 12.4688-5.5825 12.4688-12.4688s-5.5825-12.4688-12.4688-12.4688-12.4687 5.5825-12.4687 12.4688 5.5824 12.4688 12.4687 12.4688z" fill="#1a73e8"/>
                 <path d="m31.4991 15.75h27.2754c-2.764-4.7888-6.74-8.76553-11.5283-11.53029-4.7883-2.76475-10.2202-4.22010235-15.7494-4.21970992s-10.9608 1.45650992-15.7487 4.22194992c-4.788 2.76543-8.76341 6.74275-11.52666 11.53185l13.63766 23.6212.0035.0019c-1.3837-2.394-2.1127-5.11-2.1136-7.8751s.7264-5.4817 2.1086-7.8765c1.3821-2.3948 3.3706-4.3835 5.7652-5.7659 2.3947-1.3825 5.1112-2.11 7.8763-2.1094z" fill="url(#c)"/>
             </svg>
-        </lib-avatar>
+        </ode-avatar>
       `
     }
   }
@@ -190,7 +190,7 @@ export const AllSizes: Story = {
     ].join(' ');
 
     const template_string = tailwind_sizes_values
-      .map(i => `<lib-avatar  ${inputs} size="${i}" />`)
+      .map(i => `<ode-avatar  ${inputs} size="${i}" />`)
       .join('\n')
     return {
       styles: [

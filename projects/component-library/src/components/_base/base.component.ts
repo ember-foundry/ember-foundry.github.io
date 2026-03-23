@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, Signal} from '@angular/core';
 
 @Component({
-  selector: 'lib-base',
+  selector: 'ode-base',
   template: '',
   host: {
     '[class]': 'component_to_css_class()'

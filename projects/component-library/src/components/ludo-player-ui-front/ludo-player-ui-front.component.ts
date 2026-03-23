@@ -3,7 +3,7 @@ import {BaseComponent} from '../_base/base.component';
 import {DiceFlatComponent} from '../dice-flat/dice-flat.component';
 
 @Component({
-  selector: 'lib-ludo-player-ui-front',
+  selector: 'ode-ludo-player-ui-front',
   templateUrl: 'ludo-player-ui-front.component.html',
   styleUrl: 'ludo-player-ui-front.component.scss',
   host: {

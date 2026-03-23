@@ -9,7 +9,7 @@ const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
 
 @Component({
-  selector: 'lib-baseline-availability',
+  selector: 'ode-baseline-availability',
   imports: [
     AvatarComponent,
     AvatarGroupComponent,

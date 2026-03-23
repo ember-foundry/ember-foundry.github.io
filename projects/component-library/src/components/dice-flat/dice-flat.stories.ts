@@ -34,7 +34,7 @@ export const Sample: Story = {
     ].join(' ')
     const template = `
       <div style="width: 400px; aspect-ratio: 1">
-        <lib-dice-flat ${inputs} />
+        <ode-dice-flat ${inputs} />
       </div>
     `;
     return {
@@ -51,7 +51,7 @@ export const InheritsColor: Story = {
     ].join(' ')
     const template = `
       <div style="width: 400px; aspect-ratio: 1; color: gray">
-        <lib-dice-flat ${inputs} />
+        <ode-dice-flat ${inputs} />
       </div>
     `;
     return {

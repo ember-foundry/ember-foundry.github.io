@@ -1,5 +1,5 @@
 {
-  "name": "@craigiswayne/component-library",
+  "name": "@opendoorecosystem/component-library",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^21.1.3",

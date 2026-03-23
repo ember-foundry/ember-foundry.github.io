@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ohmyadmin": {
+    "opendoorecosystem": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ohmyadmin:build:production"
+              "buildTarget": "opendoorecosystem:build:production"
             },
             "development": {
-              "buildTarget": "ohmyadmin:build:development"
+              "buildTarget": "opendoorecosystem:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
       "projectType": "library",
       "root": "projects/component-library",
       "sourceRoot": "projects/component-library/src",
-      "prefix": "lib",
+      "prefix": "ode",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

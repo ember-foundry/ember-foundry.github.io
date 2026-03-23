@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  selector: 'lib-google-ticket',
+  selector: 'ode-google-ticket',
   templateUrl: 'google-ticket.component.html',
   styleUrl: 'google-ticket.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

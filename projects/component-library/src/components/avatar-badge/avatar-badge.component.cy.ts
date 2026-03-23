@@ -9,7 +9,7 @@ const imports = [
 
 describe('AvatarBadgeComponent', () => {
   it('Simple', () => {
-    mount(`<lib-avatar-badge><lib-avatar name="Jane Doe" /></lib-avatar-badge>`, {
+    mount(`<ode-avatar-badge><ode-avatar name="Jane Doe" /></ode-avatar-badge>`, {
       imports
     });
 
@@ -39,7 +39,7 @@ describe('AvatarBadgeComponent', () => {
   it('Responsive Test (height is constrained)', () => {
     mount(`
       <div class='container' style="height:30px;width:200px;display:flex;container-type:size;background:blue;justify-items:start;align-items: start;">
-        <lib-avatar-badge><lib-avatar name="Jane Doe" /></lib-avatar-badge>
+        <ode-avatar-badge><ode-avatar name="Jane Doe" /></ode-avatar-badge>
       </div>
     `, {
       imports
@@ -49,7 +49,7 @@ describe('AvatarBadgeComponent', () => {
   it('Responsive Test (width is constrained)', () => {
     mount(`
       <div class='container' style="width:30px;height:200px;display:flex;container-type:size;background:blue;justify-items:start;align-items: start;">
-        <lib-avatar-badge><lib-avatar name="Jane Doe" /></lib-avatar-badge>
+        <ode-avatar-badge><ode-avatar name="Jane Doe" /></ode-avatar-badge>
       </div>
     `, {
       imports

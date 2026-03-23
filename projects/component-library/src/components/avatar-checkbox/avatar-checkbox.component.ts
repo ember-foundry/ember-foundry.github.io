@@ -6,7 +6,7 @@ import {BaseComponent} from '../_base/base.component';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'lib-avatar-checkbox lib-avatar',
+  selector: 'ode-avatar-checkbox ode-avatar',
   host: {
     '[style.--avatar-padding]': "'var(--avatar-border-width)'"
   }
@@ -15,7 +15,7 @@ export class AvatarInsideAvatarCheckboxDirective {}
 
 
 @Component({
-  selector: 'lib-avatar-checkbox',
+  selector: 'ode-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,
     AvatarComponent,

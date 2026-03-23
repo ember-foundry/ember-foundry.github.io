@@ -18,9 +18,10 @@ interface PipPosition {
 }
 
 @Component({
-  selector: 'lib-dice-flat',
+  selector: 'ode-dice-flat',
   templateUrl: 'dice-flat.component.html',
   styleUrl: 'dice-flat.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DiceFlatComponent extends BaseComponent {

@@ -91,11 +91,11 @@ export const AvatarNameAndLink: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-with-label ${inputs}>
+        <ode-avatar-with-label ${inputs}>
           <a libAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
-       </lib-avatar-with-label>
+       </ode-avatar-with-label>
       `
     }
   },

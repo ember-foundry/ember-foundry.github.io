@@ -79,7 +79,7 @@ export const Sample: Story = {
         `.row { min-height: 200px; min-width: 400px;}`
       ],
       template: `
-        <lib-row
+        <ode-row
             [gap]="${args.gap}"
             [direction]="${args.direction}"
             [inline]="${args.inline}"
@@ -87,16 +87,16 @@ export const Sample: Story = {
             [justify_content]="${args.justify_content}"
             [align_content]="${args.align_content}"
         >
-          <lib-column>1</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">2</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">3</lib-column>
-          <lib-column>4</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">5</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">6</lib-column>
-          <lib-column>7</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">8</lib-column>
-          <lib-column style="width: var(--example-block-size-large)">9</lib-column>
-        </lib-row>
+          <ode-column>1</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">2</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">3</ode-column>
+          <ode-column>4</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">5</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">6</ode-column>
+          <ode-column>7</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">8</ode-column>
+          <ode-column style="width: var(--example-block-size-large)">9</ode-column>
+        </ode-row>
       `
     }
   },
@@ -114,17 +114,17 @@ export const FlexDirectionRow: Story = {
       column_styles
     ],
     template: `
-      <lib-row [gap]="10" direction="row">
-        <lib-column>1</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">3</lib-column>
-        <lib-column>4</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">5</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">6</lib-column>
-        <lib-column>7</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">8</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">9</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" direction="row">
+        <ode-column>1</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">2</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">3</ode-column>
+        <ode-column>4</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">5</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">6</ode-column>
+        <ode-column>7</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">8</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">9</ode-column>
+      </ode-row>
     `
   })
 };
@@ -138,17 +138,17 @@ export const FlexDirectionRowReverse: Story = {
       column_styles
     ],
     template: `
-      <lib-row [gap]="10" direction="row-reverse">
-        <lib-column>1</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">3</lib-column>
-        <lib-column>4</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">5</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">6</lib-column>
-        <lib-column>7</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">8</lib-column>
-        <lib-column style="width: var(--example-block-size-large)">9</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" direction="row-reverse">
+        <ode-column>1</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">2</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">3</ode-column>
+        <ode-column>4</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">5</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">6</ode-column>
+        <ode-column>7</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">8</ode-column>
+        <ode-column style="width: var(--example-block-size-large)">9</ode-column>
+      </ode-row>
     `
   })
 };
@@ -163,17 +163,17 @@ export const FlexDirectionColumn: Story = {
       `.row { width: unset; height: 302px; }`
     ],
     template: `
-      <lib-row [gap]="10" [inline]="true" direction="column">
-        <lib-column>1</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">3</lib-column>
-        <lib-column>4</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">5</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">6</lib-column>
-        <lib-column>7</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">8</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">9</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" [inline]="true" direction="column">
+        <ode-column>1</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">2</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">3</ode-column>
+        <ode-column>4</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">5</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">6</ode-column>
+        <ode-column>7</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">8</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">9</ode-column>
+      </ode-row>
     `
   })
 };
@@ -188,17 +188,17 @@ export const FlexDirectionColumnReverse: Story = {
       `.row { width: unset; height: 302px; }`
     ],
     template: `
-      <lib-row [gap]="10" [inline]="true" direction="column-reverse">
-        <lib-column>1</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">3</lib-column>
-        <lib-column>4</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">5</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">6</lib-column>
-        <lib-column>7</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">8</lib-column>
-        <lib-column style="height: var(--example-block-size-large)">9</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" [inline]="true" direction="column-reverse">
+        <ode-column>1</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">2</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">3</ode-column>
+        <ode-column>4</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">5</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">6</ode-column>
+        <ode-column>7</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">8</ode-column>
+        <ode-column style="height: var(--example-block-size-large)">9</ode-column>
+      </ode-row>
     `
   })
 };
@@ -212,11 +212,11 @@ export const AlignItemsFlexStart: Story = {
       column_styles
     ],
     template: `
-      <lib-row [gap]="10" align_items="flex-start">
-        <lib-column>1</lib-column>
-        <lib-column style="width: var(--example-block-size-small); height: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="width: var(--example-block-size-small); height: var(--example-block-size-medium)">3</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" align_items="flex-start">
+        <ode-column>1</ode-column>
+        <ode-column style="width: var(--example-block-size-small); height: var(--example-block-size-large)">2</ode-column>
+        <ode-column style="width: var(--example-block-size-small); height: var(--example-block-size-medium)">3</ode-column>
+      </ode-row>
     `
   })
 };
@@ -230,11 +230,11 @@ export const AlignItemsCenter: Story = {
       column_styles
     ],
     template: `
-      <lib-row [gap]="10" align_items="center">
-        <lib-column>1</lib-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</lib-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</lib-column>
-      </lib-row>
+      <ode-row [gap]="10" align_items="center">
+        <ode-column>1</ode-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</ode-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</ode-column>
+      </ode-row>
     `
   })
 };
@@ -249,8 +249,8 @@ export const AlignItemsFlexEnd: Story = {
     ],
     template: `
       <lib-row [gap]="10" align_items="flex-end">
-        <lib-column>1</lib-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</lib-column>
+        <lib-column>1</ode-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</ode-column>
         <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</lib-column>
       </lib-row>
     `

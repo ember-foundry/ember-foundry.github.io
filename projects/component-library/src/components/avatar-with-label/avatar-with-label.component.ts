@@ -5,7 +5,7 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[lib-avatar-label], [libAvatarLabel]',
+  selector: '[ode-avatar-label], [libAvatarLabel]',
   standalone: true,
   template: `<ng-content />`,
   styles: `
@@ -19,7 +19,7 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 export class AvatarLabelComponent {}
 
 @Component({
-  selector: 'lib-avatar-with-label',
+  selector: 'ode-avatar-with-label',
   standalone: true,
   templateUrl: 'avatar-with-label.component.html',
   styleUrl: 'avatar-with-label.component.scss',
