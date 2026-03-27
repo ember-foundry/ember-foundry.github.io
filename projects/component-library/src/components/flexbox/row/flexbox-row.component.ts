@@ -9,7 +9,7 @@ import {PixelsPipe} from '../../../pipes/pixels/pixels.pipe';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
-  selector: 'ode-row',
+  selector: 'mbr-row',
   templateUrl: 'flexbox-row.component.html',
   styleUrl: 'flexbox-row.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

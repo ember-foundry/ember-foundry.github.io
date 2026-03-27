@@ -18,7 +18,7 @@ export class AvatarImageDirective {
 }
 
 @Component({
-  selector: 'ode-avatar',
+  selector: 'mbr-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
   imports: [

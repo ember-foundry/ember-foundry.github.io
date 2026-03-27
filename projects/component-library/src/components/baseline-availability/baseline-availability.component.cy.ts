@@ -3,7 +3,7 @@ import {BaselineAvailabilityComponent} from 'component-library';
 
 describe('BaselineAvailability', () => {
   it('All Supported', () => {
-    mount(`<ode-baseline-availability [supported]="['chrome', 'firefox', 'edge', 'safari']"/>`, {
+    mount(`<mbr-baseline-availability [supported]="['chrome', 'firefox', 'edge', 'safari']"/>`, {
       imports: [
         BaselineAvailabilityComponent
       ]
@@ -25,7 +25,7 @@ describe('BaselineAvailability', () => {
   });
 
   it('Mixed Support', () => {
-    mount(`<ode-baseline-availability [supported]="['chrome', 'edge']"/>`, {
+    mount(`<mbr-baseline-availability [supported]="['chrome', 'edge']"/>`, {
       imports: [
         BaselineAvailabilityComponent
       ]
@@ -47,7 +47,7 @@ describe('BaselineAvailability', () => {
   });
 
   it('All Unsupported', () => {
-    mount(`<ode-baseline-availability />`, {
+    mount(`<mbr-baseline-availability />`, {
       imports: [
         BaselineAvailabilityComponent
       ]

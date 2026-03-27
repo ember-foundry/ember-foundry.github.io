@@ -1,35 +1,104 @@
-import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {PlayerSelectComponent} from 'component-library';
+import {Meta, StoryObj} from '@storybook/angular';
+import {MBRPlayerSelectComponent} from 'component-library';
 
-const meta: Meta<PlayerSelectComponent> = {
-  component: PlayerSelectComponent,
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [
-  //       PlayerSelectComponent
-  //     ]
-  //   })
-  // ],
+const meta: Meta<MBRPlayerSelectComponent> = {
+  component: MBRPlayerSelectComponent,
   tags: ['autodocs','player','player select','game','ui'],
-  // argTypes: {
-  //   last_roll: {
-  //     type: 'number',
-  //     min: 1,
-  //     max: 6,
-  //     step: 1
-  //   }
-  // },
-  // args: {
-  //   name: 'Kim',
-  //   color: 'red',
-  //   is_my_turn: false,
-  //   avatar: 'http://localhost:4200/assets/images/kim.png'
-  // }
+  args: {
+    players: [
+      {
+        id: '0',
+        color: 'rgba(229, 57, 53, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-rory-transparent.png'
+      },
+      {
+        id: '1',
+        color: 'rgba(251, 188, 5, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-ahmed-transparent.png'
+      },
+      {
+        id: '2',
+        color: 'rgba(66, 134, 244, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-kim-transparent.png'
+      },
+      {
+        id: '3',
+        color: 'rgba(52, 168, 83, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-tumi-transparent.png'
+      }
+    ]
+  }
 }
 
 export default meta;
 
-type Story = StoryObj<PlayerSelectComponent>;
+type Story = StoryObj<MBRPlayerSelectComponent>;
 
 export const Sample: Story = {}
+
+export const WithSecondPlayerInactive: Story = {
+  args: {
+    players: [
+      {
+        id: '0',
+        color: 'rgba(229, 57, 53, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-rory-transparent.png'
+      },
+      {
+        id: '1',
+        color: 'rgba(251, 188, 5, 0.7)',
+        state: 'inactive',
+        image_url: 'http://localhost:4200/assets/images/pose-ahmed-transparent.png'
+      },
+      {
+        id: '2',
+        color: 'rgba(66, 134, 244, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-kim-transparent.png'
+      },
+      {
+        id: '3',
+        color: 'rgba(52, 168, 83, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-tumi-transparent.png'
+      }
+    ]
+  }
+}
+
+export const WithThirdPlayerAsCPU: Story = {
+  args: {
+    players: [
+      {
+        id: '0',
+        color: 'rgba(229, 57, 53, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-rory-transparent.png'
+      },
+      {
+        id: '1',
+        color: 'rgba(251, 188, 5, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-ahmed-transparent.png'
+      },
+      {
+        id: '2',
+        color: 'rgba(66, 134, 244, 0.7)',
+        state: 'cpu',
+        image_url: 'http://localhost:4200/assets/images/pose-kim-transparent.png'
+      },
+      {
+        id: '3',
+        color: 'rgba(52, 168, 83, 0.7)',
+        state: 'human',
+        image_url: 'http://localhost:4200/assets/images/pose-tumi-transparent.png'
+      }
+    ]
+  }
+}
 

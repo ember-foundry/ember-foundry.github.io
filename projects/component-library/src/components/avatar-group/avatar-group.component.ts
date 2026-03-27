@@ -16,7 +16,7 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'ode-avatar-group ode-avatar',
+  selector: 'mbr-avatar-group ode-avatar',
   host: {
     '[style.margin-right]': 'is_last_child ? undefined : overlapValue'
   }
@@ -33,7 +33,7 @@ export class AvatarWithinGroupDirective {
 }
 
 @Component({
-  selector: 'ode-avatar-group',
+  selector: 'mbr-avatar-group',
   templateUrl: './avatar-group.component.html',
   styleUrl: './avatar-group.component.scss',
   imports: [

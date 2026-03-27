@@ -59,18 +59,18 @@ export const Sample: Story = {
     ].join(' ');
     return {
       template: `
-        <ode-avatar-group ${inputs}>
-          <ode-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Joe Soap" />
-          <ode-avatar libRandomMilkyBackground name="Jane Doe" />
-          <ode-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
-          <ode-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
-        </ode-avatar-group>
+        <mbr-avatar-group ${inputs}>
+          <mbr-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Joe Soap" />
+          <mbr-avatar libRandomMilkyBackground name="Jane Doe" />
+          <mbr-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
+        </mbr-avatar-group>
       `
     }
   },
@@ -92,18 +92,18 @@ export const IndividualBorderedValues: Story = {
     ].join(' ');
     return {
       template: `
-        <ode-avatar-group ${inputs}>
-          <ode-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" [bordered]="false" />
-          <ode-avatar libRandomMilkyBackground name="Joe Soap" [bordered]="false" />
-          <ode-avatar libRandomMilkyBackground name="Jane Doe" [bordered]="true" />
-          <ode-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
-          <ode-avatar libRandomMilkyBackground name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
-          <ode-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
-        </ode-avatar-group>
+        <mbr-avatar-group ${inputs}>
+          <mbr-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" [bordered]="false" />
+          <mbr-avatar libRandomMilkyBackground name="Joe Soap" [bordered]="false" />
+          <mbr-avatar libRandomMilkyBackground name="Jane Doe" [bordered]="true" />
+          <mbr-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
+          <mbr-avatar libRandomMilkyBackground name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
+        </mbr-avatar-group>
       `
     }
   },

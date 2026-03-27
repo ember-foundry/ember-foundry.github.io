@@ -79,7 +79,7 @@ export const Sample: Story = {
         `.row { min-height: 200px; min-width: 400px;}`
       ],
       template: `
-        <ode-row
+        <mbr-row
             [gap]="${args.gap}"
             [direction]="${args.direction}"
             [inline]="${args.inline}"
@@ -87,16 +87,16 @@ export const Sample: Story = {
             [justify_content]="${args.justify_content}"
             [align_content]="${args.align_content}"
         >
-          <ode-column>1</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">2</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">3</ode-column>
-          <ode-column>4</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">5</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">6</ode-column>
-          <ode-column>7</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">8</ode-column>
-          <ode-column style="width: var(--example-block-size-large)">9</ode-column>
-        </ode-row>
+          <mbr-column>1</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">2</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">3</mbr-column>
+          <mbr-column>4</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">5</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">6</mbr-column>
+          <mbr-column>7</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">8</mbr-column>
+          <mbr-column style="width: var(--example-block-size-large)">9</mbr-column>
+        </mbr-row>
       `
     }
   },
@@ -114,17 +114,17 @@ export const FlexDirectionRow: Story = {
       column_styles
     ],
     template: `
-      <ode-row [gap]="10" direction="row">
-        <ode-column>1</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">2</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">3</ode-column>
-        <ode-column>4</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">5</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">6</ode-column>
-        <ode-column>7</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">8</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">9</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" direction="row">
+        <mbr-column>1</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">2</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">3</mbr-column>
+        <mbr-column>4</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">5</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">6</mbr-column>
+        <mbr-column>7</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">8</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">9</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -138,17 +138,17 @@ export const FlexDirectionRowReverse: Story = {
       column_styles
     ],
     template: `
-      <ode-row [gap]="10" direction="row-reverse">
-        <ode-column>1</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">2</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">3</ode-column>
-        <ode-column>4</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">5</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">6</ode-column>
-        <ode-column>7</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">8</ode-column>
-        <ode-column style="width: var(--example-block-size-large)">9</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" direction="row-reverse">
+        <mbr-column>1</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">2</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">3</mbr-column>
+        <mbr-column>4</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">5</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">6</mbr-column>
+        <mbr-column>7</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">8</mbr-column>
+        <mbr-column style="width: var(--example-block-size-large)">9</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -163,17 +163,17 @@ export const FlexDirectionColumn: Story = {
       `.row { width: unset; height: 302px; }`
     ],
     template: `
-      <ode-row [gap]="10" [inline]="true" direction="column">
-        <ode-column>1</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">2</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">3</ode-column>
-        <ode-column>4</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">5</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">6</ode-column>
-        <ode-column>7</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">8</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">9</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" [inline]="true" direction="column">
+        <mbr-column>1</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">2</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">3</mbr-column>
+        <mbr-column>4</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">5</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">6</mbr-column>
+        <mbr-column>7</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">8</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">9</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -188,17 +188,17 @@ export const FlexDirectionColumnReverse: Story = {
       `.row { width: unset; height: 302px; }`
     ],
     template: `
-      <ode-row [gap]="10" [inline]="true" direction="column-reverse">
-        <ode-column>1</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">2</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">3</ode-column>
-        <ode-column>4</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">5</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">6</ode-column>
-        <ode-column>7</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">8</ode-column>
-        <ode-column style="height: var(--example-block-size-large)">9</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" [inline]="true" direction="column-reverse">
+        <mbr-column>1</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">2</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">3</mbr-column>
+        <mbr-column>4</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">5</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">6</mbr-column>
+        <mbr-column>7</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">8</mbr-column>
+        <mbr-column style="height: var(--example-block-size-large)">9</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -212,11 +212,11 @@ export const AlignItemsFlexStart: Story = {
       column_styles
     ],
     template: `
-      <ode-row [gap]="10" align_items="flex-start">
-        <ode-column>1</ode-column>
-        <ode-column style="width: var(--example-block-size-small); height: var(--example-block-size-large)">2</ode-column>
-        <ode-column style="width: var(--example-block-size-small); height: var(--example-block-size-medium)">3</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" align_items="flex-start">
+        <mbr-column>1</mbr-column>
+        <mbr-column style="width: var(--example-block-size-small); height: var(--example-block-size-large)">2</mbr-column>
+        <mbr-column style="width: var(--example-block-size-small); height: var(--example-block-size-medium)">3</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -230,11 +230,11 @@ export const AlignItemsCenter: Story = {
       column_styles
     ],
     template: `
-      <ode-row [gap]="10" align_items="center">
-        <ode-column>1</ode-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</ode-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</ode-column>
-      </ode-row>
+      <mbr-row [gap]="10" align_items="center">
+        <mbr-column>1</mbr-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</mbr-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</mbr-column>
+      </mbr-row>
     `
   })
 };
@@ -249,8 +249,8 @@ export const AlignItemsFlexEnd: Story = {
     ],
     template: `
       <lib-row [gap]="10" align_items="flex-end">
-        <lib-column>1</ode-column>
-        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</ode-column>
+        <lib-column>1</mbr-column>
+        <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-large)">2</mbr-column>
         <lib-column style="width: var(--example-block-size-small); min-height: var(--example-block-size-medium)">3</lib-column>
       </lib-row>
     `

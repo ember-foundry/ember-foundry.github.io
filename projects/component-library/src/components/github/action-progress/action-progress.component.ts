@@ -2,7 +2,7 @@ import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
-  selector: 'ode-action-progress',
+  selector: 'mbr-action-progress',
   templateUrl: './action-progress.component.html',
   styleUrl: 'action-progress.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

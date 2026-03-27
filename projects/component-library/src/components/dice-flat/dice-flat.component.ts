@@ -19,7 +19,7 @@ interface PipPosition {
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'ode-dice-flat',
+  selector: 'mbr-dice-flat',
   templateUrl: 'dice-flat.component.html',
   styleUrl: 'dice-flat.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

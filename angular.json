@@ -79,7 +79,7 @@
       "projectType": "library",
       "root": "projects/component-library",
       "sourceRoot": "projects/component-library/src",
-      "prefix": "ode",
+      "prefix": "mbr",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

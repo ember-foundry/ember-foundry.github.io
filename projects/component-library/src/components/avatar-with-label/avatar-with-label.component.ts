@@ -19,7 +19,7 @@ export class AvatarLabelComponent {}
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'ode-avatar-with-label',
+  selector: 'mbr-avatar-with-label',
   templateUrl: 'avatar-with-label.component.html',
   styleUrl: 'avatar-with-label.component.scss',
   imports: [

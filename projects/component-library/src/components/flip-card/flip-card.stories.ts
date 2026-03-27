@@ -46,10 +46,10 @@ export const TwoImagesSameSize: Story = {
     ].join(' ');
     return {
       template: `
-        <ode-flip-card ${inputs}>
+        <mbr-flip-card ${inputs}>
           <img ngProjectAs="front" src="https://placehold.co/200x200?text=Front+(200x200)"  alt="front image"/>
           <img ngProjectAs="back" src="https://placehold.co/200x200?text=Back+(200x200)"  alt="back image"/>
-       </ode-flip-card>
+       </mbr-flip-card>
       `
     }
   }
@@ -65,10 +65,10 @@ export const FrontSideLarger: Story = {
     ].join(' ');
     return {
       template: `
-        <ode-flip-card ${inputs}>
+        <mbr-flip-card ${inputs}>
           <img ngProjectAs="front" src="https://placehold.co/200x200?text=Front+(200x200)"  alt="front image"/>
           <img ngProjectAs="back" src="https://placehold.co/150x150?text=Back+(150x150)"  alt="back image"/>
-       </ode-flip-card>
+       </mbr-flip-card>
       `
     }
   }
@@ -85,10 +85,10 @@ export const BackSideLarger: Story = {
     ].join(' ');
     return {
       template: `
-        <ode-flip-card ${inputs}>
+        <mbr-flip-card ${inputs}>
           <img ngProjectAs="front" src="https://placehold.co/150x150?text=Front+(150x150)"  alt="front image"/>
           <img ngProjectAs="back" src="https://placehold.co/600x200?text=Back+(200x200)"  alt="back image"/>
-       </ode-flip-card>
+       </mbr-flip-card>
       `
     }
   }

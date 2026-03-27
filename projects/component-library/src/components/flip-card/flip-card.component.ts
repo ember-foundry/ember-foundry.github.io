@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, input, signal} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
 
 @Component({
-  selector: 'ode-flip-card',
+  selector: 'mbr-flip-card',
   templateUrl: './flip-card.component.html',
   styleUrl: './flip-card.component.scss',
   host: {

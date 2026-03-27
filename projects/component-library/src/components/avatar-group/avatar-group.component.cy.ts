@@ -4,18 +4,18 @@ import {AvatarComponent} from 'component-library';
 
 describe('AvatarGroupComponent', () => {
   it('Sample', () => {
-    mount(`<ode-avatar-group>
-          <ode-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-          <ode-avatar name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" />
-          <ode-avatar name="Joe Soap" />
-          <ode-avatar name="Jane Doe" />
-          <ode-avatar name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
-          <ode-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
-          <ode-avatar name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
-          <ode-avatar name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
-          <ode-avatar name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
-          <ode-avatar name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
-        </ode-avatar-group>`, {
+    mount(`<mbr-avatar-group>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+          <mbr-avatar name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/2.jpg" />
+          <mbr-avatar name="Joe Soap" />
+          <mbr-avatar name="Jane Doe" />
+          <mbr-avatar name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/5.jpg" />
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/6.jpg" />
+          <mbr-avatar name="Natasha Hinter" image_url="https://mockmind-api.uifaces.co/content/human/7.jpg" />
+          <mbr-avatar name="Joe Soap" image_url="https://mockmind-api.uifaces.co/content/human/8.jpg" />
+          <mbr-avatar name="Jane Doe" image_url="https://mockmind-api.uifaces.co/content/human/9.jpg" />
+          <mbr-avatar name="John Wayne" image_url="https://mockmind-api.uifaces.co/content/human/10.jpg" />
+        </mbr-avatar-group>`, {
       imports: [
         AvatarComponent,
         AvatarGroupComponent
@@ -32,7 +32,7 @@ describe('AvatarGroupComponent', () => {
   });
 
   it('Should have 2 dummy avatars when none are provided', () => {
-    mount(`<ode-avatar-group />`, {
+    mount(`<mbr-avatar-group />`, {
       imports: [
         AvatarGroupComponent
       ]

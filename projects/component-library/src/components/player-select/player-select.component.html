@@ -1,9 +1,9 @@
-<div class="title">PLAYER SELECT</div>
+<h1 class="title">PLAYER SELECT</h1>
 <section>
-  @for(player of players(); track player.image; let index = $index){
-    <button class="plate" (click)="cycle_player_state(player)" [class]="player.state">
+  @for(player of players(); let index = $index; track index;){
+    <button class="plate" (click)="cycle_player_state(player)" [class]="player.state" [style.--color]="player.color">
       <div class="background"></div>
-      <img [src]="player.image"  alt="Player Avatar" />
+      <img [src]="player.image_url"  alt="Player Avatar" />
       @if(player.state !== 'inactive'){
         <span class="label">
         @if(player.state === 'cpu'){

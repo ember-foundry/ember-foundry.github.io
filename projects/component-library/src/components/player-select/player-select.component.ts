@@ -1,41 +1,35 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, model, output} from '@angular/core';
 
 const states = ['human', 'cpu', 'inactive'] as const;
+
+export interface SelectedPlayer {
+  state: PlayerState;
+  id: string;
+}
+
+export interface PlayerAvailableForSelection extends SelectedPlayer {
+  color: string;
+  image_url: string;
+}
+
 type PlayerState = typeof states[number];
 
-const AVAILABLE_CHARACTERS: { state: PlayerState, image: string }[] = [
-  {
-    state: 'human',
-    image: 'http://localhost:4200/assets/images/pose-rory-transparent.png'
-  },
-  {
-    state: 'human',
-    image: 'http://localhost:4200/assets/images/pose-ahmed-transparent.png'
-  },
-  {
-    state: 'human',
-    image: 'http://localhost:4200/assets/images/pose-kim-transparent.png'
-  },
-  {
-    state: 'human',
-    image: 'http://localhost:4200/assets/images/pose-tumi-transparent.png'
-  }
-];
-
 @Component({
-  selector: 'player-select',
+  selector: 'mbr-player-select',
   templateUrl: './player-select.component.html',
   styleUrls: ['./player-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PlayerSelectComponent {
-  protected players = signal(AVAILABLE_CHARACTERS);
+export class MBRPlayerSelectComponent {
 
-  protected cycle_player_state(player_to_update: typeof AVAILABLE_CHARACTERS[number]): void {
+  public players = model<PlayerAvailableForSelection[]>([]);
+  public ready = output<SelectedPlayer[]>();
+
+  protected cycle_player_state(player_to_update: PlayerAvailableForSelection): void {
     const current_state_index = states.indexOf(player_to_update.state);
 
-    this.players.update((players) => players.map(player => {
-      if (player.image !== player_to_update.image) {
+    this.players.update((players) => players!.map(player => {
+      if (player.image_url !== player_to_update.image_url) {
         return player;
       }
       player.state = states[(current_state_index + 1) % states.length];
@@ -44,13 +38,13 @@ export class PlayerSelectComponent {
   }
 
   protected get_human_player_index(index: number): number {
-    return this.players()
+    return this.players()!
       .slice(0, index)
       .filter(p => p.state === 'human')
       .length;
   }
 
   protected async start(): Promise<void> {
-    console.log('players', this.players().filter(p => p.state !== 'inactive'));
+    this.ready.emit(this.players()!.filter(p => p.state !== 'inactive'));
   }
 }
