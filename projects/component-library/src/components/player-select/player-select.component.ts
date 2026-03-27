@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, model, output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, model, output, signal} from '@angular/core';
 
 const states = ['human', 'cpu', 'inactive'] as const;
 
@@ -24,6 +24,7 @@ export class MBRPlayerSelectComponent {
 
   public players = model<PlayerAvailableForSelection[]>([]);
   public ready = output<SelectedPlayer[]>();
+  protected valid = signal(true);
 
   protected cycle_player_state(player_to_update: PlayerAvailableForSelection): void {
     const current_state_index = states.indexOf(player_to_update.state);
@@ -45,6 +46,12 @@ export class MBRPlayerSelectComponent {
   }
 
   protected async start(): Promise<void> {
-    this.ready.emit(this.players()!.filter(p => p.state !== 'inactive'));
+    const players = this.players()!.filter(p => p.state !== 'inactive');
+    if(players.length < 2){
+      this.valid.set(false);
+      return;
+    }
+    this.valid.set(true);
+    this.ready.emit(players);
   }
 }

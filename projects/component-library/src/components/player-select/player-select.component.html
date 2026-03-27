@@ -16,4 +16,4 @@
     </button>
   }
 </section>
-<button type="submit" (click)="start()">START</button>
+<button type="submit" (click)="start()" [class.invalid]="!valid()" (animationend)="valid.set(true)">START</button>

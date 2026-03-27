@@ -42,10 +42,15 @@
   @include text-outline(1px, var(--text-outline-color));
 }
 
+.title {
+  animation: skid_in_from_left 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+}
+
 section {
   column-gap: 60px;
   display: flex;
   justify-content: space-evenly;
+  animation: pop_in 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
 }
 
 .plate {
@@ -137,6 +142,10 @@ button[type="submit"] {
     right: -1px;
     box-shadow: -10px 12px 0 5px rgba(0, 0, 0, 0.6);
   }
+
+  &.invalid {
+    animation: disagree 0.4s;
+  }
 }
 
 .plate:nth-child(1) .background {
@@ -164,3 +173,30 @@ button[type="submit"] {
   }
 }
 
+@keyframes skid_in_from_left {
+  from {
+    transform: translateX(-1000px) skewX(4deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) skewX(-4deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pop_in {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes disagree {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
