@@ -1,7 +1,7 @@
-<h1 class="title">PLAYER SELECT</h1>
+<div class="title">PLAYER SELECT</div>
 <section>
   @for(player of players(); track player.image; let index = $index){
-    <div class="plate" (click)="cycle_player_state(player)" [class]="player.state">
+    <button class="plate" (click)="cycle_player_state(player)" [class]="player.state">
       <div class="background"></div>
       <img [src]="player.image"  alt="Player Avatar" />
       @if(player.state !== 'inactive'){
@@ -9,10 +9,11 @@
         @if(player.state === 'cpu'){
           CPU
         } @else {
-          {{index+1}}P
+          {{ get_human_player_index(index) + 1}}P
         }
       </span>
       }
-    </div>
+    </button>
   }
 </section>
+<button type="submit" (click)="start()">START</button>
