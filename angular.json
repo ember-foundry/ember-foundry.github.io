@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "opendoorecosystem": {
+    "ember-foundry": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "opendoorecosystem:build:production"
+              "buildTarget": "ember-foundry:build:production"
             },
             "development": {
-              "buildTarget": "opendoorecosystem:build:development"
+              "buildTarget": "ember-foundry:build:development"
             }
           },
           "defaultConfiguration": "development"

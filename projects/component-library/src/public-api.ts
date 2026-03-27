@@ -11,6 +11,7 @@ export * from './components/flip-card/flip-card.component';
 export * from './components/ludo-player-ui-front/ludo-player-ui-front.component';
 export * from './components/github/action-progress/action-progress.component';
 export * from './components/google-ticket/google-ticket.component';
+export * from './components/player-select/player-select.component';
 export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './pipes/initials/initials.pipe';

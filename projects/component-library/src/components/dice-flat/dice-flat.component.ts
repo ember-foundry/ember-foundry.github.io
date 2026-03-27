@@ -18,10 +18,10 @@ interface PipPosition {
 }
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ode-dice-flat',
   templateUrl: 'dice-flat.component.html',
   styleUrl: 'dice-flat.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DiceFlatComponent extends BaseComponent {

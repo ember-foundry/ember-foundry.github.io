@@ -1,0 +1,18 @@
+<h1 class="title">PLAYER SELECT</h1>
+<section>
+  @for(player of players(); track player.image; let index = $index){
+    <div class="plate" (click)="cycle_player_state(player)" [class]="player.state">
+      <div class="background"></div>
+      <img [src]="player.image"  alt="Player Avatar" />
+      @if(player.state !== 'inactive'){
+        <span class="label">
+        @if(player.state === 'cpu'){
+          CPU
+        } @else {
+          {{index+1}}P
+        }
+      </span>
+      }
+    </div>
+  }
+</section>
