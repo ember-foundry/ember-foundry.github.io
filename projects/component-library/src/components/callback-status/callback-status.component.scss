@@ -3,12 +3,12 @@
   --color-error: #ef4444;
   --color-processing: #3b82f6;
   --color-muted: #64748b;
-  --color-white: #ffffff;
+  --color-white: #fff;
 
   align-items: center;
   background: var(--color-white);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -24,17 +24,17 @@
 }
 
 svg {
-  width: 5rem;
   height: 5rem;
   stroke: var(--color-stroke);
+  width: 5rem;
 
   path {
+    animation: stroke-animation 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
     fill: none;
-    stroke-width: 4;
-    stroke-linecap: round;
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
-    animation: stroke_anim 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    stroke-linecap: round;
+    stroke-width: 4;
   }
 }
 
@@ -49,21 +49,22 @@ svg {
 :host(.status-success),
 :host(.status-error) {
   svg circle {
+    animation: stroke-animation 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
     stroke-dasharray: 166;
     stroke-dashoffset: 166;
-    animation: stroke_anim 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
   }
 }
 
 :host(.status-processing) svg {
   --color-stroke: var(--color-processing);
-  animation: rotate_anim 2s linear infinite;
+
+  animation: rotate 2s linear infinite;
 
   circle {
+    animation: dash-animation 1.5s ease-in-out infinite;
     stroke-dasharray: 90, 150;
     stroke-dashoffset: 0;
     stroke-linecap: round;
-    animation: dash_anim 1.5s ease-in-out infinite;
   }
 }
 
@@ -92,27 +93,29 @@ button {
   }
 }
 
-@keyframes stroke_anim {
+@keyframes stroke-animation {
   100% {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes rotate_anim {
+@keyframes rotate {
   100% {
     transform: rotate(360deg);
   }
 }
 
-@keyframes dash_anim {
+@keyframes dash-animation {
   0% {
     stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
+
   100% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;

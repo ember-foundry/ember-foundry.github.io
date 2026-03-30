@@ -7,6 +7,7 @@
   position: relative;
   width: min(var(--size, var(--size-md)), 100cqmin);
 
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   .badge, ::ng-deep [ngProjectAs="badge"] {
     aspect-ratio: 1;
     background: var(--avatar-badge-color, #{colors.$status-offline});
@@ -26,10 +27,12 @@
 :host(.notch) {
   --avatar-badge-size: 22.8cqmin;
 
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   .badge, ::ng-deep [ngProjectAs="badge"] {
     transform: translate(-16%, -16%);
   }
 
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   ::ng-deep lib-avatar{
     img, svg, .text {
       $notch-size: 15cqmin;

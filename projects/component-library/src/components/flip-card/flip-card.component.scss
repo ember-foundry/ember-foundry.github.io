@@ -2,19 +2,27 @@
   display: inline-flex;
   perspective: 1000px;
 
+  .side {
+    backface-visibility: hidden;
+    display: flex;
+    grid-area: 1 / 1;
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
   &.horizontal_alignment-center {
     .side {
       justify-content: center;
     }
   }
 
+  /* stylelint-disable-next-line selector-class-pattern */
   &.vertical_alignment-center {
     .side {
       align-items: center;
     }
   }
 
-  [ngprojectas=front]{
+  [ngprojectas="front"]{
     background: red;
   }
 }
@@ -22,39 +30,42 @@
 .flipper {
   display: grid;
   height: fit-content;
-  transition: transform 0.8s;
   transform-style: preserve-3d;
+  transition: transform 0.8s;
   width: fit-content;
 }
 
-.side {
-  backface-visibility: hidden;
-  display: flex;
-  grid-area: 1 / 1;
-}
+$rotation-degrees: 180deg;
 
-$rotation_degrees: 180deg;
+/* stylelint-disable-next-line selector-class-pattern */
 :host.flip_axis-y {
+  /* stylelint-disable-next-line selector-class-pattern */
   &.flip_on-hover:hover,
+  /* stylelint-disable-next-line selector-class-pattern */
   &.flip_on-click.flipped {
     .flipper {
-      transform: rotateY($rotation_degrees);
+      transform: rotateY($rotation-degrees);
     }
   }
+
   .side.back {
-    transform: rotateY($rotation_degrees);
+    transform: rotateY($rotation-degrees);
   }
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 :host.flip_axis-x {
+  /* stylelint-disable-next-line selector-class-pattern */
   &.flip_on-hover:hover,
+  /* stylelint-disable-next-line selector-class-pattern */
   &.flip_on-click.flipped {
     .flipper {
-      transform: rotateX($rotation_degrees);
+      transform: rotateX($rotation-degrees);
     }
   }
+
   .side.back {
-    transform: rotateX($rotation_degrees);
+    transform: rotateX($rotation-degrees);
   }
 }
 
