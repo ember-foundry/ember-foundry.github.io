@@ -2,6 +2,7 @@ import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-action-progress',
   templateUrl: './action-progress.component.html',
   styleUrl: 'action-progress.component.scss',

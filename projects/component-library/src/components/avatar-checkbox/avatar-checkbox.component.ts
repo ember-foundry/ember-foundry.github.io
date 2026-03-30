@@ -13,7 +13,6 @@ import {BaseComponent} from '../_base/base.component';
 })
 export class AvatarInsideAvatarCheckboxDirective {}
 
-
 @Component({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-avatar-checkbox',

@@ -2,13 +2,14 @@ import {ChangeDetectionStrategy, Component, computed, input, model, output} from
 import {BaseComponent} from 'component-library/components/_base/base.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-callback-status',
   templateUrl: './callback-status.component.html',
   styleUrl: './callback-status.component.scss',
   host: {
-    '[class]': 'host_css_classes()',
+    '[class]': 'host_css_classes()'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CallbackStatusComponent extends BaseComponent {
 
@@ -23,7 +24,7 @@ export class CallbackStatusComponent extends BaseComponent {
   title_error = input<string>('Payment Failed');
   description_error = input<string>('The transaction was declined by the provider.');
 
-  protected title = computed(() => {
+  protected title = computed<string>(() => {
     const status = this.status();
     if(status === 'success'){
       return this.title_success();
@@ -34,7 +35,7 @@ export class CallbackStatusComponent extends BaseComponent {
     }
   })
 
-  protected description = computed(() => {
+  protected description = computed<string>(() => {
     const status = this.status();
     if(status === 'success'){
       return this.description_success();
@@ -47,5 +48,5 @@ export class CallbackStatusComponent extends BaseComponent {
 
   protected readonly host_css_classes = this.computed_host_css_classes_from('status');
 
-  on_cta_click = output<void>();
+  cta_click = output<void>();
 }

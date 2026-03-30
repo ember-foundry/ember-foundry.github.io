@@ -9,11 +9,11 @@ const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-baseline-availability',
   imports: [
     AvatarComponent,
     AvatarGroupComponent,
-    AvatarWithinGroupDirective,
     AvatarImageDirective
   ],
   templateUrl: './baseline-availability.component.html',

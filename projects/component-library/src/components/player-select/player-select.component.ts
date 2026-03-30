@@ -19,7 +19,7 @@ type PlayerState = typeof states[number];
   selector: 'mbr-player-select',
   templateUrl: './player-select.component.html',
   styleUrls: ['./player-select.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MBRPlayerSelectComponent {
 
