@@ -14,7 +14,7 @@ import {BaseComponent} from '../_base/base.component';
 export class AvatarInsideAvatarCheckboxDirective {}
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,

@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, input, signal} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-flip-card',
   templateUrl: './flip-card.component.html',
   styleUrl: './flip-card.component.scss',

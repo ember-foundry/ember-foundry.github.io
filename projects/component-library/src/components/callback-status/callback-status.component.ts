@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, input, model, output} from
 import {BaseComponent} from 'component-library/components/_base/base.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-callback-status',
   templateUrl: './callback-status.component.html',
   styleUrl: './callback-status.component.scss',

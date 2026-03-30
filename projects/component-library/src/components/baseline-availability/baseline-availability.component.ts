@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
-import {AvatarGroupComponent, AvatarWithinGroupDirective} from '../avatar-group/avatar-group.component';
+import {AvatarGroupComponent} from '../avatar-group/avatar-group.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
 import {AvatarImageDirective} from '../avatar/avatar.component';
@@ -9,7 +9,7 @@ const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-baseline-availability',
   imports: [
     AvatarComponent,

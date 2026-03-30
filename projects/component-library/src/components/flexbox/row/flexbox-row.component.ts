@@ -9,7 +9,7 @@ import {PixelsPipe} from '../../../pipes/pixels/pixels.pipe';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-row',
   templateUrl: 'flexbox-row.component.html',
   styleUrl: 'flexbox-row.component.scss',

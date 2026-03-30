@@ -18,7 +18,7 @@ export class AvatarImageDirective {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',

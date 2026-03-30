@@ -33,7 +33,7 @@ export class AvatarWithinGroupDirective {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-group',
   templateUrl: './avatar-group.component.html',
   styleUrl: './avatar-group.component.scss',
