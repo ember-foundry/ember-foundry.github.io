@@ -16,5 +16,5 @@
 <p>{{ description() }}</p>
 
 @if (_status !== 'processing') {
-  <button (click)="on_cta_click.emit()">Continue</button>
+  <button (click)="cta_click.emit()">Continue</button>
 }
