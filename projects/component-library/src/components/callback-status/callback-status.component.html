@@ -12,8 +12,32 @@
   }
 </svg>
 
-<h2>{{ title() }}</h2>
-<p>{{ description() }}</p>
+@switch (_status) {
+  @case ('error') {
+    <ng-content select="title-error">
+      <h2>Payment Failed</h2>
+    </ng-content>
+    <ng-content select="description-error">
+      <p>Something went wrong. Please try again.</p>
+    </ng-content>
+  }
+  @case ('success') {
+    <ng-content select="title-success">
+      <h2>Payment Received!</h2>
+    </ng-content>
+    <ng-content select="description-success">
+      <p>Thank you for your purchase. Your order is being processed.</p>
+    </ng-content>
+  }
+  @case ('processing') {
+    <ng-content select="title-processing">
+      <h2>Processing Payment</h2>
+    </ng-content>
+    <ng-content select="description-processing">
+      <p>Please don't close this window while we confirm your transaction.</p>
+    </ng-content>
+  }
+}
 
 @if (_status !== 'processing') {
   <button (click)="cta_click.emit()">Continue</button>
