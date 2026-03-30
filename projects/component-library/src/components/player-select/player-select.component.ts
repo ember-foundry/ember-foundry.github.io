@@ -15,6 +15,7 @@ export interface PlayerAvailableForSelection extends SelectedPlayer {
 type PlayerState = typeof states[number];
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-player-select',
   templateUrl: './player-select.component.html',
   styleUrls: ['./player-select.component.scss'],

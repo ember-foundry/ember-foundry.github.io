@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, Signal} from '@angular/core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-base',
   template: '',
   host: {

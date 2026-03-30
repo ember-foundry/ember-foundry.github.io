@@ -4,6 +4,7 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-avatar-badge',
   templateUrl: './avatar-badge.component.html',
   styleUrl: 'avatar-badge.component.scss',

@@ -33,12 +33,12 @@ export class AvatarWithinGroupDirective {
 }
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-avatar-group',
   templateUrl: './avatar-group.component.html',
   styleUrl: './avatar-group.component.scss',
   imports: [
-    AvatarComponent,
-    AvatarWithinGroupDirective
+    AvatarComponent
   ],
   providers: [
     WholeNumberPipe,

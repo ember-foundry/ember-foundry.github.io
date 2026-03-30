@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-google-ticket',
   templateUrl: 'google-ticket.component.html',
   styleUrl: 'google-ticket.component.scss',

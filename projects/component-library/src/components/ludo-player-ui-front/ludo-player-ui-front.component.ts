@@ -3,6 +3,7 @@ import {BaseComponent} from '../_base/base.component';
 import {DiceFlatComponent} from '../dice-flat/dice-flat.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-ludo-player-ui-front',
   templateUrl: 'ludo-player-ui-front.component.html',
   styleUrl: 'ludo-player-ui-front.component.scss',
