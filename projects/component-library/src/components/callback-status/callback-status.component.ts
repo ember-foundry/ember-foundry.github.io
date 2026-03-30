@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, input, model, output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {BaseComponent} from 'component-library/components/_base/base.component';
 
 @Component({
@@ -7,15 +7,13 @@ import {BaseComponent} from 'component-library/components/_base/base.component';
   templateUrl: './callback-status.component.html',
   styleUrl: './callback-status.component.scss',
   host: {
-    '[class]': 'host_css_classes()'
+    '[class]': "status()"
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CallbackStatusComponent extends BaseComponent {
 
-  status = model<'success'|'error'|'processing'>('processing');
-
-  protected readonly host_css_classes = this.computed_host_css_classes_from('status');
+  status = input<'success'|'error'|'processing'>('processing');
 
   cta_click = output<void>();
 }

@@ -38,16 +38,16 @@ svg {
   }
 }
 
-:host(.status-success) svg {
+:host(.success) svg {
   --color-stroke: var(--color-success);
 }
 
-:host(.status-error) svg {
+:host(.error) svg {
   --color-stroke: var(--color-error);
 }
 
-:host(.status-success),
-:host(.status-error) {
+:host(.success),
+:host(.error) {
   svg circle {
     animation: stroke-animation 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
     stroke-dasharray: 166;
@@ -55,7 +55,7 @@ svg {
   }
 }
 
-:host(.status-processing) svg {
+:host(.processing) svg {
   --color-stroke: var(--color-processing);
 
   animation: rotate 2s linear infinite;

@@ -21,7 +21,6 @@ export class BaseComponent {
 
   protected computed_host_css_classes_from<K extends keyof this>(...keys: K[]) {
     const results: string[] = [];
-
     return computed<string>(() => {
       keys.forEach(key => {
         const css_prefix = String(key);
