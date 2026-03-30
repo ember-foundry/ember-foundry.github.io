@@ -4,6 +4,7 @@ export * from './components/avatar-checkbox/avatar-checkbox.component';
 export * from './components/avatar-group/avatar-group.component';
 export * from './components/avatar-with-label/avatar-with-label.component';
 export * from './components/baseline-availability/baseline-availability.component';
+export * from './components/callback-status/callback-status.component';
 export * from './components/dice-flat/dice-flat.component';
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';

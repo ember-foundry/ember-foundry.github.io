@@ -11,7 +11,6 @@ import {ChangeDetectionStrategy, Component, computed, Signal} from '@angular/cor
 export class BaseComponent {
 
   protected readonly component_to_css_class = () => {
-
     return this.constructor.name
       .replace(/\d+$/, '') // Strip trailing digits (e.g., Component2 -> Component)
       .replace(/Component$/, '')

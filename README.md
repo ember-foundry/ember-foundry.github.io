@@ -32,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name=""
+component_name="CallbackStatus"
 ng generate component $component_name --project component-library --dry-run
 ```
 

@@ -1,0 +1,20 @@
+@let _status = this.status();
+<svg viewBox="0 0 52 52">
+  <circle cx="26" cy="26" r="24" fill="none" stroke-width="3"/>
+
+  @switch (_status) {
+    @case ('error') {
+      <path d="M16 16 36 36 M36 16 16 36"/>
+    }
+    @case ('success') {
+      <path d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    }
+  }
+</svg>
+
+<h2>{{ title() }}</h2>
+<p>{{ description() }}</p>
+
+@if (_status !== 'processing') {
+  <button (click)="on_cta_click.emit()">Continue</button>
+}
