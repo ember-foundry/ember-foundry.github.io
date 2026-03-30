@@ -1,10 +1,12 @@
+@let _image_url = image_url();
+@let _size = size();
 @if (real_selected_value()) {
-  <mbr-avatar-badge [size]="size()" status="focus" mode="notch">
-    <mbr-avatar name="Craig Wayne" [image_url]="image_url()" [bordered]="true"/>
+  <mbr-avatar-badge [size]="_size" status="focus" mode="notch">
+    <mbr-avatar name="Craig Wayne" [image_url]="_image_url" [bordered]="true"/>
     <svg ngProjectAs="badge" viewBox="0 -960 960 960" fill="white">
       <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
     </svg>
   </mbr-avatar-badge>
 } @else {
-  <mbr-avatar [size]="size()" name="Craig Wayne" [image_url]="image_url()" [bordered]="true"/>
+  <mbr-avatar [size]="_size" name="Craig Wayne" [image_url]="_image_url" [bordered]="true"/>
 }

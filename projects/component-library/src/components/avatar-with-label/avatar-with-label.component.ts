@@ -5,7 +5,7 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[ode-avatar-label], [libAvatarLabel]',
+  selector: '[mbr-avatar-label], [mbrAvatarLabel]',
   template: `<ng-content />`,
   styles: `
     :host {

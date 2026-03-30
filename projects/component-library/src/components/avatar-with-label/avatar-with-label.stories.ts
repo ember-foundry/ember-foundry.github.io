@@ -92,7 +92,7 @@ export const AvatarNameAndLink: Story = {
     return {
       template: `
         <mbr-avatar-with-label ${inputs}>
-          <a libAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
+          <a mbrAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
        </mbr-avatar-with-label>

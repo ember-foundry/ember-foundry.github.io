@@ -33,7 +33,7 @@
   }
 
   /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
-  ::ng-deep lib-avatar{
+  ::ng-deep mbr-avatar{
     img, svg, .text {
       $notch-size: 15cqmin;
       $notch-position: 100cqmin - $notch-size;

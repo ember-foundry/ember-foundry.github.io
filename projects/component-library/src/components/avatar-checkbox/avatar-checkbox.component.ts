@@ -6,28 +6,28 @@ import {BaseComponent} from '../_base/base.component';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'mbr-avatar-checkbox ode-avatar',
+  selector: 'mbr-avatar-checkbox mbr-avatar',
   host: {
     '[style.--avatar-padding]': "'var(--avatar-border-width)'"
   }
 })
-export class AvatarInsideAvatarCheckboxDirective {}
+export class AvatarInsideAvatarCheckboxDirective {
+}
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,
-    AvatarComponent,
-    AvatarInsideAvatarCheckboxDirective
+    AvatarComponent
   ],
   templateUrl: './avatar-checkbox.component.html',
   styleUrl: './avatar-checkbox.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class.selected]': 'real_selected_value()',
     '(click)': 'real_selected_value.set(!real_selected_value())'
-  }
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarCheckboxComponent extends BaseComponent {
 

@@ -50,7 +50,7 @@ describe('AvatarCheckboxComponent', () => {
     const hostElement = fixture.nativeElement;
     expect(hostElement.classList.contains('selected')).toBe(true);
 
-    const badge = fixture.debugElement.query(By.css('lib-avatar-badge'));
+    const badge = fixture.debugElement.query(By.css('mbr-avatar-badge'));
     expect(badge).toBeTruthy();
 
     // expect(fixture.nativeElement).toMatchScreenshot('avatar-checkbox-selected');
@@ -62,7 +62,7 @@ describe('AvatarCheckboxComponent', () => {
       fixture.componentRef.setInput('selected', true);
       fixture.detectChanges();
 
-      const avatar = fixture.debugElement.query(By.css('lib-avatar'));
+      const avatar = fixture.debugElement.query(By.css('mbr-avatar'));
       expect(avatar).toBeTruthy();
 
       const computed_avatar_styles = window.getComputedStyle(avatar.nativeElement);
@@ -78,8 +78,8 @@ describe('AvatarCheckboxComponent', () => {
     fixture.componentRef.setInput('selected', false);
     fixture.detectChanges();
 
-    const badge = fixture.debugElement.query(By.css('lib-avatar-badge'));
-    const avatar = fixture.debugElement.query(By.css('lib-avatar'));
+    const badge = fixture.debugElement.query(By.css('mbr-avatar-badge'));
+    const avatar = fixture.debugElement.query(By.css('mbr-avatar'));
 
     expect(badge).toBeFalsy();
     expect(avatar).toBeTruthy();
