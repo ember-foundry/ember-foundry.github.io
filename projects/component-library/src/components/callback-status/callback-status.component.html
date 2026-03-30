@@ -1,19 +1,142 @@
 @let _status = status();
-<svg viewBox="0 0 52 52">
-  @switch (_status) {
-    @case ('error') {
-      <circle cx="26" cy="26" r="24" fill="none" stroke-width="3"/>
-      <path d="M16 16 36 36 M36 16 16 36"/>
-    }
-    @case ('success') {
-      <circle cx="26" cy="26" r="24" fill="none" stroke-width="3"/>
-      <path d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-    }
-    @case ('processing') {
-      <circle cx="26" cy="26" r="24" fill="none" stroke-width="3"/>
-    }
+@let _svg_size = 52;
+@let _stroke_width = 4;
+@let _circle_center = _svg_size / 2;
+@let _circle_radius = (_svg_size / 2) - (_stroke_width / 2);
+
+@switch (_status) {
+  @case ('processing') {
+    <svg [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`">
+      <circle
+        [attr.cx]="_circle_center"
+        [attr.cy]="_circle_center"
+        [attr.r]="_circle_radius"
+        [attr.stroke-width]="_stroke_width"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-dashoffset="0"
+        stroke-dasharray="90 150"
+        stroke-linecap="round"
+      >
+        <animate
+          attributeName="stroke-dasharray"
+          values="1,150;90,150;90,150"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-dashoffset"
+          values="0;-35;-124"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 26 26"
+          to="360 26 26"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
   }
-</svg>
+  @case ('success') {
+    <svg [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`">
+      <circle
+        stroke="#22c55e"
+        fill="none"
+        [attr.cx]="_circle_center"
+        [attr.cy]="_circle_center"
+        [attr.r]="_circle_radius"
+        [attr.stroke-width]="_stroke_width"
+        stroke-dasharray="166"
+        stroke-dashoffset="166"
+        stroke-linecap="round"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="166"
+          to="0"
+          dur="0.6s"
+          begin="0s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </circle>
+      <path
+        d="M14.1 27.2l7.1 7.2 16.7-16.8"
+        stroke="#22c55e"
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="48"
+        stroke-dashoffset="48"
+        [attr.stroke-width]="_stroke_width"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="48"
+          to="0"
+          dur="0.3s"
+          begin="0.6s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </path>
+    </svg>
+  }
+  @case ('error') {
+    <svg
+      [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`"
+    >
+      <circle
+        stroke="#ef4444"
+        fill="none"
+        [attr.cx]="_circle_center"
+        [attr.cy]="_circle_center"
+        [attr.r]="_circle_radius"
+        [attr.stroke-width]="_stroke_width"
+        stroke-dasharray="166"
+        stroke-dashoffset="166"
+        stroke-linecap="round"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="166"
+          to="0"
+          dur="0.6s"
+          begin="0s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </circle>
+      <path
+        d="M16 16 36 36 M36 16 16 36"
+        stroke="#ef4444"
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="48"
+        stroke-dashoffset="48"
+        [attr.stroke-width]="_stroke_width"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="48"
+          to="0"
+          dur="0.3s"
+          begin="0.6s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </path>
+    </svg>
+  }
+}
 
 @switch (_status) {
   @case ('error') {
