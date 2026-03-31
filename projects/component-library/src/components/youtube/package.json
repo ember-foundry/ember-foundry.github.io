@@ -1,6 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "purify-css": "^1.2.5"
-  }
-}
