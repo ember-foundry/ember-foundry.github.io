@@ -5,6 +5,8 @@ export * from './components/avatar-group/avatar-group.component';
 export * from './components/avatar-with-label/avatar-with-label.component';
 export * from './components/baseline-availability/baseline-availability.component';
 export * from './components/callback-status/callback-status.component';
+export * from 'component-library/components/svg-checkmark-filled/svg-checkmark-filled.component';
+export * from 'component-library/components/svg-checkmark-outline/svg-checkmark-outline.component';
 export * from './components/dice-flat/dice-flat.component';
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';

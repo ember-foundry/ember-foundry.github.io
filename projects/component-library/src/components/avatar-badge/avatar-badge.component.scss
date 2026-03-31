@@ -10,7 +10,7 @@
   /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   .badge, ::ng-deep [ngProjectAs="badge"] {
     aspect-ratio: 1;
-    background: var(--avatar-badge-color, #{colors.$status-offline});
+    background: var(--avatar-badge-color, var(--color-status-offline));
     border-radius: 50%;
     bottom: 0;
     height: var(--avatar-badge-size);
@@ -49,23 +49,23 @@
 }
 
 :host(.away) {
-  --avatar-badge-color: #{colors.$status-away};
-  --avatar-border-color: #{colors.$status-away};
+  --avatar-badge-color: var(--color-status-away);
+  --avatar-border-color: var(--color-status-away);
 }
 
 :host(.busy) {
-  --avatar-badge-color: #{colors.$status-busy};
-  --avatar-border-color: #{colors.$status-busy};
+  --avatar-badge-color: var(--color-status-busy);
+  --avatar-border-color: var(--color-status-busy);
 }
 
 :host(.focus) {
-  --avatar-badge-color: #{colors.$status-focus};
-  --avatar-border-color: #{colors.$status-focus};
+  --avatar-badge-color: var(--color-status-focus);
+  --avatar-border-color: var(--color-status-focus);
 }
 
 :host(.online) {
-  --avatar-badge-color: #{colors.$status-online};
-  --avatar-border-color: #{colors.$status-online};
+  --avatar-badge-color: var(--color-status-online);
+  --avatar-border-color: var(--color-status-online);
 }
 
 :host(.reachable) {
@@ -75,6 +75,6 @@
   .badge {
     --avatar-border-width: max(3px, calc(var(--size, var(--size-md)) * 0.04));
 
-    border: var(--avatar-border-width) solid #{colors.$status-online};
+    border: var(--avatar-border-width) solid var(--color-status-online);
   }
 }

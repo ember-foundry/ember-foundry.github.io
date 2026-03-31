@@ -1,9 +1,9 @@
 @use 'mixins';
+@use 'colors';
 @import 'https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap';
 
 :root {
   @include mixins.generate-size-variables(4rem);
-  @include mixins.generate-color-variables;
 }
 
 html {
@@ -17,11 +17,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  color: light-dark(rgb(0 0 0), rgb(255 255 255));
+}
+
 img, svg {
   max-height: 100%;
   max-width: 100%;
-}
-
-body {
-  color: light-dark(rgb(0 0 0), rgb(255 255 255));
 }

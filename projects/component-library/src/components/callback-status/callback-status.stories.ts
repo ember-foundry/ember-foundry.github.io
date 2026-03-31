@@ -1,8 +1,15 @@
-import {Meta} from '@storybook/angular';
-import {CallbackStatusComponent} from 'component-library';
+import {Meta, moduleMetadata} from '@storybook/angular';
+import {CallbackStatusComponent, SVGCheckmarkFilledComponent} from 'component-library';
 
 const meta: Meta<CallbackStatusComponent> = {
   component: CallbackStatusComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        SVGCheckmarkFilledComponent
+      ]
+    })
+  ],
   tags: ['autodocs', 'callback', 'status'],
   argTypes: {
     status: {
@@ -20,8 +27,18 @@ export default meta;
 type Story = Meta<CallbackStatusComponent>;
 
 export const Sample: Story = {};
+export const SuccessfulPayment: Story = {
+  args: {
+    status: 'success'
+  }
+};
+export const FailedPayment: Story = {
+  args: {
+    status: 'error'
+  }
+};
 
-export const CustomTitle: Story = {
+export const CustomTitles: Story = {
   render: () => {
     return {
       template: `
@@ -43,6 +60,19 @@ export const CustomTitle: Story = {
     }
   }
 };
+
+export const CustomSuccessIcon: Story = {
+  render: () => {
+    return {
+      template: `
+          <mbr-callback-status status="success">
+            <mbr-svg-checkmark-filled ngProjectAs="icon-success" style="width: 80px; display: flex" />
+          </mbr-callback-status>
+      `
+    }
+  }
+};
+
 export const AllThree: Story = {
   render: () => {
     return {

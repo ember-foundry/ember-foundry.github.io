@@ -1,5 +1,3 @@
-@use '../../styles/colors';
-
 :host {
   --avatar-border-width: round(max(2px, calc(var(--size, var(--size-md)) * 0.04)), 1px);
 
@@ -21,7 +19,7 @@
 
 .text {
   align-items: center;
-  background-color: var(--avatar-background-color, #{colors.$silvery-white});
+  background-color: var(--avatar-background-color, var(--color-silvery-white));
   border-radius: inherit;
   display: flex;
   font-size: 40cqmin;
