@@ -32,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name="CheckmarkFilled"
+component_name="Carousel"
 ng generate component $component_name --project component-library --dry-run
 ```
 
