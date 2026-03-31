@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {describe, it, expect} from 'vitest';
-import {SvgCheckmarkOutlineComponent} from './svg-checkmark-outline.component';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {SVGCheckmarkOutlineComponent} from './svg-checkmark-outline.component';
 
 describe('CheckmarkOutlineComponent', () => {
-  let component: SvgCheckmarkOutlineComponent;
-  let fixture: ComponentFixture<SvgCheckmarkOutlineComponent>;
+  let component: SVGCheckmarkOutlineComponent;
+  let fixture: ComponentFixture<SVGCheckmarkOutlineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SvgCheckmarkOutlineComponent]
+      imports: [SVGCheckmarkOutlineComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(SvgCheckmarkOutlineComponent);
+    fixture = TestBed.createComponent(SVGCheckmarkOutlineComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

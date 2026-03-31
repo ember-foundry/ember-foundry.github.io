@@ -7,6 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './svg-checkmark-outline.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SvgCheckmarkOutlineComponent {
+export class SVGCheckmarkOutlineComponent {
 
 }

@@ -96,7 +96,7 @@ describe('AvatarComponent', () => {
 
   it('Should display an Unknown User Avatar', () => {
     expect(fixture.debugElement.query(By.css('img'))).toBeNull();
-    expect(fixture.debugElement.nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)');
+    expect(fixture.debugElement.query(By.css('.text')).nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)');
     initials_checks('UU');
   });
 

@@ -1,14 +1,14 @@
 import {Meta} from '@storybook/angular';
-import {SvgCheckmarkOutlineComponent} from 'component-library';
+import {SVGCheckmarkOutlineComponent} from 'component-library';
 
-const meta: Meta<SvgCheckmarkOutlineComponent> = {
-  component: SvgCheckmarkOutlineComponent,
+const meta: Meta<SVGCheckmarkOutlineComponent> = {
+  component: SVGCheckmarkOutlineComponent,
   tags: ['autodocs', 'checkmark', 'svg', 'animated']
 }
 
 export default meta;
 
-type Story = Meta<SvgCheckmarkOutlineComponent>;
+type Story = Meta<SVGCheckmarkOutlineComponent>;
 
 export const Sample: Story = {
   render: () => {

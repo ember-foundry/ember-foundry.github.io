@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CallbackStatusComponent } from './callback-status.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {CallbackStatusComponent} from './callback-status.component';
 
 describe('CallbackStatusComponent', () => {
   let component: CallbackStatusComponent;
@@ -10,7 +10,7 @@ describe('CallbackStatusComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CallbackStatusComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CallbackStatusComponent);
     component = fixture.componentInstance;

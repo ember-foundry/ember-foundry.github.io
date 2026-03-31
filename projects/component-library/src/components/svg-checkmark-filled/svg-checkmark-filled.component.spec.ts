@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, beforeEach} from 'vitest';
 import {SVGCheckmarkFilledComponent} from './svg-checkmark-filled.component';
 
 describe('CheckmarkFilledComponent', () => {
