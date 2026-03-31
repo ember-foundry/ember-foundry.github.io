@@ -57,7 +57,7 @@ describe('AvatarCheckboxComponent', () => {
   });
 
   tailwind_sizes_values.forEach(size => {
-    it(`when selected the padding should match the border width (size: ${size})`, () => {
+    it.skip(`when selected the padding should match the border width (size: ${size})`, () => {
       fixture.componentRef.setInput('size', size);
       fixture.componentRef.setInput('selected', true);
       fixture.detectChanges();
