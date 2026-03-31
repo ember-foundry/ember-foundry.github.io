@@ -28,7 +28,6 @@ $status-info: $alexandra;
 $status-offline: $silvery-white;
 $status-online: $spearmint;
 $status-success: $crispy-mint-green;
-
 $status-colors: (
   away: $lucky-orange,
   busy: $spring-red,
@@ -44,14 +43,15 @@ $status-colors: (
   @each $status-name, $color in $status-colors {
     --color-status-#{$status-name}: #{$color};
   }
+
   --color-silvery-white: #{$silvery-white};
 }
 
-//$color-attributes: (color, fill, stroke);
-//@each $status-name, $color in $status-colors {
+// $color-attributes: (color, fill, stroke);
+// @each $status-name, $color in $status-colors {
 //  @each $color-attribute in $color-attributes {
 //    .#{$color-attribute}-#{$status-name} {
 //      #{$color-attribute}: var(--color-#{$status-name});
 //    }
 //  }
-//}
+// }
