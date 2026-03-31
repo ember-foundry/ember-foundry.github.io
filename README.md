@@ -3,6 +3,18 @@
 ng add @angular-eslint/schematics
 ```
 
+### Building and Using the Library
+see here for more info: https://angular.dev/tools/libraries/creating-libraries
+
+1. Build component library
+2. publish library from dist folder
+```shell
+ng build component-library --configuration production
+cd dist/component-library
+echo 'Go to your application link the library'
+npm 
+```
+
 ### Vitest Angular Browser Testing
 ```shell
 # for migrating from jasmine tests to vitest
@@ -10,7 +22,7 @@ ng g @schematics/angular:refactor-jasmine-vitest --add-imports
 # touch touch projects/component-library/vitest.config.ts
 # disable globals using the vitest define config
 npm install -D @vitest/browser-playwright
-ng config projects.component-library.architect.test.options.browsers.1 "firefox"
+`ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
 
 npm install @analogjs/platform --save-dev
 ? ng g @analogjs/platform:setup-vitest --project component-library
@@ -20,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name=""
+component_name="CheckmarkFilled"
 ng generate component $component_name --project component-library --dry-run
 ```
 
@@ -68,3 +80,21 @@ ng config projects.component-library.schematics.@schematics/angular:pipe.typeSep
 ng config projects.component-library.schematics.@schematics/angular:enum.path projects/component-library/src/enums
 ng config projects.component-library.schematics.@schematics/angular:enum.type enum
 ```
+
+---
+
+## Testing
+testing a specific file
+
+```shell
+#test_file="src/directives/random-milky-background/random-milky-background.directive.spec.ts"
+test_file="src/components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component.spec.ts"
+npm run test -- --watch --testFile $test_file
+```
+
+
+### TODO:
+* https://angular.dev/tools/libraries/creating-librariess
+* i want to run something like this:
+  * ng add @angular/material
+  * but for the component library to be used in other

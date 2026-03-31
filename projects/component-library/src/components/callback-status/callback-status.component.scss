@@ -1,0 +1,51 @@
+:host {
+  --color-muted: #64748b;
+  --color-white: #fff;
+
+  align-items: center;
+  background: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin: 0;
+  max-width: 24rem;
+  padding: 2rem;
+  row-gap: 1.5rem;
+  text-align: center;
+
+  > * {
+    margin: 0;
+  }
+}
+
+.icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+p {
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+button {
+  background-color: #0f172a;
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+
+  &:hover, &:focus {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

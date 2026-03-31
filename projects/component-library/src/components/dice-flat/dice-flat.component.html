@@ -1,0 +1,33 @@
+@let half_border_thickness = border_thickness() / 2;
+<svg class="dice" [attr.viewBox]="view_box()" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect
+    [attr.x]="half_border_thickness"
+    [attr.y]="half_border_thickness"
+    [attr.width]="border_width()"
+    [attr.height]="border_width()"
+    [attr.stroke-width]="border_thickness()"
+    [attr.rx]="border_radius()"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <g fill="currentColor">
+    @if (is_valid_face()) {
+      @for (pip of pips_by_value(); track pip.key) {
+        <circle
+          [attr.class]="pip.className"
+          [attr.r]="circle_radius()"
+          [attr.cx]="pip.cx"
+          [attr.cy]="pip.cy"
+        />
+      }
+    }
+    @else {
+      <path
+        d="M139.533 66.4571V66.0959C139.533 42.5128 120.846 28 94.1818 28C78.8006 28 66.5734 32.3364 56.7788 39.0501C51.0849 42.9523 50.5724 51.5072 54.7438 57.0125L57.7857 61.0272C61.9571 66.5301 69.4268 67.0533 75.4736 63.7133C80.9842 60.669 86.5732 59.0211 91.8227 59.0211C100.53 59.0211 105.428 62.829 105.428 68.9989V69.1792C105.428 76.9811 97.9897 88.1303 76.9464 89.9431L76.2218 90.7591C75.8217 91.2092 76.3266 97.1122 77.3465 103.941L78.1837 109.509C79.2036 116.338 84.9469 121.872 91.0072 121.872C97.0674 121.872 102.47 119.273 103.067 116.069C103.671 112.862 104.158 110.262 104.158 110.262C124.291 105.361 139.533 89.3156 139.533 66.4571Z"/>
+      <path
+        d="M85.0936 132.392C78.189 132.392 72.5947 137.989 72.5947 144.894V150.731C72.5947 157.636 78.1918 163.233 85.0936 163.233H95.8273C102.732 163.233 108.329 157.636 108.329 150.731V144.894C108.329 137.989 102.73 132.392 95.8273 132.392H85.0936Z"/>
+    }
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<h1 class="title">PLAYER SELECT</h1>
+<section>
+  @for(player of players(); let index = $index; track index;){
+    <button class="plate" (click)="cycle_player_state(player)" [class]="player.state" [style.--color]="player.color">
+      <div class="background"></div>
+      <img [src]="player.image_url"  alt="Player Avatar" />
+      @if(player.state !== 'inactive'){
+        <span class="label">
+        @if(player.state === 'cpu'){
+          CPU
+        } @else {
+          {{ get_human_player_index(index) + 1}}P
+        }
+      </span>
+      }
+    </button>
+  }
+</section>
+<button type="submit" (click)="start()" [class.invalid]="!valid()" (animationend)="valid.set(true)">START</button>

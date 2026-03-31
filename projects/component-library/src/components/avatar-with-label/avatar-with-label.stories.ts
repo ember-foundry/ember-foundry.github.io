@@ -1,14 +1,14 @@
-import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
-import {AvatarLabelComponent} from 'component-library';
-import {provideRouter} from '@angular/router';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {AvatarWithLabelComponent, AvatarLabelComponent} from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
-const meta: Meta<AvatarLabelComponent> = {
-  component: AvatarLabelComponent,
+const meta: Meta<AvatarWithLabelComponent> = {
+  component: AvatarWithLabelComponent,
   decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
+    moduleMetadata({
+      imports: [
+        // AvatarLabelDirective
+        AvatarLabelComponent
       ]
     })
   ],
@@ -27,7 +27,7 @@ const meta: Meta<AvatarLabelComponent> = {
 
 export default meta;
 
-type Story = StoryObj<AvatarLabelComponent>;
+type Story = StoryObj<AvatarWithLabelComponent>;
 
 export const Sample: Story = {
   args: {
@@ -76,6 +76,13 @@ export const BBCNewsReporter: Story = {
 };
 
 export const AvatarNameAndLink: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'This example uses a content projected label'
+      }
+    }
+  },
   render: (args) => {
     const inputs = [
       args.size ? `[size]="'${args.size}'"` : '',
@@ -84,11 +91,11 @@ export const AvatarNameAndLink: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-label ${inputs}>
-          <a ngProjectAs="label" href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
+        <mbr-avatar-with-label ${inputs}>
+          <a mbrAvatarLabel href="https://en.wikipedia.org/wiki/Alphabet_Inc." target="_blank" rel="noopener noreferrer">
             ${args.label}
           </a>
-       </lib-avatar-label>
+       </mbr-avatar-with-label>
       `
     }
   },

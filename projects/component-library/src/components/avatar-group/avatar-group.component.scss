@@ -4,12 +4,10 @@
   vertical-align: middle;
 }
 
-:host(.compact) ::ng-deep .avatar:not(:last-child) {
-  // have to use ng-deep because the size is a value that uses container queries
-  margin-right: var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * -0.45));
+:host(.compact) {
+  --avatar-group-density-multiplier: -0.45;
 }
 
-:host(.loose) ::ng-deep .avatar:not(:last-child) {
-  // have to use ng-deep because the size is a value that uses container queries
-  margin-right: var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * -0.2));
+:host(.loose) {
+  --avatar-group-density-multiplier: -0.2;
 }

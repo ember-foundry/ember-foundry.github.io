@@ -1,0 +1,132 @@
+@let _status = status();
+@let _svg_size = 52;
+@let _stroke_width = 4;
+@let _circle_center = _svg_size / 2;
+@let _circle_radius = (_svg_size / 2) - (_stroke_width / 2);
+
+@switch (_status) {
+  @case ('processing') {
+    <svg
+      class="icon"
+      stroke="var(--color-status-info)"
+      [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`"
+    >
+      <circle
+        [attr.cx]="_circle_center"
+        [attr.cy]="_circle_center"
+        [attr.r]="_circle_radius"
+        [attr.stroke-width]="_stroke_width"
+        fill="none"
+        stroke-dashoffset="0"
+        stroke-dasharray="90 150"
+        stroke-linecap="round"
+      >
+        <animate
+          attributeName="stroke-dasharray"
+          values="1,150;90,150;90,150"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="stroke-dashoffset"
+          values="0;-35;-124"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 26 26"
+          to="360 26 26"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
+  }
+  @case ('success') {
+    <ng-content select="icon-success">
+      <mbr-svg-checkmark-outline class="icon" />
+    </ng-content>
+  }
+  @case ('error') {
+    <svg
+      class="icon"
+      stroke="var(--color-status-error)"
+      [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`"
+    >
+      <circle
+        fill="none"
+        [attr.cx]="_circle_center"
+        [attr.cy]="_circle_center"
+        [attr.r]="_circle_radius"
+        [attr.stroke-width]="_stroke_width"
+        stroke-dasharray="166"
+        stroke-dashoffset="166"
+        stroke-linecap="round"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="166"
+          to="0"
+          dur="0.6s"
+          begin="0s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </circle>
+      <path
+        d="M16 16 36 36 M36 16 16 36"
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="48"
+        stroke-dashoffset="48"
+        [attr.stroke-width]="_stroke_width"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="48"
+          to="0"
+          dur="0.3s"
+          begin="0.6s"
+          fill="freeze"
+          calcMode="spline"
+          keySplines="0.65 0 0.45 1"
+        />
+      </path>
+    </svg>
+  }
+}
+
+@switch (_status) {
+  @case ('error') {
+    <ng-content select="title-error">
+      <h2>Payment Failed</h2>
+    </ng-content>
+    <ng-content select="description-error">
+      <p>Something went wrong. Please try again.</p>
+    </ng-content>
+  }
+  @case ('success') {
+    <ng-content select="title-success">
+      <h2>Payment Received!</h2>
+    </ng-content>
+    <ng-content select="description-success">
+      <p>Thank you for your purchase. Your order is being processed.</p>
+    </ng-content>
+  }
+  @case ('processing') {
+    <ng-content select="title-processing">
+      <h2>Processing Payment</h2>
+    </ng-content>
+    <ng-content select="description-processing">
+      <p>Please don't close this window while we confirm your transaction.</p>
+    </ng-content>
+  }
+}
+
+@if (_status !== 'processing') {
+  <button (click)="cta_click.emit()">Continue</button>
+}

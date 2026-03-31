@@ -1,20 +1,16 @@
 @use '../../styles/colors';
-@use '../../styles/mixins';
-
-$medium-size: 4em;
 
 :host {
-  @include mixins.generate-size-variables($medium-size);
-
   container-type: inline-size;
   display: inline-flex;
   line-height: 0;
   position: relative;
   width: min(var(--size, var(--size-md)), 100cqmin);
 
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   .badge, ::ng-deep [ngProjectAs="badge"] {
     aspect-ratio: 1;
-    background: var(--avatar-badge-color, #{colors.$status-offline});
+    background: var(--avatar-badge-color, var(--color-status-offline));
     border-radius: 50%;
     bottom: 0;
     height: var(--avatar-badge-size);
@@ -31,12 +27,14 @@ $medium-size: 4em;
 :host(.notch) {
   --avatar-badge-size: 22.8cqmin;
 
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   .badge, ::ng-deep [ngProjectAs="badge"] {
     transform: translate(-16%, -16%);
   }
 
-  ::ng-deep {
-    .avatar {
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+  ::ng-deep mbr-avatar{
+    img, svg, .text {
       $notch-size: 15cqmin;
       $notch-position: 100cqmin - $notch-size;
       $smooth-edge: 0.5%;
@@ -51,23 +49,23 @@ $medium-size: 4em;
 }
 
 :host(.away) {
-  --avatar-badge-color: #{colors.$status-away};
-  --avatar-border-color: #{colors.$status-away};
+  --avatar-badge-color: var(--color-status-away);
+  --avatar-border-color: var(--color-status-away);
 }
 
 :host(.busy) {
-  --avatar-badge-color: #{colors.$status-busy};
-  --avatar-border-color: #{colors.$status-busy};
+  --avatar-badge-color: var(--color-status-busy);
+  --avatar-border-color: var(--color-status-busy);
 }
 
 :host(.focus) {
-  --avatar-badge-color: #{colors.$status-focus};
-  --avatar-border-color: #{colors.$status-focus};
+  --avatar-badge-color: var(--color-status-focus);
+  --avatar-border-color: var(--color-status-focus);
 }
 
 :host(.online) {
-  --avatar-badge-color: #{colors.$status-online};
-  --avatar-border-color: #{colors.$status-online};
+  --avatar-badge-color: var(--color-status-online);
+  --avatar-border-color: var(--color-status-online);
 }
 
 :host(.reachable) {
@@ -77,6 +75,6 @@ $medium-size: 4em;
   .badge {
     --avatar-border-width: max(3px, calc(var(--size, var(--size-md)) * 0.04));
 
-    border: var(--avatar-border-width) solid #{colors.$status-online};
+    border: var(--avatar-border-width) solid var(--color-status-online);
   }
 }

@@ -9,7 +9,7 @@
   gap: var(--baseline-availability-gap);
 }
 
-.group {
+.availability-group {
   align-items: center;
   border-radius: 35px;
   display: inline-flex;
@@ -20,7 +20,7 @@
   &.supported {
     background: light-dark(#ceead6,rgb(34 197 94 / 10%));
 
-    .avatar.icon path {
+    mbr-avatar.icon path {
       fill: #099949;
     }
   }
@@ -28,7 +28,7 @@
   &.unsupported {
     background: hsl(34.36deg 100% 45.88% / 25%);
 
-    .avatar.icon path {
+    mbr-avatar.icon path {
       fill: #ea8600;
     }
   }

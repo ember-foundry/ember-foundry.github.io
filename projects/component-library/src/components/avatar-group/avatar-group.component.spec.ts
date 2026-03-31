@@ -58,11 +58,11 @@ describe('AvatarGroupComponent', () => {
 //   standalone: true,
 //   imports: [AvatarGroupComponent, AvatarComponent],
 //   template: `
-//     <lib-avatar-group [limit]="limit">
-//       <lib-avatar name="Avatar 1"></lib-avatar>
-//       <lib-avatar name="Avatar 2"></lib-avatar>
-//       <lib-avatar name="Avatar 3"></lib-avatar>
-//     </lib-avatar-group>
+//     <mbr-avatar-group [limit]="limit">
+//       <mbr-avatar name="Avatar 1"></mbr-avatar>
+//       <mbr-avatar name="Avatar 2"></mbr-avatar>
+//       <mbr-avatar name="Avatar 3"></mbr-avatar>
+//     </mbr-avatar-group>
 //   `,
 //   changeDetection: ChangeDetectionStrategy.OnPush
 // })

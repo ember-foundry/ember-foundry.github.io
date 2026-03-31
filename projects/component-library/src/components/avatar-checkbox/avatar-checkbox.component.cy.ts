@@ -5,7 +5,7 @@ describe('AvatarCheckboxComponent', () => {
   it('should display render unselected', () => {
     cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request');
 
-    mount(`<lib-avatar-checkbox />`, {
+    mount(`<mbr-avatar-checkbox />`, {
       imports: [
         AvatarCheckboxComponent
       ]
@@ -25,7 +25,7 @@ describe('AvatarCheckboxComponent', () => {
   it('should display render unselected (size:7xl)', () => {
     cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request');
 
-    mount(`<lib-avatar-checkbox size="7xl" />`, {
+    mount(`<mbr-avatar-checkbox size="7xl" />`, {
       imports: [
         AvatarCheckboxComponent
       ]
@@ -45,7 +45,7 @@ describe('AvatarCheckboxComponent', () => {
   it('should display render unselected then once clicked, should be selected', () => {
     cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request');
 
-    mount(`<lib-avatar-checkbox />`, {
+    mount(`<mbr-avatar-checkbox />`, {
       imports: [
         AvatarCheckboxComponent
       ]
@@ -89,7 +89,7 @@ describe('AvatarCheckboxComponent', () => {
   it('should display render unselected then once clicked, should be selected (size:7xl)', () => {
     cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request');
 
-    mount(`<lib-avatar-checkbox size="7xl" />`, {
+    mount(`<mbr-avatar-checkbox size="7xl" />`, {
       imports: [
         AvatarCheckboxComponent
       ]

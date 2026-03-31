@@ -1,11 +1,25 @@
-import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, Directive, input, signal} from '@angular/core';
 import {InitialsPipe} from '../../pipes/initials/initials.pipe';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
-import {AvatarImageDirective} from '../../directives/avatar-image/avatar-image.directive';
+
+@Directive({
+  selector: 'img[libAvatarImage], svg[libAvatarImage]',
+  host: {
+    '[style.border-radius]': "'inherit'",
+    '[style.height]': "'100%'",
+    '[style.width]': "'100%'",
+    '[style.object-fit]': "'var(--avatar-image-object-fit, cover)'",
+    '[attr.alt]': "alt()"
+  }
+})
+export class AvatarImageDirective {
+  alt = input<string>('Avatar Image');
+}
 
 @Component({
-  selector: 'lib-avatar',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'mbr-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
   imports: [

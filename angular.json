@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "0d2768d7-4aa2-4358-b137-ffd1ac7a197c"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ohmyadmin": {
+    "ember-foundry": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ohmyadmin:build:production"
+              "buildTarget": "ember-foundry:build:production"
             },
             "development": {
-              "buildTarget": "ohmyadmin:build:development"
+              "buildTarget": "ember-foundry:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +79,7 @@
       "projectType": "library",
       "root": "projects/component-library",
       "sourceRoot": "projects/component-library/src",
-      "prefix": "lib",
+      "prefix": "mbr",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

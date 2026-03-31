@@ -1,0 +1,21 @@
+name: 'Check Angular Updates'
+description: 'Fails if ng update returns any available updates'
+runs:
+  using: "composite"
+  steps:
+    - name: Run ng update check
+      shell: bash
+      run: |
+        echo "Checking for Angular updates..."
+        UPDATES=$(npx ng update 2>&1)
+        echo "$UPDATES"
+
+        # Check for multiple possible indicators of available updates
+        if echo "$UPDATES" | grep -qiE "available|packages to update|command to update"; then
+          echo ""
+          echo "--------------------------------------------------------"
+          echo "ERROR: Angular updates are available!"
+          exit 1
+        else
+          echo "No Angular updates found. Project is up to date."
+        fi

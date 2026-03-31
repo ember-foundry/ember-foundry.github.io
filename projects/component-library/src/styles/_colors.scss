@@ -1,6 +1,16 @@
+/**
+ * All color names from color-names.com
+ */
+$alexandra: '#3b82f6';
 $blue-fire: '#006dea';
+$blaze-red: '#ef4444';
+$crispy-mint-green: '#22c55e';
 $egg-white: '#FFEFC1';
 $easter-red: '#C92519';
+$google-blue: '#4285F4';
+$google-green: '#34A853';
+$google-red: '#E53935';
+$google-yellow: '#FBBC05';
 $lucky-orange: '#FF9B49';
 $matte-black: '#28282B';
 $off-white: '#FFFAFA';
@@ -12,6 +22,36 @@ $sail: '#B9DDF5';
 $status-away: $lucky-orange;
 $status-busy: $spring-red;
 $status-busy: $easter-red;
+$status-error: $blaze-red;
 $status-focus: $blue-fire;
+$status-info: $alexandra;
 $status-offline: $silvery-white;
 $status-online: $spearmint;
+$status-success: $crispy-mint-green;
+$status-colors: (
+  away: $lucky-orange,
+  busy: $spring-red,
+  error: $blaze-red,
+  focus: $blue-fire,
+  info: $alexandra,
+  offline: $silvery-white,
+  online: $spearmint,
+  success: $crispy-mint-green
+);
+
+:root {
+  @each $status-name, $color in $status-colors {
+    --color-status-#{$status-name}: #{$color};
+  }
+
+  --color-silvery-white: #{$silvery-white};
+}
+
+// $color-attributes: (color, fill, stroke);
+// @each $status-name, $color in $status-colors {
+//  @each $color-attribute in $color-attributes {
+//    .#{$color-attribute}-#{$status-name} {
+//      #{$color-attribute}: var(--color-#{$status-name});
+//    }
+//  }
+// }

@@ -45,9 +45,25 @@ export const Sample: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
+      `
+    }
+  }
+};
+export const AvatarWithNoImageAndWithBadge: Story = {
+  render: (args) => {
+    const inputs = [
+      args.size ? `[size]="'${args.size}'"` : '',
+      args.status ? `[status]="'${args.status}'"` : '',
+      args.mode ? `[mode]="'${args.mode}'"` : ''
+    ].join(' ')
+    return {
+      template: `
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" />
+       </mbr-avatar-badge>
       `
     }
   }
@@ -73,21 +89,21 @@ export const AllStatuses: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="away">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="busy">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="focus">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="online">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
-       </lib-avatar-badge>
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="away">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="busy">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="focus">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="online">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+       </mbr-avatar-badge>
       `
     }
   }
@@ -102,9 +118,9 @@ export const WithTextOnly: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-            <lib-avatar name="Craig Wayne" />
-        </lib-avatar-badge>
+        <mbr-avatar-badge ${inputs}>
+            <mbr-avatar name="Craig Wayne" />
+        </mbr-avatar-badge>
       `
     }
   }
@@ -119,18 +135,18 @@ export const AllStatusesWithTextOnly: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="away">
-          <lib-avatar name="Craig Wayne" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="busy">
-          <lib-avatar name="Craig Wayne" />
-       </lib-avatar-badge>
-        <lib-avatar-badge ${inputs} status="online">
-          <lib-avatar name="Craig Wayne" />
-       </lib-avatar-badge>
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="away">
+          <mbr-avatar name="Craig Wayne" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="busy">
+          <mbr-avatar name="Craig Wayne" />
+       </mbr-avatar-badge>
+        <mbr-avatar-badge ${inputs} status="online">
+          <mbr-avatar name="Craig Wayne" />
+       </mbr-avatar-badge>
       `
     }
   }
@@ -145,12 +161,12 @@ export const DoNotDisturb: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
           <svg ngProjectAs="badge" viewBox="0 -960 960 960" fill="white">
             <path d="M200-440v-80h560v80H200Z"/>
           </svg>
-       </lib-avatar-badge>
+       </mbr-avatar-badge>
       `
     }
   },
@@ -176,10 +192,10 @@ export const Birthday: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs} style="--avatar-badge-color: white">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+        <mbr-avatar-badge ${inputs} style="--avatar-badge-color: white">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
           <img alt="birthday icon" ngProjectAs="badge" src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f382/emoji.svg" style="border:max(1px, calc(var(--size, var(--size-md)) * 0.04)) solid var(--avatar-badge-color);box-shadow: 0 1px 2px rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);"/>
-        </lib-avatar-badge>
+        </mbr-avatar-badge>
       `
     }
   },
@@ -205,12 +221,12 @@ export const AddAction: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
           <svg ngProjectAs="badge" viewBox="0 -960 960 960" fill="white">
             <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
           </svg>
-        </lib-avatar-badge>
+        </mbr-avatar-badge>
       `
     }
   },
@@ -235,8 +251,8 @@ export const SonyPSNAppearOffline: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs} style="--avatar-badge-color: none">
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+        <mbr-avatar-badge ${inputs} style="--avatar-badge-color: none">
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
           <svg ngProjectAs="badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle
               class="inverted_dashed_circle"
@@ -251,7 +267,7 @@ export const SonyPSNAppearOffline: Story = {
               stroke-linecap="round"
             />
           </svg>
-       </lib-avatar-badge>
+       </mbr-avatar-badge>
       `
     }
   },
@@ -277,12 +293,12 @@ export const LinkedInReachableStatus: Story = {
     ].join(' ')
     return {
       template: `
-        <lib-avatar-badge ${inputs}>
-          <lib-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
+        <mbr-avatar-badge ${inputs}>
+          <mbr-avatar name="Craig Wayne" image_url="https://mockmind-api.uifaces.co/content/human/1.jpg" />
           <svg ngProjectAs="badge" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="10" cy="10" r="8" fill="none" stroke="#38A06C" stroke-width="4"/>
           </svg>
-       </lib-avatar-badge>
+       </mbr-avatar-badge>
       `
     }
   },

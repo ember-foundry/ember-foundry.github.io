@@ -5,7 +5,8 @@ import {BaseComponent} from '../../_base/base.component';
 type SupportedFlexGrowValues = number | 'inherit' | 'initial' | 'unset' | 'revert';
 
 @Component({
-  selector: 'lib-column',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'mbr-column',
   template: '<ng-content></ng-content>',
   styleUrl: './flexbox-column.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

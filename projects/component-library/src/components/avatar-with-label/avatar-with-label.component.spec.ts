@@ -1,17 +1,17 @@
 import {beforeEach, describe, expect, it} from "vitest";
 import {TestBed} from '@angular/core/testing';
-import {AvatarLabelComponent} from './avatar-label.component';
+import {AvatarWithLabelComponent} from './avatar-with-label.component';
 
-describe('AvatarLabelComponent', () => {
+describe('AvatarWithLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AvatarLabelComponent]
+      imports: [AvatarWithLabelComponent]
     }).compileComponents();
   });
 
   it('should create and display the required name', () => {
-    const fixture = TestBed.createComponent(AvatarLabelComponent);
+    const fixture = TestBed.createComponent(AvatarWithLabelComponent);
     const component = fixture.componentInstance;
 
     fixture.componentRef.setInput('name', 'John Doe');

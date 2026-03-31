@@ -2,9 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  contentChildren,
+  contentChildren, Directive,
   effect,
-  ElementRef, inject,
+  ElementRef,
+  inject,
   input
 } from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
@@ -13,8 +14,27 @@ import {PixelsPipe} from '../../pipes/pixels/pixels.pipe';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: 'mbr-avatar-group mbr-avatar',
+  host: {
+    '[style.margin-right]': 'is_last_child ? undefined : overlapValue'
+  }
+})
+export class AvatarWithinGroupDirective {
+  private el = inject(ElementRef);
+
+  get is_last_child(): boolean {
+    const nativeElement = this.el.nativeElement;
+    return nativeElement.parentElement?.lastElementChild === nativeElement;
+  }
+
+  readonly overlapValue = 'var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)))';
+}
+
 @Component({
-  selector: 'lib-avatar-group',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'mbr-avatar-group',
   templateUrl: './avatar-group.component.html',
   styleUrl: './avatar-group.component.scss',
   imports: [
