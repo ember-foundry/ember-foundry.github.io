@@ -98,3 +98,4 @@ npm run test -- --watch --testFile $test_file
 * i want to run something like this:
   * ng add @angular/material
   * but for the component library to be used in other
+* https://ishadeed.com/article/css-masking/

@@ -5,10 +5,10 @@ import {SVGCheckmarkOutlineComponent} from '../svg-checkmark-outline/svg-checkma
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-callback-status',
-  templateUrl: './callback-status.component.html',
-  styleUrl: './callback-status.component.scss',
+  templateUrl: 'callback-status.component.html',
+  styleUrl: 'callback-status.component.scss',
   host: {
-    '[class]': "status()"
+    '[class]': 'status()'
   },
   imports: [
     SVGCheckmarkOutlineComponent

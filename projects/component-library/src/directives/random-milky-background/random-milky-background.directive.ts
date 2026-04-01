@@ -2,7 +2,8 @@ import {Directive} from '@angular/core';
 import {random_milky_hsl_color} from '../../helpers/random_milky_hsl_color';
 
 @Directive({
-  selector: '[libRandomMilkyBackground]',
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: '[mbrRandomMilkyBackground]',
   host: {
     '[style.background-color]': 'random_milky_color'
   }

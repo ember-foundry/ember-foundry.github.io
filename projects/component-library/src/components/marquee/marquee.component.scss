@@ -1,0 +1,82 @@
+:host {
+  --marquee-animation-duration: 10s;
+  --marquee-gap: 1em;
+  --mask-size: 10%;
+
+  display: flex;
+  height: var(--marquee-height, 200px);
+  overflow-x: auto;
+  width: 100%;
+}
+
+:host(::-webkit-scrollbar) {
+  display: none;
+}
+
+.track {
+  align-items: center;
+  animation-duration: calc(var(--marquee-animation-duration) / var(--marquee-speed, 1));
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: flex;
+  gap: var(--marquee-gap);
+  justify-content: center;
+  padding-right: var(--marquee-gap);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: calc(calc(var(--marquee-animation-duration) / var(--marquee-speed, 1)) * 4);
+  }
+}
+
+:host(.direction-left) {
+  flex-direction: row;
+
+  .track {
+    animation-name: slide-left;
+  }
+}
+
+:host(.direction-right) {
+  flex-direction: row-reverse;
+
+  .track {
+    animation-name: slide-right;
+  }
+}
+
+:host(.gradient-mask) {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 10%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+:host(.pause-on-hover:hover) .track {
+  animation-play-state: paused;
+}
+
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+::ng-deep .track > * {
+  align-content: center;
+  aspect-ratio: 1;
+  background: cornflowerblue;
+  border-radius: 0.2em;
+  font-size: 3rem;
+  height: 100%;
+  text-align: center;
+}
+
+@keyframes slide-left {
+  to {
+    translate: -100%;
+  }
+}
+
+@keyframes slide-right {
+  to {
+    translate: 100%;
+  }
+}
