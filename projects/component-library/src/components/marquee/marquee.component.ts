@@ -13,8 +13,7 @@ import {BaseComponent} from '../_base/base.component';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'ng-template[mbrMarqueeTemplate]',
-  standalone: true
+  selector: 'ng-template[mbrMarqueeTemplate]'
 })
 export class MarqueeItemTemplateDirective {
   templateRef = inject(TemplateRef<unknown>);
