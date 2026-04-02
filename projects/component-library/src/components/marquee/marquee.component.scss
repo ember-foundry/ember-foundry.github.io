@@ -25,15 +25,12 @@
   flex-grow: 0;
   flex-shrink: 0;
   gap: var(--marquee-gap);
+  min-width: 100%;
   justify-content: center;
 
   @media (prefers-reduced-motion: reduce) {
     animation-duration: calc(calc(var(--marquee-animation-duration) / var(--marquee-speed, 1)) * 4);
   }
-}
-
-:host(.direction-left) {
-  flex-direction: row;
 }
 
 :host(.direction-right) {
@@ -57,15 +54,10 @@
 ::ng-deep .track > * {
   align-content: center;
   aspect-ratio: 1;
-  background: cornflowerblue;
   border-radius: 0.2em;
   font-size: 3rem;
   height: 100%;
   text-align: center;
-}
-
-::ng-deep .track:last-child > * {
-  background: red;
 }
 
 @keyframes slide {

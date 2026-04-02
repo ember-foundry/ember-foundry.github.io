@@ -40,17 +40,7 @@ export default meta;
 type Story = Meta<MarqueeComponent>;
 
 export const Sample: Story = {
-  parameters: {
-    backgrounds: {
-      options: {
-        red: { name: 'Red', value: '#f00' },
-        green: { name: 'Green', value: '#0f0' },
-        blue: { name: 'Blue', value: '#00f' },
-      },
-    },
-  },
   render: (args) => {
-
     const inputs = [
       args.direction ? `[direction]="'${args.direction}'"` : '',
       args.fade !== undefined ? `[fade]="${args.fade}"` : '',
@@ -58,19 +48,29 @@ export const Sample: Story = {
       args.speed !== undefined ? `[speed]="${args.speed}"` : ''
     ].join(' ')
     return {
+      styles: [
+        `
+          :host {
+            height: calc(100vh - 32px);
+            background: #121734;
+            display: flex;
+            align-items: center;
+          }
+        `
+      ],
       template: `
         <mbr-marquee ${inputs}>
             <ng-template mbrMarqueeTemplate>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
-              <div>7</div>
-              <div>8</div>
-              <div>9</div>
-              <div>10</div>
+              <div style="background-color: #01ffb3;">1</div>
+              <div style="background-color: #01ffb3;">2</div>
+              <div style="background-color: #01ffb3;">3</div>
+              <div style="background-color: #01ffb3;">4</div>
+              <div style="background-color: #01ffb3;">5</div>
+              <div style="background-color: #01ffb3;">6</div>
+              <div style="background-color: #01ffb3;">7</div>
+              <div style="background-color: #01ffb3;">8</div>
+              <div style="background-color: #01ffb3;">9</div>
+              <div style="background-color: #01ffb3;">10</div>
             </ng-template>
         </mbr-marquee>
       `

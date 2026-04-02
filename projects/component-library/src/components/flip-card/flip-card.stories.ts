@@ -36,8 +36,7 @@ export default meta;
 
 type Story = StoryObj<FlipCardComponent>;
 
-export const TwoImagesSameSize: Story = {
-  name: 'With 2 Images of equal size',
+export const Sample: Story = {
   render: (args) => {
     const inputs = [
       args.horizontal_alignment ? `[align_sides]="'${args.horizontal_alignment}'"` : '',
@@ -55,13 +54,27 @@ export const TwoImagesSameSize: Story = {
   }
 }
 
+export const FlipOnXAxis: Story = {
+  ...Sample,
+  args: {
+    flip_axis: 'x'
+  }
+}
+
+export const FlipOnClick: Story = {
+  ...Sample,
+  args: {
+    flip_on: 'click'
+  }
+}
+
 export const FrontSideLarger: Story = {
   name: 'With Front Image larger than Back Image',
   render: (args) => {
     const inputs = [
-      args.horizontal_alignment ? `[align_sides]="'${args.horizontal_alignment}'"` : '',
       args.flip_axis ? `[flip_axis]="'${args.flip_axis}'"` : '',
-      args.flip_on ? `[flip_on]="'${args.flip_on}'"` : ''
+      args.flip_on ? `[flip_on]="'${args.flip_on}'"` : '',
+      args.horizontal_alignment ? `[align_sides]="'${args.horizontal_alignment}'"` : ''
     ].join(' ');
     return {
       template: `
