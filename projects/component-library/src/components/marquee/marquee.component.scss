@@ -1,5 +1,6 @@
 :host {
   --marquee-animation-duration: 40s;
+  --marquee-animation-direction: -1;
   --marquee-gap: 1em;
   --mask-size: 10%;
 
@@ -18,8 +19,11 @@
   align-items: center;
   animation-duration: calc(var(--marquee-animation-duration) / var(--marquee-speed, 1));
   animation-iteration-count: infinite;
+  animation-name: slide;
   animation-timing-function: linear;
   display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
   gap: var(--marquee-gap);
   justify-content: center;
 
@@ -30,18 +34,11 @@
 
 :host(.direction-left) {
   flex-direction: row;
-
-  .track {
-    animation-name: slide-left;
-  }
 }
 
 :host(.direction-right) {
+  --marquee-animation-direction: 1;
   flex-direction: row-reverse;
-
-  .track {
-    animation-name: slide-right;
-  }
 }
 
 :host(.fade) {
@@ -71,14 +68,8 @@
   background: red;
 }
 
-@keyframes slide-left {
+@keyframes slide {
   to {
-    translate: -100%;
-  }
-}
-
-@keyframes slide-right {
-  to {
-    translate: 100%;
+    transform: translateX(calc(var(--marquee-animation-direction, -1) * 100%));
   }
 }
