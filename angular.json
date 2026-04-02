@@ -135,7 +135,8 @@
             ],
             "port": 6006,
             "styles": [
-              "projects/component-library/src/styles/global.scss"
+              "projects/component-library/src/styles/global.scss",
+              "projects/component-library/.storybook/styles.scss"
             ]
           }
         },

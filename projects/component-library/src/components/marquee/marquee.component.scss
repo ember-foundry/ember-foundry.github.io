@@ -6,7 +6,7 @@
 
   display: flex;
   gap: var(--marquee-gap);
-  height: var(--marquee-height, 200px);
+  min-width: 100%;
   overflow: hidden;
   user-select: none;
 }
@@ -53,10 +53,6 @@
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::ng-deep .track > * {
   align-content: center;
-  aspect-ratio: 1;
-  border-radius: 0.2em;
-  font-size: 3rem;
-  height: 100%;
   text-align: center;
 }
 
