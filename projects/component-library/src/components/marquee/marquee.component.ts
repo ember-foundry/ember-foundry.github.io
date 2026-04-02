@@ -30,7 +30,7 @@ export class MarqueeItemTemplateDirective {
   host: {
     '[class]': 'host_css_classes()',
     '[class.pause-on-hover]': 'pause_on_hover()',
-    '[class.gradient-mask]': 'gradient_mask()',
+    '[class.fade]': 'fade()',
     '[style.--marquee-speed]': 'speed()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -38,7 +38,7 @@ export class MarqueeItemTemplateDirective {
 export class MarqueeComponent extends BaseComponent {
 
   direction = input<'left'|'right'>('left');
-  gradient_mask = input<boolean>(true);
+  fade = input<boolean>(true);
   pause_on_hover = input<boolean>(true);
   speed = input<number>(1);
 

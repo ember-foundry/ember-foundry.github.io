@@ -23,7 +23,7 @@ const meta: Meta<MarqueeComponent> = {
       options: ['left', 'right'],
       control: { type: 'select' }
     },
-    gradient_mask: {
+    fade: {
       control: { type: 'boolean' }
     },
     pause_on_hover: {
@@ -40,18 +40,26 @@ export default meta;
 type Story = Meta<MarqueeComponent>;
 
 export const Sample: Story = {
+  parameters: {
+    backgrounds: {
+      options: {
+        red: { name: 'Red', value: '#f00' },
+        green: { name: 'Green', value: '#0f0' },
+        blue: { name: 'Blue', value: '#00f' },
+      },
+    },
+  },
   render: (args) => {
+
     const inputs = [
       args.direction ? `[direction]="'${args.direction}'"` : '',
-      args.speed ? `[speed]="${args.speed}"` : ''
+      args.fade !== undefined ? `[fade]="${args.fade}"` : '',
+      args.pause_on_hover !== undefined ? `[pause_on_hover]="${args.pause_on_hover}"` : '',
+      args.speed !== undefined ? `[speed]="${args.speed}"` : ''
     ].join(' ')
     return {
       template: `
-        <mbr-marquee
-          ${inputs}
-          [gradient_mask]="${args.gradient_mask}"
-          [pause_on_hover]="${args.pause_on_hover}"
-        >
+        <mbr-marquee ${inputs}>
             <ng-template mbrMarqueeTemplate>
               <div>1</div>
               <div>2</div>
@@ -69,3 +77,5 @@ export const Sample: Story = {
     }
   }
 }
+
+export const VerticalMarquee: Story = {}

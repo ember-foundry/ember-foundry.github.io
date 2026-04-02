@@ -1,12 +1,13 @@
 :host {
-  --marquee-animation-duration: 10s;
+  --marquee-animation-duration: 40s;
   --marquee-gap: 1em;
   --mask-size: 10%;
 
   display: flex;
+  gap: var(--marquee-gap);
   height: var(--marquee-height, 200px);
-  overflow-x: auto;
-  width: 100%;
+  overflow: hidden;
+  user-select: none;
 }
 
 :host(::-webkit-scrollbar) {
@@ -21,7 +22,6 @@
   display: flex;
   gap: var(--marquee-gap);
   justify-content: center;
-  padding-right: var(--marquee-gap);
 
   @media (prefers-reduced-motion: reduce) {
     animation-duration: calc(calc(var(--marquee-animation-duration) / var(--marquee-speed, 1)) * 4);
@@ -44,14 +44,12 @@
   }
 }
 
-:host(.gradient-mask) {
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 10%,
-    black 80%,
-    transparent 100%
-  );
+:host(.fade) {
+  /**
+   * TODO: allow fade on left only or right only
+   */
+  //mask-image: linear-gradient(90deg, transparent, black 10%, black 80%, transparent 100%);
+  mask-image: linear-gradient(var(--mask-direction, to right), transparent, black 20%, black 80%, transparent);
 }
 
 :host(.pause-on-hover:hover) .track {
@@ -67,6 +65,10 @@
   font-size: 3rem;
   height: 100%;
   text-align: center;
+}
+
+::ng-deep .track:last-child > * {
+  background: red;
 }
 
 @keyframes slide-left {
