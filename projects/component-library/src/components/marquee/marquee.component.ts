@@ -31,19 +31,41 @@ export class MarqueeItemTemplateDirective {
     '[class]': 'host_css_classes()',
     '[class.pause-on-hover]': 'pause_on_hover()',
     '[class.fade]': 'fade()',
+    '[style.--flex-direction]': 'flex_direction()',
+    '[style.--marquee-animation-direction]': 'marquee_animation_direction()',
     '[style.--marquee-speed]': 'speed()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MarqueeComponent extends BaseComponent {
 
-  direction = input<'left'|'right'>('left');
+  orientation = input<'horizontal'|'vertical'>('horizontal')
+  direction = input<'normal'|'reverse'>('normal');
   fade = input<boolean>(true);
   pause_on_hover = input<boolean>(true);
   speed = input<number>(1);
 
-  host_css_classes = computed<string>(() => `direction-${this.direction()}`)
+  flex_direction = computed<'row'|'row-reverse'|'column'|'column-reverse'>(() => {
+    const orientation = this.orientation();
+    const direction = this.direction();
+    if(orientation === 'horizontal'){
+      if(direction === 'reverse'){
+        return 'row-reverse';
+      } else {
+        return 'row';
+      }
+    } else {
+      if(direction === 'reverse'){
+        return 'column-reverse';
+      } else {
+        return 'column';
+      }
+    }
+  });
 
-  template = contentChild(MarqueeItemTemplateDirective);
+  host_css_classes = computed<string>(() => `direction-${this.direction()} orientation-${this.orientation()}`)
+
+  marquee_animation_direction = computed<1|-1>(() => this.direction() === 'normal' ? -1 : 1);
+  template = contentChild.required(MarqueeItemTemplateDirective);
 
 }

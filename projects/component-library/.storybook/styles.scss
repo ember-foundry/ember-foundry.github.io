@@ -1,6 +1,9 @@
-#storybook-root {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+body.sb-show-main.sb-main-fullscreen {
+  min-height: 100vh;
+
+  #storybook-root {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
 }

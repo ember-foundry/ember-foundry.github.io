@@ -20,11 +20,15 @@ const meta: Meta<MarqueeComponent> = {
   tags: ['autodocs', 'carousel'],
   argTypes: {
     direction: {
-      options: ['left', 'right'],
+      options: ['normal', 'reverse'],
       control: { type: 'select' }
     },
     fade: {
       control: { type: 'boolean' }
+    },
+    orientation: {
+      options: ['horizontal', 'vertical'],
+      control: { type: 'select' }
     },
     pause_on_hover: {
       control: { type: 'boolean' }
@@ -40,10 +44,14 @@ export default meta;
 type Story = Meta<MarqueeComponent>;
 
 export const Sample: Story = {
+  parameters: {
+    layout: 'fullscreen'
+  },
   render: (args) => {
     const inputs = [
       args.direction ? `[direction]="'${args.direction}'"` : '',
       args.fade !== undefined ? `[fade]="${args.fade}"` : '',
+      args.orientation !== undefined ? `[orientation]="'${args.orientation}'"` : '',
       args.pause_on_hover !== undefined ? `[pause_on_hover]="${args.pause_on_hover}"` : '',
       args.speed !== undefined ? `[speed]="${args.speed}"` : ''
     ].filter(i => !!i).join(' ')
@@ -54,8 +62,9 @@ export const Sample: Story = {
             align-items: center;
             background: #121734;
             display: flex;
-            min-height: 100%;
-            min-width: 100%;
+            justify-content: center;
+            height: min(100vh, 100%);
+            width: min(100vw, 100%);
             padding: 1em;
           }
 
@@ -64,7 +73,7 @@ export const Sample: Story = {
             background-color: #01ffb3;
             border-radius: 0.2em;
             font-size: 3rem;
-            width: calc(100% / 10);
+            width: 200px;
           }
         `
       ],
@@ -94,7 +103,8 @@ export const LogoWall: Story = {
       description: {
         story: "Based off the <a href='https://codepen.io/hexagoncircle/full/wvmjomb' target='_blank'>Ryan Mulligan's Logo Wall</a>"
       }
-    }
+    },
+    layout: 'fullscreen'
   },
   render: (args) => {
     return {
@@ -108,7 +118,8 @@ export const LogoWall: Story = {
             display: flex;
             flex-direction: column;
             gap: 1em;
-            height: calc(100vh - 32px);
+            max-width: 100%;
+            padding: 1em;
             justify-content: center;
           }
 
@@ -150,7 +161,7 @@ export const LogoWall: Story = {
               </svg>
           </ng-template>
         </mbr-marquee>
-        <mbr-marquee [direction]="'right'">
+        <mbr-marquee [direction]="'reverse'">
           <ng-template mbrMarqueeTemplate>
               <svg class="example-item">
                 <use xlink:href="#mcdonalds"></use>
@@ -219,13 +230,7 @@ export const LogoWall: Story = {
 }
 
 export const VerticalMarquee: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: "Based off the <a href='https://codepen.io/hexagoncircle/full/wvmjomb' target='_blank'>Ryan Mulligan's Logo Wall</a>"
-      }
-    }
-  },
+  ...LogoWall,
   render: (args) => {
     return {
       styles: [
@@ -236,23 +241,24 @@ export const VerticalMarquee: Story = {
             background-color: navy;
             color: white;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 1em;
-            height: calc(100vh - 32px);
             justify-content: center;
+            padding: 1em;
+            width: 100%;
           }
 
           .example-item  {
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 1;
             background-color: rgba(255,255,255,0.15);
             border-radius: 0.5rem;
             padding: calc(var(--size) / 10);
-            width: var(--size);
+            width: calc(var(--size) / 1.5)
           }
         `
       ],
       template: `
-        <mbr-marquee>
+        <mbr-marquee orientation="vertical">
           <ng-template mbrMarqueeTemplate>
               <svg class="example-item">
                 <use xlink:href="#mcdonalds"></use>
@@ -280,7 +286,7 @@ export const VerticalMarquee: Story = {
               </svg>
           </ng-template>
         </mbr-marquee>
-        <mbr-marquee [direction]="'right'">
+        <mbr-marquee orientation="vertical" direction="reverse">
           <ng-template mbrMarqueeTemplate>
               <svg class="example-item">
                 <use xlink:href="#mcdonalds"></use>
