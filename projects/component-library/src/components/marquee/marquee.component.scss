@@ -1,7 +1,10 @@
 :host {
   --marquee-animation-duration: 40s;
+  --marquee-animation-direction: -1;
   --marquee-gap: 1em;
   --mask-size: 10%;
+  --flex-direction: row;
+  --marquee-speed: 1;
 
   display: flex;
   flex-direction: var(--flex-direction);
@@ -32,6 +35,7 @@
 
 :host(.orientation-horizontal) {
   width: 100%;
+
   .track {
     animation-name: slide-horizontal;
     flex-direction: inherit;
@@ -40,6 +44,7 @@
 
 :host(.orientation-vertical) {
   height: 100%;
+
   .track {
     animation-name: slide-vertical;
     flex-direction: inherit;
@@ -50,7 +55,7 @@
   /**
    * TODO: allow fade on left only or right only
    */
-  //mask-image: linear-gradient(90deg, transparent, black 10%, black 80%, transparent 100%);
+  // mask-image: linear-gradient(90deg, transparent, black 10%, black 80%, transparent 100%);
   mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
 }
 

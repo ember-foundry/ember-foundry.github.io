@@ -22,7 +22,7 @@ const meta: Meta<GoogleTicketComponent> = {
           justify-content: center;
         }
       `
-    ],
+    ]
   }),
   tags: ['autodocs']
 }

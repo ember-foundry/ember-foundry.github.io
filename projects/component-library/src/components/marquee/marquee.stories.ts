@@ -106,7 +106,7 @@ export const LogoWall: Story = {
     },
     layout: 'fullscreen'
   },
-  render: (args) => {
+  render: () => {
     return {
       styles: [
         `
@@ -231,7 +231,7 @@ export const LogoWall: Story = {
 
 export const VerticalMarquee: Story = {
   ...LogoWall,
-  render: (args) => {
+  render: () => {
     return {
       styles: [
         `
