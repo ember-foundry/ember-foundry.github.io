@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {MarqueeComponent, MarqueeItemTemplateDirective} from './marquee.component';
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   standalone: true,
@@ -12,7 +12,8 @@ import {Component} from '@angular/core';
         <span>Item</span>
       </ng-template>
     </mbr-marquee>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestDefaultMarqueeHostComponent {}
 
@@ -25,7 +26,8 @@ class TestDefaultMarqueeHostComponent {}
         <span>Item</span>
       </ng-template>
     </mbr-marquee>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestColumnMarqueeHostComponent {}
 
@@ -38,7 +40,8 @@ class TestColumnMarqueeHostComponent {}
         <span>Item</span>
       </ng-template>
     </mbr-marquee>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestRowReverseMarqueeHostComponent {}
 
@@ -57,7 +60,8 @@ class TestRowReverseMarqueeHostComponent {}
         <span>Item</span>
       </ng-template>
     </mbr-marquee>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestVerticalReverseMarqueeHostComponent {}
 

@@ -5,6 +5,8 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
+type ExposedAvatarGroupComponentComponent = AvatarGroupComponent & { get is_last_child(): boolean};
+
 describe('AvatarGroupComponent', () => {
   let component: AvatarGroupComponent;
   let fixture: ComponentFixture<AvatarGroupComponent>;
@@ -92,7 +94,7 @@ describe('AvatarGroupComponent with Projected Content', () => {
     const firstAvatarDirective = avatarDebugElements[0].injector.get(
       AvatarWithinGroupDirective
     );
-    const spy = vi.spyOn(firstAvatarDirective as any, 'is_last_child', 'get');
+    const spy = vi.spyOn(firstAvatarDirective as unknown as ExposedAvatarGroupComponentComponent, 'is_last_child', 'get');
     expect(spy).toHaveBeenCalled();
   })
 

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {BaseComponent} from './base.component';
@@ -24,15 +24,15 @@ describe('BaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TestBaseHostComponent],
+      imports: [TestBaseHostComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestBaseHostComponent);
     component = fixture.componentInstance;
 
-    let _component = component as unknown as ExposedBaseComponent;
+    const exposed_component = component as unknown as ExposedBaseComponent;
 
-    spy_component_to_css_class = vi.spyOn(_component, 'component_to_css_class');
+    spy_component_to_css_class = vi.spyOn(exposed_component, 'component_to_css_class');
 
     fixture.detectChanges();
     await fixture.whenStable();
@@ -47,8 +47,8 @@ describe('BaseComponent', () => {
   });
 
   it('should convert the class name to a kebab-case css class', () => {
-    let _component = component as unknown as ExposedBaseComponent
-    expect(_component.component_to_css_class()).toBe('test-base-host');
+    const exposed_component = component as unknown as ExposedBaseComponent
+    expect(exposed_component.component_to_css_class()).toBe('test-base-host');
   });
 
   it('should apply the kebab-case class to the host element', () => {
