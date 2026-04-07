@@ -32,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name="CheckmarkFilled"
+component_name="Carousel"
 ng generate component $component_name --project component-library --dry-run
 ```
 
@@ -87,8 +87,7 @@ ng config projects.component-library.schematics.@schematics/angular:enum.type en
 testing a specific file
 
 ```shell
-#test_file="src/directives/random-milky-background/random-milky-background.directive.spec.ts"
-test_file="src/components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component.spec.ts"
+test_file="projects/component-library/src/components/marquee/marquee.component.spec.ts"
 npm run test -- --watch --testFile $test_file
 ```
 
@@ -98,3 +97,4 @@ npm run test -- --watch --testFile $test_file
 * i want to run something like this:
   * ng add @angular/material
   * but for the component library to be used in other
+* https://ishadeed.com/article/css-masking/

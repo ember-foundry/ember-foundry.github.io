@@ -8,7 +8,7 @@ import {RandomMilkyBackgroundDirective} from './random-milky-background.directiv
   standalone: true,
   imports: [RandomMilkyBackgroundDirective],
   template: `
-    <div libRandomMilkyBackground>Test Element</div>`,
+    <div mbrRandomMilkyBackground>Test Element</div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestHostComponent {

@@ -18,18 +18,18 @@ import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'mbr-avatar-group mbr-avatar',
   host: {
-    '[style.margin-right]': 'is_last_child ? undefined : overlapValue'
+    '[style.margin-right]': 'is_last_child ? undefined : overlap_value'
   }
 })
 export class AvatarWithinGroupDirective {
-  private el = inject(ElementRef);
+  private element_ref = inject(ElementRef);
 
-  get is_last_child(): boolean {
-    const nativeElement = this.el.nativeElement;
+  protected get is_last_child(): boolean {
+    const nativeElement = this.element_ref.nativeElement;
     return nativeElement.parentElement?.lastElementChild === nativeElement;
   }
 
-  readonly overlapValue = 'var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)))';
+  protected readonly overlap_value = 'var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)))';
 }
 
 @Component({
@@ -61,8 +61,8 @@ export class AvatarGroupComponent extends BaseComponent {
   limit = input<number, number | string | undefined>(undefined, {transform: this.whole_number_pipe.transform});
   size = input<tailwind_sizes>();
 
-  protected avatar_items_as_html = contentChildren(AvatarComponent, {read: ElementRef});
   private avatar_items_as_component = contentChildren(AvatarComponent);
+  protected avatar_items_as_html = contentChildren(AvatarComponent, {read: ElementRef});
 
   protected surplus_text = computed<undefined|string>(() => {
     const limit = this.limit();
@@ -83,7 +83,7 @@ export class AvatarGroupComponent extends BaseComponent {
     const component_items = this.avatar_items_as_component();
     const total_items = html_items.length;
 
-    component_items.forEach((component_item, index) => {
+    component_items.forEach(async (component_item, index) => {
       if (component_item.bordered() === undefined) {
         component_item.bordered = group_bordered;
       }

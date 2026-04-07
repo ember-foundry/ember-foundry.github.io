@@ -20,14 +20,14 @@ export class BaseComponent {
   }
 
   protected computed_host_css_classes_from<K extends keyof this>(...keys: K[]) {
-    const results: string[] = [];
     return computed<string>(() => {
-      keys.forEach(key => {
-        const css_prefix = String(key);
-        const source = this[key] as unknown as Signal<string>;
-        results.push(`${css_prefix}-${source()}`);
-      })
-      return results.join(' ');
+      return keys
+        .map(key => {
+          const css_prefix = String(key);
+          const source = this[key] as unknown as Signal<string>;
+          return `${css_prefix}-${source()}`;
+        })
+        .join(' ');
     });
   }
 }
