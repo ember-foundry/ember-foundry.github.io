@@ -19,15 +19,15 @@ export class BaseComponent {
       .toLowerCase();
   }
 
-  protected computed_host_css_classes_from<K extends keyof this>(...keys: K[]) {
-    const results: string[] = [];
-    return computed<string>(() => {
-      keys.forEach(key => {
-        const css_prefix = String(key);
-        const source = this[key] as unknown as Signal<string>;
-        results.push(`${css_prefix}-${source()}`);
-      })
-      return results.join(' ');
-    });
-  }
+  // protected computed_host_css_classes_from<K extends keyof this>(...keys: K[]) {
+  //   const results: string[] = [];
+  //   return computed<string>(() => {
+  //     keys.forEach(key => {
+  //       const css_prefix = String(key);
+  //       const source = this[key] as unknown as Signal<string>;
+  //       results.push(`${css_prefix}-${source()}`);
+  //     })
+  //     return results.join(' ');
+  //   });
+  // }
 }
