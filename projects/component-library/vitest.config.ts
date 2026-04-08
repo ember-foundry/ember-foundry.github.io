@@ -14,6 +14,18 @@ export default defineConfig({
     include: ['src/**/*.spec.ts'],
     browser: {
       enabled: true,
+      expect: {
+        // @see https://vitest.dev/guide/browser/visual-regression-testing
+        toMatchScreenshot: {
+          comparatorName: 'pixelmatch',
+          comparatorOptions: {
+            // 0-1, how different can colors be?
+            threshold: 0.2,
+            // 1% of pixels can differ
+            allowedMismatchedPixelRatio: 0.01,
+          },
+        },
+      },
       headless: process.env['VITEST_HEADLESS'] !== 'false',
       provider: playwright(),
       instances: [{ browser: 'chromium' }]

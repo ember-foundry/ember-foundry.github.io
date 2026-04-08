@@ -32,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name="Carousel"
+component_name="ColorSchemeToggle"
 ng generate component $component_name --project component-library --dry-run
 ```
 
