@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { ColorSchemeToggleComponent } from './color-scheme-toggle.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, afterEach, beforeEach, vi} from 'vitest';
+import {ColorSchemeToggleComponent} from './color-scheme-toggle.component';
 
 describe('ColorSchemeToggleComponent', () => {
   let component: ColorSchemeToggleComponent;
@@ -20,6 +20,10 @@ describe('ColorSchemeToggleComponent', () => {
     await fixture.whenStable();
   });
 
+  afterEach(async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -32,8 +36,11 @@ describe('ColorSchemeToggleComponent', () => {
 
   it('should toggle to dark mode and emit dark on click', async () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     host.click();
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     fixture.detectChanges();
 
     expect(host.classList.contains('dark')).toBe(true);
@@ -47,9 +54,13 @@ describe('ColorSchemeToggleComponent', () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
 
     host.click();
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     fixture.detectChanges();
 
     host.click();
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     fixture.detectChanges();
 
     expect(host.classList.contains('light')).toBe(true);

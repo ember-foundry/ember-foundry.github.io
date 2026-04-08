@@ -8,8 +8,12 @@ $ease-elastic-out-3: cubic-bezier(.5,1.25,.75,1.25);
 $ease-out-5: cubic-bezier(0,0,0,1);
 $ease-elastic-out-4: cubic-bezier(.5,1.5,.75,1.25);
 $ease-elastic-4: $ease-elastic-out-4;
-
+$default-size: 2rem;
 :host {
+  @media (hover: none) {
+    --size: calc(var(--size) * 2);
+  }
+
   --icon-fill: hsl(210deg 10% 30%);
   --icon-fill-hover: hsl(210deg 10% 15%);
 
@@ -19,9 +23,12 @@ $ease-elastic-4: $ease-elastic-out-4;
   border-radius: 50%;
   cursor: pointer;
   display: inline-flex;
+  inline-size: var(--size, $default-size);
+  block-size: var(--size, $default-size);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+
 
 :host:is(:hover,:focus-visible) > svg > :is(.moon,.sun) {
   fill: var(--icon-fill-hover)
