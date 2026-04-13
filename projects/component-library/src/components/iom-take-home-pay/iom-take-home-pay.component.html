@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="header">
+    <div class="header-title">
+      <h1>IOM Income Tax Breakdown (2025/26)</h1>
+      <p>Visualizing where your gross income goes</p>
+    </div>
+
+    <div class="input-container">
+      <label class="input-label">Gross Annual Income</label>
+      <div class="input-wrapper">
+        <span class="currency-symbol">£</span>
+        <input
+          type="number"
+          step="100"
+          [ngModel]="gross_income()"
+          (ngModelChange)="gross_income.set($event)"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="content-body">
+    <mbr-sunburst-chart
+      [total_amount]="gross_income()"
+      [hierarchy]="sunburst_hierarchy()"
+    >
+      <div class="summary-box" ngProjectAs="summary-box">
+        <p class="summary-label">Monthly Estimated Net Income</p>
+        <p class="summary-value">£{{ monthly_net_income().toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</p>
+        <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
+      </div>
+    </mbr-sunburst-chart>
+
+<!--    <aside>-->
+<!--      <div class="legend-container">-->
+<!--        <h2>Legend</h2>-->
+<!--        <div class="legend-list">-->
+<!--          @for (item of legend(); track item.label) {-->
+<!--            <div class="legend-item">-->
+<!--              <div class="legend-label-group">-->
+<!--                <div class="dot" [style.background]="item.color"></div>-->
+<!--                <span class="legend-text">{{ item.label }}</span>-->
+<!--              </div>-->
+<!--              <span class="legend-value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>-->
+<!--            </div>-->
+<!--          }-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="summary-box">-->
+<!--        <p class="summary-label">Monthly Estimated Net Income</p>-->
+<!--        <p class="summary-value">£{{ monthly_net_income().toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</p>-->
+<!--        <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>-->
+<!--      </div>-->
+<!--    </aside>-->
+
+  </div>
+</div>

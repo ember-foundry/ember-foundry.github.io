@@ -16,7 +16,22 @@ export default meta;
 
 type Story = Meta<ColorSchemeToggleComponent>;
 
-export const Sample: Story = {};
+export const Sample: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Based on <a href="https://web.dev/articles/building/a-theme-switch-component" target="_blank">web.dev theme switch component</a>'
+      }
+    }
+  },
+  render: (args) => {
+    return {
+      props: args,
+      styles: [':host{ --size: 100px }'],
+      // template: `<mbr-color-scheme-toggle ${inputs}/>`
+    }
+  }
+};
 // TODO: show the value in a separate story
 // TODO: seperate stories for light and dark
 // TODO: seperate component for the mask

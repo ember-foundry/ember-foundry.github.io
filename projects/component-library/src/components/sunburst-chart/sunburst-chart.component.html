@@ -1,0 +1,85 @@
+@let _svg_size = svg_size();
+@let _svg_half_size = svg_half_size();
+<svg [attr.viewBox]="'0 0 ' + _svg_size + ' ' + _svg_size">
+  <circle
+    [attr.cx]="_svg_half_size"
+    [attr.cy]="_svg_half_size"
+    r="70"
+    fill="none"
+  />
+  <text
+    [attr.x]="_svg_half_size"
+    [attr.y]="_svg_half_size - 5"
+    text-anchor="middle"
+    font-weight="bold"
+    font-size="24"
+    [attr.fill]="center_text().color"
+  >
+    {{ center_text().value }}
+  </text>
+  <text
+    [attr.x]="_svg_half_size"
+    [attr.y]="_svg_half_size + 20"
+    text-anchor="middle"
+    font-size="14"
+    fill="#64748b">
+    {{ center_text().label }}
+  </text>
+
+  @for (item of flattened_hierarchy(); track item.label + item.path) {
+    <g class="chart-group"
+       (mousemove)="show_hover($event, item)"
+       (mouseleave)="hide_hover()"
+    >
+      <path
+        [attr.d]="item.path"
+        [attr.fill]="item.color"
+        stroke="white"
+        stroke-width="1.5"
+      />
+      @if (item.slice_angle > 5) {
+        <text
+          [attr.x]="item.tx"
+          [attr.y]="item.ty"
+          [attr.transform]="'rotate(' + item.rot + ',' + item.tx + ',' + item.ty + ')'"
+          text-anchor="middle"
+          class="label-text"
+          fill="#1e293b"
+          [attr.font-size]="item.fontSize">
+          <tspan [attr.x]="item.tx" dy="-0.6em">{{ item.label }}</tspan>
+          <tspan [attr.x]="item.tx" dy="1.2em" font-weight="400" fill="#334155">{{ item.val_str }}</tspan>
+        </text>
+      }
+    </g>
+  }
+</svg>
+@if (show_legend()){
+  <aside>
+    <div class="legend-container">
+      <h2>Legend</h2>
+      <div class="legend-list">
+        @for (item of legend(); track item.label) {
+          <div class="legend-item">
+            <div class="legend-label-group">
+              <div class="dot" [style.background]="item.color"></div>
+              <span class="legend-text">{{ item.label }}</span>
+            </div>
+            <span class="legend-value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <ng-content select="summary-box"></ng-content>
+  </aside>
+}
+
+<div
+  id="formula-popup"
+  [style.display]="hover_state().visible ? 'block' : 'none'"
+  [style.left.px]="hover_state().x"
+  [style.top.px]="hover_state().y"
+>
+  <div class="title">{{ hover_state().label }}</div>
+  <p>{{ hover_state().formula }}</p>
+</div>

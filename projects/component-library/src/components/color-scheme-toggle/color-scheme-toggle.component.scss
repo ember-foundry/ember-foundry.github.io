@@ -9,6 +9,7 @@ $ease-out-5: cubic-bezier(0,0,0,1);
 $ease-elastic-out-4: cubic-bezier(.5,1.5,.75,1.25);
 $ease-elastic-4: $ease-elastic-out-4;
 $default-size: 2rem;
+
 :host {
   @media (hover: none) {
     --size: calc(var(--size) * 2);
@@ -30,30 +31,30 @@ $default-size: 2rem;
 }
 
 
-:host:is(:hover,:focus-visible) > svg > :is(.moon,.sun) {
+:host:is(:hover,:focus-visible) :is(#moon-mask,circle.sun) {
   fill: var(--icon-fill-hover)
 }
 
-svg {
+svg#color-scheme-toggle-icon {
   block-size: 100%;
   inline-size: 100%;
   stroke-linecap: round
 }
 
-svg > :is(.moon,.sun,.sun-beams) {
+#moon-mask, circle.sun, .sun-beams {
   transform-origin: center center
 }
 
-svg > :is(.moon,.sun) {
+#moon-mask, circle.sun {
   fill: var(--icon-fill)
 }
 
-svg > .sun-beams {
+svg#color-scheme-toggle-icon > .sun-beams {
   stroke: var(--icon-fill);
   stroke-width: 2px;
 }
 
-:host:is(:hover,:focus-visible) svg > .sun-beams {
+:host:is(:hover,:focus-visible) svg#color-scheme-toggle-icon > .sun-beams {
   stroke: var(--icon-fill-hover);
 }
 
@@ -61,57 +62,57 @@ svg > .sun-beams {
   --icon-fill: hsl(210deg 10% 70%);
   --icon-fill-hover: hsl(210deg 15% 90%);
 
-  svg > .sun {
+  svg#color-scheme-toggle-icon > .sun {
     transform: scale(1.75);
   }
 
-  svg > .sun-beams {
+  svg#color-scheme-toggle-icon > .sun-beams {
     opacity: 0;
   }
 
-  svg > .moon > circle {
+  #moon-mask > circle {
     transform: translate(-7px);
   }
 }
 
 @supports (cx: 1px) {
-  :host(.dark) svg > .moon > circle {
+  :host(.dark) #moon-mask > circle {
     cx: 17px;
     transform: translate(0);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  svg > .sun {
+  svg#color-scheme-toggle-icon > .sun {
     transition: transform .5s $ease-elastic-out-3;
   }
 
-  svg > .sun-beams {
+  svg#color-scheme-toggle-icon > .sun-beams {
     transition: transform .5s $ease-elastic-4, opacity .5s $ease-3;
   }
 
-  svg .moon > circle {
+  #moon-mask > circle {
     transition: transform .25s $ease-out-5;
   }
 
   @supports (cx: 1px) {
-    svg .moon > circle {
+    #moon-mask > circle {
       transition: cx .25s $ease-out-5;
     }
   }
 
-  :host(.dark) svg > .sun {
+  :host(.dark) svg#color-scheme-toggle-icon > .sun {
     transform: scale(1.75);
     transition-duration: .25s;
     transition-timing-function: $ease-3;
   }
 
-  :host(.dark) svg > .sun-beams {
+  :host(.dark) svg#color-scheme-toggle-icon > .sun-beams {
     transform: rotate(-25deg);
     transition-duration: .15s
   }
 
-  :host(.dark) svg > .moon > circle {
+  :host(.dark) #moon-mask > circle {
     transition-delay: .25s;
     transition-duration: .5s
   }
