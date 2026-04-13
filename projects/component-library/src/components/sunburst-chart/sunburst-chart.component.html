@@ -28,8 +28,8 @@
 
   @for (item of flattened_hierarchy(); track item.label + item.path) {
     <g
-      (mousemove)="show_hover($event, item)"
-      (mouseleave)="hide_hover()"
+      [mbrTooltip]="item.tooltip"
+      [mbrTooltipTitle]="item.label"
     >
       <path
         [attr.d]="item.path"
@@ -74,13 +74,3 @@
     <ng-content select="legend-footer"></ng-content>
   </aside>
 }
-
-<div
-  class="tooltip"
-  [style.display]="hover_state().visible ? 'block' : 'none'"
-  [style.left.px]="hover_state().x"
-  [style.top.px]="hover_state().y"
->
-  <div class="title">{{ hover_state().label }}</div>
-  <p>{{ hover_state().formula }}</p>
-</div>

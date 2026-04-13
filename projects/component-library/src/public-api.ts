@@ -21,6 +21,7 @@ export * from './components/svg-checkmark-filled/svg-checkmark-filled.component'
 export * from './components/svg-checkmark-outline/svg-checkmark-outline.component';
 export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
 export * from './directives/random-milky-background/random-milky-background.directive';
+export * from './directives/tooltip/tooltip.directive';
 export * from './pipes/initials/initials.pipe';
 export * from './pipes/pixels/pixels.pipe';
 export * from './pipes/whole-number/whole-number.pipe';

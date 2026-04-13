@@ -1,4 +1,3 @@
-/* Base Styles & Variables */
 :host {
   --bg-main: #f8fafc;
   --white: #ffffff;
@@ -105,11 +104,6 @@
 
 .content-body {
   padding: 1.5rem;
-}
-
-.label-text {
-  pointer-events: none;
-  font-weight: 700;
 }
 
 .summary-box {

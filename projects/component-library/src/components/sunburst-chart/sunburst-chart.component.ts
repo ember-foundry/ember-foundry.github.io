@@ -1,19 +1,5 @@
 import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
-
-interface HoverState {
-  visible: boolean;
-  label: string;
-  formula: string;
-  value: number;
-  x: number;
-  y: number;
-}
-
-interface LegendItem {
-  label: string;
-  value: number;
-  color?: string;
-}
+import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
 
 export interface SunburstItem {
   label: string;
@@ -27,6 +13,9 @@ export interface SunburstItem {
   selector: 'mbr-sunburst-chart',
   templateUrl: './sunburst-chart.component.html',
   styleUrl: './sunburst-chart.component.scss',
+  imports: [
+    TooltipDirective
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SunburstChartComponent {
@@ -84,26 +73,6 @@ export class SunburstChartComponent {
     return result;
   });
 
-  protected show_hover(event: MouseEvent, item: SunburstItem): void {
-    this.hover_state.set({
-      visible: true,
-      label: item.label,
-      formula: item.tooltip,
-      value: item.value,
-      x: event.clientX + 20,
-      y: event.clientY + 20
-    });
-  }
-
-  protected hide_hover(): void {
-    this.hover_state.update(current => ({
-      ...current,
-      visible: false,
-      label: '',
-      formula: ''
-    }));
-  }
-
   protected get_arc_path(cx: number, cy: number, r_in: number, r_out: number, start_deg: number, end_deg: number): string {
     const start_rad = (start_deg - 90) * Math.PI / 180;
     const end_rad = (end_deg - 90) * Math.PI / 180;
@@ -123,27 +92,18 @@ export class SunburstChartComponent {
   }
 
   protected center_text = computed(() => {
-    const hover = this.hover_state();
-    if (hover.visible) {
-      return {
-        value: `£${Math.round(hover.value).toLocaleString()}`,
-        label: hover.label,
-        color: '#4f46e5'
-      };
-    }
+    // const hover = this.hover_state();
+    // if (hover.visible) {
+    //   return {
+    //     value: `£${Math.round(hover.value).toLocaleString()}`,
+    //     label: hover.label,
+    //     color: '#4f46e5'
+    //   };
+    // }
     return {
       value: `£${this.total_amount().toLocaleString()}`,
       label: 'Gross Annual',
       color: '#1e293b'
     };
-  });
-
-  protected hover_state = signal<HoverState>({
-    visible: false,
-    label: '',
-    formula: '',
-    value: 0,
-    x: 0,
-    y: 0
   });
 }

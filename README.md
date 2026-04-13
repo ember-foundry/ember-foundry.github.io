@@ -38,7 +38,7 @@ ng generate component $component_name --project component-library --dry-run
 
 ### Directives
 ```shell
-directive_name=""
+directive_name="Tooltip"
 ng generate directive $directive_name --project component-library --dry-run
 ```
 
