@@ -1,10 +1,11 @@
 :host {
   display: flex;
   --slate-700: #334155;
+  justify-content: space-evenly;
 }
 
 svg {
-  flex: 1;
+  flex: 1 0 0;
 }
 
 g {
@@ -25,6 +26,58 @@ path {
 
   &:not([fill]) {
     fill: hsla(0 0% 74% / 0.37);
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--slate-700);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+
+  li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .value {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+  }
+
+  .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .legend-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--slate-600);
   }
 }
 
@@ -53,56 +106,5 @@ path {
     font-size: 0.75rem;
     line-height: 1.6;
     opacity: 0.9;
-  }
-}
-
-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-
-  h2 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--slate-700);
-  }
-
-  .legend-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .legend-label-group {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 9999px;
-    }
-
-    .legend-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--slate-600);
-    }
-
-    .legend-value {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--slate-800);
-    }
   }
 }

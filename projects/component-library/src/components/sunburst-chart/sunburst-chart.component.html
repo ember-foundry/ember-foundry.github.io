@@ -58,17 +58,17 @@
   <aside>
     <div class="legend-container">
       <h2>Legend</h2>
-      <div class="legend-list">
+      <ul>
         @for (item of flattened_hierarchy(); track item.label) {
-          <div class="legend-item">
-            <div class="legend-label-group">
+          <li>
+            <div class="label">
               <div class="dot" [style.background]="item.color"></div>
               <span class="legend-text">{{ item.label }}</span>
             </div>
-            <span class="legend-value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>
-          </div>
+            <span class="value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>
+          </li>
         }
-      </div>
+      </ul>
     </div>
 
     <ng-content select="legend-footer"></ng-content>
