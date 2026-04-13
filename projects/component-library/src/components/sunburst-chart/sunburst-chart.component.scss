@@ -1,9 +1,14 @@
 :host {
   display: flex;
+  --slate-700: #334155;
+
+  > * {
+    flex: 1
+  }
 }
 
 path:not([fill]) {
-  fill: hsla(0 0 74% / 0.37);
+  fill: hsla(0 0% 74% / 0.37);
 }
 
 #formula-popup {

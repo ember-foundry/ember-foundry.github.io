@@ -32,7 +32,7 @@ export interface SunburstItem {
 export class SunburstChartComponent {
 
   public total_amount = input<number>(0);
-  public hierarchy = input<SunburstItem[]>([]);
+  public hierarchy = input.required<SunburstItem[]>();
   public show_legend = input<boolean>(true);
 
   protected svg_size = signal(800);
@@ -80,22 +80,8 @@ export class SunburstChartComponent {
     };
 
     flatten(data, 80, 175, 0, 360, this.total_amount());
+    console.log('flattened_hierarchy', result);
     return result;
-  });
-
-  private flattenHierarchy(items: SunburstItem[]): LegendItem[] {
-    return items.flatMap(item => [
-      {
-        label: item.label,
-        value: item.value,
-        color: item.color
-      },
-      ...(item.children ? this.flattenHierarchy(item.children) : [])
-    ]);
-  }
-
-  protected legend = computed<LegendItem[]>(() => {
-    return this.flattenHierarchy(this.hierarchy());
   });
 
   protected show_hover(event: MouseEvent, item: SunburstItem): void {

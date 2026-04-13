@@ -12,3 +12,5 @@ type Story = Meta<IOMTakeHomePayComponent>;
 
 export const Sample: Story = {
 }
+
+export const WithoutLegend: Story = {}

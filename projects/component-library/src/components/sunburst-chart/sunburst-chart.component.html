@@ -58,7 +58,7 @@
     <div class="legend-container">
       <h2>Legend</h2>
       <div class="legend-list">
-        @for (item of legend(); track item.label) {
+        @for (item of flattened_hierarchy(); track item.label) {
           <div class="legend-item">
             <div class="legend-label-group">
               <div class="dot" [style.background]="item.color"></div>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <ng-content select="summary-box"></ng-content>
+    <ng-content select="legend-footer"></ng-content>
   </aside>
 }
 

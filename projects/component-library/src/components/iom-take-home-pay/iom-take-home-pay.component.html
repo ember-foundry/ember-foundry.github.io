@@ -24,35 +24,11 @@
       [total_amount]="gross_income()"
       [hierarchy]="sunburst_hierarchy()"
     >
-      <div class="summary-box" ngProjectAs="summary-box">
+      <div class="summary-box" ngProjectAs="legend-footer">
         <p class="summary-label">Monthly Estimated Net Income</p>
         <p class="summary-value">£{{ monthly_net_income().toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</p>
         <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
       </div>
     </mbr-sunburst-chart>
-
-<!--    <aside>-->
-<!--      <div class="legend-container">-->
-<!--        <h2>Legend</h2>-->
-<!--        <div class="legend-list">-->
-<!--          @for (item of legend(); track item.label) {-->
-<!--            <div class="legend-item">-->
-<!--              <div class="legend-label-group">-->
-<!--                <div class="dot" [style.background]="item.color"></div>-->
-<!--                <span class="legend-text">{{ item.label }}</span>-->
-<!--              </div>-->
-<!--              <span class="legend-value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>-->
-<!--            </div>-->
-<!--          }-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="summary-box">-->
-<!--        <p class="summary-label">Monthly Estimated Net Income</p>-->
-<!--        <p class="summary-value">£{{ monthly_net_income().toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</p>-->
-<!--        <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>-->
-<!--      </div>-->
-<!--    </aside>-->
-
   </div>
 </div>

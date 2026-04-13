@@ -112,56 +112,6 @@
   font-weight: 700;
 }
 
-aside {
-  flex: 1;
-  width: 100%;
-
-  h2 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--slate-700);
-  }
-
-  .legend-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .legend-label-group {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 9999px;
-    }
-
-    .legend-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--slate-600);
-    }
-
-    .legend-value {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--slate-800);
-    }
-  }
-
-}
-
 .summary-box {
   padding: 1rem;
   background: var(--indigo-50);

@@ -86,7 +86,7 @@ export class IOMTakeHomePayComponent {
       },
       {
         label: 'National Insurance',
-        tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI`,
+        tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = £${this.national_insurance().toLocaleString()}`,
         value: this.national_insurance(),
         color: '#60a5fa'
       },
