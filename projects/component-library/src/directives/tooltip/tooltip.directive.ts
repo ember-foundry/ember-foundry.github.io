@@ -1,24 +1,25 @@
 import {Directive, ElementRef, HostListener, Input, OnDestroy, Renderer2, inject, input} from '@angular/core';
 
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[mbrTooltip]'
 })
 export class TooltipDirective implements OnDestroy {
   private readonly element_ref = inject(ElementRef<HTMLElement>);
   private readonly renderer = inject(Renderer2);
 
-  public tooltip_text = input<string>('', {alias: 'mbrTooltip'});
-  public mbrTooltipTitle = input<string>('');
-  public mbrTooltipDisabled = input<boolean>(false);
-  public mbrTooltipOffsetX = input<number>(16);
-  public mbrTooltipOffsetY = input<number>(16);
+  public tooltip_text = input.required<string>({alias: 'mbrTooltip'});
+  public title = input<string>('', {alias: 'mbrTooltipTitle'});
+  public disabled = input<boolean>(false, {alias: 'mbrTooltipDisabled'});
+  public offset_x = input<number>(16, {alias: 'mbrTooltipOffsetX'});
+  public offset_y = input<number>(16, {alias: 'mbrTooltipOffsetY'});
 
   private tooltip_el: HTMLDivElement | null = null;
   private is_visible = false;
 
   @HostListener('mouseenter', ['$event'])
   protected on_mouseenter(event: MouseEvent): void {
-    if (this.mbrTooltipDisabled() || !this.tooltip_text()) {
+    if (this.disabled() || !this.tooltip_text()) {
       return;
     }
 
@@ -41,7 +42,7 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('focusin', ['$event'])
   protected on_focusin(event: FocusEvent): void {
-    if (this.mbrTooltipDisabled() || !this.tooltip_text()) {
+    if (this.disabled() || !this.tooltip_text()) {
       return;
     }
 
@@ -81,8 +82,8 @@ export class TooltipDirective implements OnDestroy {
     const viewport_width = window.innerWidth;
     const viewport_height = window.innerHeight;
 
-    const tooltip_offset_x = this.mbrTooltipOffsetX();
-    const tooltip_offset_y = this.mbrTooltipOffsetY();
+    const tooltip_offset_x = this.offset_x();
+    const tooltip_offset_y = this.offset_y();
     this.renderer.setStyle(this.tooltip_el, 'left', `${client_x + tooltip_offset_x}px`);
     this.renderer.setStyle(this.tooltip_el, 'top', `${client_y + tooltip_offset_y}px`);
 
@@ -126,14 +127,14 @@ export class TooltipDirective implements OnDestroy {
     this.renderer.setStyle(tooltip, 'font-size', '0.875rem');
     this.renderer.setStyle(tooltip, 'line-height', '1.5');
 
-    const title_text = this.mbrTooltipTitle();
-    if (title_text) {
-      const title = this.renderer.createElement('div') as HTMLDivElement;
-      this.renderer.setStyle(title, 'font-weight', '700');
-      this.renderer.setStyle(title, 'margin-bottom', '4px');
-      this.renderer.setStyle(title, 'color', '#c7d2fe');
-      this.renderer.appendChild(title, this.renderer.createText(title_text));
-      this.renderer.appendChild(tooltip, title);
+    const title = this.title();
+    if (title) {
+      const title_element = this.renderer.createElement('div') as HTMLDivElement;
+      this.renderer.setStyle(title_element, 'font-weight', '700');
+      this.renderer.setStyle(title_element, 'margin-bottom', '4px');
+      this.renderer.setStyle(title_element, 'color', '#c7d2fe');
+      this.renderer.appendChild(title_element, this.renderer.createText(title));
+      this.renderer.appendChild(tooltip, title_element);
     }
 
     const content = this.renderer.createElement('div') as HTMLDivElement;
