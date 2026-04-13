@@ -1,8 +1,15 @@
-import {Directive, ElementRef, HostListener, Input, OnDestroy, Renderer2, inject, input} from '@angular/core';
+import {Directive, ElementRef, OnDestroy, Renderer2, inject, input} from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[mbrTooltip]'
+  selector: '[mbrTooltip]',
+  host: {
+    '(mouseenter)': 'on_mouseenter($event)',
+    '(mousemove)': 'on_mousemove($event)',
+    '(mouseleave)': 'on_mouseleave()',
+    '(focusin)': 'on_focusin($event)',
+    '(focusout)': 'on_focusout()'
+  }
 })
 export class TooltipDirective implements OnDestroy {
   private readonly element_ref = inject(ElementRef<HTMLElement>);
@@ -17,7 +24,6 @@ export class TooltipDirective implements OnDestroy {
   private tooltip_el: HTMLDivElement | null = null;
   private is_visible = false;
 
-  @HostListener('mouseenter', ['$event'])
   protected on_mouseenter(event: MouseEvent): void {
     if (this.disabled() || !this.tooltip_text()) {
       return;
@@ -26,7 +32,6 @@ export class TooltipDirective implements OnDestroy {
     this.show(event);
   }
 
-  @HostListener('mousemove', ['$event'])
   protected on_mousemove(event: MouseEvent): void {
     if (!this.is_visible || !this.tooltip_el) {
       return;
@@ -35,12 +40,10 @@ export class TooltipDirective implements OnDestroy {
     this.position(event.clientX, event.clientY);
   }
 
-  @HostListener('mouseleave')
   protected on_mouseleave(): void {
     this.hide();
   }
 
-  @HostListener('focusin', ['$event'])
   protected on_focusin(event: FocusEvent): void {
     if (this.disabled() || !this.tooltip_text()) {
       return;
@@ -51,7 +54,6 @@ export class TooltipDirective implements OnDestroy {
     this.showAt(rect.left + rect.width / 2, rect.top);
   }
 
-  @HostListener('focusout')
   protected on_focusout(): void {
     this.hide();
   }
