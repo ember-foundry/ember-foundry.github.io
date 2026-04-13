@@ -20,24 +20,26 @@ export interface SunburstItem {
 })
 export class SunburstChartComponent {
 
-  public total_amount = input<number>(0);
   public hierarchy = input.required<SunburstItem[]>();
   public show_legend = input<boolean>(true);
 
   protected svg_size = signal(800);
   protected svg_half_size = computed(() => this.svg_size() / 2);
 
-  protected flattened_hierarchy = computed<any[]>(() => {
-    const gross = this.total_amount();
-    if (gross <= 0) return [];
+  protected root_item = computed<SunburstItem>(() => this.hierarchy()[0]);
 
-    const data = this.hierarchy();
+  protected root_children = computed(() => this.root_item()?.children ?? []);
+
+  protected flattened_hierarchy = computed<any[]>(() => {
+    const root = this.root_item();
+    const items = this.root_children();
     const result: any[] = [];
     const center = this.svg_half_size();
 
     const flatten = (items: SunburstItem[], r_in: number, r_out: number, start_angle: number, parent_angle_span: number, parent_total_val: number) => {
       if (parent_total_val <= 0) return;
       let current_angle = start_angle;
+
       for (const item of items) {
         const slice_angle = (item.value / parent_total_val) * parent_angle_span;
         if (slice_angle <= 0) continue;
@@ -64,12 +66,12 @@ export class SunburstChartComponent {
         if (item.children && item.children.length > 0) {
           flatten(item.children, r_out + 5, r_out + 95, current_angle, slice_angle, item.value);
         }
+
         current_angle += slice_angle;
       }
     };
 
-    flatten(data, 80, 175, 0, 360, this.total_amount());
-    console.log('flattened_hierarchy', result);
+    flatten(items, 80, 175, 0, 360, root.value);
     return result;
   });
 
@@ -92,17 +94,10 @@ export class SunburstChartComponent {
   }
 
   protected center_text = computed(() => {
-    // const hover = this.hover_state();
-    // if (hover.visible) {
-    //   return {
-    //     value: `£${Math.round(hover.value).toLocaleString()}`,
-    //     label: hover.label,
-    //     color: '#4f46e5'
-    //   };
-    // }
+    const root = this.root_item();
     return {
-      value: `£${this.total_amount().toLocaleString()}`,
-      label: 'Gross Annual',
+      value: `£${root.value.toLocaleString()}`,
+      label: root?.label,
       color: '#1e293b'
     };
   });

@@ -65,48 +65,56 @@ export class IOMTakeHomePayComponent {
   protected sunburst_hierarchy = computed<SunburstItem[]>(() => {
     return [
       {
-        label: 'Net Income',
-        tooltip: `Gross Income - Total Tax - NI = £${this.net_income().toLocaleString()}`,
-        value: this.net_income(),
-        color: 'rgb(16,185,129)',
+        label: 'Gross Income',
+        tooltip: `Total gross annual income = £${this.gross_income().toLocaleString()}`,
+        value: this.gross_income(),
+        color: '#FAF9F6',
         children: [
           {
-            label: 'Post Tax Income',
-            tooltip: `Net Income excluding the Personal Allowance segment = £${this.post_tax_income().toLocaleString()}`,
-            value: this.post_tax_income(),
-            color: 'rgba(16,185,129,0.8)'
+            label: 'Net Income',
+            tooltip: `Gross Income - Total Tax - NI = £${this.net_income().toLocaleString()}`,
+            value: this.net_income(),
+            color: 'rgb(16,185,129)',
+            children: [
+              {
+                label: 'Post Tax Income',
+                tooltip: `Net Income excluding the Personal Allowance segment = £${this.post_tax_income().toLocaleString()}`,
+                value: this.post_tax_income(),
+                color: 'rgba(16,185,129,0.8)'
+              },
+              {
+                label: 'Personal Allowance',
+                tooltip: `Fixed Personal Allowance: £${PERSONAL_ALLOWANCE.toLocaleString()} (Untaxed)`,
+                value: Math.min(this.net_income(), PERSONAL_ALLOWANCE),
+                color: 'rgba(16,185,129,0.6)'
+              }
+            ]
           },
           {
-            label: 'Personal Allowance',
-            tooltip: `Fixed Personal Allowance: £${PERSONAL_ALLOWANCE.toLocaleString()} (Untaxed)`,
-            value: Math.min(this.net_income(), PERSONAL_ALLOWANCE),
-            color: 'rgba(16,185,129,0.6)'
-          }
-        ]
-      },
-      {
-        label: 'National Insurance',
-        tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = £${this.national_insurance().toLocaleString()}`,
-        value: this.national_insurance(),
-        color: '#60a5fa'
-      },
-      {
-        label: 'Income Tax',
-        tooltip: `Lower Band (${TAX_BAND_LOWER_RATE * 100}%) + Higher Band (${TAX_BAND_HIGHER_RATE * 100}%) = £${this.income_tax().toLocaleString()}`,
-        value: this.income_tax(),
-        color: 'rgb(249,65,68)',
-        children: [
-          {
-            label: 'Higher Band Tax',
-            tooltip: `(Taxable Income above £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_HIGHER_RATE * 100}% = £${this.higher_tax_band_amount().toLocaleString()}`,
-            value: this.higher_tax_band_amount(),
-            color: 'rgba(249,66,68,0.7)'
+            label: 'National Insurance',
+            tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = £${this.national_insurance().toLocaleString()}`,
+            value: this.national_insurance(),
+            color: '#60a5fa'
           },
           {
-            label: 'Lower Band Tax',
-            tooltip: `(Taxable Income up to £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_LOWER_RATE * 100}% = £${this.lower_tax_band_amount().toLocaleString()}`,
-            value: this.lower_tax_band_amount(),
-            color: 'rgba(249,66,68,0.4)'
+            label: 'Income Tax',
+            tooltip: `Lower Band (${TAX_BAND_LOWER_RATE * 100}%) + Higher Band (${TAX_BAND_HIGHER_RATE * 100}%) = £${this.income_tax().toLocaleString()}`,
+            value: this.income_tax(),
+            color: 'rgb(249,65,68)',
+            children: [
+              {
+                label: 'Higher Band Tax',
+                tooltip: `(Taxable Income above £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_HIGHER_RATE * 100}% = £${this.higher_tax_band_amount().toLocaleString()}`,
+                value: this.higher_tax_band_amount(),
+                color: 'rgba(249,66,68,0.7)'
+              },
+              {
+                label: 'Lower Band Tax',
+                tooltip: `(Taxable Income up to £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_LOWER_RATE * 100}% = £${this.lower_tax_band_amount().toLocaleString()}`,
+                value: this.lower_tax_band_amount(),
+                color: 'rgba(249,66,68,0.4)'
+              }
+            ]
           }
         ]
       }

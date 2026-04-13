@@ -12,6 +12,7 @@ import {Directive, ElementRef, OnDestroy, Renderer2, inject, input} from '@angul
   }
 })
 export class TooltipDirective implements OnDestroy {
+
   private readonly element_ref = inject(ElementRef<HTMLElement>);
   private readonly renderer = inject(Renderer2);
 
