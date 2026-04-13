@@ -27,9 +27,9 @@
   </text>
 
   @for (item of flattened_hierarchy(); track item.label + item.path) {
-    <g class="chart-group"
-       (mousemove)="show_hover($event, item)"
-       (mouseleave)="hide_hover()"
+    <g
+      (mousemove)="show_hover($event, item)"
+      (mouseleave)="hide_hover()"
     >
       <path
         [attr.d]="item.path"
@@ -53,6 +53,7 @@
     </g>
   }
 </svg>
+
 @if (show_legend()){
   <aside>
     <div class="legend-container">
@@ -75,7 +76,7 @@
 }
 
 <div
-  id="formula-popup"
+  class="tooltip"
   [style.display]="hover_state().visible ? 'block' : 'none'"
   [style.left.px]="hover_state().x"
   [style.top.px]="hover_state().y"
