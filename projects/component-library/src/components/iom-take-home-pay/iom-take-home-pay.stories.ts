@@ -3,14 +3,11 @@ import {IOMTakeHomePayComponent} from 'component-library';
 
 const meta: Meta<IOMTakeHomePayComponent> = {
   component: IOMTakeHomePayComponent,
-  tags: ['autodocs', 'carousel'],
+  tags: ['autodocs', 'tax', 'chart', 'iom'],
 }
 
 export default meta;
 
 type Story = Meta<IOMTakeHomePayComponent>;
 
-export const Sample: Story = {
-}
-
-export const WithoutLegend: Story = {}
+export const Sample: Story = {}
