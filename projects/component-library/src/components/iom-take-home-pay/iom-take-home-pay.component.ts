@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, computed, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, DEFAULT_CURRENCY_CODE, inject, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {SunburstChartComponent, SunburstItem} from '../sunburst-chart/sunburst-chart.component';
+import {CurrencyPipe} from '@angular/common';
 
 const PERSONAL_ALLOWANCE = 17000;
 const NATIONAL_INSURANCE_PER_WEEK = 176;
@@ -16,11 +17,18 @@ const TAX_BAND_HIGHER_RATE = 0.21;
   styleUrl: './iom-take-home-pay.component.scss',
   imports: [
     FormsModule,
-    SunburstChartComponent
+    SunburstChartComponent,
+    CurrencyPipe
+  ],
+  providers: [
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'GBP' },
+    CurrencyPipe
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IOMTakeHomePayComponent {
+  private currency_pipe = inject(CurrencyPipe);
+
   public gross_income = signal<number>(40000.00);
 
   private taxable_income = computed<number>(() => {
@@ -66,31 +74,31 @@ export class IOMTakeHomePayComponent {
     return [
       {
         label: 'Gross Income',
-        tooltip: `Total gross annual income = £${this.gross_income().toLocaleString()}`,
+        tooltip: `Total gross annual income = ${this.currency_pipe.transform(this.gross_income())}`,
         value: this.gross_income(),
         color: '#f8eb74',
         children: [
           {
             label: 'National Insurance',
-            tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = £${this.national_insurance().toLocaleString()}`,
+            tooltip: `(${this.currency_pipe.transform(this.gross_income())} - ${this.currency_pipe.transform(NATIONAL_INSURANCE_THRESHOLD)}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = ${this.currency_pipe.transform(this.national_insurance())}`,
             value: this.national_insurance(),
             color: '#60a5fa'
           },
           {
             label: 'Income Tax',
-            tooltip: `Lower Band (${TAX_BAND_LOWER_RATE * 100}%) + Higher Band (${TAX_BAND_HIGHER_RATE * 100}%) = £${this.income_tax().toLocaleString()}`,
+            tooltip: `Lower Band (${TAX_BAND_LOWER_RATE * 100}%) + Higher Band (${TAX_BAND_HIGHER_RATE * 100}%) = ${this.currency_pipe.transform(this.income_tax())}`,
             value: this.income_tax(),
             color: 'rgb(249,65,68)',
             children: [
               {
                 label: 'Higher Band Tax',
-                tooltip: `(Taxable Income above £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_HIGHER_RATE * 100}% = £${this.higher_tax_band_amount().toLocaleString()}`,
+                tooltip: `(Taxable Income above ${this.currency_pipe.transform(TAX_BAND_LOWER_THRESHOLD)}) × ${TAX_BAND_HIGHER_RATE * 100}% = ${this.currency_pipe.transform(this.higher_tax_band_amount())}`,
                 value: this.higher_tax_band_amount(),
                 color: 'rgba(249,66,68,0.7)'
               },
               {
                 label: 'Lower Band Tax',
-                tooltip: `(Taxable Income up to £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_LOWER_RATE * 100}% = £${this.lower_tax_band_amount().toLocaleString()}`,
+                tooltip: `(Taxable Income up to ${this.currency_pipe.transform(TAX_BAND_LOWER_THRESHOLD)}) × ${TAX_BAND_LOWER_RATE * 100}% = ${this.currency_pipe.transform(this.lower_tax_band_amount())}`,
                 value: this.lower_tax_band_amount(),
                 color: 'rgba(249,66,68,0.4)'
               }
@@ -98,19 +106,19 @@ export class IOMTakeHomePayComponent {
           },
           {
             label: 'Net Income',
-            tooltip: `Gross Income - Total Tax - NI = £${this.net_income().toLocaleString()}`,
+            tooltip: `Gross Income - Total Tax - NI = ${this.currency_pipe.transform(this.net_income())}`,
             value: this.net_income(),
             color: 'rgb(16,185,129)',
             children: [
               {
                 label: 'Post Tax Income',
-                tooltip: `Net Income excluding the Personal Allowance segment = £${this.post_tax_income().toLocaleString()}`,
+                tooltip: `Net Income excluding the Personal Allowance segment = ${this.currency_pipe.transform(this.post_tax_income())}`,
                 value: this.post_tax_income(),
                 color: 'rgba(16,185,129,0.8)'
               },
               {
                 label: 'Personal Allowance',
-                tooltip: `Fixed Personal Allowance: £${PERSONAL_ALLOWANCE.toLocaleString()} (Untaxed)`,
+                tooltip: `Fixed Personal Allowance: ${this.currency_pipe.transform(PERSONAL_ALLOWANCE)} (Untaxed)`,
                 value: Math.min(this.net_income(), PERSONAL_ALLOWANCE),
                 color: 'rgba(16,185,129,0.6)'
               }

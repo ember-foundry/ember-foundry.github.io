@@ -25,28 +25,8 @@ export const IOMTakeHomePay: Story = {
         label: 'Gross Income',
         tooltip: 'Total Annual Income',
         value: 40000.00,
-        color: '#FAF9F6',
+        color: '#f8eb74',
         children: [
-          {
-            label: 'Net Income',
-            tooltip: `Gross Income - Total Tax - NI = £${32491.72}`,
-            value: 32491.72,
-            color: 'rgb(16,185,129)',
-            children: [
-              {
-                label: 'Post Tax Income',
-                tooltip: `Net Income excluding the Personal Allowance segment = £${15491.72}`,
-                value: 15491.72,
-                color: 'rgba(16,185,129,0.8)'
-              },
-              {
-                label: 'Personal Allowance',
-                tooltip: `Fixed Personal Allowance: £${17000.00} (Untaxed)`,
-                value: Math.min(32491.72, 17000.00),
-                color: 'rgba(16,185,129,0.6)'
-              }
-            ]
-          },
           {
             label: 'National Insurance',
             tooltip: `(£${40000} - £${3393.28}) × ${11}% Class 1 NI = £${3393.28}`,
@@ -70,6 +50,26 @@ export const IOMTakeHomePay: Story = {
                 tooltip: `(Taxable Income up to £${6500}) × ${10}% = £${650.00.toLocaleString()}`,
                 value: 650.00,
                 color: 'rgba(249,66,68,0.4)'
+              }
+            ]
+          },
+          {
+            label: 'Net Income',
+            tooltip: `Gross Income - Total Tax - NI = £${32491.72}`,
+            value: 32491.72,
+            color: 'rgb(16,185,129)',
+            children: [
+              {
+                label: 'Post Tax Income',
+                tooltip: `Net Income excluding the Personal Allowance segment = £${15491.72}`,
+                value: 15491.72,
+                color: 'rgba(16,185,129,0.8)'
+              },
+              {
+                label: 'Personal Allowance',
+                tooltip: `Fixed Personal Allowance: £${17000.00} (Untaxed)`,
+                value: Math.min(32491.72, 17000.00),
+                color: 'rgba(16,185,129,0.6)'
               }
             ]
           }

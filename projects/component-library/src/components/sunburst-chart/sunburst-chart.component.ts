@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
 import {SunburstChartLegendComponent} from '../sunburst-chart-legend/sunburst-chart-legend.component';
+import {CurrencyPipe} from '@angular/common';
 
 export interface SunburstItem {
   label: string;
@@ -16,7 +17,8 @@ export interface SunburstItem {
   styleUrl: './sunburst-chart.component.scss',
   imports: [
     TooltipDirective,
-    SunburstChartLegendComponent
+    SunburstChartLegendComponent,
+    CurrencyPipe
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -25,7 +27,7 @@ export class SunburstChartComponent {
   public hierarchy = input.required<SunburstItem[]>();
   public show_legend = input<boolean>(true);
 
-  protected svg_size = signal(800);
+  protected svg_size = signal(550);
   protected svg_half_size = computed(() => this.svg_size() / 2);
 
   protected root_item = computed<SunburstItem>(() => this.hierarchy()[0]);
@@ -94,13 +96,4 @@ export class SunburstChartComponent {
 
     return `M ${x1} ${y1} L ${x2} ${y2} A ${r_out} ${r_out} 0 ${large_arc} 1 ${x3} ${y3} L ${x4} ${y4} A ${r_in} ${r_in} 0 ${large_arc} 0 ${x1} ${y1} Z`;
   }
-
-  protected center_text = computed(() => {
-    const root = this.root_item();
-    return {
-      value: `£${root.value.toLocaleString()}`,
-      label: root?.label,
-      color: '#1e293b'
-    };
-  });
 }

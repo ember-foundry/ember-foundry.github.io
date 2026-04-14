@@ -1,29 +1,29 @@
 @let _svg_size = svg_size();
 @let _svg_half_size = svg_half_size();
+@let _root_item = root_item();
 <svg [attr.viewBox]="'0 0 ' + _svg_size + ' ' + _svg_size">
   <circle
     [attr.cx]="_svg_half_size"
     [attr.cy]="_svg_half_size"
     r="70"
-    [attr.fill]="root_item().color"
+    [attr.fill]="_root_item.color"
   />
   <text
     [attr.x]="_svg_half_size"
     [attr.y]="_svg_half_size - 5"
     text-anchor="middle"
     font-weight="bold"
-    font-size="24"
-    [attr.fill]="center_text().color"
+    font-size="20"
   >
-    {{ center_text().value }}
+    {{ _root_item.value | currency: undefined : true:'1.0-2' }}
   </text>
   <text
     [attr.x]="_svg_half_size"
     [attr.y]="_svg_half_size + 20"
     text-anchor="middle"
     font-size="14"
-    fill="#64748b">
-    {{ center_text().label }}
+  >
+    {{ _root_item.label }}
   </text>
 
   @for (item of flattened_hierarchy(); track item.label + item.path) {

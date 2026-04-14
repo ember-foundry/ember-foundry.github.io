@@ -1,24 +1,28 @@
 :host {
   display: flex;
-  --slate-700: #334155;
   justify-content: space-evenly;
+  column-gap: 2rem;
 }
 
 svg {
   flex: 1 0 0;
+
+  &:hover {
+    g:not(:hover), circle:not(:hover) {
+      opacity: 0.5
+    }
+  }
 }
 
 g {
   cursor: pointer;
-  transition: filter 0.2s;
 
-  &:hover {
-    filter: brightness(1.1);
-
-    path {
-      transform: scale(1.01);
-    }
-  }
+  //&:focus {
+  //  outline: none;
+  //  path {
+  //    stroke-width: 4px;
+  //  }
+  //}
 }
 
 path {
