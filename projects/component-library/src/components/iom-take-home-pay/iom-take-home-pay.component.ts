@@ -57,6 +57,10 @@ export class IOMTakeHomePayComponent {
       return Math.max(0, taperedAllowance);
   })
 
+  private effective_personal_allowance = computed<number>(() => {
+    return Math.min(this.take_home_pay(), this.personal_allowance());
+  });
+
   private taxable_income = computed<number>(() => {
     return Math.max(this.gross_income() - this.personal_allowance() - this.pension_contributions(), 0);
   })
@@ -109,7 +113,7 @@ export class IOMTakeHomePayComponent {
    */
   protected sunburst_hierarchy = computed<SunburstItem[]>(() => {
     const gross_income = this.gross_income();
-    const personal_allowance = this.personal_allowance();
+    const effective_personal_allowance = this.effective_personal_allowance();
     const pension_contributions = this.pension_contributions();
     const national_insurance = this.national_insurance();
     const national_insurance_standard_band = this.national_insurance_standard_band();
@@ -196,9 +200,9 @@ export class IOMTakeHomePayComponent {
               {
                 label: 'Personal Allowance',
                 tooltip: (this.gross_income() - this.pension_contributions()) > PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD
-                  ? `Personal Allowance Tapered: ${this.currency_pipe.transform(personal_allowance)}`
-                  : `Personal Allowance Standard: ${this.currency_pipe.transform(personal_allowance)}`,
-                value: Math.min(this.take_home_pay(), personal_allowance),
+                  ? `Personal Allowance Tapered: ${this.currency_pipe.transform(effective_personal_allowance)}`
+                  : `Personal Allowance Standard: ${this.currency_pipe.transform(effective_personal_allowance)}`,
+                value: effective_personal_allowance,
                 color: 'rgba(16,185,129,0.6)'
               }
             ]
