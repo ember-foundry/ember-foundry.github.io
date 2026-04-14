@@ -5,8 +5,8 @@
   <circle
     [attr.cx]="_svg_half_size"
     [attr.cy]="_svg_half_size"
-    r="70"
     [attr.fill]="_root_item.color"
+    r="70"
   />
   <text
     [attr.x]="_svg_half_size"
@@ -41,7 +41,6 @@
         <text
           [attr.x]="item.tx"
           [attr.y]="item.ty"
-          [attr.transform]="'rotate(' + item.rot + ',' + item.tx + ',' + item.ty + ')'"
           text-anchor="middle"
           class="label-text"
           fill="#1e293b"

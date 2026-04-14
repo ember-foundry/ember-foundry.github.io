@@ -9,14 +9,18 @@ svg {
 
   &:hover {
     g:not(:hover), circle:not(:hover) {
-      opacity: 0.5
+      opacity: 0.4
     }
   }
 }
 
 g {
   cursor: pointer;
+  position: relative;
 
+  &:hover {
+    z-index: 10;
+  }
   //&:focus {
   //  outline: none;
   //  path {
