@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
+import {SunburstChartLegendComponent} from '../sunburst-chart-legend/sunburst-chart-legend.component';
 
 export interface SunburstItem {
   label: string;
@@ -14,7 +15,8 @@ export interface SunburstItem {
   templateUrl: './sunburst-chart.component.html',
   styleUrl: './sunburst-chart.component.scss',
   imports: [
-    TooltipDirective
+    TooltipDirective,
+    SunburstChartLegendComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

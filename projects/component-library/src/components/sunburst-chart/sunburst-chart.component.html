@@ -54,23 +54,8 @@
   }
 </svg>
 
-@if (show_legend()){
-  <aside>
-    <div class="legend-container">
-      <h2>Legend</h2>
-      <ul>
-        @for (item of flattened_hierarchy(); track item.label) {
-          <li>
-            <div class="label">
-              <div class="dot" [style.background]="item.color"></div>
-              <span class="legend-text">{{ item.label }}</span>
-            </div>
-            <span class="value">£{{ item.value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</span>
-          </li>
-        }
-      </ul>
-    </div>
-
+@if (show_legend()) {
+  <mbr-sunburst-chart-legend [hierarchy]="hierarchy()">
     <ng-content select="legend-footer"></ng-content>
-  </aside>
+  </mbr-sunburst-chart-legend>
 }

@@ -68,28 +68,8 @@ export class IOMTakeHomePayComponent {
         label: 'Gross Income',
         tooltip: `Total gross annual income = £${this.gross_income().toLocaleString()}`,
         value: this.gross_income(),
-        color: '#FAF9F6',
+        color: '#f8eb74',
         children: [
-          {
-            label: 'Net Income',
-            tooltip: `Gross Income - Total Tax - NI = £${this.net_income().toLocaleString()}`,
-            value: this.net_income(),
-            color: 'rgb(16,185,129)',
-            children: [
-              {
-                label: 'Post Tax Income',
-                tooltip: `Net Income excluding the Personal Allowance segment = £${this.post_tax_income().toLocaleString()}`,
-                value: this.post_tax_income(),
-                color: 'rgba(16,185,129,0.8)'
-              },
-              {
-                label: 'Personal Allowance',
-                tooltip: `Fixed Personal Allowance: £${PERSONAL_ALLOWANCE.toLocaleString()} (Untaxed)`,
-                value: Math.min(this.net_income(), PERSONAL_ALLOWANCE),
-                color: 'rgba(16,185,129,0.6)'
-              }
-            ]
-          },
           {
             label: 'National Insurance',
             tooltip: `(£${this.gross_income().toLocaleString()} - £${NATIONAL_INSURANCE_THRESHOLD.toLocaleString()}) × ${NATIONAL_INSURANCE_RATE * 100}% Class 1 NI = £${this.national_insurance().toLocaleString()}`,
@@ -113,6 +93,26 @@ export class IOMTakeHomePayComponent {
                 tooltip: `(Taxable Income up to £${TAX_BAND_LOWER_THRESHOLD.toLocaleString()}) × ${TAX_BAND_LOWER_RATE * 100}% = £${this.lower_tax_band_amount().toLocaleString()}`,
                 value: this.lower_tax_band_amount(),
                 color: 'rgba(249,66,68,0.4)'
+              }
+            ]
+          },
+          {
+            label: 'Net Income',
+            tooltip: `Gross Income - Total Tax - NI = £${this.net_income().toLocaleString()}`,
+            value: this.net_income(),
+            color: 'rgb(16,185,129)',
+            children: [
+              {
+                label: 'Post Tax Income',
+                tooltip: `Net Income excluding the Personal Allowance segment = £${this.post_tax_income().toLocaleString()}`,
+                value: this.post_tax_income(),
+                color: 'rgba(16,185,129,0.8)'
+              },
+              {
+                label: 'Personal Allowance',
+                tooltip: `Fixed Personal Allowance: £${PERSONAL_ALLOWANCE.toLocaleString()} (Untaxed)`,
+                value: Math.min(this.net_income(), PERSONAL_ALLOWANCE),
+                color: 'rgba(16,185,129,0.6)'
               }
             ]
           }

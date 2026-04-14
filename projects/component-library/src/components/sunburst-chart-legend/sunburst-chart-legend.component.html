@@ -1,0 +1,34 @@
+<h3>Legend</h3>
+<ul>
+  <ng-template #legend_node let-items>
+    @for (item of items; track item.label) {
+      <li class="legend-item">
+        <div class="label">
+          <div class="dot" [style.background]="item.color"></div>
+          <span class="legend-text">{{ item.label }}</span>
+        </div>
+        <span class="value">£{{
+            item.value.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            })
+          }}</span>
+      </li>
+
+      @if (item.children?.length) {
+        <ul class="legend-children">
+          <ng-container
+            [ngTemplateOutlet]="legend_node"
+            [ngTemplateOutletContext]="{ $implicit: item.children }"
+          />
+        </ul>
+      }
+    }
+  </ng-template>
+
+  <ng-container
+    [ngTemplateOutlet]="legend_node"
+    [ngTemplateOutletContext]="{ $implicit: hierarchy() }"
+  />
+</ul>
+<ng-content />

@@ -32,7 +32,7 @@ npm install @analogjs/platform --save-dev
 
 ### Components
 ```shell
-component_name="RevolutLoggedOutPopup"
+component_name="SunburstChartLegend"
 ng generate component $component_name --project component-library --dry-run
 ```
 
