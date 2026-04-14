@@ -3,7 +3,7 @@ h3 {
   margin: 0;
 }
 
-:host :has(> ul) {
+:host > ul {
   padding: 0;
 }
 

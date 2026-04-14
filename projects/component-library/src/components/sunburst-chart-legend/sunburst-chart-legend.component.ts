@@ -1,11 +1,12 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
-import {NgTemplateOutlet} from '@angular/common';
+import {CurrencyPipe, NgTemplateOutlet} from '@angular/common';
 import {SunburstItem} from '../sunburst-chart/sunburst-chart.component';
 
 @Component({
   selector: 'mbr-sunburst-chart-legend',
   imports: [
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    CurrencyPipe
   ],
   templateUrl: './sunburst-chart-legend.component.html',
   styleUrl: './sunburst-chart-legend.component.scss',
