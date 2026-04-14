@@ -35,15 +35,11 @@
     </div>
   </div>
 
-  <div class="content-body">
-    <mbr-sunburst-chart
-      [hierarchy]="sunburst_hierarchy()"
-    >
-      <div class="summary-box" ngProjectAs="legend-footer">
-        <p class="summary-label">Monthly Estimated Net Income</p>
-        <p class="summary-value">{{ monthly_take_home_pay() | currency }}</p>
-        <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
-      </div>
-    </mbr-sunburst-chart>
-  </div>
+  <mbr-sunburst-chart [hierarchy]="sunburst_hierarchy()">
+    <div class="summary-box" ngProjectAs="legend-footer">
+      <p class="summary-label">Monthly Estimated Net Income</p>
+      <p class="summary-value">{{ monthly_take_home_pay() | currency }}</p>
+      <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
+    </div>
+  </mbr-sunburst-chart>
 </div>
