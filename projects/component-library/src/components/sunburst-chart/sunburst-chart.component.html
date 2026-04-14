@@ -15,7 +15,7 @@
     font-weight="bold"
     font-size="20"
   >
-    {{ _root_item.value | currency: undefined : true:'1.0-2' }}
+    {{ _root_item.value | currency : undefined : 'symbol' :'1.0-2' }}
   </text>
   <text
     [attr.x]="_svg_half_size"
