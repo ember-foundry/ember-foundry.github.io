@@ -1,12 +1,8 @@
 :host {
   display: flex;
-  justify-content: space-evenly;
-  column-gap: 2rem;
 }
 
 svg {
-  flex: 1 0 0;
-
   &:hover {
     g:not(:hover), circle:not(:hover) {
       opacity: 0.4
@@ -21,6 +17,7 @@ g {
   &:hover {
     z-index: 10;
   }
+
   //&:focus {
   //  outline: none;
   //  path {
@@ -40,6 +37,4 @@ path {
 mbr-sunburst-chart-legend {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 50%;
 }
