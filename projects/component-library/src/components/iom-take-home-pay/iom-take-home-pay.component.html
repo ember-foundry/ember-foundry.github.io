@@ -7,10 +7,11 @@
 
     <div class="rhs">
       <div class="input-container">
-        <label class="input-label">Gross Annual Income</label>
+        <label for="gross_annual_income" class="input-label">Gross Annual Income</label>
         <div class="input-wrapper">
           <span class="currency-symbol">£</span>
           <input
+            id="gross_annual_income"
             type="number"
             step="100"
             [ngModel]="gross_income()"
@@ -19,10 +20,11 @@
         </div>
       </div>
       <div class="input-container">
-        <label class="input-label">Pension Contribution</label>
+        <label for="pension_contributions_percent" class="input-label">Pension Contribution</label>
         <div class="input-wrapper">
           <span class="currency-symbol">%</span>
           <input
+            id="pension_contributions_percent"
             type="number"
             step="1"
             min="0"

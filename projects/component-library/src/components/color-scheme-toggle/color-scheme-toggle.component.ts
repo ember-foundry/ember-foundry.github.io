@@ -18,6 +18,7 @@ import {BaseComponent} from '../_base/base.component';
 // class ColorSchemeToggleMaskComponent {}
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-color-scheme-toggle',
   templateUrl: './color-scheme-toggle.component.html',
   styleUrl: './color-scheme-toggle.component.scss',
@@ -25,7 +26,7 @@ import {BaseComponent} from '../_base/base.component';
     '[class]': 'scheme()',
     '(click)': 'toggle()'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
   // imports: [
   //   ColorSchemeToggleMaskComponent
   // ]

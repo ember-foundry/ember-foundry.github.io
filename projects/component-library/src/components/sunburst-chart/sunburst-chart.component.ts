@@ -13,7 +13,18 @@ export interface SunburstItem {
   children?: SunburstItem[];
 }
 
+interface SunburstSVGItem extends SunburstItem {
+  path: string;
+  tx: number;
+  ty: number;
+  rot: number;
+  slice_angle: number;
+  fontSize: string;
+  val_str: string;
+}
+
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-sunburst-chart',
   templateUrl: './sunburst-chart.component.html',
   styleUrl: './sunburst-chart.component.scss',
@@ -32,16 +43,16 @@ export class SunburstChartComponent {
   public show_legend = input<boolean>(true);
 
   protected svg_size = signal(550);
-  protected svg_half_size = computed(() => this.svg_size() / 2);
+  protected svg_half_size = computed<number>(() => this.svg_size() / 2);
 
   protected root_item = computed<SunburstItem>(() => this.hierarchy()[0]);
 
-  protected root_children = computed(() => this.root_item()?.children ?? []);
+  protected root_children = computed<SunburstItem[]>(() => this.root_item()?.children ?? []);
 
-  protected flattened_hierarchy = computed<any[]>(() => {
+  protected flattened_hierarchy = computed<SunburstSVGItem[]>(() => {
     const root = this.root_item();
     const items = this.root_children();
-    const result: any[] = [];
+    const result: SunburstSVGItem[] = [];
     const center = this.svg_half_size();
 
     const flatten = (items: SunburstItem[], r_in: number, r_out: number, start_angle: number, parent_angle_span: number, parent_total_val: number) => {

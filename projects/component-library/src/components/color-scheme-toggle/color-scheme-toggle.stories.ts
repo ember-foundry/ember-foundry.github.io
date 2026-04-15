@@ -27,7 +27,7 @@ export const Sample: Story = {
   render: (args) => {
     return {
       props: args,
-      styles: [':host{ --size: 100px }'],
+      styles: [':host{ --size: 100px }']
       // template: `<mbr-color-scheme-toggle ${inputs}/>`
     }
   }

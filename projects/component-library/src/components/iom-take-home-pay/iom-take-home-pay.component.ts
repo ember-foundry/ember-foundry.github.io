@@ -20,6 +20,7 @@ const TAX_BAND_LOWER_RATE = 0.10;
 const TAX_BAND_HIGHER_RATE = 0.21;
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-iom-take-home-pay',
   templateUrl: './iom-take-home-pay.component.html',
   styleUrl: './iom-take-home-pay.component.scss',
@@ -40,11 +41,11 @@ export class IOMTakeHomePayComponent {
   protected gross_income = signal<number>(40000.00);
   protected pension_contributions_percent = signal<number>(0);
 
-  protected pension_contributions = computed(() => {
+  protected pension_contributions = computed<number>(() => {
     return this.gross_income() * this.pension_contributions_percent() / 100;
   })
 
-  private personal_allowance = computed(() => {
+  private personal_allowance = computed<number>(() => {
       const total_income = this.gross_income() - this.pension_contributions();
 
       if (total_income <= PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD) {
@@ -104,7 +105,7 @@ export class IOMTakeHomePayComponent {
     return Math.max(0, this.take_home_pay() - this.personal_allowance());
   });
 
-  protected monthly_take_home_pay = computed(() => {
+  protected monthly_take_home_pay = computed<number>(() => {
     return this.take_home_pay() / 12;
   });
 

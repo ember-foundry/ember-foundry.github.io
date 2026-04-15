@@ -3,6 +3,7 @@ import {CurrencyPipe, NgTemplateOutlet} from '@angular/common';
 import {SunburstItem} from '../sunburst-chart/sunburst-chart.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-sunburst-chart-legend',
   imports: [
     NgTemplateOutlet,

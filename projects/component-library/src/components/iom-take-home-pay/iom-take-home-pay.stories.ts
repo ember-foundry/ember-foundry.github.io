@@ -3,7 +3,7 @@ import {IOMTakeHomePayComponent} from 'component-library';
 
 const meta: Meta<IOMTakeHomePayComponent> = {
   component: IOMTakeHomePayComponent,
-  tags: ['autodocs', 'tax', 'chart', 'iom'],
+  tags: ['autodocs', 'tax', 'chart', 'iom']
 }
 
 export default meta;
