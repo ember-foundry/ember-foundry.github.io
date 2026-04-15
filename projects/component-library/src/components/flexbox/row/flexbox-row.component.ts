@@ -11,8 +11,8 @@ import {BaseComponent} from '../../_base/base.component';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-row',
-  templateUrl: 'flexbox-row.component.html',
-  styleUrl: 'flexbox-row.component.scss',
+  templateUrl: './flexbox-row.component.html',
+  styleUrl: './flexbox-row.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PixelsPipe
@@ -31,7 +31,7 @@ export class FlexboxRowComponent extends BaseComponent {
   direction = input<SupportedDirections>()
   inline = input<boolean>()
   gap =  input<string|0|undefined,number|string|undefined>(undefined, {transform: this.px_pipe.transform})
-  align_items = input<SupportedAlignItems | null>(null)
-  justify_content = input<SupportedJustifyContent | null>(null)
-  align_content = input<SupportedAlignContent>('stretch');
+  align_items = input<SupportedAlignItems | undefined>(undefined)
+  justify_content = input<SupportedJustifyContent | undefined>(undefined)
+  align_content = input<SupportedAlignContent|undefined>(undefined);
 }

@@ -1,8 +1,9 @@
 :host {
+  align-content: var(--align-content, stretch);
   align-items: var(--align-items, stretch);
   display: var(--flex-style, flex);
   flex-flow: var(--direction, row) wrap;
   gap: var(--gap, 0);
-  place-content: var(--align-content, 'stretch') var(--justify-content, flex-start);
+  justify-content: var(--justify-content, flex-start);
   width: 100%;
 }
