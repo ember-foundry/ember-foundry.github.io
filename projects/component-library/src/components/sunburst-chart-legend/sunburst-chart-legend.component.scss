@@ -26,15 +26,13 @@ li {
 
   .value {
     font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--slate-800);
   }
 }
 
 .dot {
   width: 0.75rem;
   height: 0.75rem;
-  border-radius: 9999px;
+  border-radius: 50%;
 }
 
 .legend-text {

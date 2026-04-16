@@ -32,7 +32,7 @@ interface SunburstSVGItem extends SunburstItem {
     TooltipDirective
   ],
   host: {
-    'class': 'flex items-center justify-between gap-[2rem]'
+    'class': 'flex flex-col md:flex-row md:items-center gap-[2rem]'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
