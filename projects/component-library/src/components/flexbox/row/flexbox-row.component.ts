@@ -23,9 +23,9 @@ import type {
 })
 export class FlexboxRowComponent {
   align_content = input<SupportedAlignContent|undefined>(undefined);
-  align_items = input<SupportedAlignItems | undefined>(undefined, {alias: 'align-items'});
+  align_items = input<SupportedAlignItems | undefined>(undefined);
   direction = input<SupportedDirections>();
   gap =  input<string|number|undefined>(undefined);
   inline = input<boolean>();
-  justify_content = input<SupportedJustifyContent | undefined>(undefined, {alias: 'justify-content'});
+  justify_content = input<SupportedJustifyContent | undefined>(undefined);
 }
