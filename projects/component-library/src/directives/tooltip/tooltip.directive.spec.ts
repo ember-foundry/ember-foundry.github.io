@@ -1,5 +1,5 @@
 import {beforeEach, describe, expect, it} from 'vitest';
-import {Component, DebugElement} from '@angular/core';
+import {ChangeDetectionStrategy, Component, DebugElement} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {TooltipDirective} from './tooltip.directive';
@@ -14,7 +14,8 @@ import {TooltipDirective} from './tooltip.directive';
     >
       Hover me
     </button>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestHostComponent {}
 
@@ -28,7 +29,8 @@ class TestHostComponent {}
     >
       Hover me
     </button>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class DisabledHostComponent {}
 
