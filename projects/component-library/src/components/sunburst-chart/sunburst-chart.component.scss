@@ -2,14 +2,6 @@
   display: flex;
 }
 
-svg {
-  &:hover {
-    g:not(:hover), circle:not(:hover) {
-      opacity: 0.4
-    }
-  }
-}
-
 g {
   cursor: pointer;
   position: relative;
@@ -18,19 +10,25 @@ g {
     z-index: 10;
   }
 
-  //&:focus {
+  // &:focus {
   //  outline: none;
   //  path {
   //    stroke-width: 4px;
   //  }
-  //}
+  // }
+}
+
+svg:hover {
+  g:not(:hover), circle:not(:hover) {
+    opacity: 0.4
+  }
 }
 
 path {
   transition: transform 0.2s;
 
   &:not([fill]) {
-    fill: hsla(0 0% 74% / 0.37);
+    fill: hsl(0deg 0% 74% / 37%);
   }
 }
 

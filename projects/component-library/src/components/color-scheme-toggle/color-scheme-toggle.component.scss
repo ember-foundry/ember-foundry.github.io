@@ -20,12 +20,12 @@ $default-size: 2rem;
 
   aspect-ratio: 1;
   background: none;
+  block-size: var(--size, $default-size);
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: inline-flex;
   inline-size: var(--size, $default-size);
-  block-size: var(--size, $default-size);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }

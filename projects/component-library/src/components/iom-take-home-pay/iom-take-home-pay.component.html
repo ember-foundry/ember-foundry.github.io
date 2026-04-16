@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="header">
+  <header class="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
     <div class="header-title">
       <h1>IOM Income Tax Breakdown (2025/26)</h1>
       <p>Visualizing where your gross income goes</p>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
   <mbr-sunburst-chart [hierarchy]="sunburst_hierarchy()">
     <div class="summary-box" ngProjectAs="legend-footer">
