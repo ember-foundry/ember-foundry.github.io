@@ -91,6 +91,22 @@ test_file="projects/component-library/src/components/marquee/marquee.component.s
 npm run test -- --watch --testFile $test_file
 ```
 
+---
+
+### Tailwind
+
+Followed this guide to add tailwind:
+
+https://tailwindcss.com/docs/installation/framework-guides/angular
+
+---
+
+### Git LFS
+https://github.com/git-lfs/git-lfs?tab=readme-ov-file
+```shell
+git lfs track **/__screenshots__/**/*.png
+git add .gitattributes
+```
 
 ### TODO:
 * https://angular.dev/tools/libraries/creating-librariess
@@ -98,3 +114,5 @@ npm run test -- --watch --testFile $test_file
   * ng add @angular/material
   * but for the component library to be used in other
 * https://ishadeed.com/article/css-masking/
+* https://xieziyu.github.io/ngx-echarts/#/welcome
+* SassDoc

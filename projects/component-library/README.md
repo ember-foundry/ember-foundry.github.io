@@ -26,16 +26,3 @@ Below is a breakdown of why
 | Logic tests                              | Angular Unit Test |
 | Visual tests                             | Cypress Test      |
 | Documentation of Component possibilities | Storybook         |
-
-----
-
-### Tailwind
-
-Followed this guide to add tailwind:
-
-https://tailwindcss.com/docs/installation/framework-guides/angular
-
----
-
-### MakeUseOf:
-* SassDoc
