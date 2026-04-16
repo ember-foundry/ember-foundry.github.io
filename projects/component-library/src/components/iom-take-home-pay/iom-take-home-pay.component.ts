@@ -29,6 +29,9 @@ const TAX_BAND_HIGHER_RATE = 0.21;
     SunburstChartComponent,
     CurrencyPipe
   ],
+  host: {
+    'class': 'block rounded-2xl mx-auto bg-white overflow-hidden max-w-6xl'
+  },
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'GBP' },
     CurrencyPipe

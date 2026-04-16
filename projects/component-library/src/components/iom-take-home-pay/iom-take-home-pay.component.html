@@ -1,47 +1,45 @@
-<div class="card">
-  <header class="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
-    <div class="header-title">
-      <h1>IOM Income Tax Breakdown (2025/26)</h1>
-      <p>Visualizing where your gross income goes</p>
-    </div>
+<header class="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
+  <div class="header-title">
+    <h1>IOM Income Tax Breakdown (2025/26)</h1>
+    <p>Visualizing where your gross income goes</p>
+  </div>
 
-    <div class="rhs">
-      <div class="input-container">
-        <label for="gross_annual_income" class="input-label">Gross Annual Income</label>
-        <div class="input-wrapper">
-          <span class="currency-symbol">£</span>
-          <input
-            id="gross_annual_income"
-            type="number"
-            step="100"
-            [ngModel]="gross_income()"
-            (ngModelChange)="gross_income.set($event)"
-          />
-        </div>
-      </div>
-      <div class="input-container">
-        <label for="pension_contributions_percent" class="input-label">Pension Contribution</label>
-        <div class="input-wrapper">
-          <span class="currency-symbol">%</span>
-          <input
-            id="pension_contributions_percent"
-            type="number"
-            step="1"
-            min="0"
-            max="100"
-            [ngModel]="pension_contributions_percent()"
-            (ngModelChange)="pension_contributions_percent.set($event)"
-          />
-        </div>
+  <div class="rhs">
+    <div class="input-container">
+      <label for="gross_annual_income" class="input-label">Gross Annual Income</label>
+      <div class="input-wrapper">
+        <span class="currency-symbol">£</span>
+        <input
+          id="gross_annual_income"
+          type="number"
+          step="100"
+          [ngModel]="gross_income()"
+          (ngModelChange)="gross_income.set($event)"
+        />
       </div>
     </div>
-  </header>
-
-  <mbr-sunburst-chart [hierarchy]="sunburst_hierarchy()">
-    <div class="summary-box" ngProjectAs="legend-footer">
-      <p class="summary-label">Monthly Estimated Net Income</p>
-      <p class="summary-value">{{ monthly_take_home_pay() | currency }}</p>
-      <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
+    <div class="input-container">
+      <label for="pension_contributions_percent" class="input-label">Pension Contribution</label>
+      <div class="input-wrapper">
+        <span class="currency-symbol">%</span>
+        <input
+          id="pension_contributions_percent"
+          type="number"
+          step="1"
+          min="0"
+          max="100"
+          [ngModel]="pension_contributions_percent()"
+          (ngModelChange)="pension_contributions_percent.set($event)"
+        />
+      </div>
     </div>
-  </mbr-sunburst-chart>
-</div>
+  </div>
+</header>
+
+<mbr-sunburst-chart [hierarchy]="sunburst_hierarchy()">
+  <div class="summary-box" ngProjectAs="legend-footer">
+    <p class="summary-label">Monthly Estimated Net Income</p>
+    <p class="summary-value">{{ monthly_take_home_pay() | currency }}</p>
+    <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
+  </div>
+</mbr-sunburst-chart>
