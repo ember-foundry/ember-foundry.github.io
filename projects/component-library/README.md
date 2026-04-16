@@ -29,5 +29,13 @@ Below is a breakdown of why
 
 ----
 
+### Tailwind
+
+Followed this guide to add tailwind:
+
+https://tailwindcss.com/docs/installation/framework-guides/angular
+
+---
+
 ### MakeUseOf:
 * SassDoc

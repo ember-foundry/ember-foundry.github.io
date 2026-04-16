@@ -2,8 +2,6 @@ import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angu
 import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
 import {SunburstChartLegendComponent} from '../sunburst-chart-legend/sunburst-chart-legend.component';
 import {CurrencyPipe} from '@angular/common';
-import {FlexboxRowComponent} from '../flexbox/row/flexbox-row.component';
-import {FlexboxColumnComponent} from '../flexbox/column/flexbox-column.component';
 
 export interface SunburstItem {
   label: string;
@@ -29,12 +27,13 @@ interface SunburstSVGItem extends SunburstItem {
   templateUrl: './sunburst-chart.component.html',
   styleUrl: './sunburst-chart.component.scss',
   imports: [
-    TooltipDirective,
-    SunburstChartLegendComponent,
     CurrencyPipe,
-    FlexboxRowComponent,
-    FlexboxColumnComponent
+    SunburstChartLegendComponent,
+    TooltipDirective
   ],
+  host: {
+    'class': 'flex items-center justify-between gap-[2rem]'
+  },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SunburstChartComponent {
