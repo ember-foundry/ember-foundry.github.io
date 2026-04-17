@@ -8,7 +8,6 @@
   --indigo-600: #4f46e5;
   --indigo-900: #312e81;
   --slate-100: #f1f5f9;
-  --slate-400: #94a3b8;
   --slate-500: #64748b;
   --slate-600: #475569;
   --slate-700: #334155;
@@ -18,8 +17,6 @@
 }
 
 header {
-  border-bottom: 1px solid var(--slate-100);
-
   h1 {
     color: var(--slate-800);
     font-size: 1.5rem;
@@ -39,18 +36,11 @@ header {
   }
 }
 
-.input-container {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
+input {
+  width: 10rem;
+}
 
-  .input-label {
-    color: var(--slate-400);
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-  }
+.input-container {
 
   .input-wrapper {
     position: relative;
@@ -75,7 +65,6 @@ header {
     outline: none;
     padding: 0.5rem 1rem 0.5rem 1.75rem;
     text-align: right;
-    width: 10rem;
 
     &:focus {
       border-color: var(--indigo-500);
@@ -93,35 +82,3 @@ header {
 mbr-sunburst-chart {
   margin: 1.5rem;
 }
-
-.summary-box {
-  background: var(--indigo-50);
-  border: 1px solid var(--indigo-100);
-  border-radius: 0.75rem;
-  padding: 1rem;
-
-  .summary-label {
-    color: var(--indigo-400);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-  }
-
-  .summary-value {
-    color: var(--indigo-900);
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .summary-footer {
-    color: var(--indigo-300);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-  }
-}
-

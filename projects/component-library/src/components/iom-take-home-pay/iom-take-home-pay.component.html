@@ -1,45 +1,52 @@
-<header class="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
-  <div class="header-title">
+<header class="flex flex-col gap-4 p-6 border-b border-slate-200 sticky top-0 z-10">
+  <div>
     <h1>IOM Income Tax Breakdown (2025/26)</h1>
     <p>Visualizing where your gross income goes</p>
   </div>
 
-  <div class="rhs">
-    <div class="input-container">
-      <label for="gross_annual_income" class="input-label">Gross Annual Income</label>
+  <form class="flex flex-row items-center gap-4 justify-end">
+    <div class="flex flex-col items-end input-container">
+      <label for="gross_annual_income" class="font-bold uppercase text-slate-400 mb-1 text-xs">Gross Annual Income</label>
       <div class="input-wrapper">
         <span class="currency-symbol">£</span>
         <input
           id="gross_annual_income"
           type="number"
           step="100"
-          [ngModel]="gross_income()"
-          (ngModelChange)="gross_income.set($event)"
+          [formField]="tax_form.gross_income"
         />
       </div>
     </div>
-    <div class="input-container">
-      <label for="pension_contributions_percent" class="input-label">Pension Contribution</label>
+    <div class="flex flex-col items-end">
+      <div class="flex justify-between items-center">
+        <label class="font-bold uppercase text-slate-400 mb-1 text-xs">Pension Contribution</label>
+      </div>
+      <input
+        type="range"
+        step="1"
+        [max]="max_pension_percent()"
+        [formField]="tax_form.pension_contribution_percent"
+        [mbrTooltip]="`${tax_form.pension_contribution_percent().value()}%`"
+        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+      />
+    </div>
+    <div class="flex flex-col items-end input-container">
+      <label for="is_joint_tax" class="font-bold uppercase text-slate-400 mb-1 text-xs">Joint Tax</label>
       <div class="input-wrapper">
-        <span class="currency-symbol">%</span>
         <input
-          id="pension_contributions_percent"
-          type="number"
-          step="1"
-          min="0"
-          max="100"
-          [ngModel]="pension_contributions_percent()"
-          (ngModelChange)="pension_contributions_percent.set($event)"
+          id="is_joint_tax"
+          type="checkbox"
+          [formField]="tax_form.is_joint_tax"
         />
       </div>
     </div>
-  </div>
+  </form>
 </header>
 
 <mbr-sunburst-chart [hierarchy]="sunburst_hierarchy()">
-  <div class="summary-box" ngProjectAs="legend-footer">
-    <p class="summary-label">Monthly Estimated Net Income</p>
-    <p class="summary-value">{{ monthly_take_home_pay() | currency }}</p>
-    <p class="summary-footer">Calculated for IOM Tax Year 25/26</p>
+  <div class="bg-indigo-50 border-indigo-100 border-1 flex flex-col gap-1 p-4 rounded-xl" ngProjectAs="legend-footer">
+    <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Monthly Estimated Net Income</span>
+    <span class="font-bold text-indigo-900 text-3xl">{{ monthly_take_home_pay() | currency }}</span>
+    <small class="text-indigo-300 uppercase tracking-widest text-xs footer text-[10px]">Calculated for IOM Tax Year 25/26</small>
   </div>
 </mbr-sunburst-chart>

@@ -5,29 +5,31 @@
   class="w-full md:flex-1"
   [attr.viewBox]="'0 0 ' + _svg_size + ' ' + _svg_size"
 >
-  <circle
-    [attr.cx]='_svg_half_size'
-    [attr.cy]='_svg_half_size'
-    [attr.fill]='_root_item.color'
-    r='70'
-  />
-  <text
-    [attr.x]='_svg_half_size'
-    [attr.y]='_svg_half_size - 5'
-    text-anchor='middle'
-    font-weight='bold'
-    font-size='20'
-  >
-    {{ _root_item.value | currency : undefined : 'symbol' :'1.0-2' }}
-  </text>
-  <text
-    [attr.x]='_svg_half_size'
-    [attr.y]='_svg_half_size + 20'
-    text-anchor='middle'
-    font-size='14'
-  >
-    {{ _root_item.label }}
-  </text>
+  <g>
+    <circle
+      [attr.cx]='_svg_half_size'
+      [attr.cy]='_svg_half_size'
+      [attr.fill]='_root_item.color'
+      r='70'
+    />
+    <text
+      [attr.x]='_svg_half_size'
+      [attr.y]='_svg_half_size - 5'
+      text-anchor='middle'
+      font-weight='bold'
+      font-size='20'
+    >
+      {{ _root_item.value | currency : undefined : 'symbol' :'1.0-2' }}
+    </text>
+    <text
+      [attr.x]='_svg_half_size'
+      [attr.y]='_svg_half_size + 20'
+      text-anchor='middle'
+      font-size='14'
+    >
+      {{ _root_item.label }}
+    </text>
+  </g>
 
   @for (item of flattened_hierarchy(); track item.label + item.path) {
     <g
@@ -37,7 +39,6 @@
       <path
         [attr.d]='item.path'
         [attr.fill]='item.color'
-        stroke='white'
         stroke-width='1.5'
       />
       @if (item.slice_angle > 5) {

@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, computed, DEFAULT_CURRENCY_CODE, inj
 import {FormsModule} from '@angular/forms';
 import {SunburstChartComponent, SunburstItem} from '../sunburst-chart/sunburst-chart.component';
 import {CurrencyPipe} from '@angular/common';
+import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
+import {form, FormField, max, min, required} from '@angular/forms/signals';
 
 const PERSONAL_ALLOWANCE_STANDARD = 17000;
 const PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD = 100000;
@@ -19,6 +21,14 @@ const TAX_BAND_LOWER_THRESHOLD = 6500;
 const TAX_BAND_LOWER_RATE = 0.10;
 const TAX_BAND_HIGHER_RATE = 0.21;
 
+const PENSION_ANNUAL_ALLOWANCE_CAP = 50000;
+
+interface TaxForm {
+  gross_income: number;
+  pension_contribution_percent: number;
+  is_joint_tax: boolean;
+}
+
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-iom-take-home-pay',
@@ -27,7 +37,9 @@ const TAX_BAND_HIGHER_RATE = 0.21;
   imports: [
     FormsModule,
     SunburstChartComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    TooltipDirective,
+    FormField
   ],
   host: {
     'class': 'block rounded-2xl mx-auto bg-white overflow-hidden max-w-6xl'
@@ -41,15 +53,46 @@ const TAX_BAND_HIGHER_RATE = 0.21;
 export class IOMTakeHomePayComponent {
   private currency_pipe = inject(CurrencyPipe);
 
-  protected gross_income = signal<number>(40000.00);
-  protected pension_contributions_percent = signal<number>(0);
+  private form_model = signal<TaxForm>({
+    gross_income: 40000,
+    pension_contribution_percent: 0,
+    is_joint_tax: false
+  })
 
-  protected pension_contributions = computed<number>(() => {
-    return this.gross_income() * this.pension_contributions_percent() / 100;
+  protected tax_form = form<TaxForm>(this.form_model, (schema_path) => {
+    required(schema_path.gross_income);
+    required(schema_path.pension_contribution_percent);
+    required(schema_path.is_joint_tax);
+
+    min(schema_path.gross_income, 0);
+    min(schema_path.pension_contribution_percent, 0);
+  })
+
+  protected max_pension_percent = computed(() => {
+    const gross = this.tax_form.gross_income().value();
+    if (gross <= 0) return 0;
+
+    const ni = this.national_insurance();
+    const tax = this.income_tax();
+
+    // Total cash available to actually put into a pension (Physical limit)
+    const available_cash = Math.max(0, gross - ni - tax);
+
+    // The lower of available cash or the annual tax-relief allowance (£50k)
+    const absolute_max_contribution = Math.min(available_cash, PENSION_ANNUAL_ALLOWANCE_CAP);
+
+    const max_percent = (absolute_max_contribution / gross) * 100;
+
+    // Guard Clause: Return the lowest of legal cap or physical cash cap
+    return Math.min(max_percent, 100);
+  });
+
+  private pension_contributions = computed<number>(() => {
+    return this.tax_form.gross_income().value() * this.tax_form.pension_contribution_percent().value() / 100;
   })
 
   private personal_allowance = computed<number>(() => {
-      const total_income = this.gross_income() - this.pension_contributions();
+      const total_income = this.tax_form.gross_income().value() - this.pension_contributions();
 
       if (total_income <= PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD) {
         return PERSONAL_ALLOWANCE_STANDARD;
@@ -66,7 +109,7 @@ export class IOMTakeHomePayComponent {
   });
 
   private taxable_income = computed<number>(() => {
-    return Math.max(this.gross_income() - this.personal_allowance() - this.pension_contributions(), 0);
+    return Math.max(this.tax_form.gross_income().value() - this.personal_allowance() - this.pension_contributions(), 0);
   })
 
   private lower_tax_band_amount = computed<number>(() => {
@@ -82,7 +125,7 @@ export class IOMTakeHomePayComponent {
   })
 
   private national_insurance_standard_band = computed<number>(() => {
-    const gross_income = this.gross_income();
+    const gross_income = this.tax_form.gross_income().value();
     if (gross_income <= NATIONAL_INSURANCE_THRESHOLD_STANDARD){
       return 0;
     }
@@ -91,7 +134,7 @@ export class IOMTakeHomePayComponent {
   })
 
   private national_insurance_upper_band = computed<number>(() => {
-    const gross_income = this.gross_income();
+    const gross_income = this.tax_form.gross_income().value();
     const higher_band = Math.max(0, gross_income - NATIONAL_INSURANCE_THRESHOLD_UPPER);
     return higher_band * NATIONAL_INSURANCE_RATE_HIGHER;
   })
@@ -101,7 +144,7 @@ export class IOMTakeHomePayComponent {
   })
 
   private take_home_pay = computed<number>(() => {
-    return this.gross_income() - this.pension_contributions() - this.national_insurance() - this.income_tax();
+    return this.tax_form.gross_income().value() - this.pension_contributions() - this.national_insurance() - this.income_tax();
   });
 
   private post_tax_income = computed<number>(() => {
@@ -116,7 +159,7 @@ export class IOMTakeHomePayComponent {
    * Palette https://coolors.co/palette/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1
    */
   protected sunburst_hierarchy = computed<SunburstItem[]>(() => {
-    const gross_income = this.gross_income();
+    const gross_income = this.tax_form.gross_income().value();
     const effective_personal_allowance = this.effective_personal_allowance();
     const pension_contributions = this.pension_contributions();
     const national_insurance = this.national_insurance();
@@ -203,7 +246,7 @@ export class IOMTakeHomePayComponent {
               },
               {
                 label: 'Personal Allowance',
-                tooltip: (this.gross_income() - this.pension_contributions()) > PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD
+                tooltip: (this.tax_form.gross_income().value() - this.pension_contributions()) > PERSONAL_ALLOWANCE_HIGH_EARNER_THRESHOLD
                   ? `Personal Allowance Tapered: ${this.currency_pipe.transform(effective_personal_allowance)}`
                   : `Personal Allowance Standard: ${this.currency_pipe.transform(effective_personal_allowance)}`,
                 value: effective_personal_allowance,

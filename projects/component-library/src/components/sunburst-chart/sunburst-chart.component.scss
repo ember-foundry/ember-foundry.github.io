@@ -8,13 +8,15 @@ g {
 }
 
 svg:hover {
-  g:not(:hover), circle:not(:hover) {
+  g:not(:hover) {
     opacity: 0.4;
   }
 }
 
 path {
   transition: transform 0.2s;
+  stroke: white;
+  stroke-width: 0.2rem;
 
   &:not([fill]) {
     fill: hsl(0deg 0% 74% / 37%);

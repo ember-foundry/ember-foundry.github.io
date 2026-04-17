@@ -87,7 +87,7 @@ ng config projects.component-library.schematics.@schematics/angular:enum.type en
 testing a specific file
 
 ```shell
-test_file="projects/component-library/src/components/marquee/marquee.component.spec.ts"
+test_file="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
 npm run test -- --watch --testFile $test_file
 ```
 

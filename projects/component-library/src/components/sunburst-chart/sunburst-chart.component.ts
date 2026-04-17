@@ -90,7 +90,13 @@ export class SunburstChartComponent {
     };
 
     flatten(items, 80, 175, 0, 360, root.value);
-    return result;
+    return result
+      /**
+       * Sort so that the smaller slices are at the bottom of the dom
+       * This allows the z-index to be higher for smaller slices
+       * Which means that text on smaller slices are on top of bigger slices
+       */
+      .sort((a, b) => b.value - a.value);
   });
 
   protected get_arc_path(cx: number, cy: number, r_in: number, r_out: number, start_deg: number, end_deg: number): string {
