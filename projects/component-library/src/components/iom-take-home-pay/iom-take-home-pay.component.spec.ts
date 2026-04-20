@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
-import {IOMTakeHomePayComponent} from './iom-take-home-pay.component';
+import {IOMTakeHomePayComponent, TaxForm} from './iom-take-home-pay.component';
+import {WritableSignal} from '@angular/core';
 
 type ExposedComponent = IOMTakeHomePayComponent & {
   income_tax(): number;
@@ -9,6 +10,7 @@ type ExposedComponent = IOMTakeHomePayComponent & {
   take_home_pay(): number;
   taxable_income(): number;
   max_pension_percent(): number;
+  monthly_take_home_pay(): number;
   form_model: WritableSignal<TaxForm>;
 };
 
