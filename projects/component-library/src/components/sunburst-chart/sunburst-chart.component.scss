@@ -14,9 +14,9 @@ svg:hover {
 }
 
 path {
-  transition: transform 0.2s;
   stroke: white;
   stroke-width: 0.2rem;
+  transition: transform 0.2s;
 
   &:not([fill]) {
     fill: hsl(0deg 0% 74% / 37%);

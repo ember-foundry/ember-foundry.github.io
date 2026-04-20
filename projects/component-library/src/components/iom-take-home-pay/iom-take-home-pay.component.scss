@@ -36,17 +36,12 @@ header {
   }
 }
 
-input[type=number], input[type=range] {
+input[type='number'], input[type='range'] {
   width: 10rem;
 }
 
 .input-container {
-
-  .input-wrapper {
-    position: relative;
-  }
-
-  .currency-symbol {
+ .currency-symbol {
     color: var(--indigo-400);
     font-weight: 700;
     left: 0.75rem;
