@@ -54,7 +54,7 @@ interface TaxForm {
 export class IOMTakeHomePayComponent {
   private currency_pipe = inject(CurrencyPipe);
 
-  private form_model = signal<TaxForm>({
+  protected form_model = signal<TaxForm>({
     gross_income: 40000,
     pension_contribution_percent: 0,
     is_couple_tax: false
