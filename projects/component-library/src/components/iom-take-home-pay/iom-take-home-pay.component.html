@@ -1,6 +1,6 @@
 <header class="flex flex-col gap-4 p-6 border-b border-slate-200 sticky top-0 z-10">
   <div>
-    <h1>IOM Income Tax Breakdown (2025/26)</h1>
+    <h1>IOM Income Tax Breakdown (2026/27)</h1>
     <p>Visualizing where your gross income goes</p>
   </div>
 
@@ -19,9 +19,10 @@
     </div>
     <div class="flex flex-col items-end">
       <div class="flex justify-between items-center">
-        <label class="font-bold uppercase text-slate-400 mb-1 text-xs">Pension Contribution</label>
+        <label for="pension_contribution_percent" class="font-bold uppercase text-slate-400 mb-1 text-xs">Pension Contribution</label>
       </div>
       <input
+        id="pension_contribution_percent"
         type="range"
         step="1"
         [max]="max_pension_percent()"
@@ -36,7 +37,7 @@
         <input
           id="is_joint_tax"
           type="checkbox"
-          [formField]="tax_form.is_joint_tax"
+          [formField]="tax_form.is_couple_tax"
         />
       </div>
     </div>
@@ -47,6 +48,6 @@
   <div class="bg-indigo-50 border-indigo-100 border-1 flex flex-col gap-1 p-4 rounded-xl" ngProjectAs="legend-footer">
     <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Monthly Estimated Net Income</span>
     <span class="font-bold text-indigo-900 text-3xl">{{ monthly_take_home_pay() | currency }}</span>
-    <small class="text-indigo-300 uppercase tracking-widest text-xs footer text-[10px]">Calculated for IOM Tax Year 25/26</small>
+    <small class="text-indigo-300 uppercase tracking-widest text-xs footer text-[10px]">Calculated for IOM Tax Year 2026/27</small>
   </div>
 </mbr-sunburst-chart>

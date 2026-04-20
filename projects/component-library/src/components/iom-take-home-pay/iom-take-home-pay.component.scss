@@ -36,7 +36,7 @@ header {
   }
 }
 
-input {
+input[type=number], input[type=range] {
   width: 10rem;
 }
 
