@@ -1,8 +1,11 @@
-svg {
+:host {
   aspect-ratio: 1;
-  height: 100%;
   max-height: var(--size, 200px);
   max-width: var(--size, 200px);
+}
+
+svg {
+  height: 100%;
   overflow: visible;
   width: 100%;
 }
