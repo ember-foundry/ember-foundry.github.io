@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
-import {IOMTakeHomePayComponent, TaxForm} from './iom-take-home-pay.component';
 import {WritableSignal} from '@angular/core';
+import {IOMTakeHomePayComponent, TaxForm} from './iom-take-home-pay.component';
 
 type ExposedComponent = IOMTakeHomePayComponent & {
   income_tax(): number;

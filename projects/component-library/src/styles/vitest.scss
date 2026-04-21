@@ -1,0 +1,8 @@
+@use 'global';
+
+@source '../components/iom-take-home-paye/iom-take-home-pay.component.html';
+
+body {
+  background-color: light-dark(white, #18191b);
+  color-scheme: light dark;
+}
