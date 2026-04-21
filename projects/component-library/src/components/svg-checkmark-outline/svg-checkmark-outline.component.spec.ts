@@ -25,6 +25,6 @@ describe('CheckmarkOutlineComponent', () => {
 
   it('should match visually', async() => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    await expect(host).toMatchScreenshot('vuexy-theme-customizer-trigger');
+    await expect(host).toMatchScreenshot('svg-checkmark-outline');
   });
 });

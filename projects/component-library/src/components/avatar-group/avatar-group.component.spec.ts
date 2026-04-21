@@ -57,63 +57,6 @@ describe('AvatarGroupComponent', () => {
 
 @Component({
   standalone: true,
-  imports: [AvatarGroupComponent, AvatarComponent, AvatarWithinGroupDirective],
-  template: `
-    <mbr-avatar-group [limit]="limit">
-      <mbr-avatar name="Avatar 1"></mbr-avatar>
-      <mbr-avatar name="Avatar 2"></mbr-avatar>
-      <mbr-avatar name="Avatar 3"></mbr-avatar>
-    </mbr-avatar-group>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-class TestAvatarGroupHostComponent {
-  limit: number | undefined = undefined;
-}
-describe('AvatarGroupComponent with Projected Content', () => {
-  let hostFixture: ComponentFixture<TestAvatarGroupHostComponent>;
-  let hostComponent: TestAvatarGroupHostComponent;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TestAvatarGroupHostComponent, AvatarWithinGroupDirective]
-    }).compileComponents();
-
-    hostFixture = TestBed.createComponent(TestAvatarGroupHostComponent);
-    hostComponent = hostFixture.componentInstance;
-    hostFixture.detectChanges();
-    await hostFixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(hostComponent).toBeTruthy();
-  });
-
-  it.skip('Avatar Directive should have been injected', () => {
-    const avatarDebugElements = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
-    const firstAvatarDirective = avatarDebugElements[0].injector.get(
-      AvatarWithinGroupDirective
-    );
-    const spy = vi.spyOn(firstAvatarDirective as unknown as ExposedAvatarGroupComponentComponent, 'is_last_child', 'get');
-    expect(spy).toHaveBeenCalled();
-  })
-
-  it('should apply correct margins to each avatar component', () => {
-    const avatar_components_in_group = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
-    avatar_components_in_group.forEach((avatarDebugElement, index, array) => {
-      const is_last = index === array.length - 1;
-
-      if(is_last){
-        expect(avatarDebugElement.nativeElement, 'Last avatar should not have a margin').toHaveStyle('margin-right: 0px;')
-      } else {
-        expect(avatarDebugElement.nativeElement, 'Non last avatar should have margin').toHaveStyle('margin-right: var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)));')
-      }
-    })
-  });
-});
-
-@Component({
-  standalone: true,
   imports: [AvatarGroupComponent],
   template: `
     <mbr-avatar-group></mbr-avatar-group>
@@ -141,3 +84,67 @@ describe('AvatarGroupComponent with no avatars', () => {
     expect(elements.length, 'No avatars should be present').toBe(0);
   })
 })
+
+@Component({
+  standalone: true,
+  imports: [AvatarGroupComponent, AvatarComponent, AvatarWithinGroupDirective],
+  template: `
+    <mbr-avatar-group [limit]="limit">
+      <mbr-avatar name="Avatar 1"></mbr-avatar>
+      <mbr-avatar name="Avatar 2"></mbr-avatar>
+      <mbr-avatar name="Avatar 3"></mbr-avatar>
+    </mbr-avatar-group>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class TestAvatarGroupHostComponent {
+  limit: number | undefined = undefined;
+}
+describe('AvatarGroupComponent with Projected Content', () => {
+  let hostFixture: ComponentFixture<TestAvatarGroupHostComponent>;
+  let component: TestAvatarGroupHostComponent;
+  let host: HTMLElement;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [TestAvatarGroupHostComponent, AvatarWithinGroupDirective]
+    }).compileComponents();
+
+    hostFixture = TestBed.createComponent(TestAvatarGroupHostComponent);
+    component = hostFixture.componentInstance;
+    host = hostFixture.nativeElement;
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it.skip('Avatar Directive should have been injected', () => {
+    const avatarDebugElements = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
+    const firstAvatarDirective = avatarDebugElements[0].injector.get(
+      AvatarWithinGroupDirective
+    );
+    const spy = vi.spyOn(firstAvatarDirective as unknown as ExposedAvatarGroupComponentComponent, 'is_last_child', 'get');
+    expect(spy).toHaveBeenCalled();
+  })
+
+  it('should apply correct margins to each avatar component', () => {
+    const avatar_components_in_group = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
+    avatar_components_in_group.forEach((avatarDebugElement, index, array) => {
+      const is_last = index === array.length - 1;
+
+      if(is_last){
+        expect(avatarDebugElement.nativeElement, 'Last avatar should not have a margin').toHaveStyle('margin-right: 0px;')
+      } else {
+        expect(avatarDebugElement.nativeElement, 'Non last avatar should have margin').toHaveStyle('margin-right: var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)));')
+      }
+    })
+  });
+
+  it('should visually match', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await expect(host.children[0]).toMatchScreenshot('avatar-group-with-projected-content');
+  })
+});
