@@ -24,7 +24,7 @@ const TAX_BAND_HIGHER_RATE = 0.21;
 
 const PENSION_ANNUAL_ALLOWANCE_CAP = 50000;
 
-interface TaxForm {
+export interface TaxForm {
   gross_income: number;
   pension_contribution_percent: number;
   is_couple_tax: boolean;
