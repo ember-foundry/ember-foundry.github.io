@@ -7,6 +7,7 @@ import {DebugElement} from '@angular/core';
 describe('BaselineAvailabilityComponent', () => {
   let component: BaselineAvailabilityComponent;
   let fixture: ComponentFixture<BaselineAvailabilityComponent>;
+  let host: HTMLElement;
 
   const component_base_checks = () => {
     expect(component).toBeTruthy();
@@ -46,6 +47,7 @@ describe('BaselineAvailabilityComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(BaselineAvailabilityComponent);
     component = fixture.componentInstance;
+    host = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -112,4 +114,9 @@ describe('BaselineAvailabilityComponent', () => {
       expect(avatar.nativeElement.style.getPropertyValue('--size')).toBe('var(--size-xs)');
     })
   });
+
+  it('should visually match', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await expect(host).toMatchScreenshot('baseline-availability-none-supported');
+  })
 });
