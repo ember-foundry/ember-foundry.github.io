@@ -1,17 +1,22 @@
-import { defineConfig} from 'vitest/config';
+import {defineConfig} from 'vitest/config';
 import {playwright} from '@vitest/browser-playwright';
 import angular from '@analogjs/vite-plugin-angular';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [angular(), viteTsConfigPaths()],
+  plugins: [
+    angular(),
+    viteTsConfigPaths()
+  ],
   test: {
     globals: false,
     setupFiles: [
       'test-setup.ts'
     ],
     reporters: ['verbose'],
-    include: ['src/**/*.spec.ts'],
+    include: [
+      'src/**/*.component.spec.ts'
+    ],
     browser: {
       enabled: true,
       expect: {
@@ -28,7 +33,7 @@ export default defineConfig({
       },
       headless: process.env['VITEST_HEADLESS'] !== 'false',
       provider: playwright(),
-      instances: [{ browser: 'chromium' }]
+      instances: [{browser: 'chromium'}]
 
     },
     coverage: {

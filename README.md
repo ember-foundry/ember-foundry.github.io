@@ -103,6 +103,10 @@ Which is the same as:
 
 https://tailwindcss.com/docs/installation/framework-guides/angular
 
+Then you'll want to add vite specific config for tailwind:
+
+https://tailwindcss.com/docs/installation/using-vite
+
 ---
 
 ### Git LFS
