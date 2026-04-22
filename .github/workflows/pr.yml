@@ -129,10 +129,12 @@ jobs:
 
       - run: npx playwright install
 
-      - run: npm run test:ci
-        continue-on-error: true
+      - name: 'Vitest Unit Tests'
+        id: vitest_unit_tests
+        run: npm run test:ci
 
       - name: Upload artifact
+        if: steps.vitest_unit_tests.outcome == 'failure'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'projects/component-library/.vitest-attachments'
