@@ -83,7 +83,7 @@ describe('IOMTakeHomePayComponent', () => {
     expectCloseTo((component as unknown as ExposedComponent).take_home_pay(), 77665.32);
   });
 
-  it('calculates single taxpayer take-home pay for income >£100,000 gross income', async () => {
+  it('calculates single taxpayer take-home pay for gross income >£100,000', async () => {
     setFormValues({
       gross_income: 120000,
       pension_contribution_percent: 0,

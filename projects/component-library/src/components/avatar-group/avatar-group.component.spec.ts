@@ -25,26 +25,26 @@ describe('AvatarGroupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have undefined surplus_text when limit is undefined', () => {
+  it('should have no surplus_text when limit is undefined', () => {
     fixture.componentRef.setInput('limit', undefined);
     fixture.detectChanges();
     expect(component['surplus_text']()).toBeUndefined();
   });
 
-  it('should have a surplus_text = undefined when limit is < the number of avatars but no avatars are provided', () => {
+  it('should have no surplus_text when limit is < number of avatars but none provided', () => {
     fixture.componentRef.setInput('limit', 1);
     expect(fixture.debugElement.nativeElement.children).to.have.length(0);
     fixture.detectChanges();
     expect(component['surplus_text']()).toBeUndefined();
   });
 
-  it('should have undefined surplus_text when limit is = 0', () => {
+  it('should have no surplus_text when limit = 0', () => {
     fixture.componentRef.setInput('limit', 0);
     fixture.detectChanges();
     expect(component['surplus_text']()).toBeUndefined();
   });
 
-  it('should have undefined surplus_text when limit is > the number of avatars', () => {
+  it('should have no surplus_text when limit is > the number of avatars', () => {
     fixture.componentRef.setInput('limit', 2);
     fixture.detectChanges();
     expect(component['surplus_text']()).toBeUndefined();

@@ -51,7 +51,7 @@ describe('BaselineAvailabilityComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should render all browsers as unsupported when none are provided', async () => {
+  it('should render all browsers as unsupported by default', async () => {
     component_base_checks();
 
     expect(fixture.debugElement.nativeElement.children, 'Component should only have 1 child').to.have.length(1);
@@ -70,7 +70,7 @@ describe('BaselineAvailabilityComponent', () => {
     // todo test contrast ratio
   });
 
-  it('should split browsers correctly between supported and unsupported', async () => {
+  it('should split browsers between supported and unsupported', async () => {
     fixture.componentRef.setInput('supported', ['chrome', 'firefox']);
     fixture.detectChanges();
 
