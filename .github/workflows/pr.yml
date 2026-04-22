@@ -125,6 +125,13 @@ jobs:
       - uses: ./.github/actions/setup-project
       - run: npx playwright install
       - run: npm run test:ci
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'projects/component-library/.vitest-attachments'
+          name: 'vitest-visual-test-errors'
+
 #      - name: Code Coverage Summary Report
 #        uses: irongut/CodeCoverageSummary@v1.3.0
 #        with:

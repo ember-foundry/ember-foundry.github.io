@@ -13,7 +13,7 @@ export default defineConfig({
     globals: false,
     reporters: ['verbose'],
     setupFiles: ['test-setup.ts'],
-    include: ['src/**/*.component.spec.ts'],
+    include: ['src/**/*.spec.ts'],
     browser: {
       enabled: true,
       headless: process.env['VITEST_HEADLESS'] !== 'false',
@@ -22,7 +22,6 @@ export default defineConfig({
           viewport: {
             width: 1280,
             height: 720,
-
           }
         }
       }),

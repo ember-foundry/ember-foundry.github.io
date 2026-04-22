@@ -72,8 +72,8 @@ export class TooltipDirective implements OnDestroy {
     }
 
     this.is_visible = true;
-    this.position(x, y);
     this.renderer.setStyle(this.tooltip_el, 'display', 'block');
+    this.position(x, y);
   }
 
   private position(client_x: number, client_y: number): void {
