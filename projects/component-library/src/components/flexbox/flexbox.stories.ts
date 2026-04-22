@@ -48,7 +48,7 @@ const host_flexbox_styles = `:host {
   min-width: 250px;
 }`
 
-const row_styles = `row {
+const row_styles = `mbr-row {
   --example-block-size-small: 50px;
   --example-block-size-medium: calc(var(--example-block-size-small) * 1.5);
   --example-block-size-large: calc(var(--example-block-size-small) * 2);
@@ -59,7 +59,7 @@ const row_styles = `row {
   width: 300px;
 }`;
 
-const column_styles = `column {
+const column_styles = `mbr-column {
   background: #e01c49;
   border-radius: 16px;
   color: white;

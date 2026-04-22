@@ -3,6 +3,6 @@
   display: var(--flex-style, flex);
   flex-flow: var(--direction, row) wrap;
   gap: var(--gap, 0);
-  place-content: var(--align-content, 'stretch') var(--justify-content, flex-start);
+  place-content: var(--align-content, stretch) var(--justify-content, flex-start);
   width: 100%;
 }

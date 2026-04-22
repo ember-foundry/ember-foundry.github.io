@@ -65,5 +65,4 @@ describe('BaseComponent', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement).toHaveClass('size-lg', 'status-busy');
   });
-
 });

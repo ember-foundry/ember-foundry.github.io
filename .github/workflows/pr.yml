@@ -122,9 +122,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          lfs: true
+
       - uses: ./.github/actions/setup-project
+
       - run: npx playwright install
-      - run: npm run test:ci
+
+      - name: 'Vitest Unit Tests'
+        id: vitest_unit_tests
+        run: npm run test:ci
+
+      - name: Upload artifact
+        if: steps.vitest_unit_tests.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'projects/component-library/.vitest-attachments'
+          name: 'vitest-visual-test-errors'
+
 #      - name: Code Coverage Summary Report
 #        uses: irongut/CodeCoverageSummary@v1.3.0
 #        with:

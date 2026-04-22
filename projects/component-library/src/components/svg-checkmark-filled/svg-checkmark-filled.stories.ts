@@ -15,7 +15,7 @@ export const Sample: Story = {
     return {
       template: `
         <div style="display:flex; justify-content: center">
-          <mbr-svg-checkmark-filled style="width: 200px" />
+          <mbr-svg-checkmark-filled />
         </div>
       `
     }

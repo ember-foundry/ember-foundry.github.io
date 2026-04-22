@@ -1,0 +1,119 @@
+/**
+ * Original https://gui-challenges.web.app/theme-switch/dist/
+ * Easings taken from
+ * @see https://unpkg.com/open-props@1.7.23/easings.min.css
+ */
+$ease-3: cubic-bezier(.25,0,.3,1);
+$ease-elastic-out-3: cubic-bezier(.5,1.25,.75,1.25);
+$ease-out-5: cubic-bezier(0,0,0,1);
+$ease-elastic-out-4: cubic-bezier(.5,1.5,.75,1.25);
+$ease-elastic-4: $ease-elastic-out-4;
+$default-size: 2rem;
+
+:host {
+  @media (hover: none) {
+    --size: calc(var(--size) * 2);
+  }
+
+  --icon-fill: hsl(210deg 10% 30%);
+  --icon-fill-hover: hsl(210deg 10% 15%);
+
+  aspect-ratio: 1;
+  background: none;
+  block-size: var(--size, $default-size);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  inline-size: var(--size, $default-size);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+
+:host:is(:hover,:focus-visible) :is(#moon-mask,circle.sun) {
+  fill: var(--icon-fill-hover)
+}
+
+svg#color-scheme-toggle-icon {
+  block-size: 100%;
+  inline-size: 100%;
+  stroke-linecap: round
+}
+
+#moon-mask, circle.sun, .sun-beams {
+  transform-origin: center center
+}
+
+#moon-mask, circle.sun {
+  fill: var(--icon-fill)
+}
+
+svg#color-scheme-toggle-icon > .sun-beams {
+  stroke: var(--icon-fill);
+  stroke-width: 2px;
+}
+
+:host:is(:hover,:focus-visible) svg#color-scheme-toggle-icon > .sun-beams {
+  stroke: var(--icon-fill-hover);
+}
+
+:host(.dark) {
+  --icon-fill: hsl(210deg 10% 70%);
+  --icon-fill-hover: hsl(210deg 15% 90%);
+
+  svg#color-scheme-toggle-icon > .sun {
+    transform: scale(1.75);
+  }
+
+  svg#color-scheme-toggle-icon > .sun-beams {
+    opacity: 0;
+  }
+
+  #moon-mask > circle {
+    transform: translate(-7px);
+  }
+}
+
+@supports (cx: 1px) {
+  :host(.dark) #moon-mask > circle {
+    cx: 17px;
+    transform: translate(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  svg#color-scheme-toggle-icon > .sun {
+    transition: transform .5s $ease-elastic-out-3;
+  }
+
+  svg#color-scheme-toggle-icon > .sun-beams {
+    transition: transform .5s $ease-elastic-4, opacity .5s $ease-3;
+  }
+
+  #moon-mask > circle {
+    transition: transform .25s $ease-out-5;
+  }
+
+  @supports (cx: 1px) {
+    #moon-mask > circle {
+      transition: cx .25s $ease-out-5;
+    }
+  }
+
+  :host(.dark) svg#color-scheme-toggle-icon > .sun {
+    transform: scale(1.75);
+    transition-duration: .25s;
+    transition-timing-function: $ease-3;
+  }
+
+  :host(.dark) svg#color-scheme-toggle-icon > .sun-beams {
+    transform: rotate(-25deg);
+    transition-duration: .15s
+  }
+
+  :host(.dark) #moon-mask > circle {
+    transition-delay: .25s;
+    transition-duration: .5s
+  }
+}

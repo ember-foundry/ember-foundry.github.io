@@ -1,4 +1,3 @@
 :host {
-  flex-basis: var(--basis, auto);
-  flex-grow: var(--grow, inherit);
+  flex: var(--grow, 0) var(--shrink, 1) var(--basis, auto);
 }

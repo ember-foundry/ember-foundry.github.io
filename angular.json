@@ -108,7 +108,8 @@
             "outputDir": "dist/storybook/component-library",
             "styles": [
               "projects/component-library/src/styles/global.scss"
-            ]
+            ],
+            "webpackStatsJson": true
           }
         },
         "lint": {
@@ -144,7 +145,10 @@
           "builder": "@analogjs/vitest-angular:test",
           "options": {
             "watch": true,
-            "coverage": true
+            "coverage": true,
+            "styles": [
+              "projects/component-library/src/styles/global.scss"
+            ]
           }
         }
       },

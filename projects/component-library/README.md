@@ -26,8 +26,3 @@ Below is a breakdown of why
 | Logic tests                              | Angular Unit Test |
 | Visual tests                             | Cypress Test      |
 | Documentation of Component possibilities | Storybook         |
-
-----
-
-### MakeUseOf:
-* SassDoc
