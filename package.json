@@ -5,7 +5,7 @@
     "node": ">=24.12.0"
   },
   "scripts": {
-    "build": "ng run component-library:build",
+    "build": "ng build component-library",
     "build:storybook": "ng run component-library:build-storybook",
     "lint": "ng lint --cache",
     "lint:styles": "stylelint projects/component-library/**/*.scss",

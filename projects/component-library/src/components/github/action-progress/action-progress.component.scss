@@ -1,23 +1,6 @@
 :host {
   --color: orange;
-
   display: flex;
   font-size: 0;
   width: min(var(--size, var(--size-md)), 100cqmin);
-}
-
-svg {
-  animation: rotate 1s linear infinite;
-
-  // animation-play-state: paused;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }

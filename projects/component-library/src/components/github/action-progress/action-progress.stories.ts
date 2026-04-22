@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import type {Meta, StoryObj} from '@storybook/angular';
 import {ActionProgressComponent} from 'component-library';
 
 const meta: Meta<ActionProgressComponent> = {
