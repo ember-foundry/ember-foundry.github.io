@@ -1,5 +1,6 @@
 :host {
   --color: orange;
+
   display: flex;
   font-size: 0;
   width: min(var(--size, var(--size-md)), 100cqmin);
