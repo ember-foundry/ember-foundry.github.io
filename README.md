@@ -16,13 +16,9 @@ npm
 ```
 
 ### Vitest Angular Browser Testing
+https://angular.dev/guide/testing/migrating-to-vitest
 ```shell
-# for migrating from jasmine tests to vitest
-ng g @schematics/angular:refactor-jasmine-vitest --add-imports
-# touch touch projects/component-library/vitest.config.ts
-# disable globals using the vitest define config
-npm install -D @vitest/browser-playwright
-`ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
+ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
 
 npm install @analogjs/platform --save-dev
 ? ng g @analogjs/platform:setup-vitest --project component-library
@@ -117,6 +113,7 @@ git add .gitattributes
 ```
 
 ### TODO:
+* FlipCard: https://storage.googleapis.com/material-io-design/m2/assets/downloads/7734f294e44e56dd5c5fa68c906efb8f3cbdab45441b2fe0ebd355bcf96fd74eb0bd9cb0f2a2544264a6e7bbd33d5e33ff5dda82eb2b0d431d320a4c94f33575.mp4
 * https://angular.dev/tools/libraries/creating-librariess
 * i want to run something like this:
   * ng add @angular/material

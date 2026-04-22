@@ -9,32 +9,32 @@ export default defineConfig({
     viteTsConfigPaths()
   ],
   test: {
+    fileParallelism: true,
     globals: false,
-    setupFiles: [
-      'test-setup.ts'
-    ],
     reporters: ['verbose'],
-    include: [
-      'src/**/*.component.spec.ts'
-    ],
+    setupFiles: ['test-setup.ts'],
+    include: ['src/**/*.component.spec.ts'],
     browser: {
       enabled: true,
-      expect: {
-        // @see https://vitest.dev/guide/browser/visual-regression-testing
-        // toMatchScreenshot: {
-        //   comparatorName: 'pixelmatch',
-        //   comparatorOptions: {
-        //     // 0-1, how different can colors be?
-        //     threshold: 0.2,
-        //     // 1% of pixels can differ
-        //     allowedMismatchedPixelRatio: 0.01
-        //   }
-        // }
-      },
       headless: process.env['VITEST_HEADLESS'] !== 'false',
-      provider: playwright(),
-      instances: [{browser: 'chromium'}]
+      provider: playwright({
+        contextOptions: {
+          viewport: {
+            width: 1280,
+            height: 720,
 
+          }
+        }
+      }),
+      instances: [
+        {
+          browser: 'chromium',
+          viewport: {
+            width: 1280,
+            height: 720
+          }
+        }
+      ]
     },
     coverage: {
       enabled: true,

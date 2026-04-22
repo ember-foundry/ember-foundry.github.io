@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {SVGCheckmarkFilledComponent} from './svg-checkmark-filled.component';
+import {svg_animations_ended} from '../../helpers/vitest/svg_animations_ended';
 
 describe('CheckmarkFilledComponent', () => {
   let component: SVGCheckmarkFilledComponent;
@@ -25,7 +26,7 @@ describe('CheckmarkFilledComponent', () => {
   });
 
   it('should visually match', async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await svg_animations_ended(fixture);
     await expect(host).toMatchScreenshot('svg-checkmark-filled');
   })
 });

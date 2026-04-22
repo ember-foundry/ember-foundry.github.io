@@ -1,11 +1,11 @@
 :host {
   aspect-ratio: 1;
-  max-height: var(--size, 200px);
-  max-width: var(--size, 200px);
+  height: var(--size, 200px);
+  width: var(--size, 200px);
 }
 
 svg {
+  display: block;
   height: 100%;
-  overflow: visible;
   width: 100%;
 }
