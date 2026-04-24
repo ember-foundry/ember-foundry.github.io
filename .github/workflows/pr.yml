@@ -134,11 +134,13 @@ jobs:
         run: npm run test:ci
 
       - name: Upload artifact
-        if: steps.vitest_unit_tests.outcome == 'failure'
-        uses: actions/upload-pages-artifact@v3
+        if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
+        uses: actions/upload-artifact@v6
         with:
-          path: 'projects/component-library/.vitest-attachments'
+          path: 'projects/component-library/.vitest-attachments/src/components'
           name: 'vitest-visual-test-errors'
+          if-no-files-found: ignore
+          include-hidden-files: true
 
 #      - name: Code Coverage Summary Report
 #        uses: irongut/CodeCoverageSummary@v1.3.0
