@@ -13,6 +13,7 @@ export * from './components/flip-card/flip-card.component';
 export * from './components/github/action-progress/action-progress.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
+export * from './components/lando-norris-card/lando-norris-card.component';
 export * from './components/ludo-player-ui-front/ludo-player-ui-front.component';
 export * from './components/marquee/marquee.component';
 export * from './components/player-select/player-select.component';

@@ -1,0 +1,54 @@
+@font-face {
+  font-family: Brier;
+  src: url("https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67b6113a220f85ad6497495a_Brier-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Mona Sans Variable;
+  src: url("https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67bc6274c5b4108b123aa4d5_MonaSans-VariableFont_wdth%2Cwght.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:host {
+  --mask-url: url('https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67d2dd47cfe84bed1dce9542_ln4-footer-mask-desktop.svg');
+
+  align-items: center;
+  aspect-ratio: 1.88;
+  background-color: #282c20;
+  color: #f4f4ed;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Mona Sans Variable', Arial, sans-serif;
+  mask-image: var(--mask-url);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+  width: 800px;
+}
+
+svg {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.shmancy {
+  color: #b2c73a;
+  font-family: 'Brier', Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+}
