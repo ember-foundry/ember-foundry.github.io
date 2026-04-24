@@ -1,7 +1,10 @@
 import {defineConfig} from 'cypress';
 
 export default defineConfig({
+  allowCypressEnv: false,
   component: {
+    viewportWidth: 1280,
+    viewportHeight: 800,
     devServer: {
       framework: 'angular',
       bundler: 'webpack',
@@ -16,6 +19,6 @@ export default defineConfig({
       }
     },
     specPattern: '**/*.cy.ts',
-    watchForFileChanges: true
+    watchForFileChanges: false
   }
 });

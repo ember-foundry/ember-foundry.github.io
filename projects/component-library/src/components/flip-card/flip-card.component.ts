@@ -7,6 +7,7 @@ import {BaseComponent} from '../_base/base.component';
   templateUrl: './flip-card.component.html',
   styleUrl: './flip-card.component.scss',
   host: {
+    '[style.cursor]': `flip_on() === 'click' ? 'pointer' : undefined`,
     '[class]': 'host_css_classes()',
     '[class.flipped]': 'flipped()',
     '(click)': 'flip_on_click()'

@@ -8,3 +8,5 @@ projects/component-library/src/components/svg-checkmark-outline/__screenshots__/
 projects/component-library/src/components/vuexy/theme-customizer-trigger/__screenshots__/theme-customizer-trigger.component.spec.ts/vuexy-theme-customizer-trigger-chromium.png filter=lfs diff=lfs merge=lfs -text
 projects/component-library/src/components/avatar-badge/__screenshots__/avatar-badge.component.spec.ts/avatar-badge-chromium.png filter=lfs diff=lfs merge=lfs -text
 projects/component-library/src/components/avatar-group/__screenshots__/avatar-group.component.spec.ts/avatar-group-with-projected-content-chromium.png filter=lfs diff=lfs merge=lfs -text
+projects/component-library/src/components/baseline-availability/__screenshots__/baseline-availability.component.spec.ts/baseline-availability-all-unsupported-chromium.png filter=lfs diff=lfs merge=lfs -text
+projects/component-library/src/components/baseline-availability/__screenshots__/baseline-availability.component.spec.ts/baseline-availability-all-unsupported.png filter=lfs diff=lfs merge=lfs -text

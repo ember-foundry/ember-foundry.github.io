@@ -12,10 +12,12 @@ Below is a breakdown of why
 | Pipe Tests                               | Y                  | -       | -         |
 | Directive Tests                          | Y                  | -       | -         |
 | Service Tests                            | Y                  | -       | -         |
-| Run automation testing in a pipeline     |                    | Y       | -         |
-| Generate Screenshots                     |                    | Y       | -         |
+| Run automation testing in a pipeline     | Y                  | Y       | -         |
+| Generate Screenshots                     | Y                  | Y       | -         |
 | Extensive UI Testing                     |                    | Y       | -         |
+| Record a video of the test               |                    | Y       | -         |
 | Time Travel through tests                |                    | Y       | -         |
+| Renders Tailwind correctly               | ?                  | Y       | Y         |
 | View all variations of components easily |                    | -       | Y         |
 | Tweak Component Inputs on the fly        |                    | -       | Y         |
 | Great for documentation                  |                    | -       | Y         |

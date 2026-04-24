@@ -117,6 +117,6 @@ describe('BaselineAvailabilityComponent', () => {
 
   it('should visually match', async () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    await expect(host).toMatchScreenshot('baseline-availability-none-supported');
+    await expect(host).toMatchScreenshot('baseline-availability-all-unsupported');
   })
 });
