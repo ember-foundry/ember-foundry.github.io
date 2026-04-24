@@ -1,7 +1,24 @@
-### Linting
+## Scaffolding
+
+### Components
 ```shell
-ng add @angular-eslint/schematics
+component_name="ToggleSwitch"
+ng generate component $component_name --project component-library --dry-run
 ```
+
+### Directives
+```shell
+directive_name="Tooltip"
+ng generate directive $directive_name --project component-library --dry-run
+```
+
+### Enum
+```shell
+enum_name=""
+ng generate enum $enum_name --project component-library
+```
+
+---
 
 ### Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
@@ -23,28 +40,6 @@ ng config projects.component-library.architect.test.options.browsers.1 "firefox"
 npm install @analogjs/platform --save-dev
 ? ng g @analogjs/platform:setup-vitest --project component-library
 ```
-
-## Scaffolding
-
-### Components
-```shell
-component_name="SunburstChartLegend"
-ng generate component $component_name --project component-library --dry-run
-```
-
-### Directives
-```shell
-directive_name="Tooltip"
-ng generate directive $directive_name --project component-library --dry-run
-```
-
-### Enum
-```shell
-enum_name=""
-ng generate enum $enum_name --project component-library
-```
-
----
 
 ## Schematics
 ### Component
@@ -89,6 +84,13 @@ npm run test -- --watch --testFile $test_file
 
 ---
 
+### Linting
+```shell
+ng add @angular-eslint/schematics
+```
+
+---
+
 ### Tailwind
 
 Followed this guide to add tailwind:
@@ -114,6 +116,8 @@ git commit -m "Add screenshots to git-lfs"
 git add **/__screenshots__/**/*.png
 ```
 
+---
+
 ### TODO:
 * FlipCard: https://storage.googleapis.com/material-io-design/m2/assets/downloads/7734f294e44e56dd5c5fa68c906efb8f3cbdab45441b2fe0ebd355bcf96fd74eb0bd9cb0f2a2544264a6e7bbd33d5e33ff5dda82eb2b0d431d320a4c94f33575.mp4
 * https://angular.dev/tools/libraries/creating-librariess
@@ -123,3 +127,4 @@ git add **/__screenshots__/**/*.png
 * https://ishadeed.com/article/css-masking/
 * https://xieziyu.github.io/ngx-echarts/#/welcome
 * SassDoc
+
