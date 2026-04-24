@@ -16,7 +16,8 @@
     "test": "VITEST_HEADLESS=false ng run component-library:test",
     "test:ci": "ng run component-library:test --no-watch",
     "test:cypress": "cypress run --component",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "prepare": "husky"
   },
   "pre-push": [
     "lint",
@@ -75,7 +76,6 @@
     "ng-packagr": "^21.0.0",
     "playwright": "^1.57.0",
     "postcss": "^8.5.3",
-    "pre-push": "^0.1.4",
     "storybook": "^10.1.10",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
