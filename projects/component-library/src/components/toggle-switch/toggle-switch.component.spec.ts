@@ -64,11 +64,24 @@ describe('ToggleSwitchComponent', () => {
     expect(switchElement.classList.contains('selected')).toBe(true);
   });
 
-  it('should emit state_change when clicked', () => {
+  it('should emit the selected state when clicked', () => {
     const emitSpy = vi.spyOn(component.state_change, 'emit');
 
     fixture.nativeElement.click();
+    fixture.detectChanges();
 
-    expect(emitSpy).toHaveBeenCalledOnce();
+    expect(emitSpy).toHaveBeenCalledWith(true);
+  });
+
+  it('should emit false when clicked after being selected', () => {
+    const emitSpy = vi.spyOn(component.state_change, 'emit');
+
+    fixture.nativeElement.click();
+    fixture.detectChanges();
+
+    fixture.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(emitSpy).toHaveBeenLastCalledWith(false);
   });
 });
