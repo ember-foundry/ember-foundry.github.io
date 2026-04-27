@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -6,8 +6,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './toggle-switch.component.html',
   styleUrl: './toggle-switch.component.scss',
+  host: {
+    '(click)': 'state.update(_ => !_)'
+  },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToggleSwitchComponent {
-
+  protected state = signal(false)
 }

@@ -1,8 +1,2 @@
-<div class="toggle-switch">
-  <div class="toggle-switch-preview">
-    <div class="toggle-switch-preview-bg"></div>
-    <span class="toggle-switch-label toggle-switch-label-preview">Preview</span>
-  </div>
-
-  <span class="toggle-switch-label toggle-switch-label-code">Code</span>
-</div>
+<span class="option" [class.selected]="!state()">Preview</span>
+<span class="option" [class.selected]="state()">Code</span>

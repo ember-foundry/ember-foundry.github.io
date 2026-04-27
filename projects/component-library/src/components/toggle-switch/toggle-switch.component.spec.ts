@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ToggleSwitchComponent } from './toggle-switch.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {ToggleSwitchComponent} from './toggle-switch.component';
 
 describe('ToggleSwitchComponent', () => {
   let component: ToggleSwitchComponent;
@@ -10,7 +10,7 @@ describe('ToggleSwitchComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ToggleSwitchComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ToggleSwitchComponent);
     component = fixture.componentInstance;
