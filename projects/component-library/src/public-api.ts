@@ -16,6 +16,7 @@ export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/lando-norris-card/lando-norris-card.component';
 export * from './components/ludo-player-ui-front/ludo-player-ui-front.component';
 export * from './components/marquee/marquee.component';
+export * from './components/multi-toggle-switch/multi-toggle-switch.component';
 export * from './components/player-select/player-select.component';
 export * from './components/sunburst-chart/sunburst-chart.component';
 export * from './components/sunburst-chart-legend/sunburst-chart-legend.component';

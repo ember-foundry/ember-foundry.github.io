@@ -102,22 +102,26 @@ jobs:
       - uses: ./.github/actions/setup-project
       - run: npm run build:storybook
 
-  cypress_tests:
+  cypress_component_tests:
     name: Cypress Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-project
-      - run: npm run test:cypress
+
+      - name: Cypress Component Tests
+        id: cypress_component_tests
+        run: npm run test:cypress
+
       - name: Upload Cypress screenshots
+        if: ${{ always() && steps.cypress_component_tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
-        if: always()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
 
-  angular_tests:
+  vitest_unit_tests:
     name: Angular Tests
     runs-on: ubuntu-latest
     steps:
@@ -133,12 +137,12 @@ jobs:
         id: vitest_unit_tests
         run: npm run test:ci
 
-      - name: Upload artifact
+      - name: Upload Vitest Screenshots
         if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
-          path: 'projects/component-library/.vitest-attachments'
-          name: 'vitest-visual-test-errors'
+          path: projects/component-library/.vitest-attachments
+          name: vitest-visual-test-errors
           if-no-files-found: ignore
           include-hidden-files: true
 
