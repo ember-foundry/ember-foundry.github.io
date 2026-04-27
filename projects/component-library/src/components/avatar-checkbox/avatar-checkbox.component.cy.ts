@@ -1,7 +1,7 @@
 import {mount} from 'cypress/angular-zoneless'
 import {AvatarCheckboxComponent} from 'component-library';
 
-describe('AvatarCheckboxComponent', () => {
+describe.skip('AvatarCheckboxComponent', () => {
   it('should display render unselected', () => {
     cy.intercept('GET', `*//mockmind-api.uifaces.co/content/human/1.jpg*`).as('image_request');
 

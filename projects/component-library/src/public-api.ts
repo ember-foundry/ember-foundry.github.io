@@ -21,6 +21,7 @@ export * from './components/sunburst-chart/sunburst-chart.component';
 export * from './components/sunburst-chart-legend/sunburst-chart-legend.component';
 export * from './components/svg-checkmark-filled/svg-checkmark-filled.component';
 export * from './components/svg-checkmark-outline/svg-checkmark-outline.component';
+export * from './components/toggle-switch/toggle-switch.component';
 export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/tooltip/tooltip.directive';

@@ -1,0 +1,4 @@
+@let _options = options();
+<span class="option">{{ _options[0] }}</span>
+<span class="option">{{ _options[1] }}</span>
+<div class="switch" [class.selected]="selected()">{{ selected() ? _options[0] : _options[1] }}</div>

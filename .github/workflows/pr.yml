@@ -137,7 +137,7 @@ jobs:
         if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
-          path: 'projects/component-library/.vitest-attachments/src/components'
+          path: 'projects/component-library/.vitest-attachments'
           name: 'vitest-visual-test-errors'
           if-no-files-found: ignore
           include-hidden-files: true

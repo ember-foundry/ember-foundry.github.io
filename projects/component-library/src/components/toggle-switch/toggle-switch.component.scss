@@ -1,0 +1,53 @@
+:host {
+  --gap: 0.3em;
+
+  background: #1c202a;
+  border-radius: 1.5em;
+  color: #fff;
+  cursor: pointer;
+  display: inline-grid;
+  font-size: 0.875em;
+  font-weight: 500;
+  gap: var(--gap);
+  grid-template-columns: repeat(2, 1fr);
+  padding: var(--gap);
+  text-align: center;
+  user-select: none;
+}
+
+.option, .switch {
+  border-style: solid;
+  border-width: max(0.08em, 1px);
+  padding: 0.3em 1.3em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.option {
+  border-color: transparent;
+  grid-row: 1;
+  z-index: 1;
+
+  &:first-child {
+    grid-column: 1;
+  }
+
+  &:last-child {
+    grid-column: 2;
+  }
+}
+
+.switch {
+  background: #4a5565;
+  border-color: #5d6674;
+  border-radius: inherit;
+  color: transparent;
+  grid-column: 1;
+  grid-row: 1;
+  transition: transform 200ms ease;
+  z-index: 0;
+
+  &.selected {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+}
