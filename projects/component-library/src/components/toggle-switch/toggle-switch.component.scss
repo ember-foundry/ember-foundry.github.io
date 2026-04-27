@@ -1,29 +1,53 @@
 :host {
+  --gap: 0.3125em;
+
   background: #1c202a;
   border-radius: 1.5em;
   color: #fff;
   cursor: pointer;
-  display: inline-flex;
+  display: inline-grid;
   font-size: 4em;
-  font-style: normal;
   font-weight: 500;
-  gap: 20px;
-  line-height: 28px;
-  padding: 20px;
+  gap: var(--gap);
+  grid-template-columns: repeat(2, 1fr);
+  padding: var(--gap);
   text-align: center;
   user-select: none;
+}
+
+.option, .switch {
+  border-style: solid;
+  border-width: 0.08em;
+  padding: 0.4em 1.3em;
   white-space: nowrap;
 }
 
 .option {
   border-color: transparent;
-  border-radius: inherit;
-  border-style: solid;
-  border-width: 5px;
-  padding: 51px 81.5px;
+  grid-row: 1;
+  z-index: 1;
+
+  &:first-child {
+    grid-column: 1;
+  }
+
+  &:last-child {
+    grid-column: 2;
+  }
 }
 
-.option.selected {
+.switch {
   background: #4a5565;
+  border-radius: inherit;
   border-color: #5d6674;
+  color: transparent;
+  grid-row: 1;
+  grid-column: 1;
+  pointer-events: none;
+  transition: transform 200ms ease;
+  z-index: 0;
+
+  &.selected {
+    transform: translateX(calc(100% + var(--gap)));
+  }
 }
