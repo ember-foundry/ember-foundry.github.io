@@ -15,6 +15,9 @@ const meta: Meta<ToggleSwitchComponent> = {
   argTypes: {
     selected: {
       control: { type: 'boolean' }
+    },
+    state_change: {
+      action: 'state_changed'
     }
   },
   args: {
@@ -41,7 +44,7 @@ export const TurnedOnInitially: Story = {
   }
 };
 
-export const ListenToEvent: Story = {
+export const ListenToEventWithCustomRender: Story = {
   args: {
     options: ['Event Off', 'Event On'],
     selected: false
@@ -50,7 +53,7 @@ export const ListenToEvent: Story = {
     return {
       props: {
         ...args,
-        on_state_change: action('state_changed')
+        on_state_change: action('state_changed_with_custom_render')
       },
       template: `
         <mbr-toggle-switch
