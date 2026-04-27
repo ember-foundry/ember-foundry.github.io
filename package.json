@@ -19,10 +19,6 @@
     "watch": "ng build --watch --configuration development",
     "prepare": "husky"
   },
-  "pre-push": [
-    "lint",
-    "lint:styles"
-  ],
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
