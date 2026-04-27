@@ -50,13 +50,13 @@ export const ListenToEvent: Story = {
     return {
       props: {
         ...args,
-        on_state_change: action('state_change')
+        on_state_change: action('state_changed')
       },
       template: `
         <mbr-toggle-switch
           [options]="options"
           [selected]="selected"
-          (state_change)="on_state_change()"
+          (state_change)="on_state_change($event)"
         />
       `
     }
