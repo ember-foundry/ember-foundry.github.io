@@ -112,7 +112,6 @@ https://github.com/git-lfs/git-lfs?tab=readme-ov-file
 ```shell
 git lfs track **/__screenshots__/**/*.png
 git add .gitattributes
-git commit -m "Add screenshots to git-lfs"
 git add **/__screenshots__/**/*.png
 ```
 

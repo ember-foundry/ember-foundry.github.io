@@ -5,6 +5,7 @@ import {ToggleSwitchComponent} from './toggle-switch.component';
 describe('ToggleSwitchComponent', () => {
   let component: ToggleSwitchComponent;
   let fixture: ComponentFixture<ToggleSwitchComponent>;
+  let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,6 +14,7 @@ describe('ToggleSwitchComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(ToggleSwitchComponent);
+    host = fixture.nativeElement;
     component = fixture.componentInstance;
 
     fixture.componentRef.setInput('options', ['Preview', 'Code']);
@@ -23,6 +25,15 @@ describe('ToggleSwitchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should match visually', async () => {
+    expect(host).toHaveStyle('font-size: 14px');
+    expect(host).toHaveStyle('border-radius: 21px');
+    expect(host).toHaveStyle('background: #1c202a');
+    expect(host).toHaveStyle('color: white');
+
+    await expect(host).toMatchScreenshot('toggle-switch');
   });
 
   it('should render both options', () => {
