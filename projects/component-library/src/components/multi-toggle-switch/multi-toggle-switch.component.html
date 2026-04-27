@@ -1,0 +1,9 @@
+@for (option of options(); track option){
+  <button
+    class="option"
+    [class]="{ 'selected': selected_index() === $index }"
+    (click)="selected_index.set($index)"
+    [attr.tabindex]="selected_index() === $index ? -1 : $index"
+  >{{ option }}</button>
+}
+<span class="switch"></span>
