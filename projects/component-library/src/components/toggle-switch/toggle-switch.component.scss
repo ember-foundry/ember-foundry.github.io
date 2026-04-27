@@ -1,12 +1,12 @@
 :host {
-  --gap: 0.3125em;
+  --gap: 0.3em;
 
   background: #1c202a;
   border-radius: 1.5em;
   color: #fff;
   cursor: pointer;
   display: inline-grid;
-  font-size: 4em;
+  font-size: 0.875em;
   font-weight: 500;
   gap: var(--gap);
   grid-template-columns: repeat(2, 1fr);
@@ -17,8 +17,9 @@
 
 .option, .switch {
   border-style: solid;
-  border-width: 0.08em;
+  border-width: max(0.08em, 1px);
   padding: 0.4em 1.3em;
+  pointer-events: none;
   white-space: nowrap;
 }
 
@@ -43,7 +44,6 @@
   color: transparent;
   grid-column: 1;
   grid-row: 1;
-  pointer-events: none;
   transition: transform 200ms ease;
   z-index: 0;
 
