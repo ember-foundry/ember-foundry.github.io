@@ -1,6 +1,7 @@
 import {Meta, StoryObj} from '@storybook/angular';
 import {ToggleSwitchComponent} from 'component-library';
 import {action} from 'storybook/actions';
+import {expect, fn} from 'storybook/test';
 
 const meta: Meta<ToggleSwitchComponent> = {
   parameters: {
@@ -63,5 +64,24 @@ export const ListenToEventWithCustomRender: Story = {
         />
       `
     }
+  }
+};
+
+export const InteractionTest: Story = {
+  args: {
+    options: ['Interaction Off', 'Interaction On'],
+    selected: false,
+    state_change: fn()
+  },
+  play: async ({canvasElement: storybook_element, args, userEvent}) => {
+    await expect(args.state_change).toHaveBeenCalledWith(false);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const toggle_switch = storybook_element.querySelector<HTMLElement>('mbr-toggle-switch')!;
+    await userEvent.click(toggle_switch);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await expect(args.state_change).toHaveBeenCalledWith(true);
+    await userEvent.click(toggle_switch);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await expect(args.state_change).toHaveBeenCalledWith(false);
   }
 };
