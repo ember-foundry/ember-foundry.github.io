@@ -7,7 +7,7 @@ import {ChangeDetectionStrategy, Component, effect, input, model, output} from '
   templateUrl: './multi-toggle-switch.component.html',
   styleUrl: './multi-toggle-switch.component.scss',
   host: {
-    '[style.--index]': 'selected_index()',
+    '[style.--selected-index]': 'selected_index()',
     '[style.--items-length]': 'options().length'
   },
   changeDetection: ChangeDetectionStrategy.OnPush

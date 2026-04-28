@@ -7,7 +7,7 @@ const meta: Meta<ToggleSwitchComponent> = {
   parameters: {
     docs: {
       description: {
-        component: `Based on the Preview / Code toggle seen on <a href='https://tailwindcss.com/plus/ui-blocks/preview' target='_blank'>Tailwind's Site</a>.`
+        component: `Based on the Preview / Code toggle seen on <a href='https://tailwindcss.com/plus/ui-blocks/preview' target='_blank'>Tailwind's Site</a>.<br/>⚠️&nbsp;All the options are the same dimensions`
       }
     }
   },
@@ -102,5 +102,18 @@ export const InteractionTestWhenTurnedOnInitially: Story = {
     await userEvent.click(toggle_switch);
     await new Promise(resolve => setTimeout(resolve, 1000));
     await expect(args.state_change).toHaveBeenCalledWith(true);
+  }
+};
+
+export const OneReallyLongOption: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '⚠️&nbsp;Here you can see the flaw of this component when it has a really long option'
+      }
+    }
+  },
+  args: {
+    options: ['This is a really long option', 'No']
   }
 };

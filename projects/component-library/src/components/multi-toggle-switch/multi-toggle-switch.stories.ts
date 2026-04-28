@@ -7,7 +7,7 @@ const meta: Meta<MultiToggleSwitchComponent> = {
   parameters: {
     docs: {
       description: {
-        component: `Based on the Preview / Code toggle seen on <a href='https://tailwindcss.com/plus/ui-blocks/preview' target='_blank'>Tailwind's Site</a>.`
+        component: `Based on the Preview / Code toggle seen on <a href='https://tailwindcss.com/plus/ui-blocks/preview' target='_blank'>Tailwind's Site</a>.<br/>⚠️&nbsp;All the options are the same dimensions`
       }
     }
   },
@@ -30,6 +30,18 @@ export default meta;
 type Story = StoryObj<MultiToggleSwitchComponent>;
 
 export const Sample: Story = {};
+
+export const JustTwoOptions: Story = {
+  args: {
+    options: ['Yes', 'No']
+  }
+};
+
+export const LoadsOfOptions: Story = {
+  args: {
+    options: ['Yes', 'No', 'Maybe', 'Not Sure', 'Definitely Not', 'Absolutely']
+  }
+};
 
 export const PreselectedOption: Story = {
   args: {
@@ -109,5 +121,18 @@ export const InteractionTestWhenTurnedOnInitially: Story = {
     await userEvent.click(third_option);
     await new Promise(resolve => setTimeout(resolve, 1000));
     await expect(args.selected_index_changed).toHaveBeenCalledWith({ index: 2, value: 'Maybe'});
+  }
+};
+
+export const OneReallyLongOption: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '⚠️&nbsp;Here you can see the flaw of this component when it has a really long option'
+      }
+    }
+  },
+  args: {
+    options: ['This is a really long option', 'No']
   }
 };

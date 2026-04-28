@@ -53,7 +53,7 @@ describe('MultiToggleSwitchComponent', () => {
 
   it('should select the first option by default', () => {
     expect(component.selected_index()).toBe(0);
-    expect(host.style.getPropertyValue('--index')).toBe('0');
+    expect(host.style.getPropertyValue('--selected-index')).toBe('0');
   });
 
   it('should set the items length CSS variable from the options input', () => {
@@ -67,7 +67,7 @@ describe('MultiToggleSwitchComponent', () => {
     fixture.detectChanges();
 
     expect(component.selected_index()).toBe(1);
-    expect(host.style.getPropertyValue('--index')).toBe('1');
+    expect(host.style.getPropertyValue('--selected-index')).toBe('1');
   });
 
   it('should emit the selected index and value when an option is clicked', () => {
@@ -113,6 +113,6 @@ describe('MultiToggleSwitchComponent', () => {
     fixture.detectChanges();
 
     expect(component.selected_index()).toBe(2);
-    expect(host.style.getPropertyValue('--index')).toBe('2');
+    expect(host.style.getPropertyValue('--selected-index')).toBe('2');
   });
 });
