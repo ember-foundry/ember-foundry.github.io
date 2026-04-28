@@ -44,7 +44,7 @@
   grid-column: 1;
   grid-row: 1;
   pointer-events: none;
-  transform: translateX(calc((100% + var(--gap)) * var(--index, 0)));
+  transform: translateX(calc((100% + var(--gap)) * var(--selected-index, 0)));
   transition: transform 200ms ease;
   z-index: 0;
 }
