@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
 
 @Component({
   //eslint-disable-next-line @angular-eslint/component-selector
@@ -10,10 +10,15 @@ import {ChangeDetectionStrategy, Component, input} from '@angular/core';
     './lando-norris-sliding-text.component.scss'
   ],
   host: {
-    'class': 'mona-sans'
+    'class': 'mona-sans',
+    '[attr.aria-label]': 'text()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandoNorrisSlidingTextComponent {
-  public text = input.required<string[], string>({transform: (received_value:string) => received_value.split('').map(_ => _.toUpperCase())});
+  public text = input.required<string>();
+
+  protected text_array = computed<string[]>(() => {
+    return this.text().split('').map(_ => _.toUpperCase());
+  })
 }
