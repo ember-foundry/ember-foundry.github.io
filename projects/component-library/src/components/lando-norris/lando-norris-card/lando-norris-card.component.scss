@@ -1,19 +1,3 @@
-@font-face {
-  font-display: swap;
-  font-family: Brier;
-  font-style: normal;
-  font-weight: 700;
-  src: url("https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67b6113a220f85ad6497495a_Brier-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Mona Sans Variable";
-  font-style: normal;
-  font-weight: 200 900;
-  src: url("https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67bc6274c5b4108b123aa4d5_MonaSans-VariableFont_wdth%2Cwght.woff2") format("woff2");
-}
-
 :host {
   --mask-url: url('https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67d2dd47cfe84bed1dce9542_ln4-footer-mask-desktop.svg');
 
@@ -23,7 +7,6 @@
   color: #f4f4ed;
   display: inline-flex;
   flex-direction: column;
-  font-family: 'Mona Sans Variable', Arial, sans-serif;
   mask-image: var(--mask-url);
   mask-repeat: no-repeat;
   mask-size: contain;

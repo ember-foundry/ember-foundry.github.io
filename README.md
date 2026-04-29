@@ -2,7 +2,7 @@
 
 ### Components
 ```shell
-component_name="ToggleSwitchSeesaw"
+component_name="LandoNorrisSlidingText"
 ng generate component $component_name --project component-library --dry-run
 ```
 
