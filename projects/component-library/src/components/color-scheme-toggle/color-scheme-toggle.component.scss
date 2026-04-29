@@ -9,14 +9,18 @@ $ease-out-5: cubic-bezier(0,0,0,1);
 $ease-elastic-out-4: cubic-bezier(.5,1.5,.75,1.25);
 $ease-elastic-4: $ease-elastic-out-4;
 $default-size: 2rem;
+$color-sun: hsl(210deg 10% 30%);
+$color-sun-hover: hsl(210deg 10% 15%);
+$color-moon: hsl(210deg 10% 70%);
+$color-moon-hover: hsl(210deg 15% 90%);
 
 :host {
   @media (hover: none) {
     --size: calc(var(--size) * 2);
   }
 
-  --icon-fill: hsl(210deg 10% 30%);
-  --icon-fill-hover: hsl(210deg 10% 15%);
+  --icon-fill: #{$color-sun};
+  --icon-fill-hover: #{$color-sun-hover};
 
   aspect-ratio: 1;
   background: none;
@@ -59,8 +63,8 @@ svg#color-scheme-toggle-icon > .sun-beams {
 }
 
 :host(.dark) {
-  --icon-fill: hsl(210deg 10% 70%);
-  --icon-fill-hover: hsl(210deg 15% 90%);
+  --icon-fill: #{$color-moon};
+  --icon-fill-hover: #{$color-moon-hover};
 
   svg#color-scheme-toggle-icon > .sun {
     transform: scale(1.75);
