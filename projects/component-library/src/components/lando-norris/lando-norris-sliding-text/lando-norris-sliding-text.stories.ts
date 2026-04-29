@@ -7,7 +7,7 @@ const meta: Meta<LandoNorrisSlidingTextComponent> = {
     layout: 'centered',
     docs: {
       description: {
-        component: `A work in progress. As seen on <a href="https://landonorris.com/" target="_blank">Landon Norris's site</a>.<br/><i>Showcasing a card using an image mask</i>`
+        component: `Replicated the Lando Norris text effect shown in this 🎬 <a href='https://youtu.be/9H34nxxVEgc?si=qF2YGX7OleXoG0iY' target="_blank">Syntax YouTube Video</a>.`
       }
     }
   },
@@ -54,6 +54,7 @@ export const Sample: Story = {
         <mbr-lando-norris-sliding-text text="instagram" />
         <mbr-lando-norris-sliding-text text="youtube" />
         <mbr-lando-norris-sliding-text text="twitch" />
+        <mbr-lando-norris-sliding-text text="emoji😍" />
       `
     }
   }
