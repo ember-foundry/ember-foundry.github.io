@@ -1,30 +1,19 @@
 :host {
-  --size: 60px;
-
   display: inline-flex;
-  font-size: var(--size);
+  font-size: var(--size, 120px);
   font-weight: 800;
-  height: var(--size);
   line-height: 1;
   overflow: hidden;
 }
 
-.letter-column {
-  display: inline-flex;
-  flex-direction: column;
+.letter {
+  // text-shadow: 0 1em 0 #b2c73a;
+  text-shadow: 0 2ex 0 #b2c73a;
   transition: transform 0.3s ease-in-out calc(calc(sibling-index() - 1) * 0.02s);
 }
 
-.letter-column.white-space {
-  color: transparent;
-}
-
-.letter:last-child {
-  color: #b2c73a;
-}
-
 :host:hover {
-  .letter-column {
+  .letter {
     transform: translateY(-100%);
   }
 }

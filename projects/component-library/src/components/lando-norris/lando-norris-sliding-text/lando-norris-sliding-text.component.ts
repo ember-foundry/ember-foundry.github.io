@@ -22,6 +22,6 @@ export class LandoNorrisSlidingTextComponent {
 
   protected text_array = computed<string[]>(() => {
     const _text = this.text();
-    return Array.from(segmenter.segment(_text)).map(_ => _.segment.toUpperCase());
+    return Array.from(segmenter.segment(_text)).map(_ => _.segment);
   })
 }
