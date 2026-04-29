@@ -1,1 +1,6 @@
-<p>lando-norris-sliding-text works!</p>
+@for(letter of text(); track letter){
+  <span class='letter-column' [class.white-space]="letter === ' '">
+    <span class='letter'>{{letter}}</span>
+    <span class='letter'>{{letter}}</span>
+  </span>
+}
