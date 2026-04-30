@@ -13,7 +13,7 @@
     "prepare": "husky || true",
     "start": "ng serve",
     "start:cypress": "cypress open",
-    "storybook": "ng run component-library:storybook",
+    "start:storybook": "ng run component-library:storybook",
     "test": "VITEST_HEADLESS=false ng run component-library:test",
     "test:ci": "ng run component-library:test --no-watch",
     "test:cypress": "cypress run --component",
