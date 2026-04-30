@@ -3,7 +3,7 @@ import {SVGCheckmarkOutlineComponent} from 'component-library';
 
 const meta: Meta<SVGCheckmarkOutlineComponent> = {
   component: SVGCheckmarkOutlineComponent,
-  tags: ['autodocs', 'checkmark', 'svg', 'animated']
+  tags: ['autodocs', 'checkmark', 'svg', 'animation']
 }
 
 export default meta;

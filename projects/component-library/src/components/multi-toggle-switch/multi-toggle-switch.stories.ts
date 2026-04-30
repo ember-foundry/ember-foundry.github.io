@@ -139,7 +139,15 @@ export const OneReallyLongOption: Story = {
   }
 };
 
-export const Variant: Story = {
+export const MatchDayExperiencePackageSelector: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'A variant of the component built for a client'
+      }
+    }
+  },
+  tags: ['matchdayexpericence'],
   args: {
     options: ['Standard', 'Premium', 'Elite']
   },
