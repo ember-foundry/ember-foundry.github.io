@@ -1,25 +1,3 @@
-## Scaffolding
-
-### Components
-```shell
-component_name="LandoNorrisSlidingText"
-ng generate component $component_name --project component-library --dry-run
-```
-
-### Directives
-```shell
-directive_name="Tooltip"
-ng generate directive $directive_name --project component-library --dry-run
-```
-
-### Enum
-```shell
-enum_name=""
-ng generate enum $enum_name --project component-library
-```
-
----
-
 ### Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
 

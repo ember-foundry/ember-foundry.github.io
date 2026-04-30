@@ -19,6 +19,7 @@ export * from './components/ludo-player-ui-front/ludo-player-ui-front.component'
 export * from './components/marquee/marquee.component';
 export * from './components/multi-toggle-switch/multi-toggle-switch.component';
 export * from './components/player-select/player-select.component';
+export * from './components/price-plan/price-plan.component';
 export * from './components/sunburst-chart/sunburst-chart.component';
 export * from './components/sunburst-chart-legend/sunburst-chart-legend.component';
 export * from './components/svg-checkmark-filled/svg-checkmark-filled.component';
