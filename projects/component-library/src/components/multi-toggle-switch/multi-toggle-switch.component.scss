@@ -1,25 +1,29 @@
-:host {
-  --gap: 0.3em;
+$multi-toggle-spacing: 0.3em;
 
-  background: #1c202a;
-  border-radius: 1.5em;
+:host {
+  --multi-toggle-transition-duration: 200ms;
+
+  background: var(--multi-toggle-background-color, #1c202a);
+  border-radius: var(--multi-toggle-border-radius, 1.5em);
   color: #fff;
   cursor: pointer;
   display: inline-grid;
   font-size: 0.875em;
   font-weight: 500;
-  gap: var(--gap);
+  gap: var(--multi-toggle-spacing, #{$multi-toggle-spacing});
   grid-template-columns: repeat(var(--items-length, 1), 1fr);
-  padding: var(--gap);
+  padding: var(--multi-toggle-spacing, #{$multi-toggle-spacing});
   text-align: center;
   user-select: none;
 }
 
 .option, .switch {
-  border-radius: inherit;
+  border-radius: var(--multi-toggle-switch-border-radius, inherit);
   border-style: solid;
   border-width: max(0.08em, 1px);
-  padding: 0.3em 1.3em;
+  padding: var(--multi-toggle-option-padding, 0.3em 1.3em);
+  transition-duration: 200ms;
+  transition-timing-function: ease;
   white-space: nowrap;
 }
 
@@ -31,20 +35,25 @@
   grid-column: sibling-index();
   grid-row: 1;
   outline: none;
+  transition-property: color;
   z-index: 1;
 
   &:focus {
-    border-color: white;
+    border-color: var(--multi-toggle-option-focus-color, white);
+  }
+
+  &.selected {
+    color: var(--multi-toggle-option-selected-color, inherit);
   }
 }
 
 .switch {
-  background: #4a5565;
-  border-color: #5d6674;
+  background: var(--multi-toggle-switch-background-color, #4a5565);
+  border-color: var(--multi-toggle-switch-border-color, #5d6674);
   grid-column: 1;
   grid-row: 1;
   pointer-events: none;
-  transform: translateX(calc((100% + var(--gap)) * var(--selected-index, 0)));
-  transition: transform 200ms ease;
+  transform: translateX(calc((100% + var(--multi-toggle-spacing, #{$multi-toggle-spacing})) * var(--selected-index, 0)));
+  transition-property: transform;
   z-index: 0;
 }

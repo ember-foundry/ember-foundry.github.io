@@ -3,7 +3,7 @@
     class="option"
     [class]="{ 'selected': selected_index() === $index }"
     (click)="selected_index.set($index)"
-    [attr.tabindex]="selected_index() === $index ? -1 : $index"
+    [attr.tabindex]="selected_index() === $index ? undefined : ($index+1)"
   >{{ option }}</button>
 }
 <span class="switch"></span>

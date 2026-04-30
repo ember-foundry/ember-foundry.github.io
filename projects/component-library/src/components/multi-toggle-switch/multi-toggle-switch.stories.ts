@@ -2,9 +2,11 @@ import {Meta, StoryObj} from '@storybook/angular';
 import {MultiToggleSwitchComponent} from 'component-library';
 import {action} from 'storybook/actions';
 import {expect, fn} from 'storybook/test';
+import {array_to_angular_input} from 'component-library/helpers/storybook/array_to_angular_input';
 
 const meta: Meta<MultiToggleSwitchComponent> = {
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component: `Based on the Preview / Code toggle seen on <a href='https://tailwindcss.com/plus/ui-blocks/preview' target='_blank'>Tailwind's Site</a>.<br/>⚠️&nbsp;All the options are the same dimensions`
@@ -12,7 +14,7 @@ const meta: Meta<MultiToggleSwitchComponent> = {
     }
   },
   component: MultiToggleSwitchComponent,
-  tags: ['autodocs', 'toggle', 'switch'],
+  tags: ['autodocs', 'toggle', 'switch', 'animation'],
   argTypes: {
     options: {control: 'object'},
     selected_index: {control: 'number'},
@@ -134,5 +136,43 @@ export const OneReallyLongOption: Story = {
   },
   args: {
     options: ['This is a really long option', 'No']
+  }
+};
+
+export const Variant: Story = {
+  args: {
+    options: ['Standard', 'Premium', 'Elite']
+  },
+  render: (args) => {
+    return {
+      props: args,
+      styles: [
+        `:host {
+          --multi-toggle-background-color: #333333;
+          --multi-toggle-border-radius: 8.75px;
+          --multi-toggle-option-padding: 7px 14px;
+          --multi-toggle-option-focus-color: #d4af37;
+          --multi-toggle-option-selected-color: rgb(0, 0, 0);
+          --multi-toggle-switch-background-color: #d4af37;
+          --multi-toggle-switch-border-color: #d4af37;
+          --multi-toggle-switch-border-radius: 6.75px;
+        }`
+      ],
+      template: `
+        <style>
+        :host {
+          --multi-toggle-background-color: #333333;
+          --multi-toggle-border-radius: 8.75px;
+          --multi-toggle-option-padding: 7px 14px;
+          --multi-toggle-option-focus-color: #d4af37;
+          --multi-toggle-option-selected-color: rgb(0, 0, 0);
+          --multi-toggle-switch-background-color: #d4af37;
+          --multi-toggle-switch-border-color: #d4af37;
+          --multi-toggle-switch-border-radius: 6.75px;
+        }
+        </style>
+        <mbr-multi-toggle-switch [options]="${array_to_angular_input(args.options)}" />
+      `
+    }
   }
 };
