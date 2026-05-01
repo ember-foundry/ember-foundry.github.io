@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
-import {SVGCheckmarkOutlineComponent} from './svg-checkmark-outline.component';
+import {SVGCheckmarkCircleOutlineComponent} from './svg-checkmark-circle-outline.component';
 import {svg_animations_ended} from '../../helpers/vitest/svg_animations_ended';
 
 describe('CheckmarkOutlineComponent', () => {
-  let component: SVGCheckmarkOutlineComponent;
-  let fixture: ComponentFixture<SVGCheckmarkOutlineComponent>;
+  let component: SVGCheckmarkCircleOutlineComponent;
+  let fixture: ComponentFixture<SVGCheckmarkCircleOutlineComponent>;
   let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SVGCheckmarkOutlineComponent]
+      imports: [SVGCheckmarkCircleOutlineComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(SVGCheckmarkOutlineComponent);
+    fixture = TestBed.createComponent(SVGCheckmarkCircleOutlineComponent);
 
     component = fixture.componentInstance;
     host = fixture.nativeElement;
@@ -39,6 +39,6 @@ describe('CheckmarkOutlineComponent', () => {
 
   it('should match visually', async () => {
     await svg_animations_ended(fixture);
-    await expect(host).toMatchScreenshot('svg-checkmark-outline');
+    await expect(host).toMatchScreenshot('svg-checkmark-circle-outline');
   });
 });

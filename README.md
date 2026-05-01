@@ -1,22 +1,8 @@
-## Scaffolding
+# Ember Foundry
+A collection of angular components inspired by things we've seen
 
-### Components
-```shell
-component_name="LandoNorrisSlidingText"
-ng generate component $component_name --project component-library --dry-run
-```
-
-### Directives
-```shell
-directive_name="Tooltip"
-ng generate directive $directive_name --project component-library --dry-run
-```
-
-### Enum
-```shell
-enum_name=""
-ng generate enum $enum_name --project component-library
-```
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml)
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml)
 
 ---
 
@@ -126,4 +112,4 @@ git add **/__screenshots__/**/*.png
 * https://ishadeed.com/article/css-masking/
 * https://xieziyu.github.io/ngx-echarts/#/welcome
 * SassDoc
-
+* https://github.com/rharkor/check-mark-animation

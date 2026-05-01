@@ -1,5 +1,26 @@
 # Component Library
 
+## Scaffolding
+
+### Components
+```shell
+component_name="PricePlan"
+ng generate component $component_name --project component-library --dry-run
+```
+
+### Directives
+```shell
+directive_name="Tooltip"
+ng generate directive $directive_name --project component-library --dry-run
+```
+
+### Enum
+```shell
+enum_name=""
+ng generate enum $enum_name --project component-library
+```
+
+---
 ### Testing
 
 I use a combination of Angular Unit Tests, Cypress and Storybook for a variety of things

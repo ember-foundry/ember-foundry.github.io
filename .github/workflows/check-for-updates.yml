@@ -1,4 +1,4 @@
-name: check-for-updates.yml
+name: Package Updates
 on:
   schedule:
     # At 09:00 on Monday
