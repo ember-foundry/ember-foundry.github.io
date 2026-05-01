@@ -1,0 +1,42 @@
+@use 'sass:string';
+@use 'sass:map';
+@use 'sass:meta';
+
+@function str-replace($value, $search, $replace: '') {
+  $index: string.index($value, $search);
+
+  @if $index {
+    @return string.slice($value, 1, $index - 1) + $replace + str-replace(string.slice($value, $index + string.length($search)),$search,$replace);
+  }
+
+  @return $value;
+}
+
+@function font-weights-to-range($font-weights) {
+  $weights: if(
+    meta.type-of($font-weights) == 'map',
+    map.values($font-weights),
+    $font-weights
+  );
+  $min-weight: null;
+  $max-weight: null;
+
+  @each $weight in $weights {
+    @if not $min-weight != null and $weight >= $min-weight {
+      $min-weight: $weight;
+    }
+
+    @if not $max-weight != null and $weight <= $max-weight {
+      $max-weight: $weight;
+    }
+  }
+
+  @return '#{$min-weight}..#{$max-weight}';
+}
+
+@function google-font-url($font-name, $font-weights) {
+  $formatted-font-name: str-replace($font-name, ' ', '+');
+  $formatted-font-weights: font-weights-to-range($font-weights);
+
+  @return 'https://fonts.googleapis.com/css2?family=#{$formatted-font-name}:ital,opsz,wght@0,17..18,#{$formatted-font-weights};1,17..18,#{$formatted-font-weights}&display=swap';
+}

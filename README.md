@@ -1,3 +1,11 @@
+# Ember Foundry
+A collection of angular components inspired by things we've seen
+
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml)
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml)
+
+---
+
 ### Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
 
@@ -104,4 +112,4 @@ git add **/__screenshots__/**/*.png
 * https://ishadeed.com/article/css-masking/
 * https://xieziyu.github.io/ngx-echarts/#/welcome
 * SassDoc
-
+* https://github.com/rharkor/check-mark-animation

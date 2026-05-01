@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 214" color="var(--color, #17c964)">
+  <g fill="none" stroke="currentColor" stroke-width="2">
+    <circle
+      class="semi-transparent"
+      fill="currentColor"
+      opacity="0.15"
+      cx="107"
+      cy="107"
+      r="0"
+    >
+      <animate
+        attributeName="r"
+        values="0;78;72"
+        dur="0.45s"
+        calcMode="spline"
+        keyTimes="0;0.75;1"
+        keySplines="0.66 0.23 0.51 1;0.35 0 0.65 1"
+        fill="freeze"
+      />
+      <animate
+        attributeName="r"
+        from="72"
+        to="100"
+        dur="0.9s"
+        begin="1.1s"
+        calcMode="linear"
+        fill="freeze"
+      />
+      <animate
+        attributeName="opacity"
+        values="0.15;0.11;0"
+        dur="0.9s"
+        begin="1.1s"
+        calcMode="linear"
+        keyTimes="0;0.5;1"
+        fill="freeze"
+      />
+    </circle>
+    <circle
+      fill="currentColor"
+      cx="107"
+      cy="107"
+      r="0"
+      opacity="0.8"
+    >
+      <animate
+        attributeName="r"
+        values="0;78;72"
+        dur="0.5s"
+        begin="0.25s"
+        calcMode="spline"
+        keyTimes="0;0.75;1"
+        keySplines="0.66 0.23 0.51 1;0.35 0 0.65 1"
+        fill="freeze"
+      />
+    </circle>
+    <polyline
+      stroke="#fff"
+      stroke-width="10"
+      points="73.5,107.8 93.7,127.9 142.2,79.4"
+      stroke-dasharray="50% 50%"
+      stroke-dashoffset="50%"
+    >
+      <animate
+        attributeName="stroke-dashoffset"
+        from="50%"
+        to="0"
+        dur="0.5s"
+        begin="0.7s"
+        calcMode="spline"
+        keySplines="0.55 0.2 0.71 0"
+        keyTimes="0;1"
+        fill="freeze"
+      />
+    </polyline>
+  </g>
+</svg>

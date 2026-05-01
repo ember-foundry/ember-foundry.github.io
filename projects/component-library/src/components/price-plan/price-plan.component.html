@@ -1,1 +1,40 @@
-<p>price-plan works!</p>
+@if (popular()) {
+  <div class="badge font-medium">Most Popular</div>
+}
+
+<header class="header">
+  <div class="icon" aria-hidden="true">
+    <svg viewBox="0 0 20 19" focusable="false">
+      <path d="M10 1.4 12.54 6.55 18.22 7.38 14.11 11.39 15.08 17.04 10 14.37 4.92 17.04 5.89 11.39 1.78 7.38 7.46 6.55 10 1.4Z" />
+    </svg>
+  </div>
+
+  <h2 class="title">{{ title() }}</h2>
+  <p class="subtitle">From&nbsp;{{ price() | currency }}</p>
+  <p class="description">{{ description() }}</p>
+</header>
+
+<div class="content">
+  <ul class="features">
+    @for (feature of features(); track feature) {
+      <li class="feature">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="68 74 80 60">
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            stroke-width="10"
+            points="73.5,107.8 93.7,127.9 142.2,79.4"
+            stroke-dasharray="118"
+            stroke-dashoffset="0"
+          />
+        </svg>
+        <span>{{ feature }}</span>
+      </li>
+    }
+  </ul>
+</div>
+<footer>
+  <button type="button" role="button">
+    {{ cta_text() }}
+  </button>
+</footer>

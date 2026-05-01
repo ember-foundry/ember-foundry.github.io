@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
-import {SVGCheckmarkOutlineComponent} from '../svg-checkmark-outline/svg-checkmark-outline.component';
+import {SVGCheckmarkCircleOutlineComponent} from '../svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -11,7 +11,7 @@ import {SVGCheckmarkOutlineComponent} from '../svg-checkmark-outline/svg-checkma
     '[class]': 'status()'
   },
   imports: [
-    SVGCheckmarkOutlineComponent
+    SVGCheckmarkCircleOutlineComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
