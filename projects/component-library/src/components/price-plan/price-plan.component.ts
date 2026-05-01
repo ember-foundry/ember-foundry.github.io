@@ -1,13 +1,11 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
-import {SVGCheckmarkComponent} from 'component-library';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-price-plan',
   imports: [
-    CurrencyPipe,
-    SVGCheckmarkComponent
+    CurrencyPipe
   ],
   templateUrl: './price-plan.component.html',
   styleUrl: './price-plan.component.scss',
