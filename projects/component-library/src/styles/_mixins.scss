@@ -42,7 +42,3 @@ $all-supported-font-weights: (
   extra-bold: 800,
   black: 900
 );
-
-// @mixin import-google-font($font-name, $font-weights: $all-supported-font-weights) {
-//  @import '#{functions.google-font-url($font-name, $font-weights)}';
-// }
