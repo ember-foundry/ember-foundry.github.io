@@ -37,7 +37,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-__screenshots__/
 
 # System files
 .DS_Store
@@ -69,3 +68,4 @@ projects/component-library/src/stories/page.component.ts
 projects/component-library/src/stories/page.css
 projects/component-library/src/stories/page.stories.ts
 projects/component-library/src/stories/user.ts
+.husky/_/

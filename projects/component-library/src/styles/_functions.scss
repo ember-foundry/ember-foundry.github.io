@@ -1,0 +1,13 @@
+@use 'sass:string';
+@use 'sass:map';
+@use 'sass:meta';
+
+@function str-replace($value, $search, $replace: '') {
+  $index: string.index($value, $search);
+
+  @if $index {
+    @return string.slice($value, 1, $index - 1) + $replace + str-replace(string.slice($value, $index + string.length($search)),$search,$replace);
+  }
+
+  @return $value;
+}

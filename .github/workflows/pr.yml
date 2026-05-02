@@ -19,24 +19,6 @@ permissions:
   pull-requests: write
 
 jobs:
-  npm_audit:
-    name: NPM Audit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: ./.github/actions/setup-project
-        with:
-          install: 'false'
-      - run: npm audit --audit-level=high
-
-  check_ng_updates:
-    name: Check Angular Updates
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: ./.github/actions/setup-project
-      - uses: ./.github/actions/check-angular-updates
-
   review_dog_typescript:
     name: ReviewDog Typescript
     runs-on: ubuntu-latest
@@ -102,29 +84,50 @@ jobs:
       - uses: ./.github/actions/setup-project
       - run: npm run build:storybook
 
-  cypress_tests:
+  cypress_component_tests:
     name: Cypress Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-project
-      - run: npm run test:cypress
+
+      - name: Cypress Component Tests
+        id: cypress_component_tests
+        run: npm run test:cypress
+
       - name: Upload Cypress screenshots
+        if: ${{ always() && steps.cypress_component_tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
-        if: always()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
 
-  angular_tests:
+  vitest_unit_tests:
     name: Angular Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          lfs: true
+
       - uses: ./.github/actions/setup-project
+
       - run: npx playwright install
-      - run: npm run test:ci
+
+      - name: 'Vitest Unit Tests'
+        id: vitest_unit_tests
+        run: npm run test:ci
+
+      - name: Upload Vitest Screenshots
+        if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
+        uses: actions/upload-artifact@v6
+        with:
+          path: projects/component-library/.vitest-attachments
+          name: vitest-visual-test-errors
+          if-no-files-found: ignore
+          include-hidden-files: true
+
 #      - name: Code Coverage Summary Report
 #        uses: irongut/CodeCoverageSummary@v1.3.0
 #        with:

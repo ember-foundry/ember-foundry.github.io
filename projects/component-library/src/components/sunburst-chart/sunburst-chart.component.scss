@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+}
+
+g {
+  cursor: pointer;
+  position: relative;
+}
+
+svg {
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+svg:hover {
+  g:not(:hover) {
+    opacity: 0.4;
+  }
+}
+
+path {
+  stroke: white;
+  stroke-width: 0.2rem;
+  transition: transform 0.2s;
+
+  &:not([fill]) {
+    fill: hsl(0deg 0% 74% / 37%);
+  }
+}
+
+mbr-sunburst-chart-legend {
+  display: flex;
+  flex-direction: column;
+}

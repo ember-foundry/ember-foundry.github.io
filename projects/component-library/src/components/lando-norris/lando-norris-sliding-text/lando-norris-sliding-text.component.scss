@@ -1,0 +1,19 @@
+:host {
+  display: inline-flex;
+  font-size: var(--size, 120px);
+  font-weight: 800;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.letter {
+  // text-shadow: 0 1em 0 #b2c73a;
+  text-shadow: 0 2ex 0 #b2c73a;
+  transition: transform 0.3s ease-in-out calc(calc(sibling-index() - 1) * 0.02s);
+}
+
+:host:hover {
+  .letter {
+    transform: translateY(-100%);
+  }
+}

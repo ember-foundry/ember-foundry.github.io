@@ -6,6 +6,7 @@ import {By} from '@angular/platform-browser';
 describe('AvatarBadgeComponent', () => {
   let component: AvatarBadgeComponent;
   let fixture: ComponentFixture<AvatarBadgeComponent>;
+  let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,6 +16,7 @@ describe('AvatarBadgeComponent', () => {
 
     fixture = TestBed.createComponent(AvatarBadgeComponent);
     component = fixture.componentInstance;
+    host = fixture.nativeElement;
     await fixture.whenStable();
   });
 
@@ -33,4 +35,9 @@ describe('AvatarBadgeComponent', () => {
     await expect.element(badge.nativeElement).toBeEmptyDOMElement();
     await expect.element(badge.nativeElement).toHaveStyle('background-color: rgb(227, 227, 227)');
   });
+
+  it('should visually match', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await expect(host).toMatchScreenshot('avatar-badge');
+  })
 });

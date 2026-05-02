@@ -1,7 +1,10 @@
-### Linting
-```shell
-ng add @angular-eslint/schematics
-```
+# Ember Foundry
+A collection of angular components inspired by things we've seen
+
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml)
+[![CI](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml)
+
+---
 
 ### Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
@@ -16,39 +19,13 @@ npm
 ```
 
 ### Vitest Angular Browser Testing
+https://angular.dev/guide/testing/migrating-to-vitest
 ```shell
-# for migrating from jasmine tests to vitest
-ng g @schematics/angular:refactor-jasmine-vitest --add-imports
-# touch touch projects/component-library/vitest.config.ts
-# disable globals using the vitest define config
-npm install -D @vitest/browser-playwright
-`ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
+ng config projects.component-library.architect.test.options.browsers.1 "firefox"`
 
 npm install @analogjs/platform --save-dev
 ? ng g @analogjs/platform:setup-vitest --project component-library
 ```
-
-## Scaffolding
-
-### Components
-```shell
-component_name="CheckmarkFilled"
-ng generate component $component_name --project component-library --dry-run
-```
-
-### Directives
-```shell
-directive_name=""
-ng generate directive $directive_name --project component-library --dry-run
-```
-
-### Enum
-```shell
-enum_name=""
-ng generate enum $enum_name --project component-library
-```
-
----
 
 ## Schematics
 ### Component
@@ -87,14 +64,52 @@ ng config projects.component-library.schematics.@schematics/angular:enum.type en
 testing a specific file
 
 ```shell
-#test_file="src/directives/random-milky-background/random-milky-background.directive.spec.ts"
-test_file="src/components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component.spec.ts"
+test_file="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
 npm run test -- --watch --testFile $test_file
 ```
 
+---
+
+### Linting
+```shell
+ng add @angular-eslint/schematics
+```
+
+---
+
+### Tailwind
+
+Followed this guide to add tailwind:
+
+https://angular.dev/guide/tailwind
+
+Which is the same as:
+
+https://tailwindcss.com/docs/installation/framework-guides/angular
+
+Then you'll want to add vite specific config for tailwind:
+
+https://tailwindcss.com/docs/installation/using-vite
+
+---
+
+### Git LFS
+https://github.com/git-lfs/git-lfs?tab=readme-ov-file
+```shell
+git lfs track **/__screenshots__/**/*.png
+git add .gitattributes
+git add **/__screenshots__/**/*.png
+```
+
+---
 
 ### TODO:
+* FlipCard: https://storage.googleapis.com/material-io-design/m2/assets/downloads/7734f294e44e56dd5c5fa68c906efb8f3cbdab45441b2fe0ebd355bcf96fd74eb0bd9cb0f2a2544264a6e7bbd33d5e33ff5dda82eb2b0d431d320a4c94f33575.mp4
 * https://angular.dev/tools/libraries/creating-librariess
 * i want to run something like this:
   * ng add @angular/material
   * but for the component library to be used in other
+* https://ishadeed.com/article/css-masking/
+* https://xieziyu.github.io/ngx-echarts/#/welcome
+* SassDoc
+* https://github.com/rharkor/check-mark-animation

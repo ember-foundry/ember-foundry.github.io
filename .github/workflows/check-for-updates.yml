@@ -1,0 +1,32 @@
+name: Package Updates
+on:
+  schedule:
+    # At 09:00 on Monday
+    # see: https://crontab.guru/#0_9_*_*_1
+    - cron: '0 9 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  npm_audit:
+    name: NPM Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-project
+        with:
+          install: 'false'
+      - run: npm audit --audit-level=high
+
+  check_ng_updates:
+    name: Check Angular Updates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-project
+      - uses: ./.github/actions/check-angular-updates

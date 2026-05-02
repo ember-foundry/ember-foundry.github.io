@@ -7,6 +7,7 @@ import {DebugElement} from '@angular/core';
 describe('BaselineAvailabilityComponent', () => {
   let component: BaselineAvailabilityComponent;
   let fixture: ComponentFixture<BaselineAvailabilityComponent>;
+  let host: HTMLElement;
 
   const component_base_checks = () => {
     expect(component).toBeTruthy();
@@ -46,10 +47,11 @@ describe('BaselineAvailabilityComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(BaselineAvailabilityComponent);
     component = fixture.componentInstance;
+    host = fixture.nativeElement;
     fixture.detectChanges();
   });
 
-  it('should render all browsers as unsupported when none are provided', async () => {
+  it('should render all browsers as unsupported by default', async () => {
     component_base_checks();
 
     expect(fixture.debugElement.nativeElement.children, 'Component should only have 1 child').to.have.length(1);
@@ -68,7 +70,7 @@ describe('BaselineAvailabilityComponent', () => {
     // todo test contrast ratio
   });
 
-  it('should split browsers correctly between supported and unsupported', async () => {
+  it('should split browsers between supported and unsupported', async () => {
     fixture.componentRef.setInput('supported', ['chrome', 'firefox']);
     fixture.detectChanges();
 
@@ -112,4 +114,9 @@ describe('BaselineAvailabilityComponent', () => {
       expect(avatar.nativeElement.style.getPropertyValue('--size')).toBe('var(--size-xs)');
     })
   });
+
+  it('should visually match', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await expect(host).toMatchScreenshot('baseline-availability-none-supported');
+  })
 });

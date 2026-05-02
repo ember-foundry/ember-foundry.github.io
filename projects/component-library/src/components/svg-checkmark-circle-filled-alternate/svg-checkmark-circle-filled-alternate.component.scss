@@ -1,0 +1,12 @@
+:host {
+  aspect-ratio: 1;
+  max-height: var(--size, 200px);
+  max-width: var(--size, 200px);
+}
+
+svg {
+  display: flex;
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+}

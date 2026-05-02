@@ -1,0 +1,39 @@
+:host {
+  --width: 140px;
+  --gap: 10px;
+
+  background-color: crimson;
+  border-radius: calc(var(--width) / 2 - calc(var(--gap) * 2));
+  cursor: pointer;
+  display: inline-flex;
+  height: calc(var(--width) / 2);
+  padding: var(--gap);
+  transform: rotate(-9deg);
+  transition: transform .2s ease-in, background-color .2s ease-in;
+  width: var(--width);
+}
+
+.circle {
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+  height: 100%;
+  left: 0;
+  position: relative;
+  transition: left .3s cubic-bezier(.60,0,.20,.50), transform .3s cubic-bezier(.60,0,.20,.50);
+}
+
+:host.active {
+  background-color: #1a53ff;
+  transform: rotate(9deg);
+
+  .circle {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+
+:host.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

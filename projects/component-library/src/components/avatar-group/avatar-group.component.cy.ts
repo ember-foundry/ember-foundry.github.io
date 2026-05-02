@@ -1,5 +1,5 @@
 import {mount} from 'cypress/angular-zoneless'
-import {AvatarGroupComponent} from 'component-library';
+import {AvatarGroupComponent, AvatarWithinGroupDirective} from 'component-library';
 import {AvatarComponent} from 'component-library';
 
 describe('AvatarGroupComponent', () => {
@@ -18,6 +18,7 @@ describe('AvatarGroupComponent', () => {
         </mbr-avatar-group>`, {
       imports: [
         AvatarComponent,
+        AvatarWithinGroupDirective,
         AvatarGroupComponent
       ]
     });
@@ -31,7 +32,7 @@ describe('AvatarGroupComponent', () => {
       .should('have.length', 10);
   });
 
-  it('Should have 2 dummy avatars when none are provided', () => {
+  it('Should have default text when no avatars are provided', () => {
     mount(`<mbr-avatar-group />`, {
       imports: [
         AvatarGroupComponent
@@ -39,16 +40,41 @@ describe('AvatarGroupComponent', () => {
     });
 
     cy.get('.avatar-group')
-      .should('exist');
+      .should('exist')
+
+    cy.get('.avatar-group')
+      .children()
+      .should('have.length', 0);
+
+    cy.get('.avatar-group')
+      .should('have.text', 'Provide at least one avatar')
+
+
+  });
+
+  it('Should inject avatars correctly', () => {
+    mount(`
+        <mbr-avatar-group>
+          <mbr-avatar name="Joe Soap"/>
+          <mbr-avatar name="Jane Doe"/>
+        </mbr-avatar-group>
+      `, {
+      imports: [
+        AvatarComponent,
+        AvatarWithinGroupDirective,
+        AvatarGroupComponent
+      ]
+    });
 
     cy.get('.avatar-group')
       .children()
       .should('have.length', 2);
 
     cy.get('.avatar-group .avatar')
-      .should('have.length', 2)
-      .each(i => {
-        expect(i).to.have.text('UU');
-      })
-  });
+      .should('have.length', 2);
+
+    cy.get('.avatar-group')
+      .invoke('width')
+      .should('be.below', 100)
+  })
 })

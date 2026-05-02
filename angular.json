@@ -108,7 +108,8 @@
             "outputDir": "dist/storybook/component-library",
             "styles": [
               "projects/component-library/src/styles/global.scss"
-            ]
+            ],
+            "webpackStatsJson": true
           }
         },
         "lint": {
@@ -135,7 +136,8 @@
             ],
             "port": 6006,
             "styles": [
-              "projects/component-library/src/styles/global.scss"
+              "projects/component-library/src/styles/global.scss",
+              "projects/component-library/.storybook/styles.scss"
             ]
           }
         },
@@ -143,7 +145,10 @@
           "builder": "@analogjs/vitest-angular:test",
           "options": {
             "watch": true,
-            "coverage": true
+            "coverage": true,
+            "styles": [
+              "projects/component-library/src/styles/global.scss"
+            ]
           }
         }
       },

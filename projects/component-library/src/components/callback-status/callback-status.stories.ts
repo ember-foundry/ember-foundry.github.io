@@ -1,12 +1,12 @@
 import {Meta, moduleMetadata} from '@storybook/angular';
-import {CallbackStatusComponent, SVGCheckmarkFilledComponent} from 'component-library';
+import {CallbackStatusComponent, SVGCheckmarkCircleFilledComponent} from 'component-library';
 
 const meta: Meta<CallbackStatusComponent> = {
   component: CallbackStatusComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        SVGCheckmarkFilledComponent
+        SVGCheckmarkCircleFilledComponent
       ]
     })
   ],
@@ -66,7 +66,7 @@ export const CustomSuccessIcon: Story = {
     return {
       template: `
           <mbr-callback-status status="success">
-            <mbr-svg-checkmark-filled ngProjectAs="icon-success" style="width: 80px; display: flex" />
+            <mbr-svg-checkmark-circle-filled ngProjectAs="icon-success" style="width: 80px; display: flex" />
           </mbr-callback-status>
       `
     }

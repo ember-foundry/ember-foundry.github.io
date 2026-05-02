@@ -1,23 +1,49 @@
-import { defineConfig} from 'vitest/config';
+import {defineConfig} from 'vitest/config';
 import {playwright} from '@vitest/browser-playwright';
 import angular from '@analogjs/vite-plugin-angular';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [angular(), viteTsConfigPaths()],
+  plugins: [
+    angular(),
+    viteTsConfigPaths()
+  ],
   test: {
+    fileParallelism: true,
     globals: false,
-    setupFiles: [
-      'test-setup.ts'
-    ],
     reporters: ['verbose'],
+    setupFiles: ['test-setup.ts'],
     include: ['src/**/*.spec.ts'],
     browser: {
       enabled: true,
       headless: process.env['VITEST_HEADLESS'] !== 'false',
-      provider: playwright(),
-      instances: [{ browser: 'chromium' }]
-
+      provider: playwright({
+        contextOptions: {
+          viewport: {
+            width: 1280,
+            height: 720
+          }
+        }
+      }),
+      instances: [
+        {
+          browser: 'chromium',
+          viewport: {
+            width: 1280,
+            height: 720
+          }
+        }
+      ],
+      expect: {
+        toMatchScreenshot: {
+          resolveScreenshotPath: ({root, testFileDirectory, testFileName, arg, browserName, ext}) => {
+            return `${root}/${testFileDirectory}/__screenshots__/${testFileName}/${arg}-${browserName}${ext}`;
+          },
+          resolveDiffPath: ({root, attachmentsDir, testFileDirectory, testFileName, arg, browserName, ext}) => {
+            return `${root}/${attachmentsDir}/${testFileDirectory}/${testFileName}/${arg}-${browserName}${ext}`;
+          }
+        }
+      }
     },
     coverage: {
       enabled: true,
