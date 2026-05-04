@@ -1,0 +1,41 @@
+:host {
+  --mask-color: #00B6FF;
+  --mask-initial-size: 20px;
+
+  background-color: var(--mask-color);
+  border-radius: 10px;
+  clip-path: circle(var(--mask-initial-size) at calc(100% - var(--mask-initial-size)) var(--mask-initial-size));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+  transition: clip-path 0.3s ease-in-out;
+}
+
+h1 {
+  margin: 0;
+}
+
+span {
+  align-items: center;
+  aspect-ratio: 1;
+  cursor: pointer;
+  display: flex;
+  height: calc(var(--mask-initial-size) * 2);
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  transition: color 0.3s ease-in-out;
+}
+
+:host:hover, :host.reveal  {
+  clip-path: circle(75%);
+
+  span {
+    color: transparent;
+  }
+}

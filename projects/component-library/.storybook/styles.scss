@@ -8,3 +8,10 @@ body.sb-show-main.sb-main-fullscreen {
     width: 100vw;
   }
 }
+
+body.sb-main-centered.sb-show-main {
+  /**
+    https://webgradients.com/gradient/013-heavy-rain
+   */
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}

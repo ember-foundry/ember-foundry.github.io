@@ -4,7 +4,7 @@
 
 ### Components
 ```shell
-component_name="PricePlan"
+component_name="RevealingCard"
 ng generate component $component_name --project component-library --dry-run
 ```
 

@@ -1,20 +1,15 @@
-@let _svg_size = 52;
-@let _stroke_width = 4;
-@let _circle_center = _svg_size / 2;
-@let _circle_radius = (_svg_size / 2) - (_stroke_width / 2);
-
 <svg
   xmlns="http://www.w3.org/2000/svg"
   stroke="var(--color-status-success)"
   stroke-linecap="round"
-  [attr.stroke-width]="_stroke_width"
-  [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`"
+  [attr.stroke-width]="stroke_width"
+  [attr.viewBox]="`0 0 ${size} ${size}`"
 >
   <circle
-    [attr.cx]="_circle_center"
-    [attr.cy]="_circle_center"
-    [attr.r]="_circle_radius"
-    [attr.stroke-width]="_stroke_width"
+    [attr.cx]="center()"
+    [attr.cy]="center()"
+    [attr.r]="circle_radius()"
+    [attr.stroke-width]="stroke_width"
     fill="none"
     stroke-dasharray="166"
     stroke-dashoffset="166"
