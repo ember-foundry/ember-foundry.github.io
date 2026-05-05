@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {ThemeCustomizerTriggerComponent} from './theme-customizer-trigger.component';
-import {pause} from '../../helpers/pause';
+import {pause} from '../../../helpers/pause';
 
 describe('ThemeCustomizerTrigger', () => {
   let component: ThemeCustomizerTriggerComponent;
