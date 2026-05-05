@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, afterEach, beforeEach, vi} from 'vitest';
 import {ColorSchemeToggleComponent} from './color-scheme-toggle.component';
+import {pause} from '../../helpers/pause';
 
 describe('ColorSchemeToggleComponent', () => {
   let component: ColorSchemeToggleComponent;
@@ -21,7 +22,7 @@ describe('ColorSchemeToggleComponent', () => {
   });
 
   afterEach(async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pause(2)
   })
 
   it('should create', () => {
@@ -36,10 +37,10 @@ describe('ColorSchemeToggleComponent', () => {
 
   it('should toggle to dark mode and emit dark on click', async () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pause(2)
 
     host.click();
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pause(2)
 
     fixture.detectChanges();
 
@@ -54,12 +55,12 @@ describe('ColorSchemeToggleComponent', () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
 
     host.click();
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pause(2);
 
     fixture.detectChanges();
 
     host.click();
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pause(2);
 
     fixture.detectChanges();
 

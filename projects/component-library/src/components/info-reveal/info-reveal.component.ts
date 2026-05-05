@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component, model} from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-info-reveal',
-  imports: [],
   templateUrl: './info-reveal.component.html',
   styleUrl: './info-reveal.component.scss',
   host: {
@@ -14,5 +13,5 @@ import {ChangeDetectionStrategy, Component, model} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoRevealComponent {
-  public reveal = model(false)
+  public reveal = model(false);
 }

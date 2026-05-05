@@ -4,6 +4,7 @@ import {AvatarGroupComponent, AvatarWithinGroupDirective} from './avatar-group.c
 import {AvatarComponent} from '../avatar/avatar.component';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {By} from '@angular/platform-browser';
+import {pause} from '../../helpers/pause';
 
 type ExposedAvatarGroupComponentComponent = AvatarGroupComponent & { get is_last_child(): boolean};
 
@@ -144,7 +145,7 @@ describe('AvatarGroupComponent with Projected Content', () => {
   });
 
   it('should visually match', async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host.children[0]).toMatchScreenshot('avatar-group-with-projected-content');
   })
 });

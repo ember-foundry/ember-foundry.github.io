@@ -14,3 +14,5 @@ projects/component-library/src/components/toggle-switch-seesaw/__screenshots__/t
 projects/component-library/src/components/vuexy/theme-customizer-trigger/__screenshots__/theme-customizer-trigger.component.spec.ts/vuexy-theme-customizer-trigger-chromium.png filter=lfs diff=lfs merge=lfs -text
 projects/component-library/src/components/baseline-availability/__screenshots__/baseline-availability.component.spec.ts/baseline-availability-none-supported-chromium.png filter=lfs diff=lfs merge=lfs -text
 projects/component-library/src/components/lando-norris/lando-norris-card/__screenshots__/lando-norris-card.component.spec.ts/lando-norris-card-chromium.png filter=lfs diff=lfs merge=lfs -text
+projects/component-library/src/components/info-reveal/__screenshots__/info-reveal.component.spec.ts/info-reveal-hidden-chromium.png filter=lfs diff=lfs merge=lfs -text
+projects/component-library/src/components/info-reveal/__screenshots__/info-reveal.component.spec.ts/info-reveal-reveal-chromium.png filter=lfs diff=lfs merge=lfs -text

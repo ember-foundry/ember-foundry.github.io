@@ -7,18 +7,6 @@ A collection of angular components inspired by things we've seen
 
 ---
 
-### Building and Using the Library
-see here for more info: https://angular.dev/tools/libraries/creating-libraries
-
-1. Build component library
-2. publish library from dist folder
-```shell
-ng build component-library --configuration production
-cd dist/component-library
-echo 'Go to your application link the library'
-npm 
-```
-
 ### Vitest Angular Browser Testing
 https://angular.dev/guide/testing/migrating-to-vitest
 ```shell

@@ -4,6 +4,7 @@ import {AvatarCheckboxComponent} from './avatar-checkbox.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {By} from '@angular/platform-browser';
 import {tailwind_sizes_values} from '../../constants/tailwind-sizes';
+import {pause} from '../../helpers/pause';
 
 describe('AvatarCheckboxComponent', () => {
   let component: AvatarCheckboxComponent;
@@ -31,12 +32,12 @@ describe('AvatarCheckboxComponent', () => {
     const hostElement = fixture.nativeElement;
 
     expect(hostElement.classList.contains('selected')).toBe(false);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
 
     hostElement.click();
     fixture.detectChanges();
     expect(hostElement.classList.contains('selected')).toBe(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
 
     hostElement.click();
     fixture.detectChanges();

@@ -5,17 +5,13 @@
   background-color: var(--mask-color);
   border-radius: 10px;
   clip-path: circle(var(--mask-initial-size) at calc(100% - var(--mask-initial-size)) var(--mask-initial-size));
-  display: flex;
+  color: #eee;
+  display: inline-flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
   padding: 1rem;
   position: relative;
   transition: clip-path 0.3s ease-in-out;
-}
-
-h1 {
-  margin: 0;
 }
 
 span {

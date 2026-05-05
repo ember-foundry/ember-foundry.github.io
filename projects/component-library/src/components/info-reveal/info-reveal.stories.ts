@@ -39,6 +39,24 @@ export const PreRevealed: Story = {
   }
 };
 
+export const CustomContent: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Provide your own content for the info reveal component'
+      }
+    }
+  },
+  render: (args) => ({
+    template: `
+      <mbr-info-reveal [reveal]="${args.reveal}">
+        <h1 style="margin: 0">Custom Title</h1>
+        <p>Custom content for the info reveal component</p>
+      </mbr-info-reveal>
+    `
+  })
+};
+
 export const InteractionTests: Story = {
   play: async ({canvasElement, userEvent, canvas}) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
