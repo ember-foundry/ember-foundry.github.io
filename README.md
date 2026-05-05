@@ -3,6 +3,7 @@ A collection of angular components inspired by things we've seen
 
 [![Deploy Storybook Badge](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/gh-pages.yml)
 [![Package Updates Badge](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml/badge.svg?branch=main)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/check-for-updates.yml)
+[![CodeQL](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/ember-foundry/ember-foundry.github.io/actions/workflows/github-code-scanning/codeql)
 ![License](https://img.shields.io/github/license/ember-foundry/ember-foundry.github.io.svg)
 
 ---
