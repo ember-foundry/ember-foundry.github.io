@@ -12,6 +12,7 @@ export * from './components/flexbox/row/flexbox-row.component';
 export * from './components/flip-card/flip-card.component';
 export * from './components/github/action-progress/action-progress.component';
 export * from './components/google-ticket/google-ticket.component';
+export * from './components/info-reveal/info-reveal.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/lando-norris/lando-norris-card/lando-norris-card.component';
 export * from './components/lando-norris/lando-norris-sliding-text/lando-norris-sliding-text.component';

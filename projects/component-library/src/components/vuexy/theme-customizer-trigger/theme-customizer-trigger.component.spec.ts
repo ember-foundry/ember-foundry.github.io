@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {ThemeCustomizerTriggerComponent} from './theme-customizer-trigger.component';
+import {pause} from '../../../helpers/pause';
 
 describe('ThemeCustomizerTrigger', () => {
   let component: ThemeCustomizerTriggerComponent;
@@ -24,7 +25,7 @@ describe('ThemeCustomizerTrigger', () => {
   });
 
   it('should match visually', async() => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host).toMatchScreenshot('vuexy-theme-customizer-trigger');
   });
 });

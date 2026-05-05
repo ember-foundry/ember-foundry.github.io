@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, expect, beforeEach, it} from 'vitest';
 import {AvatarBadgeComponent} from './avatar-badge.component';
 import {By} from '@angular/platform-browser';
+import {pause} from '../../helpers/pause';
 
 describe('AvatarBadgeComponent', () => {
   let component: AvatarBadgeComponent;
@@ -37,7 +38,7 @@ describe('AvatarBadgeComponent', () => {
   });
 
   it('should visually match', async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host).toMatchScreenshot('avatar-badge');
   })
 });

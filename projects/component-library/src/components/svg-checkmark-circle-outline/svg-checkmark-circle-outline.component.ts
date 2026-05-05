@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed} from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -13,4 +13,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class SVGCheckmarkCircleOutlineComponent {
 
+  protected size = 52;
+  protected stroke_width = 4;
+  protected center = computed<number>(() => this.size / 2);
+  protected circle_radius = computed<number>(() => (this.size / 2) - (this.stroke_width / 2));
 }
