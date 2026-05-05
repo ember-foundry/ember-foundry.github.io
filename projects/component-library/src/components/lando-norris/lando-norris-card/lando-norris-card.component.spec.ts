@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {LandoNorrisCardComponent} from './lando-norris-card.component';
+import {pause} from '../../../helpers/pause';
 
 describe('LandoNorrisCardComponent', () => {
   let component: LandoNorrisCardComponent;
@@ -24,6 +25,7 @@ describe('LandoNorrisCardComponent', () => {
   });
 
   it('should match visually', async () => {
+    await pause(2);
     await expect(host).toMatchScreenshot('lando-norris-card');
   });
 

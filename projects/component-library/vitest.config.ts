@@ -33,17 +33,7 @@ export default defineConfig({
             height: 720
           }
         }
-      ],
-      expect: {
-        toMatchScreenshot: {
-          resolveScreenshotPath: ({root, testFileDirectory, testFileName, arg, browserName, ext}) => {
-            return `${root}/${testFileDirectory}/__screenshots__/${testFileName}/${arg}-${browserName}${ext}`;
-          },
-          resolveDiffPath: ({root, attachmentsDir, testFileDirectory, testFileName, arg, browserName, ext}) => {
-            return `${root}/${attachmentsDir}/${testFileDirectory}/${testFileName}/${arg}-${browserName}${ext}`;
-          }
-        }
-      }
+      ]
     },
     coverage: {
       enabled: true,
