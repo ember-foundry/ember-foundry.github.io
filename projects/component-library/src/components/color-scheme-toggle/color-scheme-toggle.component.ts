@@ -1,21 +1,5 @@
-import {ChangeDetectionStrategy, Component, model, output} from '@angular/core';
-import {BaseComponent} from '../_base/base.component';
-
-// @Component({
-//   selector: 'mbr-color-scheme-toggle-mask',
-//   template: `
-//     <svg aria-hidden="true" viewBox="0 0 0 0" style="position: fixed; z-index: -1">
-//       <defs>
-//         <mask id="moon-mask">
-//           <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-//           <circle cx="24" cy="10" r="6" fill="black"></circle>
-//         </mask>
-//       </defs>
-//     </svg>
-//   `,
-//   changeDetection: ChangeDetectionStrategy.OnPush
-// })
-// class ColorSchemeToggleMaskComponent {}
+import {ChangeDetectionStrategy, Component, effect, model, output} from '@angular/core';
+import {ToggleComponent} from '../toggle/toggle.component';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -23,20 +7,17 @@ import {BaseComponent} from '../_base/base.component';
   templateUrl: './color-scheme-toggle.component.html',
   styleUrl: './color-scheme-toggle.component.scss',
   host: {
-    '[class]': 'scheme()',
-    '(click)': 'toggle()'
+    '[class]': 'scheme()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
-  // imports: [
-  //   ColorSchemeToggleMaskComponent
-  // ]
 })
-export class ColorSchemeToggleComponent extends BaseComponent {
+export class ColorSchemeToggleComponent extends ToggleComponent {
   public scheme = model<'light' | 'dark'>('light')
   public color_scheme_change = output<'light' | 'dark'>();
 
-  protected toggle = () => {
-    this.scheme.update(s => s === 'light' ? 'dark' : 'light')
+  private when_state_changed = effect(() => {
+    const active = this.active();
+    this.scheme.set(active ? 'dark' : 'light');
     this.color_scheme_change.emit(this.scheme());
-  }
+  })
 }

@@ -41,7 +41,7 @@ export default defineConfig({
       reporter: ['html'],
       thresholds: {
         statements: 97,
-        branches: 77, // global threshold // TODO: all coverage should be 90
+        branches: 88, // TODO: all coverage should be 90
         functions: 100,
         lines: 97
       }

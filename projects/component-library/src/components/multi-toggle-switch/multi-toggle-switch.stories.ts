@@ -3,6 +3,7 @@ import {MultiToggleSwitchComponent} from 'component-library';
 import {action} from 'storybook/actions';
 import {expect, fn} from 'storybook/test';
 import {array_to_angular_input} from 'component-library/helpers/storybook/array_to_angular_input';
+import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<MultiToggleSwitchComponent> = {
   parameters: {
@@ -79,22 +80,22 @@ export const InteractionTest: Story = {
     const third_option = storybook_element.querySelector<HTMLElement>('mbr-multi-toggle-switch .option:nth-child(3)')!;
 
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 0, value: 'Yes'});
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
 
     await userEvent.click(second_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 1, value: 'No'});
 
     await userEvent.click(first_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 0, value: 'Yes'});
 
     await userEvent.click(second_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 1, value: 'No'});
 
     await userEvent.click(third_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({ index: 2, value: 'Maybe'});
   }
 };
@@ -110,18 +111,18 @@ export const InteractionTestWhenTurnedOnInitially: Story = {
     const third_option = storybook_element.querySelector<HTMLElement>('mbr-multi-toggle-switch .option:nth-child(3)')!;
 
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 1, value: 'No'});
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
 
     await userEvent.click(first_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 0, value: 'Yes'});
 
     await userEvent.click(second_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 1, value: 'No'});
 
     await userEvent.click(third_option);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.selected_index_changed).toHaveBeenCalledWith({ index: 2, value: 'Maybe'});
   }
 };

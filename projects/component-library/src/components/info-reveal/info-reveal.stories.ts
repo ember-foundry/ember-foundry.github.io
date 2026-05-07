@@ -1,6 +1,7 @@
 import {Meta} from '@storybook/angular';
 import {InfoRevealComponent} from 'component-library';
 import {expect} from 'storybook/test';
+import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<InfoRevealComponent> = {
   component: InfoRevealComponent,
@@ -59,15 +60,15 @@ export const CustomContent: Story = {
 
 export const InteractionTests: Story = {
   play: async ({canvasElement, userEvent, canvas}) => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     const host = canvasElement.querySelector<HTMLElement>('mbr-info-reveal')!;
     const info_icon = canvas.getByText('i');
     await userEvent.hover(info_icon);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(host).toHaveClass('reveal');
     await userEvent.unhover(info_icon);
     await expect(host).not.toHaveClass('reveal');
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await userEvent.hover(info_icon);
     await expect(host).toHaveClass('reveal');
   }

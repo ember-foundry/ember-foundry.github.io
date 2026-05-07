@@ -4,7 +4,7 @@
 
 #### Components
 ```shell
-component_name="RevealingCard"
+component_name='MenuToggle'
 ng generate component $component_name --project component-library --dry-run
 ```
 

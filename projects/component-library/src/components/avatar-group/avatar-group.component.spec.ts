@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, vi} from 'vitest';
 import {AvatarGroupComponent, AvatarWithinGroupDirective} from './avatar-group.component';
 import {AvatarComponent} from '../avatar/avatar.component';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {By} from '@angular/platform-browser';
 import {pause} from '../../helpers/pause';
 
@@ -90,7 +90,7 @@ describe('AvatarGroupComponent with no avatars', () => {
   standalone: true,
   imports: [AvatarGroupComponent, AvatarComponent, AvatarWithinGroupDirective],
   template: `
-    <mbr-avatar-group [limit]="limit">
+    <mbr-avatar-group [limit]="limit()" [layering]="layering()">
       <mbr-avatar name="Avatar 1"></mbr-avatar>
       <mbr-avatar name="Avatar 2"></mbr-avatar>
       <mbr-avatar name="Avatar 3"></mbr-avatar>
@@ -99,7 +99,8 @@ describe('AvatarGroupComponent with no avatars', () => {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestAvatarGroupHostComponent {
-  limit: number | undefined = undefined;
+  limit = input<number>();
+  layering = input<'first_on_top' | 'last_on_top'>('last_on_top');
 }
 describe('AvatarGroupComponent with Projected Content', () => {
   let hostFixture: ComponentFixture<TestAvatarGroupHostComponent>;
@@ -148,4 +149,56 @@ describe('AvatarGroupComponent with Projected Content', () => {
     await pause(1.5)
     await expect(host.children[0]).toMatchScreenshot('avatar-group-with-projected-content');
   })
+
+  it('should calculate surplus text correctly when limit is exceeded', async () => {
+    // 3 avatars are projected in TestAvatarGroupHostComponent
+    hostFixture.componentRef.setInput('limit', 1)
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    // Access the component instance to check the computed signal
+    const groupComponent = hostFixture.debugElement.query(By.directive(AvatarGroupComponent)).componentInstance;
+    expect(groupComponent['surplus_text']()).toBe('+ 2');
+  });
+
+  it('should apply decreasing z-index when layering is "first_on_top"', async () => {
+    hostFixture.componentRef.setInput('layering', 'first_on_top');
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    const avatars = hostFixture.debugElement.queryAll(By.css('mbr-avatar'));
+    // Total items = 3. First should be 3, second 2, third 1.
+    expect(avatars[0].nativeElement.style.zIndex).toBe('3');
+    expect(avatars[1].nativeElement.style.zIndex).toBe('2');
+    expect(avatars[2].nativeElement.style.zIndex).toBe('1');
+  });
+
+  it('should hide avatars exceeding the limit', async () => {
+    hostFixture.componentRef.setInput('limit', 2);
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    const avatars = hostFixture.debugElement.queryAll(By.css('mbr-avatar'));
+    expect(avatars[0].nativeElement.style.display).not.toBe('none');
+    expect(avatars[1].nativeElement.style.display).not.toBe('none');
+    expect(avatars[2].nativeElement.style.display).toBe('none');
+    expect(avatars[2].nativeElement.classList.contains('collapsed')).toBe(true);
+  });
+
+  it('should not override avatar properties if they are already defined', async () => {
+    // We need a way to check the child component's internal state
+    const groupComponent = hostFixture.debugElement.query(By.directive(AvatarGroupComponent)).componentInstance;
+    const firstAvatar = groupComponent['avatar_items_as_component']()[0];
+
+    // Simulate the avatar already having a size set
+    // Note: Since you're using signals/inputs, we mock the signal's value
+    vi.spyOn(firstAvatar, 'size').mockReturnValue('lg');
+
+    hostFixture.componentRef.setInput('size', 'sm');
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    // The group should have seen it was defined and NOT overwritten it
+    expect(firstAvatar.size).not.toBe(groupComponent.size);
+  });
 });
