@@ -39,7 +39,7 @@ $color-moon-hover: hsl(210deg 15% 90%);
   fill: var(--icon-fill-hover)
 }
 
-svg#color-scheme-toggle-icon {
+svg {
   block-size: 100%;
   inline-size: 100%;
   stroke-linecap: round
@@ -53,12 +53,12 @@ svg#color-scheme-toggle-icon {
   fill: var(--icon-fill)
 }
 
-svg#color-scheme-toggle-icon > .sun-beams {
+svg > .sun-beams {
   stroke: var(--icon-fill);
   stroke-width: 2px;
 }
 
-:host:is(:hover,:focus-visible) svg#color-scheme-toggle-icon > .sun-beams {
+:host:is(:hover,:focus-visible) svg > .sun-beams {
   stroke: var(--icon-fill-hover);
 }
 
@@ -66,11 +66,11 @@ svg#color-scheme-toggle-icon > .sun-beams {
   --icon-fill: #{$color-moon};
   --icon-fill-hover: #{$color-moon-hover};
 
-  svg#color-scheme-toggle-icon > .sun {
+  svg > .sun {
     transform: scale(1.75);
   }
 
-  svg#color-scheme-toggle-icon > .sun-beams {
+  svg > .sun-beams {
     opacity: 0;
   }
 
@@ -87,11 +87,11 @@ svg#color-scheme-toggle-icon > .sun-beams {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  svg#color-scheme-toggle-icon > .sun {
+  svg > .sun {
     transition: transform .5s $ease-elastic-out-3;
   }
 
-  svg#color-scheme-toggle-icon > .sun-beams {
+  svg > .sun-beams {
     transition: transform .5s $ease-elastic-4, opacity .5s $ease-3;
   }
 
@@ -105,13 +105,13 @@ svg#color-scheme-toggle-icon > .sun-beams {
     }
   }
 
-  :host(.dark) svg#color-scheme-toggle-icon > .sun {
+  :host(.dark) svg > .sun {
     transform: scale(1.75);
     transition-duration: .25s;
     transition-timing-function: $ease-3;
   }
 
-  :host(.dark) svg#color-scheme-toggle-icon > .sun-beams {
+  :host(.dark) svg > .sun-beams {
     transform: rotate(-25deg);
     transition-duration: .15s
   }

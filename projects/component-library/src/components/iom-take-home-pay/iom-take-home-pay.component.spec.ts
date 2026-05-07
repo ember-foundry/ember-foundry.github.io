@@ -146,4 +146,62 @@ describe('IOMTakeHomePayComponent', () => {
 
     expectCloseTo((component as unknown as ExposedComponent).max_pension_percent(), 100);
   });
+
+  it('tapers personal allowance for high earners correctly (Partial Taper)', async () => {
+    // Single threshold is £100,000. Excess is £10,000.
+    // Reduction = 10,000 / 2 = 5,000.
+    // New Allowance = 17,000 - 5,000 = 12,000.
+    setFormValues({
+      gross_income: 110000,
+      pension_contribution_percent: 0,
+      is_couple_tax: false
+    });
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expectCloseTo((component as unknown as ExposedComponent).personal_allowance(), 12000);
+  });
+
+  it('calculates joint high earner allowance tapering correctly', async () => {
+    // Joint threshold is £200,000. Excess is £10,000.
+    // Reduction = 10,000 / 2 = 5,000.
+    // New Allowance = 34,000 - 5,000 = 29,000.
+    setFormValues({
+      gross_income: 210000,
+      pension_contribution_percent: 0,
+      is_couple_tax: true
+    });
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expectCloseTo((component as unknown as ExposedComponent).personal_allowance(), 29000);
+  });
+
+  it('calculates pension cap when gross income is low', async () => {
+    // At £40,000, the £50,000 cap allows for >100%, so it should return 100
+    setFormValues({ gross_income: 40000 });
+    fixture.detectChanges();
+    expect((component as unknown as ExposedComponent).max_pension_percent()).toBe(100);
+
+    // At £100,000, the £50,000 cap is exactly 50%
+    setFormValues({ gross_income: 100000 });
+    fixture.detectChanges();
+    expect((component as unknown as ExposedComponent).max_pension_percent()).toBe(50);
+  });
+
+  it('handles edge case where personal allowance is tapered to zero', async () => {
+    // Single: 100,000 threshold + (17,000 * 2) = 134,000
+    setFormValues({
+      gross_income: 140000,
+      pension_contribution_percent: 0,
+      is_couple_tax: false
+    });
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect((component as unknown as ExposedComponent).personal_allowance()).toBe(0);
+  });
 });

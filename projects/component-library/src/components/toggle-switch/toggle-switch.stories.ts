@@ -2,6 +2,7 @@ import {Meta, StoryObj} from '@storybook/angular';
 import {ToggleSwitchComponent} from 'component-library';
 import {action} from 'storybook/actions';
 import {expect, fn} from 'storybook/test';
+import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<ToggleSwitchComponent> = {
   parameters: {
@@ -14,7 +15,7 @@ const meta: Meta<ToggleSwitchComponent> = {
   component: ToggleSwitchComponent,
   tags: ['autodocs', 'toggle', 'switch'],
   argTypes: {
-    selected: {
+    active: {
       control: { type: 'boolean' }
     },
     state_change: {
@@ -23,7 +24,7 @@ const meta: Meta<ToggleSwitchComponent> = {
   },
   args: {
     options: ['Preview', 'Code'],
-    selected: false
+    active: false
   }
 }
 
@@ -41,14 +42,14 @@ export const DifferentLabels: Story = {
 
 export const TurnedOnInitially: Story = {
   args: {
-    selected: true
+    active: true
   }
 };
 
 export const ListenToEventWithCustomRender: Story = {
   args: {
     options: ['Event Off', 'Event On'],
-    selected: false
+    active: false
   },
   render: (args) => {
     return {
@@ -59,7 +60,7 @@ export const ListenToEventWithCustomRender: Story = {
       template: `
         <mbr-toggle-switch
           [options]="options"
-          [selected]="selected"
+          [active]="${args.active}"
           (state_change)="on_state_change($event)"
         />
       `
@@ -70,18 +71,18 @@ export const ListenToEventWithCustomRender: Story = {
 export const InteractionTest: Story = {
   args: {
     options: ['Interaction Off', 'Interaction On'],
-    selected: false,
+    active: false,
     state_change: fn()
   },
   play: async ({canvasElement: storybook_element, args, userEvent}) => {
     await expect(args.state_change).toHaveBeenCalledWith(false);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     const toggle_switch = storybook_element.querySelector<HTMLElement>('mbr-toggle-switch')!;
     await userEvent.click(toggle_switch);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.state_change).toHaveBeenCalledWith(true);
     await userEvent.click(toggle_switch);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.state_change).toHaveBeenCalledWith(false);
   }
 };
@@ -89,18 +90,18 @@ export const InteractionTest: Story = {
 export const InteractionTestWhenTurnedOnInitially: Story = {
   args: {
     options: ['Interaction Off', 'Interaction On'],
-    selected: true,
+    active: true,
     state_change: fn()
   },
   play: async ({canvasElement: storybook_element, args, userEvent}) => {
     await expect(args.state_change).toHaveBeenCalledWith(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     const toggle_switch = storybook_element.querySelector<HTMLElement>('mbr-toggle-switch')!;
     await userEvent.click(toggle_switch);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.state_change).toHaveBeenCalledWith(false);
     await userEvent.click(toggle_switch);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await pause(1);
     await expect(args.state_change).toHaveBeenCalledWith(true);
   }
 };

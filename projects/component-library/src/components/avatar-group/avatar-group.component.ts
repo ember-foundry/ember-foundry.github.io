@@ -93,9 +93,6 @@ export class AvatarGroupComponent extends BaseComponent {
       }
 
       const avatar_html_item_ref = html_items[index];
-      if (!avatar_html_item_ref) {
-        return;
-      }
 
       const avatar_html_element = avatar_html_item_ref.nativeElement;
 

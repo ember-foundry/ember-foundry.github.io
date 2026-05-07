@@ -44,38 +44,38 @@ describe('ToggleSwitchComponent', () => {
     expect(options[1].textContent.trim()).toBe('Code');
   });
 
-  it('should be unselected by default', () => {
-    expect(component.selected()).toBe(false);
+  it('should be inactive by default', () => {
+    expect(component.active()).toBe(false);
   });
 
-  it('should not apply the selected class to the switch by default', () => {
+  it('should not apply the active class to the switch by default', () => {
     const switchElement = fixture.nativeElement.querySelector('.switch');
 
-    expect(switchElement.classList.contains('selected')).toBe(false);
+    expect(switchElement.classList.contains('active')).toBe(false);
   });
 
-  it('should toggle selected when clicked', () => {
+  it('should toggle active when clicked', () => {
     fixture.nativeElement.click();
     fixture.detectChanges();
 
-    expect(component.selected()).toBe(true);
+    expect(component.active()).toBe(true);
 
     fixture.nativeElement.click();
     fixture.detectChanges();
 
-    expect(component.selected()).toBe(false);
+    expect(component.active()).toBe(false);
   });
 
-  it('should apply the selected class to the switch when selected', () => {
+  it('should apply the active class to the switch when active',() => {
     fixture.nativeElement.click();
     fixture.detectChanges();
 
-    const switchElement = fixture.nativeElement.querySelector('.switch');
+    const switchElement = fixture.nativeElement
 
-    expect(switchElement.classList.contains('selected')).toBe(true);
+    expect(switchElement.classList.contains('active')).toBe(true);
   });
 
-  it('should emit the selected state when clicked', () => {
+  it('should emit the active state when clicked', () => {
     const emitSpy = vi.spyOn(component.state_change, 'emit');
 
     fixture.nativeElement.click();
@@ -84,13 +84,13 @@ describe('ToggleSwitchComponent', () => {
     expect(emitSpy).toHaveBeenCalledWith(true);
   });
 
-  it('should emit false when clicked after being selected', () => {
+  it('should emit false when clicked after being active', () => {
     const emitSpy = vi.spyOn(component.state_change, 'emit');
 
-    fixture.nativeElement.click();
+    host.click();
     fixture.detectChanges();
 
-    fixture.nativeElement.click();
+    host.click();
     fixture.detectChanges();
 
     expect(emitSpy).toHaveBeenLastCalledWith(false);

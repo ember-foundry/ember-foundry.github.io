@@ -29,11 +29,14 @@ describe('ColorSchemeToggleComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should start in light mode', async () => {
+  it('should start in light mode', () => {
     expect(host.classList.contains('light')).toBe(true);
     expect(host.classList.contains('dark')).toBe(false);
-    await expect(host).toMatchScreenshot('color-scheme-toggle-light');
   });
+
+  it('should match visually (light)', async () => {
+    await expect(host).toMatchScreenshot('color-scheme-toggle-light');
+  })
 
   it('should toggle to dark mode and emit dark on click', async () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
@@ -47,9 +50,11 @@ describe('ColorSchemeToggleComponent', () => {
     expect(host.classList.contains('dark')).toBe(true);
     expect(host.classList.contains('light')).toBe(false);
     expect(emitSpy).toHaveBeenCalledWith('dark');
-
-    await expect(host).toMatchScreenshot('color-scheme-toggle-dark');
   });
+
+  it('should match visually (dark)', async () => {
+    await expect(host).toMatchScreenshot('color-scheme-toggle-light');
+  })
 
   it('should toggle back to light mode and emit light on second click', async () => {
     const emitSpy = vi.spyOn(component.color_scheme_change, 'emit');
@@ -67,6 +72,9 @@ describe('ColorSchemeToggleComponent', () => {
     expect(host.classList.contains('light')).toBe(true);
     expect(host.classList.contains('dark')).toBe(false);
     expect(emitSpy).toHaveBeenLastCalledWith('light');
-    await expect(host).toMatchScreenshot('color-scheme-toggle-light');
   });
+
+  it('should match visually (light)', async () => {
+    await expect(host).toMatchScreenshot('color-scheme-toggle-light');
+  })
 });
