@@ -1,6 +1,6 @@
 echo '' > .gitattributes
-git add **/__screenshots__/**/*.png
-git lfs track **/__screenshots__/**/*.png
+git lfs track '**/__screenshots__/**/*.png'
+git add '**/__screenshots__/**/*.png'
 git add .gitattributes
 npm run lint
 npm run lint:styles

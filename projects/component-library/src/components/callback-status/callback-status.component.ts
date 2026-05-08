@@ -1,8 +1,6 @@
 import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
-import {
-  SVGCheckmarkCircleOutlineComponent
-} from '../svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
+import {SVGCheckmarkCircleOutlineComponent} from '../svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
 
 @Component({
   selector: 'mbr-callback-status',

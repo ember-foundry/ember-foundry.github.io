@@ -1,19 +1,16 @@
-import {ChangeDetectionStrategy, Component, computed} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {SVGCheckmarkCircleOutlineAlexanderHaniotisComponent} from './svg-checkmark-circle-outline-alexander-haniotis/svg-checkmark-circle-outline-alexander-haniotis.component';
+import {SVGCheckmarkCircleOutlineSeanMichaelComponent} from './svg-checkmark-circle-outline-sean-michael/svg-checkmark-circle-outline-sean-michael.component';
 
 @Component({
   selector: 'mbr-svg-checkmark-circle-outline',
+  imports: [
+    SVGCheckmarkCircleOutlineAlexanderHaniotisComponent,
+    SVGCheckmarkCircleOutlineSeanMichaelComponent
+  ],
   templateUrl: './svg-checkmark-circle-outline.component.html',
-  styleUrl: './svg-checkmark-circle-outline.component.scss',
-  host: {
-    '[attr.aria-hidden]': 'true',
-    '[attr.focusable]': 'false'
-  },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SVGCheckmarkCircleOutlineComponent {
-
-  protected size = 52;
-  protected stroke_width = 4;
-  protected center = computed<number>(() => this.size / 2);
-  protected circle_radius = computed<number>(() => (this.size / 2) - (this.stroke_width / 2));
+  public variant = input<'alexander-haniotis' | 'sean-michael'>('alexander-haniotis');
 }
