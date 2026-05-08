@@ -13,7 +13,6 @@ describe('SVGCheckmarkCircleOutlineComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(SVGCheckmarkCircleOutlineComponent);
-    host = fixture.nativeElement;
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
