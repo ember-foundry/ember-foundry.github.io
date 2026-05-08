@@ -31,6 +31,8 @@ export * from './components/svg-checkmark/svg-checkmark.component';
 export * from './components/svg-checkmark-circle-filled/svg-checkmark-circle-filled.component';
 export * from './components/svg-checkmark-circle-filled-alternate/svg-checkmark-circle-filled-alternate.component';
 export * from './components/svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
+export * from './components/svg-checkmark-circle-outline/svg-checkmark-circle-outline-alexander-haniotis/svg-checkmark-circle-outline-alexander-haniotis.component';
+export * from './components/svg-checkmark-circle-outline/svg-checkmark-circle-outline-sean-michael/svg-checkmark-circle-outline-sean-michael.component';
 export * from './components/toggle-switch/toggle-switch.component';
 export * from './components/toggle-switch-seesaw/toggle-switch-seesaw.component';
 export * from './components/vuexy/vuexy-theme-customizer-trigger/vuexy-theme-customizer-trigger.component';

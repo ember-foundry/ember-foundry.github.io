@@ -7,11 +7,24 @@ const meta: Meta<SVGCheckmarkCircleOutlineComponent> = {
     layout: 'centered',
     docs: {
       description: {
-        component: `A filled checkmark SVG icon component with animation for completion status indicators.<br />✏️ Inspired by <a target="_blank" href="https://codepen.io/haniotis/pen/KwvYLO">Alexander Haniotis's pen</a>`
+        component: `An animated SVG checkmark icon component with native svg animation`
       }
     }
   },
-  tags: ['autodocs', 'checkmark', 'svg', 'animation']
+  tags: ['autodocs', 'checkmark', 'svg', 'animation'],
+  argTypes: {
+    variant: {
+      options: [
+        'alexander-haniotis',
+        'sean-michael'
+      ],
+      control: { type: 'select' },
+      defaultValue: { summary: 'alexander-haniotis' }
+    }
+  },
+  args: {
+    variant: 'alexander-haniotis'
+  }
 }
 
 export default meta;
