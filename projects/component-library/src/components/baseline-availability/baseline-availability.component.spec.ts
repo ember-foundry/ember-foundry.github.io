@@ -1,4 +1,4 @@
-import { BaselineAvailabilityComponent } from './baseline-availability.component';
+import {BaselineAvailabilityComponent} from './baseline-availability.component';
 import {expect, it, describe, beforeEach} from 'vitest';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';

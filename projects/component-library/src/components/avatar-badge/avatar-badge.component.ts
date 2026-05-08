@@ -4,7 +4,6 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-badge',
   templateUrl: './avatar-badge.component.html',
   styleUrl: 'avatar-badge.component.scss',
@@ -20,7 +19,7 @@ import {BaseComponent} from '../_base/base.component';
 export class AvatarBadgeComponent extends BaseComponent {
   status = input<'away' | 'busy' | 'focus' | 'offline' | 'online' | 'reachable'>('offline');
   size = input<tailwind_sizes>(tailwind_sizes.md);
-  mode = input<'notch'|'overlay'>('notch')
+  mode = input<'notch' | 'overlay'>('notch')
 
   private avatars = contentChildren(AvatarComponent);
 

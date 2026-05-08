@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  contentChildren, Directive,
+  contentChildren,
   effect,
   ElementRef,
   inject,
@@ -14,26 +14,7 @@ import {PixelsPipe} from '../../pipes/pixels/pixels.pipe';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
-@Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'mbr-avatar-group mbr-avatar',
-  host: {
-    '[style.margin-right]': 'is_last_child ? undefined : overlap_value'
-  }
-})
-export class AvatarWithinGroupDirective {
-  private element_ref = inject(ElementRef);
-
-  protected get is_last_child(): boolean {
-    const nativeElement = this.element_ref.nativeElement;
-    return nativeElement.parentElement?.lastElementChild === nativeElement;
-  }
-
-  protected readonly overlap_value = 'var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)))';
-}
-
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-group',
   templateUrl: './avatar-group.component.html',
   styleUrl: './avatar-group.component.scss',
@@ -54,8 +35,8 @@ export class AvatarWithinGroupDirective {
 export class AvatarGroupComponent extends BaseComponent {
   private whole_number_pipe = inject(WholeNumberPipe);
   private px_pipe = inject(PixelsPipe);
-  density = input<'compact'|'loose'>('compact');
-  overlap = input<string|0|undefined, string|undefined|number>(undefined, {transform: this.px_pipe.transform});
+  density = input<'compact' | 'loose'>('compact');
+  overlap = input<string | 0 | undefined, string | undefined | number>(undefined, {transform: this.px_pipe.transform});
   bordered = input<boolean>();
   layering = input<'first_on_top' | 'last_on_top'>('last_on_top');
   limit = input<number, number | string | undefined>(undefined, {transform: this.whole_number_pipe.transform});
@@ -64,7 +45,7 @@ export class AvatarGroupComponent extends BaseComponent {
   private avatar_items_as_component = contentChildren(AvatarComponent);
   protected avatar_items_as_html = contentChildren(AvatarComponent, {read: ElementRef});
 
-  protected surplus_text = computed<undefined|string>(() => {
+  protected surplus_text = computed<undefined | string>(() => {
     const limit = this.limit();
     if (!limit || limit <= 0) {
       return undefined;

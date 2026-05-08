@@ -11,3 +11,9 @@
 :host(.loose) {
   --avatar-group-density-multiplier: -0.2;
 }
+
+:host ::ng-deep mbr-avatar:not(:last-child){ /* stylelint-disable-line selector-pseudo-element-no-unknown */
+  --margin-right-fallback: calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier));
+
+  margin-right: var(--avatar-group-overlap, var(--margin-right-fallback));
+}
