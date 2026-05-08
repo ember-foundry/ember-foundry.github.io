@@ -1,0 +1,19 @@
+import {ChangeDetectionStrategy, Component, computed} from '@angular/core';
+
+@Component({
+  selector: 'mbr-svg-checkmark-circle-outline-alexander-haniotis',
+  templateUrl: './svg-checkmark-circle-outline-alexander-haniotis.component.html',
+  styleUrl: '../svg-checkmark-circle-outline.component.scss',
+  host: {
+    '[attr.aria-hidden]': 'true',
+    '[attr.focusable]': 'false'
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SVGCheckmarkCircleOutlineAlexanderHaniotisComponent {
+
+  protected size = 52;
+  protected stroke_width = 4;
+  protected center = computed<number>(() => this.size / 2);
+  protected circle_radius = computed<number>(() => (this.size / 2) - (this.stroke_width / 2));
+}

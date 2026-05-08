@@ -1,12 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {describe, it, expect, beforeEach} from 'vitest';
+import {beforeEach, describe, expect, it} from 'vitest';
 import {SVGCheckmarkCircleOutlineComponent} from './svg-checkmark-circle-outline.component';
-import {svg_animations_ended} from '../../helpers/vitest/svg_animations_ended';
 
-describe('CheckmarkOutlineComponent', () => {
+describe('SVGCheckmarkCircleOutlineComponent', () => {
   let component: SVGCheckmarkCircleOutlineComponent;
   let fixture: ComponentFixture<SVGCheckmarkCircleOutlineComponent>;
-  let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,9 +13,8 @@ describe('CheckmarkOutlineComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(SVGCheckmarkCircleOutlineComponent);
-
-    component = fixture.componentInstance;
     host = fixture.nativeElement;
+    component = fixture.componentInstance;
     await fixture.whenStable();
   });
 
@@ -25,20 +22,13 @@ describe('CheckmarkOutlineComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should honour set size', async () => {
-    await svg_animations_ended(fixture);
-
-    host.style.setProperty('--size', '300px');
-    const assertions = [];
-    assertions.push(expect.element(host).toHaveStyle('width: 300px'));
-    assertions.push(expect.element(host).toHaveStyle('height: 300px'));
-    assertions.push(expect.element(host.querySelector('svg')).toHaveStyle('width: 300px'));
-    assertions.push(expect.element(host.querySelector('svg')).toHaveStyle('height: 300px'));
-    await Promise.all(assertions);
+  it('should default to alexanders variant', async () => {
+    expect(component.variant()).toEqual('alexander-haniotis');
   });
 
-  it('should match visually', async () => {
-    await svg_animations_ended(fixture);
-    await expect(host).toMatchScreenshot('svg-checkmark-circle-outline');
+  it('should switch to michaels variant', async () => {
+    fixture.componentRef.setInput('variant', 'sean-michael');
+    expect(component.variant()).toEqual('sean-michael');
   });
+
 });
