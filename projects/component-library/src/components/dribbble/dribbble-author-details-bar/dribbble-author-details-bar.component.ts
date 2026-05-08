@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AvatarComponent} from 'component-library/components/avatar/avatar.component';
+import {AvatarComponent} from '../../avatar/avatar.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-dribbble-author-details-bar',
   imports: [
     AvatarComponent
