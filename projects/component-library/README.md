@@ -4,7 +4,7 @@
 
 #### Components
 ```shell
-component_name='MenuToggle'
+component_name='DribbbleAuthorDetailsBar'
 ng generate component $component_name --project component-library --dry-run
 ```
 

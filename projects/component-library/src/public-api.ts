@@ -7,6 +7,7 @@ export * from './components/baseline-availability/baseline-availability.componen
 export * from './components/callback-status/callback-status.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle.component';
 export * from './components/dice-flat/dice-flat.component';
+export * from './components/dribbble/dribbble-author-details-bar/dribbble-author-details-bar.component';
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';
 export * from './components/flip-card/flip-card.component';
