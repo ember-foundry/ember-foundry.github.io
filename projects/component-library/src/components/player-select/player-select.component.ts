@@ -15,7 +15,6 @@ export interface PlayerAvailableForSelection extends SelectedPlayer {
 type PlayerState = typeof states[number];
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-player-select',
   templateUrl: './player-select.component.html',
   styleUrls: ['./player-select.component.scss'],
@@ -48,7 +47,7 @@ export class MBRPlayerSelectComponent {
 
   protected async start(): Promise<void> {
     const players = this.players()!.filter(p => p.state !== 'inactive');
-    if(players.length < 2){
+    if (players.length < 2) {
       this.valid.set(false);
       return;
     }

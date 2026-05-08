@@ -1,5 +1,5 @@
 import {mount} from 'cypress/angular-zoneless'
-import {AvatarGroupComponent, AvatarWithinGroupDirective} from 'component-library';
+import {AvatarGroupComponent} from 'component-library';
 import {AvatarComponent} from 'component-library';
 
 describe('AvatarGroupComponent', () => {
@@ -18,7 +18,6 @@ describe('AvatarGroupComponent', () => {
         </mbr-avatar-group>`, {
       imports: [
         AvatarComponent,
-        AvatarWithinGroupDirective,
         AvatarGroupComponent
       ]
     });
@@ -61,7 +60,6 @@ describe('AvatarGroupComponent', () => {
       `, {
       imports: [
         AvatarComponent,
-        AvatarWithinGroupDirective,
         AvatarGroupComponent
       ]
     });

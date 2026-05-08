@@ -5,7 +5,6 @@ import {BaseComponent} from '../../_base/base.component';
 type SupportedFlexGrowValues = number | undefined | 'inherit' | 'initial' | 'unset' | 'revert';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-column',
   template: '<ng-content></ng-content>',
   styleUrl: './flexbox-column.component.scss',
@@ -19,5 +18,5 @@ type SupportedFlexGrowValues = number | undefined | 'inherit' | 'initial' | 'uns
 export class FlexboxColumnComponent extends BaseComponent {
   grow = input<SupportedFlexGrowValues>(undefined);
   shrink = input<SupportedFlexGrowValues>(undefined);
-  basis = input<string|undefined>(undefined);
+  basis = input<string | undefined>(undefined);
 }

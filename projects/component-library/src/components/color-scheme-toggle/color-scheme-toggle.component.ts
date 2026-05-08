@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, effect, model, output} from '@angula
 import {ToggleComponent} from '../toggle/toggle.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-color-scheme-toggle',
   templateUrl: './color-scheme-toggle.component.html',
   styleUrl: './color-scheme-toggle.component.scss',

@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {AvatarWithLabelComponent, AvatarLabelComponent} from 'component-library';
+import {AvatarWithLabelComponent, AvatarLabelDirective, AvatarComponent} from 'component-library';
 import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
 
 const meta: Meta<AvatarWithLabelComponent> = {
@@ -7,8 +7,8 @@ const meta: Meta<AvatarWithLabelComponent> = {
   decorators: [
     moduleMetadata({
       imports: [
-        // AvatarLabelDirective
-        AvatarLabelComponent
+        AvatarComponent,
+        AvatarLabelDirective
       ]
     })
   ],

@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {KoFiMenuToggleComponent} from '../ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-menu-toggle',
   imports: [
     KoFiMenuToggleComponent

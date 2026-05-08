@@ -1,21 +1,10 @@
-import {ChangeDetectionStrategy, Component, Directive, effect, input, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, input, signal} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarBadgeComponent} from '../avatar-badge/avatar-badge.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
 
-@Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'mbr-avatar-checkbox mbr-avatar',
-  host: {
-    '[style.--avatar-padding]': "'var(--avatar-border-width)'"
-  }
-})
-export class AvatarInsideAvatarCheckboxDirective {
-}
-
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,
@@ -30,7 +19,6 @@ export class AvatarInsideAvatarCheckboxDirective {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarCheckboxComponent extends BaseComponent {
-
   image_url = input<string>('https://mockmind-api.uifaces.co/content/human/1.jpg?v=' + new Date().getTime());
   size = input<tailwind_sizes>(tailwind_sizes.md);
   selected = input(false);

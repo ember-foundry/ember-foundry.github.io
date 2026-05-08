@@ -7,7 +7,6 @@ import type {
 } from '../flexbox.types';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-row',
   templateUrl: './flexbox-row.component.html',
   styleUrl: './flexbox-row.component.scss',
@@ -22,10 +21,10 @@ import type {
   }
 })
 export class FlexboxRowComponent {
-  align_content = input<SupportedAlignContent|undefined>(undefined);
+  align_content = input<SupportedAlignContent | undefined>(undefined);
   align_items = input<SupportedAlignItems | undefined>(undefined);
   direction = input<SupportedDirections>();
-  gap =  input<string|number|undefined>(undefined);
+  gap = input<string | number | undefined>(undefined);
   inline = input<boolean>();
   justify_content = input<SupportedJustifyContent | undefined>(undefined);
 }

@@ -1,9 +1,10 @@
 import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
-import {SVGCheckmarkCircleOutlineComponent} from '../svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
+import {
+  SVGCheckmarkCircleOutlineComponent
+} from '../svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-callback-status',
   templateUrl: 'callback-status.component.html',
   styleUrl: 'callback-status.component.scss',
@@ -17,7 +18,7 @@ import {SVGCheckmarkCircleOutlineComponent} from '../svg-checkmark-circle-outlin
 })
 export class CallbackStatusComponent extends BaseComponent {
 
-  status = input<'success'|'error'|'processing'>('processing');
+  status = input<'success' | 'error' | 'processing'>('processing');
 
   cta_click = output<void>();
 }

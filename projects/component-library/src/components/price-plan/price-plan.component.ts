@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-price-plan',
   imports: [
     CurrencyPipe
