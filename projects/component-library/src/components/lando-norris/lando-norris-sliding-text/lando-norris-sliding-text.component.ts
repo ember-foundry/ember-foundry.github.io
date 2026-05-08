@@ -3,9 +3,7 @@ import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core
 const segmenter = new Intl.Segmenter('en', {granularity: 'grapheme'});
 
 @Component({
-  //eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-lando-norris-sliding-text',
-  imports: [],
   templateUrl: './lando-norris-sliding-text.component.html',
   styleUrls: [
     '../lando-norris-fonts.scss',

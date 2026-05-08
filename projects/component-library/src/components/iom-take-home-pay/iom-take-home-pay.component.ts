@@ -31,7 +31,6 @@ export interface TaxForm {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-iom-take-home-pay',
   templateUrl: './iom-take-home-pay.component.html',
   styleUrl: './iom-take-home-pay.component.scss',

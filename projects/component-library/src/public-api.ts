@@ -3,6 +3,7 @@ export * from './components/avatar-badge/avatar-badge.component';
 export * from './components/avatar-checkbox/avatar-checkbox.component';
 export * from './components/avatar-group/avatar-group.component';
 export * from './components/avatar-with-label/avatar-with-label.component';
+export * from './components/avatar-with-label/avatar-label.directive';
 export * from './components/baseline-availability/baseline-availability.component';
 export * from './components/callback-status/callback-status.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle.component';
@@ -31,7 +32,7 @@ export * from './components/svg-checkmark-circle-filled-alternate/svg-checkmark-
 export * from './components/svg-checkmark-circle-outline/svg-checkmark-circle-outline.component';
 export * from './components/toggle-switch/toggle-switch.component';
 export * from './components/toggle-switch-seesaw/toggle-switch-seesaw.component';
-export * from './components/vuexy/theme-customizer-trigger/theme-customizer-trigger.component';
+export * from './components/vuexy/vuexy-theme-customizer-trigger/vuexy-theme-customizer-trigger.component';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/tooltip/tooltip.directive';
 export * from './pipes/initials/initials.pipe';

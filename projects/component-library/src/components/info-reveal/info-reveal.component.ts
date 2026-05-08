@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, model} from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-info-reveal',
   templateUrl: './info-reveal.component.html',
   styleUrl: './info-reveal.component.scss',

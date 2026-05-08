@@ -1,7 +1,6 @@
 import {Directive, ElementRef, OnDestroy, Renderer2, inject, input} from '@angular/core';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[mbrTooltip]',
   host: {
     '(mouseenter)': 'on_mouseenter($event)',
@@ -115,6 +114,7 @@ export class TooltipDirective implements OnDestroy {
     this.tooltip_el = tooltip;
 
     this.renderer.addClass(tooltip, 'mbr-tooltip');
+    this.renderer.setAttribute(tooltip, 'aria', 'tooltip');
     this.renderer.setStyle(tooltip, 'position', 'fixed');
     this.renderer.setStyle(tooltip, 'pointer-events', 'none');
     this.renderer.setStyle(tooltip, 'z-index', '10000');

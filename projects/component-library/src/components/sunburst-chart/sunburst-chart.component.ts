@@ -22,7 +22,6 @@ interface SunburstSVGItem extends SunburstItem {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-sunburst-chart',
   templateUrl: './sunburst-chart.component.html',
   styleUrl: './sunburst-chart.component.scss',
@@ -68,7 +67,9 @@ export class SunburstChartComponent {
         const ty = center + text_r * Math.sin((mid_angle - 90) * Math.PI / 180);
 
         let rot = mid_angle;
-        if (rot > 90 && rot < 270) { rot -= 180; }
+        if (rot > 90 && rot < 270) {
+          rot -= 180;
+        }
 
         result.push({
           ...item,

@@ -142,7 +142,7 @@ export const WithCustomPNGImage: Story = {
     ].join(' ');
     return {
       template: `<mbr-avatar ${inputs}>
-            <img libAvatarImage src="https://mockmind-api.uifaces.co/content/human/222.jpg" />
+            <img mbrAvatarImage src="https://mockmind-api.uifaces.co/content/human/222.jpg" />
         </mbr-avatar>
       `
     }
@@ -156,7 +156,7 @@ export const WithCustomSVGImage: Story = {
     ].join(' ');
     return {
       template: `<mbr-avatar ${inputs}>
-            <svg libAvatarImage xmlns="http://www.w3.org/2000/svg" fill="none" height="63" viewBox="0 0 63 63" width="63">
+            <svg mbrAvatarImage xmlns="http://www.w3.org/2000/svg" fill="none" height="63" viewBox="0 0 63 63" width="63">
                 <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="34.9087" x2="7.63224" y1="61.029" y2="13.7847">
                     <stop offset="0" stop-color="#1e8e3e"/>
                     <stop offset="1" stop-color="#34a853"/>

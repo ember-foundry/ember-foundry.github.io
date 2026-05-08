@@ -40,7 +40,7 @@ module.exports = ts_eslint.config(
         'error',
         {
           type: 'attribute',
-          prefix: 'lib',
+          prefix: 'mbr',
           style: 'camelCase',
         },
       ],
@@ -48,7 +48,7 @@ module.exports = ts_eslint.config(
         'error',
         {
           type: 'element',
-          prefix: 'lib',
+          prefix: 'mbr',
           style: 'kebab-case',
         },
       ],

@@ -4,7 +4,7 @@ import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 @Directive({
-  selector: 'img[libAvatarImage], svg[libAvatarImage]',
+  selector: 'img[mbrAvatarImage], svg[mbrAvatarImage]',
   host: {
     '[style.border-radius]': "'inherit'",
     '[style.height]': "'100%'",
@@ -18,7 +18,6 @@ export class AvatarImageDirective {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar',
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',

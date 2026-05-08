@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-svg-checkmark-circle-filled',
   templateUrl: './svg-checkmark-circle-filled.component.html',
   styleUrl: './svg-checkmark-circle-filled.component.scss',
