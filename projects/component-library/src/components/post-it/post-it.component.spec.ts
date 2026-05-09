@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PostItComponent } from './post-it.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {beforeEach, describe, expect, it} from 'vitest';
+import {PostItComponent} from './post-it.component';
 
 describe('PostItComponent', () => {
   let component: PostItComponent;
@@ -10,7 +10,7 @@ describe('PostItComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PostItComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PostItComponent);
     component = fixture.componentInstance;
