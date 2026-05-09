@@ -23,6 +23,7 @@ export * from './components/marquee/marquee.component';
 export * from './components/menu-toggle/menu-toggle.component';
 export * from './components/multi-toggle-switch/multi-toggle-switch.component';
 export * from './components/player-select/player-select.component';
+export * from './components/post-it/post-it.component';
 export * from './components/price-plan/price-plan.component';
 export * from './components/sunburst-chart/sunburst-chart.component';
 export * from './components/sunburst-chart-legend/sunburst-chart-legend.component';
