@@ -4,6 +4,9 @@ on:
     - cron: '0 0 * * *' # Runs daily at midnight UTC
   workflow_dispatch:      # Allows manual trigger for testing
 
+permissions:
+  contents: write
+
 jobs:
   merge-branch:
     runs-on: ubuntu-latest
