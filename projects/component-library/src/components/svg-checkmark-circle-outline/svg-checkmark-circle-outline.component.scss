@@ -1,6 +1,7 @@
 :host {
   aspect-ratio: 1;
   height: var(--size, 200px);
+  stroke: var(--color-status-success);
   width: var(--size, 200px);
 }
 

@@ -10,7 +10,7 @@ const meta: Meta<CallbackStatusComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'callback', 'status'],
+  tags: ['autodocs', 'callback', 'status', 'card'],
   argTypes: {
     status: {
       control: 'select',

@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-svg-checkmark-circle-filled-alternate',
   templateUrl: './svg-checkmark-circle-filled-alternate.component.html',
   styleUrl: './svg-checkmark-circle-filled-alternate.component.scss',
@@ -11,4 +10,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SVGCheckmarkCircleFilledAlternateComponent {}
+export class SVGCheckmarkCircleFilledAlternateComponent {
+}

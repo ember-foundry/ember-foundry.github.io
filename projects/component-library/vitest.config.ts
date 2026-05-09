@@ -33,17 +33,7 @@ export default defineConfig({
             height: 720
           }
         }
-      ],
-      expect: {
-        toMatchScreenshot: {
-          resolveScreenshotPath: ({root, testFileDirectory, testFileName, arg, browserName, ext}) => {
-            return `${root}/${testFileDirectory}/__screenshots__/${testFileName}/${arg}-${browserName}${ext}`;
-          },
-          resolveDiffPath: ({root, attachmentsDir, testFileDirectory, testFileName, arg, browserName, ext}) => {
-            return `${root}/${attachmentsDir}/${testFileDirectory}/${testFileName}/${arg}-${browserName}${ext}`;
-          }
-        }
-      }
+      ]
     },
     coverage: {
       enabled: true,
@@ -51,7 +41,7 @@ export default defineConfig({
       reporter: ['html'],
       thresholds: {
         statements: 97,
-        branches: 77, // global threshold // TODO: all coverage should be 90
+        branches: 88, // TODO: all coverage should be 90
         functions: 100,
         lines: 97
       }

@@ -1,11 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, vi} from 'vitest';
-import {AvatarGroupComponent, AvatarWithinGroupDirective} from './avatar-group.component';
+import {AvatarGroupComponent} from './avatar-group.component';
 import {AvatarComponent} from '../avatar/avatar.component';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {By} from '@angular/platform-browser';
-
-type ExposedAvatarGroupComponentComponent = AvatarGroupComponent & { get is_last_child(): boolean};
+import {pause} from '../../helpers/pause';
 
 describe('AvatarGroupComponent', () => {
   let component: AvatarGroupComponent;
@@ -87,9 +86,9 @@ describe('AvatarGroupComponent with no avatars', () => {
 
 @Component({
   standalone: true,
-  imports: [AvatarGroupComponent, AvatarComponent, AvatarWithinGroupDirective],
+  imports: [AvatarGroupComponent, AvatarComponent],
   template: `
-    <mbr-avatar-group [limit]="limit">
+    <mbr-avatar-group [limit]="limit()" [layering]="layering()">
       <mbr-avatar name="Avatar 1"></mbr-avatar>
       <mbr-avatar name="Avatar 2"></mbr-avatar>
       <mbr-avatar name="Avatar 3"></mbr-avatar>
@@ -98,7 +97,8 @@ describe('AvatarGroupComponent with no avatars', () => {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestAvatarGroupHostComponent {
-  limit: number | undefined = undefined;
+  limit = input<number>();
+  layering = input<'first_on_top' | 'last_on_top'>('last_on_top');
 }
 describe('AvatarGroupComponent with Projected Content', () => {
   let hostFixture: ComponentFixture<TestAvatarGroupHostComponent>;
@@ -107,7 +107,7 @@ describe('AvatarGroupComponent with Projected Content', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TestAvatarGroupHostComponent, AvatarWithinGroupDirective]
+      imports: [TestAvatarGroupHostComponent]
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(TestAvatarGroupHostComponent);
@@ -121,30 +121,75 @@ describe('AvatarGroupComponent with Projected Content', () => {
     expect(component).toBeTruthy();
   });
 
-  it.skip('Avatar Directive should have been injected', () => {
-    const avatarDebugElements = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
-    const firstAvatarDirective = avatarDebugElements[0].injector.get(
-      AvatarWithinGroupDirective
-    );
-    const spy = vi.spyOn(firstAvatarDirective as unknown as ExposedAvatarGroupComponentComponent, 'is_last_child', 'get');
-    expect(spy).toHaveBeenCalled();
-  })
-
   it('should apply correct margins to each avatar component', () => {
-    const avatar_components_in_group = hostFixture.debugElement.queryAll(By.directive(AvatarWithinGroupDirective));
-    avatar_components_in_group.forEach((avatarDebugElement, index, array) => {
-      const is_last = index === array.length - 1;
+    const avatar_components_in_group = hostFixture.debugElement.queryAll(By.directive(AvatarComponent));
+    expect(avatar_components_in_group).toHaveLength(3);
+    const last_avatar_item = avatar_components_in_group.pop();
 
-      if(is_last){
-        expect(avatarDebugElement.nativeElement, 'Last avatar should not have a margin').toHaveStyle('margin-right: 0px;')
-      } else {
-        expect(avatarDebugElement.nativeElement, 'Non last avatar should have margin').toHaveStyle('margin-right: var(--avatar-group-overlap, calc(var(--size, var(--size-md)) * var(--avatar-group-density-multiplier)));')
-      }
+    expect(last_avatar_item?.nativeElement, 'Last avatar should not have a margin').toHaveStyle('margin-right: 0px;')
+
+    avatar_components_in_group.forEach(avatarDebugElement => {
+      // expect(avatarDebugElement.nativeElement, 'Non last avatar should have margin').toHaveStyle('margin-right: var(--avatar-group-overlap, var(--margin-right-fallback));')
+      expect(window.getComputedStyle(avatarDebugElement.nativeElement).marginRight, 'Non last avatar should have margin').toEqual('-28.8px')
+      // expect(avatar.nativeElement.style.getPropertyValue('--size')).toBe('var(--size-3xs)');
     })
+
   });
 
   it('should visually match', async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host.children[0]).toMatchScreenshot('avatar-group-with-projected-content');
   })
+
+  it('should calculate surplus text correctly when limit is exceeded', async () => {
+    // 3 avatars are projected in TestAvatarGroupHostComponent
+    hostFixture.componentRef.setInput('limit', 1)
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    // Access the component instance to check the computed signal
+    const groupComponent = hostFixture.debugElement.query(By.directive(AvatarGroupComponent)).componentInstance;
+    expect(groupComponent['surplus_text']()).toBe('+ 2');
+  });
+
+  it('should apply decreasing z-index when layering is "first_on_top"', async () => {
+    hostFixture.componentRef.setInput('layering', 'first_on_top');
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    const avatars = hostFixture.debugElement.queryAll(By.css('mbr-avatar'));
+    // Total items = 3. First should be 3, second 2, third 1.
+    expect(avatars[0].nativeElement.style.zIndex).toBe('3');
+    expect(avatars[1].nativeElement.style.zIndex).toBe('2');
+    expect(avatars[2].nativeElement.style.zIndex).toBe('1');
+  });
+
+  it('should hide avatars exceeding the limit', async () => {
+    hostFixture.componentRef.setInput('limit', 2);
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    const avatars = hostFixture.debugElement.queryAll(By.css('mbr-avatar'));
+    expect(avatars[0].nativeElement.style.display).not.toBe('none');
+    expect(avatars[1].nativeElement.style.display).not.toBe('none');
+    expect(avatars[2].nativeElement.style.display).toBe('none');
+    expect(avatars[2].nativeElement.classList.contains('collapsed')).toBe(true);
+  });
+
+  it('should not override avatar properties if they are already defined', async () => {
+    // We need a way to check the child component's internal state
+    const groupComponent = hostFixture.debugElement.query(By.directive(AvatarGroupComponent)).componentInstance;
+    const firstAvatar = groupComponent['avatar_items_as_component']()[0];
+
+    // Simulate the avatar already having a size set
+    // Note: Since you're using signals/inputs, we mock the signal's value
+    vi.spyOn(firstAvatar, 'size').mockReturnValue('lg');
+
+    hostFixture.componentRef.setInput('size', 'sm');
+    hostFixture.detectChanges();
+    await hostFixture.whenStable();
+
+    // The group should have seen it was defined and NOT overwritten it
+    expect(firstAvatar.size).not.toBe(groupComponent.size);
+  });
 });

@@ -1,8 +1,9 @@
-import { BaselineAvailabilityComponent } from './baseline-availability.component';
+import {BaselineAvailabilityComponent} from './baseline-availability.component';
 import {expect, it, describe, beforeEach} from 'vitest';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
+import {pause} from '../../helpers/pause';
 
 describe('BaselineAvailabilityComponent', () => {
   let component: BaselineAvailabilityComponent;
@@ -116,7 +117,7 @@ describe('BaselineAvailabilityComponent', () => {
   });
 
   it('should visually match', async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host).toMatchScreenshot('baseline-availability-none-supported');
   })
 });

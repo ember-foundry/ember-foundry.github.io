@@ -12,7 +12,6 @@ import {NgTemplateOutlet} from '@angular/common';
 import {BaseComponent} from '../_base/base.component';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'ng-template[mbrMarqueeTemplate]'
 })
 export class MarqueeItemTemplateDirective {
@@ -20,7 +19,6 @@ export class MarqueeItemTemplateDirective {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-marquee',
   templateUrl: './marquee.component.html',
   styleUrl: './marquee.component.scss',
@@ -39,23 +37,23 @@ export class MarqueeItemTemplateDirective {
 })
 export class MarqueeComponent extends BaseComponent {
 
-  orientation = input<'horizontal'|'vertical'>('horizontal')
-  direction = input<'normal'|'reverse'>('normal');
+  orientation = input<'horizontal' | 'vertical'>('horizontal')
+  direction = input<'normal' | 'reverse'>('normal');
   fade = input<boolean>(true);
   pause_on_hover = input<boolean>(true);
   speed = input<number>(1);
 
-  flex_direction = computed<'row'|'row-reverse'|'column'|'column-reverse'>(() => {
+  flex_direction = computed<'row' | 'row-reverse' | 'column' | 'column-reverse'>(() => {
     const orientation = this.orientation();
     const direction = this.direction();
-    if(orientation === 'horizontal'){
-      if(direction === 'reverse'){
+    if (orientation === 'horizontal') {
+      if (direction === 'reverse') {
         return 'row-reverse';
       } else {
         return 'row';
       }
     } else {
-      if(direction === 'reverse'){
+      if (direction === 'reverse') {
         return 'column-reverse';
       } else {
         return 'column';
@@ -65,7 +63,7 @@ export class MarqueeComponent extends BaseComponent {
 
   host_css_classes = computed<string>(() => `direction-${this.direction()} orientation-${this.orientation()}`)
 
-  marquee_animation_direction = computed<1|-1>(() => this.direction() === 'normal' ? -1 : 1);
+  marquee_animation_direction = computed<1 | -1>(() => this.direction() === 'normal' ? -1 : 1);
   template = contentChild.required(MarqueeItemTemplateDirective);
 
 }

@@ -1,6 +1,7 @@
 import {beforeEach, describe, expect, it} from "vitest";
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AvatarWithLabelComponent} from './avatar-with-label.component';
+import {pause} from '../../helpers/pause';
 
 describe('AvatarWithLabelComponent', () => {
 
@@ -27,7 +28,7 @@ describe('AvatarWithLabelComponent', () => {
     expect(component).toBeTruthy();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('John Doe');
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host).toMatchScreenshot('avatar-with-label');
   });
 

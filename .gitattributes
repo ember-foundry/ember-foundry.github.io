@@ -1,16 +1,1 @@
-projects/component-library/src/components/color-scheme-toggle/__screenshots__/color-scheme-toggle.component.spec.ts/color-scheme-toggle-light-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/multi-toggle-switch/__screenshots__/multi-toggle-switch.component.spec.ts/multi-toggle-switch-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/svg-checkmark-circle-outline/__screenshots__/svg-checkmark-circle-outline.component.spec.ts/svg-checkmark-circle-outline-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/color-scheme-toggle/__screenshots__/color-scheme-toggle.component.spec.ts/color-scheme-toggle-dark-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/multi-toggle-switch/__screenshots__/multi-toggle-switch.component.spec.ts/MultiToggleSwitchComponent-should-match-visually-1.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/svg-checkmark-circle-filled-alternate/__screenshots__/svg-checkmark-circle-filled-alternate.component.spec.ts/svg-checkmark-circle-filled-alternate-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/toggle-switch/__screenshots__/toggle-switch.component.spec.ts/toggle-switch-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/avatar-badge/__screenshots__/avatar-badge.component.spec.ts/avatar-badge-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/avatar-group/__screenshots__/avatar-group.component.spec.ts/avatar-group-with-projected-content-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/avatar-with-label/__screenshots__/avatar-with-label.component.spec.ts/avatar-with-label-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/svg-checkmark-circle-filled/__screenshots__/svg-checkmark-circle-filled.component.spec.ts/svg-checkmark-circle-filled-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/svg-checkmark/__screenshots__/svg-checkmark.component.spec.ts/svg-checkmark-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/toggle-switch-seesaw/__screenshots__/toggle-switch-seesaw.component.spec.ts/toggle-switch-seesaw-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/vuexy/theme-customizer-trigger/__screenshots__/theme-customizer-trigger.component.spec.ts/vuexy-theme-customizer-trigger-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/baseline-availability/__screenshots__/baseline-availability.component.spec.ts/baseline-availability-none-supported-chromium.png filter=lfs diff=lfs merge=lfs -text
-projects/component-library/src/components/lando-norris/lando-norris-card/__screenshots__/lando-norris-card.component.spec.ts/lando-norris-card-chromium.png filter=lfs diff=lfs merge=lfs -text
+**/__screenshots__/**/*.png filter=lfs diff=lfs merge=lfs -text

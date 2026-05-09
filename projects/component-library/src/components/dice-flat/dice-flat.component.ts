@@ -18,7 +18,6 @@ interface PipPosition {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-dice-flat',
   templateUrl: 'dice-flat.component.html',
   styleUrl: 'dice-flat.component.scss',
@@ -26,7 +25,7 @@ interface PipPosition {
 })
 export class DiceFlatComponent extends BaseComponent {
   public size = input<number>(188);
-  public value = input<number|undefined>(undefined);
+  public value = input<number | undefined>(undefined);
 
   protected border_thickness = computed<number>(() => this.size() * 0.085);
   protected border_radius = computed<number>(() => this.size() * 0.125);

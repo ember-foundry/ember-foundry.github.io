@@ -9,7 +9,6 @@ const ALL_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 type Browser = (typeof ALL_BROWSERS)[number];
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-baseline-availability',
   imports: [
     AvatarComponent,
@@ -21,17 +20,15 @@ type Browser = (typeof ALL_BROWSERS)[number];
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaselineAvailabilityComponent extends BaseComponent {
-
   size = input<tailwind_sizes>(tailwind_sizes['3xs']);
   supported = input<Browser[]>([]);
-
 
   protected groups = computed<{ browsers: Browser[], status: 'supported' | 'unsupported' }[]>(() => {
     const supported_browsers = this.supported();
 
     return [
-      { browsers: supported_browsers, status: 'supported' },
-      { browsers: ALL_BROWSERS.filter(key => !supported_browsers.includes(key)), status: 'unsupported' }
+      {browsers: supported_browsers, status: 'supported'},
+      {browsers: ALL_BROWSERS.filter(key => !supported_browsers.includes(key)), status: 'unsupported'}
     ]
   });
 }

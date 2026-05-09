@@ -1,19 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {describe, it, expect, beforeEach} from 'vitest';
-import {ThemeCustomizerTriggerComponent} from './theme-customizer-trigger.component';
+import {VuexyThemeCustomizerTriggerComponent} from './vuexy-theme-customizer-trigger.component';
+import {pause} from '../../../helpers/pause';
 
 describe('ThemeCustomizerTrigger', () => {
-  let component: ThemeCustomizerTriggerComponent;
-  let fixture: ComponentFixture<ThemeCustomizerTriggerComponent>;
+  let component: VuexyThemeCustomizerTriggerComponent;
+  let fixture: ComponentFixture<VuexyThemeCustomizerTriggerComponent>;
   let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ThemeCustomizerTriggerComponent]
+      imports: [VuexyThemeCustomizerTriggerComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(ThemeCustomizerTriggerComponent);
+    fixture = TestBed.createComponent(VuexyThemeCustomizerTriggerComponent);
     component = fixture.componentInstance;
     host = fixture.nativeElement;
     fixture.detectChanges();
@@ -24,7 +25,7 @@ describe('ThemeCustomizerTrigger', () => {
   });
 
   it('should match visually', async() => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await pause(1.5)
     await expect(host).toMatchScreenshot('vuexy-theme-customizer-trigger');
   });
 });

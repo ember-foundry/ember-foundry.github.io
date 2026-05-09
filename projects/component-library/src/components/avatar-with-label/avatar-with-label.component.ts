@@ -2,29 +2,15 @@ import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {AvatarComponent} from '../avatar/avatar.component';
 import {BaseComponent} from '../_base/base.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
+import {AvatarLabelDirective} from './avatar-label.directive';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[mbr-avatar-label], [mbrAvatarLabel]',
-  template: `<ng-content />`,
-  styles: `
-    :host {
-      font-size: 0.8rem;
-      font-weight: 400;
-    }
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class AvatarLabelComponent {}
-
-@Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mbr-avatar-with-label',
   templateUrl: 'avatar-with-label.component.html',
   styleUrl: 'avatar-with-label.component.scss',
   imports: [
     AvatarComponent,
-    AvatarLabelComponent
+    AvatarLabelDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
