@@ -1,8 +1,8 @@
 import {Meta} from '@storybook/angular';
-import {SVGCheckmarkCircleOutlineAlexanderHaniotisComponent} from 'component-library';
+import {SVGCheckmarkCircleOutlineSeanMichaelComponent} from 'component-library';
 
-const meta: Meta<SVGCheckmarkCircleOutlineAlexanderHaniotisComponent> = {
-  component: SVGCheckmarkCircleOutlineAlexanderHaniotisComponent,
+const meta: Meta<SVGCheckmarkCircleOutlineSeanMichaelComponent> = {
+  component: SVGCheckmarkCircleOutlineSeanMichaelComponent,
   parameters: {
     layout: 'centered',
     docs: {
@@ -16,6 +16,6 @@ const meta: Meta<SVGCheckmarkCircleOutlineAlexanderHaniotisComponent> = {
 
 export default meta;
 
-type Story = Meta<SVGCheckmarkCircleOutlineAlexanderHaniotisComponent>;
+type Story = Meta<SVGCheckmarkCircleOutlineSeanMichaelComponent>;
 
 export const Sample: Story = {};
