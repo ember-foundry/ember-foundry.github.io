@@ -13,6 +13,7 @@ describe('SVGLoaderComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(SVGLoaderComponent);
+    fixture.componentRef.setInput('variant', 'ring-resize');
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

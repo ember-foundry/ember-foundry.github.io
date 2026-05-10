@@ -6,5 +6,5 @@ import {ChangeDetectionStrategy, Component, InputSignal} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export abstract class ConvenienceComponent {
-  abstract variant: InputSignal<string>
+  abstract variant: InputSignal<string|undefined>
 }

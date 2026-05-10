@@ -16,5 +16,5 @@ import {SVGLoaderRingResizeComponent} from './svg-loader-ring-resize/svg-loader-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SVGLoaderComponent extends ConvenienceComponent {
-  public variant = input.required<string>();
+  public variant = input<string>();
 }
