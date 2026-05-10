@@ -27,6 +27,7 @@ export default meta;
 type Story = Meta<CallbackStatusComponent>;
 
 export const Sample: Story = {};
+
 export const SuccessfulPayment: Story = {
   args: {
     status: 'success'

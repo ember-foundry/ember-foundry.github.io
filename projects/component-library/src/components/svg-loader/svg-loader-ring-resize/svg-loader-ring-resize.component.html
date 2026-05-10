@@ -1,0 +1,47 @@
+@let _svg_size = 24;
+@let _stroke_width = 3;
+@let _circle_center = _svg_size / 2;
+@let _circle_radius = 9.5;
+
+<svg
+  stroke="var(--color-status-info)"
+  [attr.viewBox]="`0 0 ${_svg_size} ${_svg_size}`"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g>
+    <circle
+      [attr.cx]="_circle_center"
+      [attr.cy]="_circle_center"
+      [attr.stroke-width]="_stroke_width"
+      [attr.r]="_circle_radius"
+      fill="none"
+      stroke-linecap="round"
+    >
+      <animate
+        attributeName="stroke-dasharray"
+        dur="1.5s"
+        calcMode="spline"
+        values="0 150;42 150;42 150;42 150"
+        keyTimes="0;0.475;0.95;1"
+        keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1"
+        repeatCount="indefinite"
+      />
+      <animate
+        attributeName="stroke-dashoffset"
+        dur="1.5s"
+        calcMode="spline"
+        values="0;-16;-59;-59"
+        keyTimes="0;0.475;0.95;1"
+        keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1"
+        repeatCount="indefinite"
+      />
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        dur="2s"
+        values="0 12 12;360 12 12"
+        repeatCount="indefinite"
+      />
+    </circle>
+  </g>
+</svg>
