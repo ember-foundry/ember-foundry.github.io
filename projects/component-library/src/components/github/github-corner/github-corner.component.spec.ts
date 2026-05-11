@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, it, expect } from 'vitest';
 import { GithubCornerComponent } from './github-corner.component';
 
 describe('GithubCornerComponent', () => {
@@ -10,7 +10,7 @@ describe('GithubCornerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [GithubCornerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(GithubCornerComponent);
     component = fixture.componentInstance;
