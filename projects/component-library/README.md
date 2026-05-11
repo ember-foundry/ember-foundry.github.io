@@ -66,9 +66,3 @@ cd dist/component-library
 
 echo 'Go to your application link the library'
 ```
-
----
-
-## Checklist
-* [ ] must be able to update the library via `ng update`
-* [ ] SVG Loader Ring Resize needs to match the Callback Status Component loader
