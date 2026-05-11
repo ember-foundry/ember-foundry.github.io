@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect } from 'vitest';
+import { beforeEach, describe, it, expect } from 'vitest';
 import { GithubCornerComponent } from './github-corner.component';
 
 describe('GithubCornerComponent', () => {
@@ -13,6 +13,7 @@ describe('GithubCornerComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(GithubCornerComponent);
+    fixture.componentRef.setInput('username', 'craigiswayne');
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
