@@ -12,6 +12,7 @@ import { ColorSchemeToggleComponent } from '../color-scheme-toggle.component';
     'style': 'display: inline-flex'
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None
 })
 export class ColorSchemeToggleWithViewTransitionComponent {
