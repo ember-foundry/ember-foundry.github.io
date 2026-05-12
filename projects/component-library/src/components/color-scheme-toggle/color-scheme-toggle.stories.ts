@@ -4,10 +4,12 @@ import {ColorSchemeToggleComponent} from 'component-library';
 const meta: Meta<ColorSchemeToggleComponent> = {
   component: ColorSchemeToggleComponent,
   tags: ['autodocs', 'color', 'scheme', 'toggle'],
+  parameters: {
+    layout: 'centered'
+  },
   argTypes: {
-    scheme: {
-      control: { type: 'radio' },
-      options: ['light', 'dark']
+    active: {
+      control: { type: 'boolean' }
     }
   }
 }
@@ -23,22 +25,23 @@ export const Sample: Story = {
         story: 'Based on <a href="https://web.dev/articles/building/a-theme-switch-component" target="_blank">web.dev theme switch component</a>'
       }
     }
-  },
+  }
+};
+
+export const StartWithDarkMode: Story = {
+  args: {
+    active: true
+  }
+};
+
+export const IconFillsComponentSize: Story = {
   render: (args) => {
     return {
       props: args,
-      styles: [':host{ --size: 100px }']
-      // template: `<mbr-color-scheme-toggle ${inputs}/>`
+      template: `
+        <style>:host{ --size: 100px }</style>
+        <mbr-color-scheme-toggle />
+      `
     }
   }
 };
-// TODO: show the value in a separate story
-// TODO: seperate stories for light and dark
-// TODO: seperate component for the mask
-// export const Sample2: Story = {};
-
-// export const DarkMode: Story = {
-//   args: {
-//     scheme: 'dark'
-//   }
-// };

@@ -1,0 +1,51 @@
+:root {
+  --color-scheme-toggle-mask-x: 50%;
+  --color-scheme-toggle-mask-y: 50%;
+}
+
+body {
+  background-color: var(--background-color, transparent);
+}
+
+body.dark {
+  --background-color: hsl(230deg 55% 4%);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation-name: color-scheme-reveal-in;
+  z-index: 1;
+}
+
+::view-transition-old(root) {
+  animation-delay: .5s;
+  animation-name: color-scheme-reveal-out;
+  z-index: 0;
+}
+
+@keyframes color-scheme-reveal-in {
+  from {
+    clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
+  }
+
+  to {
+    clip-path: circle(150% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
+  }
+}
+
+@keyframes color-scheme-reveal-out {
+  from {
+    clip-path: circle(150% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
+  }
+
+  to {
+    clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
+  }
+}

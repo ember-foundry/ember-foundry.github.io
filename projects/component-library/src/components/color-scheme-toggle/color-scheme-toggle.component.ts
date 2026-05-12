@@ -1,5 +1,7 @@
-import {ChangeDetectionStrategy, Component, effect, model, output} from '@angular/core';
-import {ToggleComponent} from '../toggle/toggle.component';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ToggleComponent } from '../toggle/toggle.component';
+
+let unique_color_scheme_component_id = 0;
 
 @Component({
   selector: 'mbr-color-scheme-toggle',
@@ -11,12 +13,6 @@ import {ToggleComponent} from '../toggle/toggle.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ColorSchemeToggleComponent extends ToggleComponent {
-  public scheme = model<'light' | 'dark'>('light')
-  public color_scheme_change = output<'light' | 'dark'>();
-
-  private when_state_changed = effect(() => {
-    const active = this.active();
-    this.scheme.set(active ? 'dark' : 'light');
-    this.color_scheme_change.emit(this.scheme());
-  })
+  protected scheme = computed<'light' | 'dark'>(() => this.active() ? 'dark' : 'light');
+  protected mask_id = computed<string>(() => `moon-mask-${unique_color_scheme_component_id++}`);
 }
