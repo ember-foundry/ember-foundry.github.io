@@ -1,5 +1,6 @@
 import {Meta} from '@storybook/angular';
 import {LandoNorrisSlidingTextComponent} from 'component-library';
+import {pause} from 'component-library/helpers/pause';
 
 const stylesForTheseStories = `
 :host{
@@ -43,6 +44,12 @@ type Story = Meta<LandoNorrisSlidingTextComponent>;
 export const Sample: Story = {
   args: {
     text: 'LANDO NORRIS'
+  },
+  play: async ({canvasElement: canvasElement, userEvent}) => {
+    await pause(1);
+    const host = canvasElement.querySelector('mbr-lando-norris-sliding-text')!;
+    await userEvent.hover(host);
+    await pause(1);
   }
 }
 
@@ -60,6 +67,29 @@ export const MultipleItems: Story = {
         <mbr-lando-norris-sliding-text text="TWITCH" />
       `
     }
+  },
+  play: async ({canvasElement: canvasElement, userEvent}) => {
+    await pause(1);
+    let host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(1)')!;
+    await userEvent.hover(host);
+    await pause(1);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(2)')!;
+    await userEvent.hover(host);
+    await pause(1);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(3)')!;
+    await userEvent.hover(host);
+    await pause(1);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(4)')!;
+    await userEvent.hover(host);
+    await pause(2);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(3)')!;
+    await userEvent.hover(host);
+    await pause(0.5);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(2)')!;
+    await userEvent.hover(host);
+    await pause(0.5);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(1)')!;
+    await userEvent.hover(host);
   }
 }
 
@@ -77,5 +107,14 @@ export const KnownIssues: Story = {
         <mbr-lando-norris-sliding-text text="gyjp" />
       `
     }
+  },
+  play: async ({canvasElement: canvasElement, userEvent}) => {
+    await pause(1);
+    let host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(1)')!;
+    await userEvent.hover(host);
+    await pause(1);
+    host = canvasElement.querySelector('mbr-lando-norris-sliding-text:nth-of-type(2)')!;
+    await userEvent.hover(host);
+    await pause(1);
   }
 }

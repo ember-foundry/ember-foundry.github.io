@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 
 const segmenter = new Intl.Segmenter('en', {granularity: 'grapheme'});
 
@@ -11,14 +11,18 @@ const segmenter = new Intl.Segmenter('en', {granularity: 'grapheme'});
   ],
   host: {
     'class': 'mona-sans',
-    '[attr.aria-label]': 'text()'
+    '[attr.aria-label]': 'text()',
+    '[class.hover]': 'is_hovering()',
+    '(mouseover)': 'is_hovering.set(true)',
+    '(mouseout)': 'is_hovering.set(false)'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandoNorrisSlidingTextComponent {
   public text = input.required<string>();
+  protected is_hovering = signal(false);
 
-  protected text_array = computed<string[]>(() => {
+  protected letter_array = computed<string[]>(() => {
     return Array.from(segmenter.segment(this.text())).map(_ => _.segment === ' ' ? ' ' : _.segment);
   })
 }
