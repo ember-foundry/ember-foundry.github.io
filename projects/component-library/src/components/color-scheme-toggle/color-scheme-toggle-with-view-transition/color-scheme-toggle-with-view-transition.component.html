@@ -1,1 +1,4 @@
-<mbr-color-scheme-toggle (state_change)="trigger_view_transition_when_state_changed($event)"/>
+<mbr-color-scheme-toggle
+  [active]="active()"
+  (state_change)="trigger_view_transition_when_state_changed($event)"
+/>

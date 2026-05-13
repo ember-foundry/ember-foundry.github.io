@@ -1,51 +1,60 @@
 :root {
   --color-scheme-toggle-mask-x: 50%;
   --color-scheme-toggle-mask-y: 50%;
+  --color-scheme-transition-duration: 0.4s;
+
+  /**
+       * Overwritten in javascript
+       */
+  --color-scheme-circle-size: 150%
+}
+
+html.dark {
+  --background-color: hsl(230deg 55% 4% / 100%);
+
+  color: white;
 }
 
 body {
-  background-color: var(--background-color, transparent);
-}
-
-body.dark {
-  --background-color: hsl(230deg 55% 4%);
+  background-color: var(--background-color, hsl(230deg 80% 98% / 100%));
 }
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation: none;
   mix-blend-mode: normal;
 }
 
-::view-transition-new(root) {
-  animation-name: color-scheme-reveal-in;
+/* REVEAL DARK: New state grows over old state */
+.transition-to-dark::view-transition-new(root) {
+  animation: reveal-light var(--color-scheme-transition-duration) ease-in forwards;
   z-index: 1;
 }
 
-::view-transition-old(root) {
-  animation-delay: .5s;
-  animation-name: color-scheme-reveal-out;
+.transition-to-dark::view-transition-old(root) {
   z-index: 0;
 }
 
-@keyframes color-scheme-reveal-in {
-  from {
-    clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
-  }
-
-  to {
-    clip-path: circle(150% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
-  }
+/* REVEAL LIGHT: Old state (dark) shrinks to reveal new state (light) */
+.transition-to-light::view-transition-old(root) {
+  animation: reveal-dark var(--color-scheme-transition-duration) ease-in forwards;
+  z-index: 1;
 }
 
-@keyframes color-scheme-reveal-out {
-  from {
-    clip-path: circle(150% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
-  }
+.transition-to-light::view-transition-new(root) {
+  z-index: 0;
+}
 
-  to {
-    clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y));
-  }
+@keyframes reveal-light {
+  from { clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y)); }
+  to { clip-path: circle(var(--color-scheme-circle-size) at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y)); }
+}
+
+@keyframes reveal-dark {
+  from { clip-path: circle(var(--color-scheme-circle-size) at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y)); }
+  to { clip-path: circle(0% at var(--color-scheme-toggle-mask-x) var(--color-scheme-toggle-mask-y)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) { animation: none !important; }
 }
