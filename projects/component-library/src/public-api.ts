@@ -7,6 +7,7 @@ export * from './components/avatar-with-label/avatar-label.directive';
 export * from './components/baseline-availability/baseline-availability.component';
 export * from './components/callback-status/callback-status.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle.component';
+export * from './components/color-scheme-toggle/color-scheme-toggle-with-view-transition/color-scheme-toggle-with-view-transition.component';
 export * from './components/dice-flat/dice-flat.component';
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';
