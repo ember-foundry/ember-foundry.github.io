@@ -1,5 +1,5 @@
-import {Meta} from '@storybook/angular';
-import {ColorSchemeToggleComponent} from 'component-library';
+import {Meta, moduleMetadata} from '@storybook/angular';
+import {ColorSchemeToggleComponent, ColorSchemeToggleWithViewTransitionComponent} from 'component-library';
 
 const meta: Meta<ColorSchemeToggleComponent> = {
   component: ColorSchemeToggleComponent,
@@ -41,6 +41,35 @@ export const IconFillsComponentSize: Story = {
       template: `
         <style>:host{ --size: 100px }</style>
         <mbr-color-scheme-toggle />
+      `
+    }
+  }
+};
+
+export const WithViewTransition: Story = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        ColorSchemeToggleWithViewTransitionComponent
+      ]
+    })
+  ],
+  parameters: {
+    docs: {
+      description: {
+        story: `⚠️ View this in Full Screen.<br/>A color scheme toggle component with view transition animation.<br/>Inspired by <a href="https://timdeschryver.dev/">Tim Deschryver's site</a>`
+      }
+    }
+  },
+  args: {
+    active: false
+  },
+  render: (args) => {
+    return {
+      props: args,
+      template: `
+        <style>:host{ --size: 100px }</style>
+        <mbr-color-scheme-toggle-with-view-transition [active]="${args.active}" />
       `
     }
   }
