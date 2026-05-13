@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta = {
-  tags: ['autodocs', 'typography' ],
+  tags: ['typography' ],
   args: {
     example_text: 'Ember Foundry'
   }
@@ -48,7 +48,7 @@ const all_font_weights = [
   }
 ];
 
-export const Sample: StoryObj = {
+export const FontWeights: StoryObj = {
   render: (args) => {
     return {
       styles:  [
