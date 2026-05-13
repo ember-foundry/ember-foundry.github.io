@@ -4,10 +4,7 @@ import {LandoNorrisSlidingTextComponent} from 'component-library';
 const stylesForTheseStories = `
 :host{
   align-items: center;
-  background-color: #d2ff00;
   background-color: #282c20;
-  color: black;
-  color: #dde1d2;
   color: white;
   display: flex;
   flex-direction: column;
@@ -15,10 +12,6 @@ const stylesForTheseStories = `
   min-height: 3rem;
   padding: 2rem 0;
   width: 100%;
-}
-
-hr {
-width: 100%;
 }`;
 
 const meta: Meta<LandoNorrisSlidingTextComponent> = {
@@ -79,8 +72,7 @@ export const KnownIssues: Story = {
       ],
       template: `
         <mbr-lando-norris-sliding-text text="EMOJI😍" />
-        <mbr-lando-norris-sliding-text text="separate words" />
-        <hr/>
+        <hr style="width: 100%"/>
         <p>Lowercase letters with a tail</p>
         <mbr-lando-norris-sliding-text text="gyjp" />
       `

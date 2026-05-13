@@ -19,7 +19,6 @@ export class LandoNorrisSlidingTextComponent {
   public text = input.required<string>();
 
   protected text_array = computed<string[]>(() => {
-    const _text = this.text();
-    return Array.from(segmenter.segment(_text)).map(_ => _.segment);
+    return Array.from(segmenter.segment(this.text())).map(_ => _.segment === ' ' ? ' ' : _.segment);
   })
 }

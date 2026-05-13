@@ -1,3 +1,8 @@
 @for(letter of text_array(); track letter){
-  <span class='letter'>{{letter}}</span>
+  @if(letter === ' '){
+    <span class='space'>&nbsp;</span>
+  }
+  @else {
+    <span class='letter'>{{letter}}</span>
+  }
 }
