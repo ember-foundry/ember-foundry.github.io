@@ -1,102 +1,156 @@
 :host {
   --color-primary: #FF581B;
   --color-muted: #5E5E5E;
-  --color-muted-border: #dddada;
+  --color-muted-lighter: #dddada;
+  --color-background: #f7f7f7; // todo use this everywhere
 
-  aspect-ratio: 4;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  justify-content: center;
+  backdrop-filter: blur(4px);
+  background-color: var(--color-background);
+  border-color: transparent;
+  box-shadow: 0 0 16px 10px var(--color-background);
   max-width: 80vw;
+
+  align-items: center;
+  border: 2px dashed var(--color-muted-lighter);
+  border-radius: 4px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
   position: relative;
   width: 960px;
-}
+  transition: background 0.2s ease, border-color 0.2s ease;
 
-header {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    --grid-color-x: var(--color-muted-lighter);
+    --grid-color-y: var(--color-muted-lighter);
+    --grid-line-thickness: 1px;
+    --grid-size: 50px;
+    background-repeat: no-repeat, repeat, repeat;
+    background-image: radial-gradient(ellipse at center, #00000000 0px, var(--color-background) 80%), linear-gradient(90deg, transparent 0, transparent calc(var(--grid-size) - var(--grid-line-thickness)), var(--grid-color-y) calc(var(--grid-size) - var(--grid-line-thickness)), var(--grid-color-y) var(--grid-size)), linear-gradient(180deg, transparent 0, transparent calc(var(--grid-size) - var(--grid-line-thickness)), var(--grid-color-x) calc(var(--grid-size) - var(--grid-line-thickness)), var(--grid-color-x) var(--grid-size));
+    background-size: 100%, var(--grid-size) 100%, 100% var(--grid-size);
+  }
 }
-
-h2, h4, p {
-  display: inline-flex;
-  margin: 0;
-}
-
 p {
   color: var(--color-muted);
   font-size: 0.75rem;
   font-weight: 400;
 }
 
-section {
+.icon-wrapper {
+  height: 50px;
+  aspect-ratio: 1;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--color-primary), white 65%);
+  color: var(--color-primary);
+}
+
+.content {
+  display: flex;
   align-items: center;
-  aspect-ratio: 4;
-  border: 2px dashed var(--color-muted-border);
-  border-radius: 4px;
-  color: black;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.content.placeholder {
+  padding: 1rem;
+  backdrop-filter: blur(1px);
+}
+
+.content.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background-color: color-mix(in srgb, var(--color-primary), transparent 80%);
+}
+
+.instruction {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  font-style: normal;
-  font-weight: 500;
-  gap: 10px;
-  justify-content: center;
-  line-height: normal;
-  padding: 1rem 2rem;
-  width: 100%;
-}
-
-svg {
-  aspect-ratio: 1;
-  height: 2rem;
-}
-
-.description {
-  align-items: flex-start;
-  display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
   justify-content: center;
   text-align: center;
 }
 
-.text-primary {
-  color: var(--color-primary);
-}
-
-footer {
-  display: flex;
-  justify-content: flex-end;
+.instruction > * {
+  margin: 0;
 }
 
 button {
   background: var(--color-primary);
   border-color: transparent;
-  border-radius: 0.25rem;
+  border-radius: 0.625rem;
   color: #FFF;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 12px 40px;
-
-  &:disabled {
-    background-color: var(--color-muted);
-    cursor: not-allowed;
-
-    &:hover {
-      filter: brightness(120%);
-    }
-  }
 }
 
 input[type="file"] {
+  cursor: pointer;
   height: 100%;
+  isolation: isolate;
   left: 0;
   opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 }
+
+:host(.dragging) {
+  cursor: grab;
+  border-color: var(--color-primary);
+
+  .content.placeholder {
+    visibility: hidden;
+  }
+}
+
+:host(.invalid) {
+  --color-primary: red;
+  animation: disapproving-shake .5s
+}
+
+:host(.valid) {
+  --color-primary: #34A853;
+}
+
+:host(.submitted.valid) {
+  .icon-wrapper {
+    padding: 0;
+  }
+}
+
+@keyframes disapproving-shake {
+  20% {
+    translate: -6px;
+  }
+
+  40% {
+    translate: 6px;
+  }
+
+  60% {
+    translate: -4px;
+  }
+
+  80% {
+    translate: 4px;
+  }
+}
+
+

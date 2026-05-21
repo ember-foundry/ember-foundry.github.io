@@ -10,7 +10,13 @@ const meta: Meta<DragAndDropComponent> = {
   render: (args) => ({
     props: args,
     styles: [
-      `:host { background-color: #F7F7F7; }`
+      `:host {
+        background-color: #F7F7F7;
+        /* https://uiverse.io/kennyotsu-monochromia/spotty-cheetah-65 */
+        background-image: radial-gradient(#dddada87 2px, transparent 0);
+        background-size: 30px 30px;
+        background-position: -5px -5px;
+      }`
     ]
   })
 }

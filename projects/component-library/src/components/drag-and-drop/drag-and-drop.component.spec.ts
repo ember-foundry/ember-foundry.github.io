@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, beforeEach, it, expect } from 'vitest';
 import { DragAndDropComponent } from './drag-and-drop.component';
 
 describe('DragAndDropComponent', () => {
@@ -18,6 +18,6 @@ describe('DragAndDropComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy()
   });
 });
