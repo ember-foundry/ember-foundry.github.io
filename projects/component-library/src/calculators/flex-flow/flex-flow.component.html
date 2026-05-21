@@ -1,0 +1,23 @@
+<h1>flex-flow Shorthand</h1>
+<input type="text" readonly [value]="result()" />
+
+<div class='property'>
+  <label for="flex_direction">flex-direction</label>
+  <select name="flex_direction" [(ngModel)]="flex_direction">
+    <option value="">-- none --</option>
+    <option>row</option>
+    <option>row-reverse</option>
+    <option>column</option>
+    <option>column-reverse</option>
+  </select>
+</div>
+
+<div class='property'>
+  <label for="flex_wrap">flex-wrap</label>
+  <select name="flex_wrap" [(ngModel)]="flex_wrap">
+    <option value="">-- none --</option>
+    <option>nowrap</option>
+    <option>wrap</option>
+    <option>wrap-reverse</option>
+  </select>
+</div>
