@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
-import {ConvenienceComponent} from '../_convenience/convenience.component';
+import {ComponentWithVariants} from '../_component_with_variants/component-with-variants.component';
 import {SVGLoaderThreeDotsComponent} from './svg-loader-three-dots/svg-loader-three-dots.component';
 import {SVGLoaderKFCComponent} from './svg-loader-kfc/svg-loader-kfc.component';
 import {SVGLoaderRingResizeComponent} from './svg-loader-ring-resize/svg-loader-ring-resize.component';
@@ -15,6 +15,6 @@ import {SVGLoaderRingResizeComponent} from './svg-loader-ring-resize/svg-loader-
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SVGLoaderComponent extends ConvenienceComponent {
+export class SVGLoaderComponent extends ComponentWithVariants {
   public variant = input<string>();
 }

@@ -2,9 +2,11 @@ body.sb-show-main.sb-main-fullscreen {
   min-height: 100vh;
   min-width: 100vw;
 
-  #storybook-root {
+  #storybook-root, storybook-root {
+    align-items: center;
     display: flex;
     height: 100vh;
+    justify-content: center;
     width: 100vw;
   }
 }

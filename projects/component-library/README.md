@@ -4,19 +4,19 @@
 
 #### Components
 ```shell
-component_name='SVGCheckmarkCircleOutline'
+component_name=''
 ng generate component $component_name --project component-library --dry-run
 ```
 
 #### Directives
 ```shell
-directive_name="Tooltip"
+directive_name=''
 ng generate directive $directive_name --project component-library --dry-run
 ```
 
 #### Enum
 ```shell
-enum_name=""
+enum_name=''
 ng generate enum $enum_name --project component-library
 ```
 

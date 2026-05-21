@@ -1,0 +1,10 @@
+<header>
+  <h4>{{ title() }}</h4>
+</header>
+<div class="content">
+  <div class="preview" [attr.style]="styles()"></div>
+</div>
+<footer>
+  <span [innerHTML]="description()"></span>
+  <button [cdkCopyToClipboard]="styles()">Copy CSS</button>
+</footer>
