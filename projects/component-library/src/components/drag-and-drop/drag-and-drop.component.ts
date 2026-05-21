@@ -154,7 +154,7 @@ export class DragAndDropComponent {
     const rules = acceptAttr.split(',').map(r => r.trim().toLowerCase());
     return rules.some(rule => {
       if (rule.endsWith('/*')) {
-        return mimeType.startsWith(rule.replace('*', ''));
+        return mimeType.startsWith(rule.slice(0, -1));
       } else if (rule.startsWith('.')) {
         // Backup map for common extensions since file names are hidden on hover
         const ext = rule.substring(1);
@@ -187,7 +187,7 @@ export class DragAndDropComponent {
 
     return rules.some(rule => {
       if (rule.endsWith('/*')) {
-        return mimeType.startsWith(rule.replace('*', ''));
+        return mimeType.startsWith(rule.slice(0, -1));
       } else if (rule.startsWith('.')) {
         return fileName.endsWith(rule);
       }
