@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CardWebGradientsComponent } from './card-web-gradients.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {CardWebGradientsComponent} from './card-web-gradients.component';
 
 describe('CardComponent', () => {
   let component: CardWebGradientsComponent;
@@ -10,10 +10,13 @@ describe('CardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CardWebGradientsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CardWebGradientsComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('title', 'Test Card');
+    fixture.componentRef.setInput('styles', 'background: red');
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 

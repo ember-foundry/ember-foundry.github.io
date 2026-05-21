@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FlexFlowComponent } from './flex-flow.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {FlexFlowComponent} from './flex-flow.component';
 
 describe('FlexFlowComponent', () => {
   let component: FlexFlowComponent;
@@ -10,7 +10,7 @@ describe('FlexFlowComponent', () => {
     await TestBed.configureTestingModule({
       imports: [FlexFlowComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FlexFlowComponent);
     component = fixture.componentInstance;

@@ -13,7 +13,6 @@ import {Directive, input} from '@angular/core';
   }
 })
 export class GridBackgroundDirective {
-
   public mbrGridBackgroundSize = input<string>('30px');
   public mbrGridBackgroundLineThickness = input<string>('1px');
   public mbrGridBackgroundColorX = input<string>('currentColor');

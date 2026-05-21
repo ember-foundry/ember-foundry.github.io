@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SpotifyAlertBoxComponent } from './spotify-alert-box.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {SpotifyAlertBoxComponent} from './spotify-alert-box.component';
 
 describe('SpotifyAlertBoxComponent', () => {
   let component: SpotifyAlertBoxComponent;
@@ -10,7 +10,7 @@ describe('SpotifyAlertBoxComponent', () => {
     await TestBed.configureTestingModule({
       imports: [SpotifyAlertBoxComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SpotifyAlertBoxComponent);
     component = fixture.componentInstance;
