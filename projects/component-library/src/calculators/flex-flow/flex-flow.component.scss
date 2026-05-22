@@ -12,16 +12,14 @@
 * {
   box-sizing: border-box;
   margin: 0;
-}
-
-h1, input {
-  text-align: center;;
+  text-align: center;
 }
 
 input[type="text"] {
   border-color: var(--color-border);
   border-radius: 1em;
   border-style: solid;
+  box-shadow: 0 0 7px 4px #00000017 inset;
   color: #5E5E5E;
   font-size: 2em;
   font-style: italic;
@@ -41,5 +39,4 @@ select {
   font-size: 1em;
   min-width: 160px;
   padding: 0.5em 0.2em;
-  text-align: right;
 }

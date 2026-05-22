@@ -11,7 +11,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardWebGradientsComponent {
-  public title = input.required<string>();
+  public title = input<string>();
   public styles = input.required<string>();
   public description = input<string>();
 }

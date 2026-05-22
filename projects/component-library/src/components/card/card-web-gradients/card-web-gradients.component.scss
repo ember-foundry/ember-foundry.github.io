@@ -10,6 +10,7 @@
   overflow: hidden;
   padding: 1.75rem;
   position: relative;
+  row-gap: 1rem;
   transition: box-shadow .25s, transform .25s;
   width: 370px;
 }
@@ -42,6 +43,10 @@ footer {
   justify-content: space-between;
 }
 
+footer {
+  column-gap: 2rem;
+}
+
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 :host ::ng-deep a {
   color: inherit;
@@ -71,6 +76,9 @@ button {
 }
 
 :host(:hover) {
+  box-shadow: 5px 12px 20px #24252621;
+  transform: translateY(-2px);
+
   button::before {
     width: calc(100% - 30px);
   }

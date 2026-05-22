@@ -16,6 +16,6 @@ export class FlexFlowComponent {
     const dir = this.flex_direction();
     const wrap = this.flex_wrap();
 
-    return [dir, wrap].filter(i => !!i).join(' ') || 'none';
+    return [dir, wrap].filter(i => !!i).join(' ') || 'initial';
   });
 }
