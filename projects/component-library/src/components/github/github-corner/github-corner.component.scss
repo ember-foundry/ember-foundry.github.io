@@ -1,6 +1,7 @@
 :host {
   aspect-ratio: 1;
   color: var(--github-corner-color, inherit);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
   display: inline-flex;
   position: fixed;
   width: var(--github-corner-size, 80px);
@@ -39,8 +40,13 @@ svg {
   width: 100%;
 }
 
+.body {
+  fill: white;
+}
+
 path.arm {
-  transform-origin: 130px 106px;
+  transform-box: fill-box;
+  transform-origin: bottom right;
 }
 
 :host:hover path.arm {
