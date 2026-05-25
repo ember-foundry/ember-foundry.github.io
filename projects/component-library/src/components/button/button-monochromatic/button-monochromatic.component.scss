@@ -5,42 +5,45 @@
 // aria-invalid:border-destructive
 :host {
   --primary: rgb(3 2 19);
-  --primary-foreground: oklch(1 0 0);
-  //--radius: .625em;
+  --primary-foreground: oklch(100% 0 0deg);
+
+  // --radius: .625em;
   --radius: 8.75px;
-  //--spacing: .25em;
+
+  // --spacing: .25em;
   --spacing: 3.5px;
-  //--text-sm: .875em;
+
+  // --text-sm: .875em;
   --text-sm: 12.25px;
-  --text-sm--line-height: calc(1.25 / .875);
+  --text-sm-line-height: calc(1.25 / .875);
   --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   --default-transition-duration: .15s;
 
   @property --tw-inset-shadow {
-    syntax: "*";
     inherits: false;
     initial-value: 0 0 #0000;
+    syntax: "*";
   }
 
   @property --tw-ring-inset {
-    syntax: "*";
-    inherits: false
+    inherits: false;
+    syntax: "*"
   }
 
   @property --tw-ring-offset-width {
-    syntax: "<length>";
     inherits: false;
     initial-value: 0;
+    syntax: "<length>";
   }
 
   @property --tw-inset-ring-shadow {
-    syntax: "*";
     inherits: false;
     initial-value: 0 0 #0000;
+    syntax: "*";
   }
 
   --tw-shadow: 0 0 #0000;
-  --ring: oklch(.708 0 0);
+  --ring: oklch(70.8% 0 0deg);
   --tw-ease: initial;
   --tw-duration: initial;
 
@@ -50,16 +53,17 @@
   border-radius: calc(var(--radius) - 2px);
   color: var(--primary-foreground);
   display: inline-flex;
-  font-size: var(--text-sm);
   flex-shrink: 0;
+  font-size: var(--text-sm);
   gap: calc(var(--spacing) * 1.5);
   height: calc(var(--spacing) * 8);
-  line-height: var(--tw-leading, var(--text-sm--line-height));
   justify-content: center;
+  line-height: var(--tw-leading, var(--text-sm-line-height));
   outline: none;
   padding-block: 0;
   padding-inline: calc(var(--spacing) * 3);
   white-space: nowrap;
+
   @include fonts.font-weight('medium');
 }
 
@@ -69,8 +73,11 @@
 
 :host(:focus-visible) {
   --tw-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+
   border-color:var(--ring);
+
   --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
 
@@ -83,10 +90,11 @@
   padding-inline: calc(var(--spacing) * 2.5);
 }
 
-svg, :host ::ng-deep svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+:host ::ng-deep svg {
   aspect-ratio: 1;
   flex-shrink: 0;
+  height: calc(var(--spacing) * 4);
   pointer-events: none;
+  width: calc(var(--spacing) * 4);
 }
