@@ -1,0 +1,8 @@
+:host {
+  cursor: pointer;
+}
+
+:host(:disabled) {
+  cursor: not-allowed;
+  user-select: none;
+}
