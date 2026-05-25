@@ -2,7 +2,7 @@
   cursor: pointer;
 }
 
-:host(:disabled) {
+:host(:disabled), :host([disabled]) {
   cursor: not-allowed;
   user-select: none;
 }

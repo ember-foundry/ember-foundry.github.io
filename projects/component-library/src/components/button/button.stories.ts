@@ -40,9 +40,17 @@ export const Monochromatic: StoryObj = {
       }`
     ],
     template: `
-      <p>Default using "button" tag</p>
+      <p>Description</p>
+      <p>Standard</p>
+      <p>Disabled</p>
+
+      <p>No content using "button" tag</p>
       <button mbrButtonChromatic></button>
       <button mbrButtonChromatic disabled></button>
+
+      <p>No content using  "a" tag</p>
+      <a mbrButtonChromatic></a>
+      <a mbrButtonChromatic disabled></a>
 
       <p>Projected Content using "button" tag</p>
       <button mbrButtonChromatic>
@@ -77,10 +85,6 @@ export const Monochromatic: StoryObj = {
         </svg>
         Download Resume
       </button>
-
-      <p>Default using "a" tag</p>
-      <a mbrButtonChromatic></a>
-      <a mbrButtonChromatic disabled></a>
 
       <p>Projected Content using "a" tag </p>
       <a mbrButtonChromatic>
