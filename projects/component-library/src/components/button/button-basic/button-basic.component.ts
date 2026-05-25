@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './button-basic.component.html',
   styleUrls: [
     '../button.component.scss',
-    './button-basic.component.scss',
+    './button-basic.component.scss'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
