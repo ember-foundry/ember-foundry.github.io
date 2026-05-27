@@ -20,7 +20,7 @@ import {NgTemplateOutlet} from '@angular/common';
 })
 export class DragAndDropComponent {
 
-  public accept = input<string|undefined>('image/*');
+  public accept = input<string|undefined>();
 
   public files_requested = output<File[]>();
 

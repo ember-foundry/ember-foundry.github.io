@@ -58,7 +58,9 @@ testing a specific file
 test_file_path_from_repo_root="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
 npm run test -- --watch --testFile $test_file_path_from_repo_root
 ```
-
+> Turning off toMatchScreenshot
+> Search Term: ``await(.*).toMatchScreenshot(.*)``
+> Replace Term: ``// await$1.toMatchScreenshot$2``
 ---
 
 ## Building and Using the Library
@@ -76,3 +78,12 @@ cd dist/component-library
 
 echo 'Go to your application link the library'
 ```
+
+### AI Unit Test Coverage
+Can you create the unit tests for the attached component
+
+Ensure the coverage for the component is 100%
+Ensure the statements coverage is 100%
+Ensure all branches of code are covered
+Ensure function coverage is 100%
+Ensure line coverage is 100%
