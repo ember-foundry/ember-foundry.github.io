@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgTemplateOutlet} from '@angular/common';
-import {TooltipDirective} from 'component-library';
+import {TooltipDirective} from '../../directives/tooltip/tooltip.directive';
 import {CdkCopyToClipboard} from '@angular/cdk/clipboard';
 
 @Component({

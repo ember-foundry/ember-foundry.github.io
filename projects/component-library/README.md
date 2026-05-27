@@ -51,6 +51,16 @@ Below is a breakdown of why
 
 ---
 
+## Testing
+testing a specific file
+
+```shell
+test_file_path_from_repo_root="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
+npm run test -- --watch --testFile $test_file_path_from_repo_root
+```
+
+---
+
 ## Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
 
