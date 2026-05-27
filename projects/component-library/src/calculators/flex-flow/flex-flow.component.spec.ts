@@ -5,6 +5,7 @@ import {FlexFlowComponent} from './flex-flow.component';
 describe('FlexFlowComponent', () => {
   let component: FlexFlowComponent;
   let fixture: ComponentFixture<FlexFlowComponent>;
+  let host: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,10 +15,12 @@ describe('FlexFlowComponent', () => {
 
     fixture = TestBed.createComponent(FlexFlowComponent);
     component = fixture.componentInstance;
+    host = fixture.nativeElement;
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('should create', async () => {
     expect(component).toBeTruthy();
+    await expect(host).toMatchScreenshot('flex-flow-shorthand')
   });
 });
