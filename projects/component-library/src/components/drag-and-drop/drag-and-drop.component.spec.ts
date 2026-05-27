@@ -29,6 +29,7 @@ describe('DragAndDropComponent', () => {
   let component: DragAndDropComponent;
   let fixture: ComponentFixture<DragAndDropComponent>;
   let component_ref: ComponentRef<DragAndDropComponent>;
+  let host: HTMLElement;
 
   beforeEach(async () => {
     mock_drag_event = {
@@ -49,11 +50,13 @@ describe('DragAndDropComponent', () => {
     fixture = TestBed.createComponent(DragAndDropComponent);
     component = fixture.componentInstance;
     component_ref = fixture.componentRef;
+    host = fixture.nativeElement;
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('should create', async () => {
     expect(component).toBeTruthy();
+    await expect(host).toMatchScreenshot('drag-and-drop-idle');
   });
 
   it('should return "Any file format" when accept is undefined', () => {
@@ -101,7 +104,7 @@ describe('DragAndDropComponent', () => {
       expect(mock_drag_event.dataTransfer!.effectAllowed).toBe('move');
     });
 
-    it('on_drag_enter should handle valid files', () => {
+    it('on_drag_enter should handle valid files', async () => {
       mock_drag_event.dataTransfer!.items = [
         {kind: 'file', type: 'image/png'}
       ];
@@ -111,9 +114,11 @@ describe('DragAndDropComponent', () => {
       expect(component['dragging']()).toBe(true);
       expect(component['valid']()).toBe(true);
       expect(component['file_count']()).toBe(1);
+
+      await expect(host).toMatchScreenshot('drag-and-drop-valid');
     });
 
-    it('on_drag_enter should handle invalid files', () => {
+    it('on_drag_enter should handle invalid files', async () => {
       component_ref.setInput('accept', 'image/*');
       fixture.detectChanges();
 
@@ -124,6 +129,9 @@ describe('DragAndDropComponent', () => {
       component['on_drag_enter'](mock_drag_event as unknown as DragEvent);
 
       expect(component['valid']()).toBe(false);
+
+      await pause(1);
+      await expect(host).toMatchScreenshot('drag-and-drop-invalid');
     });
 
     it('on_drag_enter should handle non-file items', () => {
