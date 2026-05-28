@@ -48,7 +48,7 @@ export const Backgrounds: StoryObj = {
       template:
         `
           <h1>Textured Backgrounds</h1>
-          <div class="p-3 grid grid-cols-3 gap-4">
+          <div class="p-3 flex flex-wrap gap-4">
             ${
               backgrounds
                 .map(item => {

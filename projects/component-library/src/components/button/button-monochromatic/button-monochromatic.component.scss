@@ -1,0 +1,100 @@
+@use '../../../styles/fonts';
+
+// aria-invalid:ring-destructive/20
+// dark:aria-invalid:ring-destructive/40
+// aria-invalid:border-destructive
+:host {
+  --primary: rgb(3 2 19);
+  --primary-foreground: oklch(100% 0 0deg);
+
+  // --radius: .625em;
+  --radius: 8.75px;
+
+  // --spacing: .25em;
+  --spacing: 3.5px;
+
+  // --text-sm: .875em;
+  --text-sm: 12.25px;
+  --text-sm-line-height: calc(1.25 / .875);
+  --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  --default-transition-duration: .15s;
+
+  @property --tw-inset-shadow {
+    inherits: false;
+    initial-value: 0 0 #0000;
+    syntax: "*";
+  }
+
+  @property --tw-ring-inset {
+    inherits: false;
+    syntax: "*"
+  }
+
+  @property --tw-ring-offset-width {
+    inherits: false;
+    initial-value: 0;
+    syntax: "<length>";
+  }
+
+  @property --tw-inset-ring-shadow {
+    inherits: false;
+    initial-value: 0 0 #0000;
+    syntax: "*";
+  }
+
+  --tw-shadow: 0 0 #0000;
+  --ring: oklch(70.8% 0 0deg);
+  --tw-ease: initial;
+  --tw-duration: initial;
+
+  align-items: center;
+  background-color: var(--primary);
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--primary-foreground);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: var(--text-sm);
+  gap: calc(var(--spacing) * 1.5);
+  height: calc(var(--spacing) * 8);
+  justify-content: center;
+  line-height: var(--tw-leading, var(--text-sm-line-height));
+  outline: none;
+  padding-block: 0;
+  padding-inline: calc(var(--spacing) * 3);
+  white-space: nowrap;
+
+  @include fonts.font-weight('medium');
+}
+
+:host(:hover){
+  background-color: color-mix(in oklab, var(--primary) 90%, transparent);
+}
+
+:host(:focus-visible) {
+  --tw-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+
+  border-color:var(--ring);
+
+  --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+:host(:disabled), :host([disabled]) {
+  background-color: #F3F3F3;
+  color: #A6A6A6;
+}
+
+:host(:has(>svg)){
+  padding-inline: calc(var(--spacing) * 2.5);
+}
+
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+:host ::ng-deep svg {
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  height: calc(var(--spacing) * 4);
+  pointer-events: none;
+  width: calc(var(--spacing) * 4);
+}

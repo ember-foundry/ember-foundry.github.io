@@ -25,8 +25,8 @@ const meta: Meta<GridBackgroundDirective> = {
   },
   render: (args) => {
     return {
-      styles: ['.square { box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; width: 299px; height: 299px; background-color: #f9f9f9; border-radius: 1rem; }'],
-      template: `<div class="square" mbrGridBackground ${args_to_angular_inputs(args)}></div>`
+      styles: ['.preview { box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; width: 299px; height: 299px; background-color: #f9f9f9; border-radius: 1rem; }'],
+      template: `<div class="preview" mbrGridBackground ${args_to_angular_inputs(args)}></div>`
     }
   }
 }
