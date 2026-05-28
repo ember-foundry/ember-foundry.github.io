@@ -20,8 +20,8 @@ export const Basic: StoryObj = {
     props: args,
     template: `
       <div class="flex gap-3 mb-3">
-        <button mbrButtonBasic>BUTTON</button>
-        <button mbrButtonBasic disabled>BUTTON</button>
+        <button mbrButtonBasic></button>
+        <button mbrButtonBasic disabled></button>
       </div>
     `
   })
