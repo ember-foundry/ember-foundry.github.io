@@ -1,12 +1,13 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonBasicComponent, ButtonMonochromaticComponent} from 'component-library';
+import {ButtonBasicComponent, ButtonMonochromaticComponent, ButtonPlayfulEarthyComponent} from 'component-library';
 
 const meta: Meta = {
   decorators: [
     moduleMetadata({
       imports: [
         ButtonBasicComponent,
-        ButtonMonochromaticComponent
+        ButtonMonochromaticComponent,
+        ButtonPlayfulEarthyComponent
       ]
     })
   ],
@@ -118,6 +119,172 @@ export const Monochromatic: StoryObj = {
           <line x1="12" x2="12" y1="15" y2="3"/>
         </svg>
         Download Resume
+      </a>
+    `
+  })
+}
+
+export const PlayfulEarthy: StoryObj = {
+  render: (args) => ({
+    props: args,
+    styles: [
+      `:host {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr auto auto auto auto;
+        column-gap: 8px;
+        justify-items: flex-start;
+      }`
+    ],
+    template: `
+      <p>Description</p>
+      <p>Standard</p>
+      <p>Primary</p>
+      <p>Accent</p>
+      <p>Disabled</p>
+
+      <p>No content using "button" tag</p>
+      <button mbrButtonPlayfulEarthy></button>
+      <button mbrButtonPlayfulEarthy></button>
+      <button mbrButtonPlayfulEarthy></button>
+      <button mbrButtonPlayfulEarthy disabled></button>
+
+      <p>No content using  "a" tag</p>
+      <a mbrButtonPlayfulEarthy></a>
+      <a mbrButtonPlayfulEarthy></a>
+      <a mbrButtonPlayfulEarthy></a>
+      <a mbrButtonPlayfulEarthy disabled></a>
+
+      <p>Projected Content using "button" tag</p>
+      <button mbrButtonPlayfulEarthy>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+          View
+        </button>
+      <button mbrButtonPlayfulEarthy>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+          View
+        </button>
+      <button mbrButtonPlayfulEarthy>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+          View
+        </button>
+      <button mbrButtonPlayfulEarthy disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        View
+      </button>
+
+      <p>Projected Content using "a" tag </p>
+      <a mbrButtonPlayfulEarthy>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        View
+      </a>
+      <a mbrButtonPlayfulEarthy>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        View
+      </a>
+      <a mbrButtonPlayfulEarthy>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        View
+      </a>
+      <a mbrButtonPlayfulEarthy disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        View
       </a>
     `
   })

@@ -7,6 +7,7 @@ export * from './components/avatar-with-label/avatar-label.directive';
 export * from './components/baseline-availability/baseline-availability.component';
 export * from './components/button/button-basic/button-basic.component';
 export * from './components/button/button-monochromatic/button-monochromatic.component';
+export * from './components/button/button-playful-earthy/button-playful-earthy.component';
 export * from './components/callback-status/callback-status.component';
 export * from './components/card/card.component';
 export * from './components/card/card-web-gradients/card-web-gradients.component';

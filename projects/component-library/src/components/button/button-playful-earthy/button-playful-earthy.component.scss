@@ -1,0 +1,33 @@
+:host {
+  --color-standard-background: #D1A354;
+  --color-standard-border: #805429;
+  --color-standard-shadow: var(--color-standard-border);
+  --color-standard-text: #4A2A0C;
+  --color-background: var(--color-standard-background);
+  --color-border: var(--color-standard-border);
+  --color-text: var(--color-standard-text);
+  --color-shadow: var(--color-standard-shadow);
+
+  align-items: center;
+  background: var(--color-background);
+  border: 3px solid var(--color-shadow);
+  border-radius: 16px;
+  box-shadow: 0 4px 0 0 var(--color-border);
+  color: var(--color-text);
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 0.7px;
+  line-height: 20px; /* 142.857% */
+  padding: 6px 12px;
+  text-align: center;
+  transition-duration: 150ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:host(:active) {
+  box-shadow: none;
+  translate: 0 4px;
+}
