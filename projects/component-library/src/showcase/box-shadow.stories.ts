@@ -16,7 +16,7 @@ export const AviosStyle: StoryObj = {
       }
     }
   },
-  render: (args) => {
+  render: () => {
     return {
       styles:  [
         `

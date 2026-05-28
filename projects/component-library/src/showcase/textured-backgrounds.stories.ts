@@ -38,7 +38,12 @@ const backgrounds = [
   {
     title: 'Dotted',
     description: 'Simple dotted background',
-    styles: 'background-color: #F7F7F7; background-image: radial-gradient(#dddada87 2px, transparent 0); background-size: 30px 30px; background-repeat: repeat;'
+    styles: 'background-image: radial-gradient(#dddada87 2px, transparent 0); background-size: 30px 30px; background-repeat: repeat; background-color: #009688;'
+  },
+  {
+    title: 'Dotted v2',
+    description: 'From Tashs Grocery App',
+    styles: 'background-image: radial-gradient(circle, rgb(255, 255, 255) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;'
   }
 ];
 
