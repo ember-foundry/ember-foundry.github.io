@@ -37,13 +37,13 @@
     img, svg, .text {
       $notch-size: 15cqmin;
       $notch-position: 100cqmin - $notch-size;
-      $smooth-edge: 0.5%;
+      $notch-smooth-edge: 0.5%;
 
-      mask: radial-gradient(
-          circle at $notch-position $notch-position,
-          transparent $notch-size,
-          black calc(#{$notch-size} + #{$smooth-edge})
-      );
+      --notch-size: #{$notch-size};
+      --notch-position: #{$notch-position};
+      --notch-smooth-edge: #{$notch-smooth-edge};
+
+      mask: radial-gradient(circle at var(--notch-position) var(--notch-position), transparent var(--notch-size), black calc(var(--notch-size) + var(--notch-smooth-edge)));
     }
   }
 }
