@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap';
 
 :host {
   --color-background: #D1A354;
@@ -13,14 +13,12 @@
   box-shadow: 0 4px 0 0 var(--color-shadow);
   color: var(--color-text);
   display: flex;
-  font-size: 14px;
-  font-weight: 700;
-
-  font-family: "Fredoka", sans-serif;
+  font-family: Fredoka, sans-serif;
   font-optical-sizing: auto;
+  font-size: 14px;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-
+  font-weight: 700;
   justify-content: center;
   letter-spacing: 0.7px;
   line-height: 142.875%;
@@ -32,7 +30,7 @@
 }
 
 :host(.color-primary), :host(.color-secondary) {
-  background-image: linear-gradient(to bottom, hsl(0 0% 100%/ 20%), hsl(0 0% 100%/ 20%) calc(50% - 1px), transparent 50%, transparent)
+  background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) calc(50% - 1px), transparent 50%, transparent)
 }
 
 :host(.color-primary) {
@@ -84,6 +82,7 @@
   gap: 0.5em;
 }
 
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 :host ::ng-deep svg {
   aspect-ratio: 1;
   height: 1em;
