@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
@@ -10,12 +10,14 @@ import {BaseComponent} from '../../_base/base.component';
     './button-playful-earthy.component.scss'
   ],
   host: {
-    '[class]': 'host_css_classes()'
+    '[class]': 'host_css_classes()',
+    '[class.rounded]': 'rounded()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonPlayfulEarthyComponent extends BaseComponent {
-  public size = input<'small'|undefined>();
-  public color  = input<'primary'|'secondary'|undefined>();
+  public color = input<'primary' | 'secondary' | undefined>();
+  public size = input<'small' | 'medium' | undefined | 'large' | 'extra-large'>();
+  public rounded = input(false, {transform: booleanAttribute});
   protected readonly host_css_classes = this.computed_host_css_classes_from('size', 'color');
 }

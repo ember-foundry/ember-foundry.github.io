@@ -23,9 +23,7 @@ const meta: Meta<DragAndDropComponent> = {
 
 export default meta;
 
-type Story = StoryObj<DragAndDropComponent>;
-
-export const NatashaDragAndDrop: Story = {
+export const NatashaDragAndDrop: StoryObj<DragAndDropComponent> = {
   name: 'Natasha\'s Drag and Drop',
   parameters: {
     docs: {

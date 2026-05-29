@@ -46,6 +46,11 @@
   --color-border: #A37A00;
 }
 
+:host(.rounded) {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
 :host(:active) {
   box-shadow: none;
   translate: 0 4px;
@@ -61,6 +66,18 @@
 :host(.size-small){
   font-size: 12px;
   line-height: 133.333%;
+}
+
+:host(.size-medium){
+  font-size: 16px;
+}
+
+:host(.size-large){
+  font-size: 24px;
+}
+
+:host(.size-extra-large){
+  font-size: 28px;
 }
 
 :host(:has(>svg)){
