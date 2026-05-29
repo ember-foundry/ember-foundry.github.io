@@ -143,9 +143,6 @@ export const PlayfulEarthy: StoryObj = {
         grid-template-columns: 1fr auto auto auto auto;
         column-gap: 8px;
         justify-items: flex-start;
-        border-bottom: 5px solid #f0f0f0;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
       }`
     ],
     template: `
@@ -268,8 +265,6 @@ export const PlayfulEarthy: StoryObj = {
       </section>
       <ng-template #plus_icon>
         <svg
-          width="14"
-          height="14"
           viewBox="0 0 14 14"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

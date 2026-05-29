@@ -44,6 +44,11 @@ const backgrounds = [
     title: 'Dotted v2',
     description: 'From Tashs Grocery App',
     styles: 'background-image: radial-gradient(circle, rgb(255, 255, 255) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;'
+  },
+  {
+    title: 'Tiled Background',
+    description: 'Vivi Tsengs Background on Codepen',
+    styles: 'background-image: repeating-linear-gradient(45deg, #fffa 0 1px, transparent 1px 30px), repeating-linear-gradient(-45deg, #fffa 0 1px, transparent 1px 30px); background-color: #03a9f4;'
   }
 ];
 

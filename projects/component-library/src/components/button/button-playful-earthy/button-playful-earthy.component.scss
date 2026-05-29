@@ -23,7 +23,7 @@
 
   justify-content: center;
   letter-spacing: 0.7px;
-  line-height: 20px; /* 142.857% */
+  line-height: 142.875%;
   padding: 6px 12px;
   text-align: center;
   transition-duration: 150ms;
@@ -60,8 +60,14 @@
 
 :host(.size-small){
   font-size: 12px;
+  line-height: 133.333%;
 }
 
 :host(:has(>svg)){
-  gap: 12px;
+  gap: 0.5em;
+}
+
+:host ::ng-deep svg {
+  aspect-ratio: 1;
+  height: 1em;
 }
