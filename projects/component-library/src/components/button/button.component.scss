@@ -5,4 +5,5 @@
 
 :host(:disabled), :host([disabled]) {
   cursor: not-allowed;
+  pointer-events: none;
 }

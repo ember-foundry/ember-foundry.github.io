@@ -15,7 +15,6 @@
 
   // --text-sm: .875em;
   --text-sm: 12.25px;
-  --text-sm-line-height: calc(1.25 / .875);
   --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   --default-transition-duration: .15s;
 
@@ -58,7 +57,6 @@
   gap: calc(var(--spacing) * 1.5);
   height: calc(var(--spacing) * 8);
   justify-content: center;
-  line-height: var(--tw-leading, var(--text-sm-line-height));
   outline: none;
   padding-block: 0;
   padding-inline: calc(var(--spacing) * 3);

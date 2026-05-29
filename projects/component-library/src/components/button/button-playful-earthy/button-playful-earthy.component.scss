@@ -1,33 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
 :host {
-  --color-standard-background: #D1A354;
-  --color-standard-border: #805429;
-  --color-standard-shadow: var(--color-standard-border);
-  --color-standard-text: #4A2A0C;
-  --color-background: var(--color-standard-background);
-  --color-border: var(--color-standard-border);
-  --color-text: var(--color-standard-text);
-  --color-shadow: var(--color-standard-shadow);
+  --color-background: #D1A354;
+  --color-border: #805429;
+  --color-text: #4A2A0C;
+  --color-shadow: var(--color-border);
 
   align-items: center;
   background: var(--color-background);
-  border: 3px solid var(--color-shadow);
+  border: 3px solid var(--color-border);
   border-radius: 16px;
-  box-shadow: 0 4px 0 0 var(--color-border);
+  box-shadow: 0 4px 0 0 var(--color-shadow);
   color: var(--color-text);
   display: flex;
   font-size: 14px;
   font-weight: 700;
+
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+
   justify-content: center;
   letter-spacing: 0.7px;
   line-height: 20px; /* 142.857% */
   padding: 6px 12px;
   text-align: center;
   transition-duration: 150ms;
-  transition-property: all;
+  transition-property: translate, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:host(.color-primary), :host(.color-secondary) {
+  background-image: linear-gradient(to bottom, hsl(0 0% 100%/ 20%), hsl(0 0% 100%/ 20%) calc(50% - 1px), transparent 50%, transparent)
+}
+
+:host(.color-primary) {
+  --color-background: #6BC235;
+  --color-border: #3A7316;
+  --color-text: white;
+}
+
+:host(.color-secondary){
+  --color-background: #FFCB2B;
+  --color-border: #A37A00;
 }
 
 :host(:active) {
   box-shadow: none;
   translate: 0 4px;
+}
+
+:host(:disabled), :host([disabled]){
+  --color-background: #E6DFD5; /* Desaturated, muted warm gray */
+  --color-border: #A69D92;     /* Low-contrast outline */
+  --color-text: #8C8378;       /* Faded text, passes basic contrast for readability but looks dead */
+  --color-shadow: transparent; /* Disable the shadow entirely to "flatten" the button */
+}
+
+:host(.size-small){
+  font-size: 12px;
+}
+
+:host(:has(>svg)){
+  gap: 12px;
 }
