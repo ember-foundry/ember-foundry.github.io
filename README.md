@@ -50,16 +50,6 @@ ng config projects.component-library.schematics.@schematics/angular:enum.type en
 
 ---
 
-## Testing
-testing a specific file
-
-```shell
-test_file="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
-npm run test -- --watch --testFile $test_file
-```
-
----
-
 ### Linting
 ```shell
 ng add @angular-eslint/schematics
@@ -90,16 +80,3 @@ git lfs track **/__screenshots__/**/*.png
 git add .gitattributes
 git add **/__screenshots__/**/*.png
 ```
-
----
-
-### TODO:
-* FlipCard: https://storage.googleapis.com/material-io-design/m2/assets/downloads/7734f294e44e56dd5c5fa68c906efb8f3cbdab45441b2fe0ebd355bcf96fd74eb0bd9cb0f2a2544264a6e7bbd33d5e33ff5dda82eb2b0d431d320a4c94f33575.mp4
-* https://angular.dev/tools/libraries/creating-librariess
-* i want to run something like this:
-  * ng add @angular/material
-  * but for the component library to be used in other
-* https://ishadeed.com/article/css-masking/
-* https://xieziyu.github.io/ngx-echarts/#/welcome
-* SassDoc
-* https://github.com/rharkor/check-mark-animation

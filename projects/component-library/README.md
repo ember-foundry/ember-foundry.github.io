@@ -4,19 +4,19 @@
 
 #### Components
 ```shell
-component_name='DribbbleAuthorDetailsBar'
+component_name=''
 ng generate component $component_name --project component-library --dry-run
 ```
 
 #### Directives
 ```shell
-directive_name="Tooltip"
+directive_name=''
 ng generate directive $directive_name --project component-library --dry-run
 ```
 
 #### Enum
 ```shell
-enum_name=""
+enum_name=''
 ng generate enum $enum_name --project component-library
 ```
 
@@ -51,6 +51,18 @@ Below is a breakdown of why
 
 ---
 
+## Testing
+testing a specific file
+
+```shell
+test_file_path_from_repo_root="projects/component-library/src/components/iom-take-home-pay/iom-take-home-pay.component.spec.ts"
+npm run test -- --watch --testFile $test_file_path_from_repo_root
+```
+> Turning off toMatchScreenshot
+> Search Term: ``await(.*).toMatchScreenshot(.*)``
+> Replace Term: ``// await$1.toMatchScreenshot$2``
+---
+
 ## Building and Using the Library
 see here for more info: https://angular.dev/tools/libraries/creating-libraries
 
@@ -67,7 +79,11 @@ cd dist/component-library
 echo 'Go to your application link the library'
 ```
 
----
+### AI Unit Test Coverage
+Can you create the unit tests for the attached component
 
-## Checklist
-* [ ] must be able to update the library via `ng update`
+Ensure the coverage for the component is 100%
+Ensure the statements coverage is 100%
+Ensure all branches of code are covered
+Ensure function coverage is 100%
+Ensure line coverage is 100%

@@ -1,0 +1,29 @@
+:host {
+  align-items: center;
+  background: #0074F2;
+  border-radius: 7px;
+  color: white;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  gap: 0 1rem;
+  padding: 9px 12px;
+}
+
+.content {
+  margin-right: 2rem;
+}
+
+svg {
+  aspect-ratio: 1;
+  height: 20px;
+}
+
+a {
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}

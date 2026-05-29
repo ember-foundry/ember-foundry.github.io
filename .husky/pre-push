@@ -1,0 +1,5 @@
+npm run lint
+npm run lint:styles
+npm run build
+ng generate @angular/core:cleanup-unused-imports
+npm run test:ci

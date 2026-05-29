@@ -1,0 +1,68 @@
+:host {
+  aspect-ratio: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  color: var(--github-corner-color, inherit);
+  display: inline-flex;
+  position: fixed;
+  width: var(--github-corner-size, 80px);
+  z-index: var(--github-corner-z-index, 51);
+}
+
+:host.top-right {
+  right: 0;
+  top: 0;
+}
+
+:host.top-left {
+  left: 0;
+  transform: rotateY(180deg);
+}
+
+:host.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotateX(180deg);
+}
+
+:host.bottom-left {
+  bottom: 0;
+  left: 0;
+  rotate: 180deg;
+}
+
+a, svg {
+  color: inherit;
+}
+
+svg {
+  fill: rgb(21 21 19);
+  height: 100%;
+  width: 100%;
+}
+
+.body {
+  fill: white;
+}
+
+path.arm {
+  transform-box: fill-box;
+  transform-origin: bottom right;
+}
+
+:host:hover path.arm {
+  animation: wave .56s ease-in-out;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
