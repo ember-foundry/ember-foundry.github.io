@@ -41,6 +41,8 @@ export const PlayfulEarthRoundedButton: StoryObj = {
       <mbr-button-playful-earth
        rounded="true"
        [mbrBadgePlayfulEarthy]="${args['badge_text']}"
+            [mbrBadgePlayfulEarthyOffset]="'-7px'"
+            [mbrBadgePlayfulEarthySize]="'16px'"
        [size]="'${args['button_size']}'"
        [color]="'${args['button_color']}'"
       >
@@ -76,8 +78,8 @@ export const PlayfulEarthBadgeOnIcon: StoryObj = {
       >
         <span
             [mbrBadgePlayfulEarthy]="${args['badge_text']}"
-            [mbrBadgePlayfulEarthyOffset]="'0px'"
-            [mbrBadgePlayfulEarthySize]="'6px'"
+            [mbrBadgePlayfulEarthyOffset]="'-4px'"
+            [mbrBadgePlayfulEarthySize]="'9px'"
             class="inline-flex"
         >
           <svg
