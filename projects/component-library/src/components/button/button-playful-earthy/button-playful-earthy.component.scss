@@ -25,8 +25,6 @@
   transition-duration: 150ms;
   transition-property: translate, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  anchor-name: --button;
 }
 
 :host([class*='color-']){
