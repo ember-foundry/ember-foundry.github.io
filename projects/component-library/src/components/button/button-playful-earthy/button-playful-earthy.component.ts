@@ -3,7 +3,7 @@ import {BaseComponent} from '../../_base/base.component';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[mbrButtonPlayfulEarthy], a[mbrButtonPlayfulEarthy]',
+  selector: 'button[mbrButtonPlayfulEarthy], a[mbrButtonPlayfulEarthy], mbr-button-playful-earth',
   templateUrl: './button-playful-earthy.component.html',
   styleUrls: [
     '../button.component.scss',
@@ -16,7 +16,7 @@ import {BaseComponent} from '../../_base/base.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonPlayfulEarthyComponent extends BaseComponent {
-  public color = input<'primary' | 'secondary' | undefined>();
+  public color = input<'success' | 'warning' | 'danger' | undefined>();
   public size = input<'small' | 'medium' | undefined | 'large' | 'extra-large'>();
   public rounded = input(false, {transform: booleanAttribute});
   protected readonly host_css_classes = this.computed_host_css_classes_from('size', 'color');

@@ -51,7 +51,6 @@
   border: none;
   border-radius: calc(var(--radius) - 2px);
   color: var(--primary-foreground);
-  display: inline-flex;
   flex-shrink: 0;
   font-size: var(--text-sm);
   gap: calc(var(--spacing) * 1.5);

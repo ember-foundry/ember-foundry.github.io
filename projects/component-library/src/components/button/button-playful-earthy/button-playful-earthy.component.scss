@@ -12,11 +12,9 @@
   border-radius: 16px;
   box-shadow: 0 4px 0 0 var(--color-shadow);
   color: var(--color-text);
-  display: flex;
   font-family: Fredoka, sans-serif;
   font-optical-sizing: auto;
   font-size: 14px;
-  font-style: normal;
   font-variation-settings: "wdth" 100;
   font-weight: 700;
   justify-content: center;
@@ -27,21 +25,29 @@
   transition-duration: 150ms;
   transition-property: translate, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  anchor-name: --button;
 }
 
-:host(.color-primary), :host(.color-secondary) {
-  background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) calc(50% - 1px), transparent 50%, transparent)
+:host([class*='color-']){
+  background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) 50%, transparent 50%, transparent)
 }
 
-:host(.color-primary) {
+:host(.color-success) {
   --color-background: #6BC235;
   --color-border: #3A7316;
   --color-text: white;
 }
 
-:host(.color-secondary){
+:host(.color-warning){
   --color-background: #FFCB2B;
   --color-border: #A37A00;
+}
+
+:host(.color-danger){
+  --color-background: #E84A3B;
+  --color-border: #8A1A10;
+  --color-text: white;
 }
 
 :host(.rounded) {
@@ -75,6 +81,7 @@
 }
 
 :host(.size-extra-large){
+  border-width: 4px;
   font-size: 28px;
 }
 
