@@ -1,0 +1,17 @@
+:host {
+  --color-primary: #FF581B;
+  --color-muted-lighter: #dddada;
+
+  background: var(--color-primary);
+  border-color: transparent;
+  border-radius: 0.25rem;
+  color: #FFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 12px 40px;
+}
+
+:host(:disabled) {
+  background-color: var(--color-muted-lighter);
+  color: hsl(from var(--color-muted-lighter) h s 65%);
+}

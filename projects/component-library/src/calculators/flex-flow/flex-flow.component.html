@@ -1,0 +1,119 @@
+<header>
+  <div>
+    <ng-container *ngTemplateOutlet="direction"/>
+    <span class="title">flex-flow</span>
+    <span class="subtitle">shorthand</span>
+  </div>
+  <code>
+    &lt;flex-direction&gt; || &lt;flex-wrap&gt;
+  </code>
+</header>
+<div class="content">
+  <div class="row result">
+    <span class="label">flex-flow:</span>
+    <input
+      type="text"
+      readonly
+      [value]="result()"
+      [cdkCopyToClipboard]="result()"
+    />
+  </div>
+  <ng-container *ngTemplateOutlet="hr"/>
+  <div class="row">
+    <span class="label">flex-direction</span>
+    <div class="options">
+      <label class="option" mbrTooltip="row">
+        <ng-container *ngTemplateOutlet="direction"/>
+        <input type="radio" name="flex-direction" value="row" [(ngModel)]="flex_direction"/>
+      </label>
+      <label class="option" style="transform: rotateY(180deg)" mbrTooltip="row-reverse">
+        <ng-container *ngTemplateOutlet="direction" />
+        <input type="radio" name="flex-direction" value="row-reverse" [(ngModel)]="flex_direction"/>
+      </label>
+      <label class="option" style="transform: rotate(90deg)" mbrTooltip="column">
+        <ng-container *ngTemplateOutlet="direction" />
+        <input type="radio" name="flex-direction" value="column" [(ngModel)]="flex_direction"/>
+      </label>
+      <label class="option" style="transform: rotate(90deg) rotateY(180deg)" mbrTooltip="column-reverse">
+        <ng-container *ngTemplateOutlet="direction" />
+        <input type="radio" name="flex-direction" value="column-reverse" [(ngModel)]="flex_direction"/>
+      </label>
+    </div>
+  </div>
+  <ng-container *ngTemplateOutlet="hr"/>
+  <div class="row">
+    <span class="label">flex-wrap</span>
+    <div class="options">
+      <label class="option" mbrTooltip="wrap">
+        <ng-container *ngTemplateOutlet="wrap" />
+        <input type="radio" name="flex-wrap" value="wrap" [(ngModel)]="flex_wrap"/>
+      </label>
+      <label class="option" style="transform: rotateY(180deg);" mbrTooltip="wrap-reverse">
+        <ng-container *ngTemplateOutlet="wrap"/>
+        <input type="radio" name="flex-wrap" value="wrap-reverse" [(ngModel)]="flex_wrap"/>
+      </label>
+      <label class="option">
+        <ng-container *ngTemplateOutlet="prohibit" mbrTooltip="nowrap"/>
+        <input type="radio" name="flex-wrap" value="nowrap" [(ngModel)]="flex_wrap"/>
+      </label>
+    </div>
+  </div>
+</div>
+<footer>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-flow" target="_blank">documentation</a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-flow" target="_blank">
+    <ng-container *ngTemplateOutlet="question_mark_circle" />
+  </a>
+</footer>
+
+<ng-template #direction>
+  <svg class="icon" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M22.1678 16.3424C21.8585 16.3424 21.5619 16.4654 21.3431 16.6842C21.1245 16.9031 21.0016 17.1999 21.0016 17.5094C21.0016 17.8189 21.1245 18.1157 21.3431 18.3346L24.0167 21.0099H1.16998L0.934355 21.0332C0.670663 21.0868 0.433591 21.23 0.263307 21.4384C0.0930229 21.6469 0 21.9079 0 22.1771C0 22.4463 0.0930229 22.7073 0.263307 22.9158C0.433591 23.1242 0.670663 23.2674 0.934355 23.321L1.16998 23.3443H24.0167L21.3431 26.0219C21.1307 26.242 21.0131 26.5369 21.0157 26.8429C21.0184 27.149 21.1411 27.4417 21.3573 27.6581C21.5736 27.8745 21.8662 27.9973 22.172 28C22.4779 28.0026 22.7725 27.885 22.9925 27.6723L27.6585 23.0035C27.8772 22.7846 28 22.4878 28 22.1783C28 21.8688 27.8772 21.5719 27.6585 21.353L22.9925 16.6842C22.7738 16.4654 22.4771 16.3424 22.1678 16.3424Z" />
+    <path d="M10.768 1.15479C10.188 0.510981 9.38986 0.105335 8.52816 0.0163409L8.16888 0H3.50295L3.14601 0.0186752C2.28428 0.107087 1.48595 0.512165 0.90547 1.15554C0.324985 1.79892 0.00360396 2.63486 0.00350198 3.50165V8.17051L0.0221655 8.52768C0.104328 9.32865 0.459847 10.0768 1.02884 10.6462C1.59783 11.2155 2.34553 11.5713 3.14601 11.6535L3.50295 11.6722H8.16888L8.52582 11.6558C9.32707 11.574 10.0756 11.2182 10.6451 10.6483C11.2146 10.0784 11.5702 9.32943 11.652 8.52768L11.6683 8.17051V3.50165C11.6689 2.63482 11.3481 1.79861 10.768 1.15479Z" />
+    <path d="M27.0988 1.15479C26.5187 0.510981 25.7206 0.105335 24.8589 0.0163409L24.4996 0H19.8337L19.4768 0.0186752C18.615 0.107087 17.8167 0.512165 17.2362 1.15554C16.6557 1.79892 16.3344 2.63486 16.3343 3.50165V8.17051L16.3529 8.52768C16.4351 9.32865 16.7906 10.0768 17.3596 10.6462C17.9286 11.2155 18.6763 11.5713 19.4768 11.6535L19.8337 11.6722H24.4996L24.8566 11.6558C25.6578 11.574 26.4064 11.2182 26.9759 10.6483C27.5454 10.0784 27.901 9.32943 27.9828 8.52768L27.9991 8.17051V3.50165C27.9996 2.63482 27.6788 1.79861 27.0988 1.15479Z" />
+  </svg>
+</ng-template>
+
+<ng-template #wrap>
+  <svg
+    class="icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke="currentColor"
+    fill="none"
+  >
+    <polyline points="80 120 32 168 80 216" />
+    <path d="M80,56h88a56,56,0,0,1,56,56h0a56,56,0,0,1-56,56H32"/>
+  </svg>
+</ng-template>
+
+<ng-template #question_mark_circle>
+  <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M8.92308 12C8.92308 12.1826 8.86894 12.361 8.76751 12.5128C8.66608 12.6646 8.52192 12.7829 8.35325 12.8528C8.18458 12.9227 7.99898 12.941 7.81992 12.9053C7.64086 12.8697 7.47638 12.7818 7.34729 12.6527C7.21819 12.5236 7.13028 12.3591 7.09466 12.1801C7.05904 12.001 7.07732 11.8154 7.14719 11.6468C7.21706 11.4781 7.33537 11.3339 7.48717 11.2325C7.63897 11.1311 7.81743 11.0769 8 11.0769C8.24482 11.0769 8.4796 11.1742 8.65271 11.3473C8.82583 11.5204 8.92308 11.7552 8.92308 12ZM8 3.69231C6.30308 3.69231 4.92308 4.93461 4.92308 6.46154V6.76923C4.92308 6.93244 4.98791 7.08896 5.10332 7.20437C5.21873 7.31978 5.37525 7.38461 5.53846 7.38461C5.70167 7.38461 5.8582 7.31978 5.97361 7.20437C6.08901 7.08896 6.15385 6.93244 6.15385 6.76923V6.46154C6.15385 5.61538 6.98231 4.92308 8 4.92308C9.01769 4.92308 9.84615 5.61538 9.84615 6.46154C9.84615 7.30769 9.01769 8 8 8C7.83679 8 7.68027 8.06483 7.56486 8.18024C7.44945 8.29565 7.38462 8.45217 7.38462 8.61538V9.23077C7.38462 9.39398 7.44945 9.5505 7.56486 9.66591C7.68027 9.78132 7.83679 9.84615 8 9.84615C8.16321 9.84615 8.31974 9.78132 8.43514 9.66591C8.55055 9.5505 8.61539 9.39398 8.61539 9.23077V9.17538C10.0185 8.91769 11.0769 7.79846 11.0769 6.46154C11.0769 4.93461 9.69692 3.69231 8 3.69231ZM16 8C16 9.58225 15.5308 11.129 14.6518 12.4446C13.7727 13.7602 12.5233 14.7855 11.0615 15.391C9.59966 15.9965 7.99113 16.155 6.43928 15.8463C4.88743 15.5376 3.46197 14.7757 2.34315 13.6569C1.22433 12.538 0.462403 11.1126 0.153721 9.56072C-0.15496 8.00887 0.00346628 6.40034 0.608967 4.93853C1.21447 3.47672 2.23985 2.22729 3.55544 1.34824C4.87103 0.469192 6.41775 0 8 0C10.121 0.00223986 12.1546 0.845814 13.6544 2.34562C15.1542 3.84542 15.9978 5.87895 16 8ZM14.7692 8C14.7692 6.66117 14.3722 5.35241 13.6284 4.23922C12.8846 3.12602 11.8274 2.25839 10.5905 1.74605C9.35356 1.2337 7.99249 1.09965 6.67939 1.36084C5.36629 1.62203 4.16013 2.26674 3.21343 3.21343C2.26674 4.16012 1.62203 5.36629 1.36084 6.67939C1.09965 7.99249 1.2337 9.35356 1.74605 10.5905C2.2584 11.8274 3.12603 12.8846 4.23922 13.6284C5.35241 14.3722 6.66117 14.7692 8 14.7692C9.79469 14.7672 11.5153 14.0534 12.7843 12.7843C14.0534 11.5153 14.7672 9.79468 14.7692 8Z" />
+  </svg>
+</ng-template>
+
+<ng-template #prohibit>
+  <svg
+    class="icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="24"
+  >
+    <line x1="195.88" y1="195.88" x2="60.12" y2="60.12" />
+    <circle cx="128" cy="128" r="96" stroke-miterlimit="10"/>
+  </svg>
+</ng-template>
+
+<ng-template #hr>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 6" fill="none">
+    <path d="M-3.26633e-05 2.88672L2.88672 5.77347L5.77347 2.88672L2.88672 -3.26633e-05L-3.26633e-05 2.88672ZM287.773 2.88672L284.887 -3.26633e-05L282 2.88672L284.887 5.77347L287.773 2.88672ZM2.88672 2.88672V3.38672L284.887 3.38672V2.88672V2.38672L2.88672 2.38672V2.88672Z" fill="#F0F0F0"/>
+  </svg>
+</ng-template>
