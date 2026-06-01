@@ -94,6 +94,9 @@
 
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 :host ::ng-deep svg {
-  aspect-ratio: 1;
   height: 1em;
+}
+
+:host:has(>*:first-child:last-child) {
+  aspect-ratio: 1;
 }

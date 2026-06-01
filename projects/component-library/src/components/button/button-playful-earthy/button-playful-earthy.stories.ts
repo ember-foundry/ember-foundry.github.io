@@ -146,7 +146,7 @@ export const FullWidth: StoryObj<ButtonPlayfulEarthyComponent> = {
             <path d="M2.91666 7H11.0833" />
             <path d="M7 2.91663V11.0833" />
           </svg>
-          Invite Member
+          <span>Invite Member</span>
         </button>
     `
   })
@@ -166,7 +166,7 @@ export const Showcase: StoryObj = {
         display: grid;
         gap: 8px;
         justify-items: flex-start;
-        grid-template-columns: 1fr auto auto auto auto auto;
+        grid-template-columns: 1fr repeat(5, auto);
       }`,
       'section.comparison-grid >:not(:nth-child(6n + 1)) {justify-self: flex-end}',
       `section#buttons-misc { display: flex; gap: 8px; }`
@@ -209,21 +209,21 @@ export const Showcase: StoryObj = {
             @for (color of colors; track color) {
               @if (tag === 'button') {
                 <button mbrButtonPlayfulEarthy [color]="color" [size]="size">
-                  <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                  <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
                 </button>
               } @else {
                 <a mbrButtonPlayfulEarthy [color]="color" [size]="size">
-                  <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                  <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
                 </a>
               }
             }
             @if (tag === 'button') {
               <button mbrButtonPlayfulEarthy disabled [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
               </button>
             } @else {
               <a mbrButtonPlayfulEarthy disabled [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
               </a>
             }
           }
