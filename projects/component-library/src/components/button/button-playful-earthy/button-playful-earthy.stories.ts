@@ -151,3 +151,90 @@ export const FullWidth: StoryObj<ButtonPlayfulEarthyComponent> = {
     `
   })
 }
+
+export const Showcase: StoryObj = {
+  render: (args) => ({
+    props: {
+      ...args,
+      placements: ['button', 'a'],
+      colors: [undefined, 'success', 'warning', 'danger'],
+      sizes: ['small', undefined, 'medium', 'large', 'extra-large']
+    },
+    styles: [
+      `section.comparison-grid {
+        align-items: center;
+        display: grid;
+        gap: 8px;
+        justify-items: flex-start;
+        grid-template-columns: 1fr auto auto auto auto auto;
+      }`,
+      'section.comparison-grid >:not(:nth-child(6n + 1)) {justify-self: flex-end}',
+      `section#buttons-misc { display: flex; gap: 8px; }`
+    ],
+    template: `
+      <section class="comparison-grid">
+        <p class="font-bold">Matrix Grid</p>
+        <p class="font-bold">Standard</p>
+        <p class="font-bold">Success</p>
+        <p class="font-bold">Warning</p>
+        <p class="font-bold">Danger</p>
+        <p class="font-bold">Disabled</p>
+
+        @for (size of sizes; track size) {
+          <div class="font-bold mt-4">Size: {{ size || 'Standard' }}</div>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+          @for (tag of placements; track tag) {
+            <p>Content-less [{{ tag }}]</p>
+
+            @for (color of colors; track color) {
+              @if (tag === 'button') {
+                <button mbrButtonPlayfulEarthy [color]="color" [size]="size"></button>
+              } @else {
+                <a mbrButtonPlayfulEarthy [color]="color" [size]="size"></a>
+              }
+            }
+            @if (tag === 'button') {
+              <button mbrButtonPlayfulEarthy disabled [size]="size"></button>
+            } @else {
+              <a mbrButtonPlayfulEarthy disabled [size]="size"></a>
+            }
+
+            <p>Projected Content [{{ tag }}]</p>
+
+            @for (color of colors; track color) {
+              @if (tag === 'button') {
+                <button mbrButtonPlayfulEarthy [color]="color" [size]="size">
+                  <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                </button>
+              } @else {
+                <a mbrButtonPlayfulEarthy [color]="color" [size]="size">
+                  <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+                </a>
+              }
+            }
+            @if (tag === 'button') {
+              <button mbrButtonPlayfulEarthy disabled [size]="size">
+                <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+              </button>
+            } @else {
+              <a mbrButtonPlayfulEarthy disabled [size]="size">
+                <ng-container [ngTemplateOutlet]="plus_icon" /> Add
+              </a>
+            }
+          }
+        }
+      </section>
+
+      <ng-template #plus_icon>
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.91666 7H11.0833" /><path d="M7 2.91663V11.0833" />
+        </svg>
+      </ng-template>
+    `
+  })
+};

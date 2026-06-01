@@ -31,6 +31,11 @@
   background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) 50%, transparent 50%, transparent)
 }
 
+:host(.flat){
+  box-shadow: none;
+  background-image: none;
+}
+
 :host(.color-success) {
   --color-background: #6BC235;
   --color-border: #3A7316;
