@@ -2,7 +2,6 @@ import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angu
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'button[mbrButtonPlayfulEarthy], a[mbrButtonPlayfulEarthy], mbr-button-playful-earth',
   templateUrl: './button-playful-earthy.component.html',
   styleUrls: [
