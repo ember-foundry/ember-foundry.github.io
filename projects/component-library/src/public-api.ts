@@ -31,6 +31,7 @@ export * from './components/ludo-player-ui-front/ludo-player-ui-front.component'
 export * from './components/marquee/marquee.component';
 export * from './components/menu-toggle/menu-toggle.component';
 export * from './components/multi-toggle-switch/multi-toggle-switch.component';
+export * from './components/panel/panel-playful-earthy/panel-playful-earthy.component';
 export * from './components/player-select/player-select.component';
 export * from './components/post-it/post-it.component';
 export * from './components/price-plan/price-plan.component';

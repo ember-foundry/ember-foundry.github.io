@@ -20,20 +20,21 @@
   justify-content: center;
   letter-spacing: 0.7px;
   line-height: 142.875%;
-  padding: 6px 12px;
+  padding-block: 6px;
+  padding-inline: 12px;
   text-align: center;
   transition-duration: 150ms;
   transition-property: translate, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:host([class*='color-']){
+:host([class*='color-']):not(.flat){
   background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) 50%, transparent 50%, transparent)
 }
 
 :host(.flat){
-  box-shadow: none;
   background-image: none;
+  box-shadow: none;
 }
 
 :host(.color-success) {
@@ -58,7 +59,7 @@
   border-radius: 50%;
 }
 
-:host(:active) {
+:host(:active:not(.flat)) {
   box-shadow: none;
   translate: 0 4px;
 }
@@ -93,7 +94,7 @@
 }
 
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
-:host ::ng-deep svg {
+:host ::ng-deep svg:not([width], [height]) {
   height: 1em;
 }
 
