@@ -173,7 +173,7 @@ export const Showcase: StoryObj = {
     ],
     template: `
       <section class="comparison-grid">
-        <p class="font-bold">Matrix Grid</p>
+        <span></span>
         <p class="font-bold">Standard</p>
         <p class="font-bold">Success</p>
         <p class="font-bold">Warning</p>

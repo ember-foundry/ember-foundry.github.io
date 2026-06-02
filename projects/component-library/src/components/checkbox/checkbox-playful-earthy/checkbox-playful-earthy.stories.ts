@@ -54,7 +54,7 @@ export const Showcase: StoryObj = {
     template: `
       <span></span><h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
 
-      <h4>Input Checkbox</h4>
+      <h4>Checkboxes</h4>
       <input type="checkbox" mbrPlayfulEarthy />
       <input type="checkbox" mbrPlayfulEarthy [checked]="true" />
       <input type="checkbox" mbrPlayfulEarthy disabled />
