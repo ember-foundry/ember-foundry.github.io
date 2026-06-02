@@ -1,74 +1,64 @@
-import {Meta, StoryObj} from '@storybook/angular';
-import {CheckboxPlayfulEarthyComponent} from 'component-library';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { CheckboxPlayfulEarthyComponent, ToggleDirective } from 'component-library';
 
 const meta: Meta<CheckboxPlayfulEarthyComponent> = {
   component: CheckboxPlayfulEarthyComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        ToggleDirective
+      ]
+    })
+  ],
   tags: ['autodocs', 'checkbox', 'playful earthy']
-}
+};
 
 export default meta;
 
-export const StandardCheckbox: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
+export const Unchecked: StoryObj<CheckboxPlayfulEarthyComponent> = {
+  render: (args, context) => ({
+    ...context,
+    template: `<input type="checkbox" mbrPlayfulEarthy />`
+  })
+};
+
+export const Checked: StoryObj<CheckboxPlayfulEarthyComponent> = {
+  render: (args, context) => ({
+    ...context,
+    template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true"/>`
+  })
+};
+
+export const Disabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
+  render: (args, context) => ({
+    ...context,
+    template: `<input type="checkbox" mbrPlayfulEarthy disabled />`
+  })
+};
+
+export const CheckedDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
+  render: (args, context) => ({
+    ...context,
+    template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true" disabled/>`
+  })
+};
+
+export const Showcase: StoryObj = {
+  render: (args, context) => ({
+    ...context, // Spreads global decorator imports safely into this dense template layout
+    styles: [
+      ':host { display: grid; grid-template-columns: 1fr repeat(4, auto); gap: 1rem; }',
+      ':host >:not(:nth-child(5n + 1)) {justify-self: flex-end}',
+      'h4 { margin: 0 }'
+    ],
     template: `
+      <span></span><h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
+
+      <h4>Input Checkbox</h4>
       <input type="checkbox" mbrPlayfulEarthy />
-    `
-  })
-}
-
-export const CustomElement: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <mbr-checkbox-playful-earthy />
-    `
-  })
-}
-
-export const StandardCheckboxPreChecked: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <input type="checkbox" mbrPlayfulEarthy checked/>
-    `
-  })
-}
-
-export const CustomElementPreChecked: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <mbr-checkbox-playful-earthy [active]="true"/>
-    `
-  })
-}
-
-export const StandardCheckboxDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
+      <input type="checkbox" mbrPlayfulEarthy [checked]="true" />
       <input type="checkbox" mbrPlayfulEarthy disabled />
+      <input type="checkbox" mbrPlayfulEarthy [checked]="true" [disabled]="true" />
     `
   })
-}
-
-export const CustomElementDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <mbr-checkbox-playful-earthy [disabled]="true" />
-    `
-  })
-}
-
-export const StandardCheckboxPreCheckedDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <input type="checkbox" mbrPlayfulEarthy checked disabled/>
-    `
-  })
-}
-
-export const CustomElementPreCheckedDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
-  render: () => ({
-    template: `
-      <mbr-checkbox-playful-earthy [active]="true" disabled/>
-    `
-  })
-}
-
+};

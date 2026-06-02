@@ -53,6 +53,7 @@ export * from './components/vuexy/vuexy-theme-customizer-trigger/vuexy-theme-cus
 export * from './directives/badge/badge-playful-earthy/badge-playful-earthy.directive';
 export * from './directives/grid-background/grid-background.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
+export * from './directives/toggle/toggle.directive';
 export * from './directives/tooltip/tooltip.directive';
 export * from './pipes/initials/initials.pipe';
 export * from './pipes/pixels/pixels.pipe';
