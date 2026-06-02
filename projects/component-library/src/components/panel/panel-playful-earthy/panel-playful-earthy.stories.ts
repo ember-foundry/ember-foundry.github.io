@@ -102,3 +102,82 @@ export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
     `
   })
 }
+
+export const EmptyPanel: StoryObj<PanelPlayfulEarthyComponent> = {
+  args: {
+    title: 'NO CONTENT'
+  },
+  render:(args) => ({
+    template: `
+      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}></mbr-panel-playful-earthy>
+    `
+  })
+}
+
+export const HouseholdItems: StoryObj<PanelPlayfulEarthyComponent> = {
+  args: {
+    title: 'HOUSEHOLD ITEMS'
+  },
+  render:(args) => ({
+    template: `
+      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
+        <div class="playful-earthy-list flex flex-col flex-grow-1">
+          <div class="playful-earthy-list-item flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                  <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <div class="tag">In List</div>
+              </div>
+          </div>
+          <div class="playful-earthy-list flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                 <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <mbr-button-playful-earth>
+
+                  </mbr-button-playful-earth>
+              </div>
+          </div>
+        </div>
+      </mbr-panel-playful-earthy>
+    `
+  })
+}
+
+export const CartPanel: StoryObj<PanelPlayfulEarthyComponent> = {
+  args: {
+    title: 'TO BUY'
+  },
+  render:(args) => ({
+    template: `
+      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
+        <div class="playful-earthy-list flex flex-col flex-grow-1">
+          <div class="playful-earthy-list-item flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                  <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <div class="tag">In List</div>
+              </div>
+          </div>
+          <div class="playful-earthy-list flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                 <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <mbr-button-playful-earth>
+
+                  </mbr-button-playful-earth>
+              </div>
+          </div>
+        </div>
+      </mbr-panel-playful-earthy>
+    `
+  })
+}

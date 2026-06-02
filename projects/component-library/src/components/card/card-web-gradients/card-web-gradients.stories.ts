@@ -1,20 +1,31 @@
-import {Meta, StoryObj} from '@storybook/angular';
-import {CardWebGradientsComponent} from 'component-library';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
+import {CardWebGradientsComponent} from 'component-library';
 
 const meta: Meta = {
-  component: CardWebGradientsComponent,
-  tags: ['autodocs', 'css', 'background', 'gradients', 'card']
+  decorators: [
+    moduleMetadata({
+      imports: [
+        CardWebGradientsComponent
+      ]
+    })
+  ],
+  tags: ['css', 'background', 'gradients', 'texture','card']
 };
 
 const all_gradients = [
+  {
+    title: 'TT',
+    styles: 'background-image: url(https://www.iomttraces.com/assets/images/header-bg.svg); background-size: auto 100px',
+    description: 'Background Image'
+  },
   /**
    * https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/snow.svg
    */
   {
     title: 'Trello Blue',
     styles: 'background: linear-gradient(145deg, #0C66E4 2%, #37B4C3 100%)',
-    description: 'Background Image'
+    description: 'Linear Gradient'
   },
   {
     title: 'Matchday Experience',
@@ -79,8 +90,9 @@ const all_gradients = [
 export default meta;
 
 
-export const Gradients: StoryObj = {
+export const Showcase: StoryObj = {
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         story: '<p>Inspired by <a href="https://webgradients.com/" target="_blank">webgradients.com</a></p>'
@@ -89,7 +101,8 @@ export const Gradients: StoryObj = {
   },
   render: () => {
     return {
-      template: `<div class="flex flex-wrap gap-4">\n\t${all_gradients.map(item => `<mbr-card-web-gradients ${args_to_angular_inputs(item)} />`).join('\n\t')}\n</div>`
+      styles: [':host { display: flex; flex-flow: row wrap; gap: 1rem; background-color: #f6f6f6; }'],
+      template: `${all_gradients.map(item => `<mbr-card-web-gradients ${args_to_angular_inputs(item)} />`).join('\n\t')}`
     }
   }
 };

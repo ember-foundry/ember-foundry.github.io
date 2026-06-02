@@ -43,7 +43,7 @@ header {
 section {
   align-items: center;
   align-self: stretch;
-  background: #F1D49F;
+  background: rgb(255 255 255 / 35%);
   border: 3px solid rgb(128 84 41 / 40%);
   border-radius: 16px;
   display: flex;
@@ -54,6 +54,6 @@ section {
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::ng-deep {
   h1,h2,h3,h4,h5,h6 {
-    color: #4A2A0C;
+    filter: contrast(2);
   }
 }
