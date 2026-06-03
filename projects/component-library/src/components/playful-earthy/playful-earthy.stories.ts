@@ -2,14 +2,16 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {Showcase as CheckboxShowcase} from 'component-library/components/checkbox/checkbox-playful-earthy/checkbox-playful-earthy.stories';
 import {Showcase as ButtonShowcase} from 'component-library/components/button/button-playful-earthy/button-playful-earthy.stories';
 import {Showcase as PanelShowcase} from 'component-library/components/panel/panel-playful-earthy/panel-playful-earthy.stories';
+import {Showcase as QuantityInputShowcase} from 'component-library/components/input/input-quantity-playful-earthy/input-quantity-playful-earthy.stories';
 import {
   ButtonPlayfulEarthyComponent,
   CheckboxPlayfulEarthyComponent,
-  PanelPlayfulEarthyComponent
+  PanelPlayfulEarthyComponent,
+  InputQuantityPlayfulEarthyComponent
 } from 'component-library';
 
 const meta: Meta = {
-  tags: ['autodocs', 'checkbox', 'playful earthy']
+  tags: ['autodocs', 'playful earthy']
 };
 
 export default meta;
@@ -46,4 +48,16 @@ export const Checkboxes: StoryObj = {
     })
   ],
   ...CheckboxShowcase
+};
+
+
+export const QuantityInput: StoryObj<InputQuantityPlayfulEarthyComponent> = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        InputQuantityPlayfulEarthyComponent
+      ]
+    })
+  ],
+  ...QuantityInputShowcase
 };

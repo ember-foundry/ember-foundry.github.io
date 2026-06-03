@@ -8,4 +8,8 @@ const meta: Meta<InputQuantityPlayfulEarthyComponent> = {
 
 export default meta;
 
-export const Sample: StoryObj<InputQuantityPlayfulEarthyComponent> = {}
+export const Showcase: StoryObj<InputQuantityPlayfulEarthyComponent> = {
+  render: () => ({
+    template: `<mbr-input-quantity-playful-earthy />`
+  })
+}
