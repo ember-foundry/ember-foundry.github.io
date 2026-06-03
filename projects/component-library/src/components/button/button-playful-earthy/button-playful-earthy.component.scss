@@ -1,5 +1,7 @@
 @import 'https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap';
 
+$default-box-shadow-depth: 4px;
+
 :host {
   --color-background: #D1A354;
   --color-border: #805429;
@@ -10,7 +12,7 @@
   background: var(--color-background);
   border: 3px solid var(--color-border);
   border-radius: 16px;
-  box-shadow: 0 4px 0 0 var(--color-shadow);
+  box-shadow: 0 var(--box-shadow-depth, #{$default-box-shadow-depth}) 0 0 var(--color-shadow);
   color: var(--color-text);
   font-family: Fredoka, sans-serif;
   font-optical-sizing: auto;
@@ -61,7 +63,7 @@
 
 :host(:active:not(.flat)) {
   box-shadow: none;
-  translate: 0 4px;
+  translate: 0 var(--box-shadow-depth, #{$default-box-shadow-depth});
 }
 
 :host(:disabled), :host([disabled]){

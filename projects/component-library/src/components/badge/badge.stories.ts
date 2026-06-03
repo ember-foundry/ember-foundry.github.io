@@ -38,11 +38,12 @@ export const PlayfulEarthRoundedButton: StoryObj = {
   },
   render: (args) => ({
     template: `
-      <mbr-button-playful-earth
+      <button
+       mbrButtonPlayfulEarthy
        rounded="true"
        [mbrBadgePlayfulEarthy]="${args['badge_text']}"
-            [mbrBadgePlayfulEarthyOffset]="'-7px'"
-            [mbrBadgePlayfulEarthySize]="'16px'"
+       [mbrBadgePlayfulEarthyOffset]="'-7px'"
+       [mbrBadgePlayfulEarthySize]="'16px'"
        [size]="'${args['button_size']}'"
        [color]="'${args['button_color']}'"
       >
@@ -59,7 +60,7 @@ export const PlayfulEarthRoundedButton: StoryObj = {
           <path d="M22.1667 25.6667C22.811 25.6667 23.3333 25.1444 23.3333 24.5C23.3333 23.8557 22.811 23.3334 22.1667 23.3334C21.5223 23.3334 21 23.8557 21 24.5C21 25.1444 21.5223 25.6667 22.1667 25.6667Z" />
           <path d="M2.39166 2.39172H4.725L7.82833 16.8817C7.94217 17.4124 8.23744 17.8868 8.66333 18.2232C9.08921 18.5597 9.61905 18.7371 10.1617 18.7251H21.5717C22.1027 18.7242 22.6176 18.5422 23.0312 18.2092C23.4448 17.8762 23.7325 17.412 23.8467 16.8934L25.7717 8.22506H5.97333" />
         </svg>
-      </mbr-button-playful-earth>
+      </button>
     `
   })
 }
@@ -72,9 +73,10 @@ export const PlayfulEarthBadgeOnIcon: StoryObj = {
   },
   render: (args) => ({
     template: `
-      <mbr-button-playful-earth
-         [size]="'${args['button_size']}'"
-         [color]="'${args['button_color']}'"
+      <button
+       mbrButtonPlayfulEarthy
+       [size]="'${args['button_size']}'"
+       [color]="'${args['button_color']}'"
       >
         <span
             [mbrBadgePlayfulEarthy]="${args['badge_text']}"
@@ -97,8 +99,7 @@ export const PlayfulEarthBadgeOnIcon: StoryObj = {
             <path d="M2.71833 12.7716C2.60947 12.8909 2.53763 13.0393 2.51155 13.1987C2.48547 13.3581 2.50627 13.5217 2.57142 13.6695C2.63658 13.8173 2.74328 13.9429 2.87855 14.0312C3.01381 14.1195 3.17182 14.1665 3.33333 14.1666H16.6667C16.8282 14.1667 16.9862 14.1198 17.1216 14.0317C17.2569 13.9436 17.3637 13.8181 17.4291 13.6704C17.4944 13.5227 17.5154 13.3592 17.4895 13.1998C17.4637 13.0404 17.392 12.8919 17.2833 12.7725C16.175 11.63 15 10.4158 15 6.66663C15 5.34054 14.4732 4.06877 13.5355 3.13109C12.5979 2.19341 11.3261 1.66663 10 1.66663C8.67392 1.66663 7.40215 2.19341 6.46447 3.13109C5.52679 4.06877 5 5.34054 5 6.66663C5 10.4158 3.82417 11.63 2.71833 12.7716Z"/>
           </svg>
         </span>
-
-      </mbr-button-playful-earth>
+      </button>
     `
   })
 }

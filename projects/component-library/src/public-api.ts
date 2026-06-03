@@ -24,6 +24,7 @@ export * from './components/github/github-action-progress/github-action-progress
 export * from './components/github/github-corner/github-corner.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/info-reveal/info-reveal.component';
+export * from './components/input/input-quantity-playful-earthy/input-quantity-playful-earthy.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';
 export * from './components/lando-norris/lando-norris-card/lando-norris-card.component';

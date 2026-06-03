@@ -34,7 +34,8 @@ export const PantryStatus: StoryObj<PanelPlayfulEarthyComponent> = {
   render:(args) => ({
     template: `
       <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
-        <mbr-button-playful-earth
+        <button
+          mbrButtonPlayfulEarthy
           flat
           color="warning"
           size="small"
@@ -55,12 +56,12 @@ export const PantryStatus: StoryObj<PanelPlayfulEarthyComponent> = {
             <path d="M21 12C21 14.3869 20.0518 16.6761 18.364 18.364C16.6761 20.0518 14.3869 21 12 21C9.48395 20.9905 7.06897 20.0088 5.26 18.26L3 16" />
             <path d="M8 16H3V21" />
           </svg>
-        </mbr-button-playful-earth>
+        </button>
         <div class="flex-grow-1">
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <mbr-button-playful-earth>View</mbr-button-playful-earth>
+        <button mbrButtonPlayfulEarthy>View</button>
       </mbr-panel-playful-earthy>
     `
   })
@@ -73,7 +74,8 @@ export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
   render:(args) => ({
     template: `
       <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
-      <mbr-button-playful-earth
+      <button
+        mbrButtonPlayfulEarthy
         flat
         color="success"
         size="small"
@@ -92,13 +94,13 @@ export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
           <path d="M22.1667 25.6667C22.811 25.6667 23.3333 25.1444 23.3333 24.5C23.3333 23.8557 22.811 23.3334 22.1667 23.3334C21.5223 23.3334 21 23.8557 21 24.5C21 25.1444 21.5223 25.6667 22.1667 25.6667Z" />
           <path d="M2.39166 2.39172H4.725L7.82833 16.8817C7.94217 17.4124 8.23744 17.8868 8.66333 18.2232C9.08921 18.5597 9.61905 18.7371 10.1617 18.7251H21.5717C22.1027 18.7242 22.6176 18.5422 23.0312 18.2092C23.4448 17.8762 23.7325 17.412 23.8467 16.8934L25.7717 8.22506H5.97333" />
         </svg>
-      </mbr-button-playful-earth>
+      </button>
       <div class="flex-grow-1">
         <h3 class="m-0 font-semibold">4 items</h3>
         <small>to buy right now</small>
       </div>
-      <mbr-button-playful-earth color="success">Go Shop</mbr-button-playful-earth>
-      </mbr-panel-playful-earthy>
+      <button mbrButtonPlayfulEarthy color="success">Go Shop</button>
+    </mbr-panel-playful-earthy>
     `
   })
 }
@@ -106,12 +108,7 @@ export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
 export const EmptyPanel: StoryObj<PanelPlayfulEarthyComponent> = {
   args: {
     title: 'NO CONTENT'
-  },
-  render:(args) => ({
-    template: `
-      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}></mbr-panel-playful-earthy>
-    `
-  })
+  }
 }
 
 export const HouseholdItems: StoryObj<PanelPlayfulEarthyComponent> = {
@@ -137,9 +134,7 @@ export const HouseholdItems: StoryObj<PanelPlayfulEarthyComponent> = {
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <mbr-button-playful-earth>
-
-                  </mbr-button-playful-earth>
+                  <button mbrButtonPlayfulEarthy></button>
               </div>
           </div>
         </div>
@@ -171,9 +166,7 @@ export const CartPanel: StoryObj<PanelPlayfulEarthyComponent> = {
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <mbr-button-playful-earth>
-
-                  </mbr-button-playful-earth>
+                  <button mbrButtonPlayfulEarthy></button>
               </div>
           </div>
         </div>
@@ -188,7 +181,8 @@ export const Showcase: StoryObj = {
     styles: [':host { gap: 1rem; display: flex; flex-direction: column;}'],
     template: `
       <mbr-panel-playful-earthy title="PANTRY STATUS">
-        <mbr-button-playful-earth
+        <button
+          mbrButtonPlayfulEarthy
           flat
           color="warning"
           size="small"
@@ -209,16 +203,17 @@ export const Showcase: StoryObj = {
             <path d="M21 12C21 14.3869 20.0518 16.6761 18.364 18.364C16.6761 20.0518 14.3869 21 12 21C9.48395 20.9905 7.06897 20.0088 5.26 18.26L3 16" />
             <path d="M8 16H3V21" />
           </svg>
-        </mbr-button-playful-earth>
+        </button>
         <div class="flex-grow-1">
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <mbr-button-playful-earth>View</mbr-button-playful-earth>
+        <button mbrButtonPlayfulEarthy>View</button>
       </mbr-panel-playful-earthy>
 
       <mbr-panel-playful-earthy title="ACTIVE SHOPPING">
-      <mbr-button-playful-earth
+      <button
+        mbrButtonPlayfulEarthy
         flat
         color="success"
         size="small"
@@ -237,12 +232,12 @@ export const Showcase: StoryObj = {
           <path d="M22.1667 25.6667C22.811 25.6667 23.3333 25.1444 23.3333 24.5C23.3333 23.8557 22.811 23.3334 22.1667 23.3334C21.5223 23.3334 21 23.8557 21 24.5C21 25.1444 21.5223 25.6667 22.1667 25.6667Z" />
           <path d="M2.39166 2.39172H4.725L7.82833 16.8817C7.94217 17.4124 8.23744 17.8868 8.66333 18.2232C9.08921 18.5597 9.61905 18.7371 10.1617 18.7251H21.5717C22.1027 18.7242 22.6176 18.5422 23.0312 18.2092C23.4448 17.8762 23.7325 17.412 23.8467 16.8934L25.7717 8.22506H5.97333" />
         </svg>
-      </mbr-button-playful-earth>
+      </button>
       <div class="flex-grow-1">
         <h3 class="m-0 font-semibold">4 items</h3>
         <small>to buy right now</small>
       </div>
-      <mbr-button-playful-earth color="success">Go Shop</mbr-button-playful-earth>
+      <button mbrButtonPlayfulEarthy color="success">Go Shop</button>
       </mbr-panel-playful-earthy>
 
       <mbr-panel-playful-earthy title="EMPTY PANEL"></mbr-panel-playful-earthy>
