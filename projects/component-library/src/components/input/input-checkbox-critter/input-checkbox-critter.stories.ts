@@ -1,8 +1,8 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { CheckboxPlayfulEarthyComponent, ToggleDirective } from 'component-library';
+import { InputCheckboxCritterComponent, ToggleDirective } from 'component-library';
 
-const meta: Meta<CheckboxPlayfulEarthyComponent> = {
-  component: CheckboxPlayfulEarthyComponent,
+const meta: Meta<InputCheckboxCritterComponent> = {
+  component: InputCheckboxCritterComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -15,28 +15,28 @@ const meta: Meta<CheckboxPlayfulEarthyComponent> = {
 
 export default meta;
 
-export const Unchecked: StoryObj<CheckboxPlayfulEarthyComponent> = {
+export const Unchecked: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
     template: `<input type="checkbox" mbrPlayfulEarthy />`
   })
 };
 
-export const Checked: StoryObj<CheckboxPlayfulEarthyComponent> = {
+export const Checked: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
     template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true"/>`
   })
 };
 
-export const Disabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
+export const Disabled: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
     template: `<input type="checkbox" mbrPlayfulEarthy disabled />`
   })
 };
 
-export const CheckedDisabled: StoryObj<CheckboxPlayfulEarthyComponent> = {
+export const CheckedDisabled: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
     template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true" disabled/>`

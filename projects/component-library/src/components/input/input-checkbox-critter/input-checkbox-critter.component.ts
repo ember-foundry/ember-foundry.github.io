@@ -4,8 +4,8 @@ import {ToggleDirective} from '../../../directives/toggle/toggle.directive';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'input[type="checkbox"][mbrPlayfulEarthy]',
-  templateUrl: './checkbox-playful-earthy.component.html',
-  styleUrl: './checkbox-playful-earthy.component.scss',
+  templateUrl: './input-checkbox-critter.component.html',
+  styleUrl: './input-checkbox-critter.component.scss',
   hostDirectives: [
     {
       directive: ToggleDirective,
@@ -15,4 +15,4 @@ import {ToggleDirective} from '../../../directives/toggle/toggle.directive';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CheckboxPlayfulEarthyComponent {}
+export class InputCheckboxCritterComponent {}

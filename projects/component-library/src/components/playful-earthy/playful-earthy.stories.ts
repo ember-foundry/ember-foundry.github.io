@@ -1,11 +1,11 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {Showcase as CheckboxShowcase} from 'component-library/components/checkbox/checkbox-playful-earthy/checkbox-playful-earthy.stories';
+import {Showcase as CheckboxShowcase} from 'component-library/components/input/input-checkbox-critter/input-checkbox-critter.stories';
 import {Showcase as ButtonShowcase} from 'component-library/components/button/button-playful-earthy/button-playful-earthy.stories';
 import {Showcase as PanelShowcase} from 'component-library/components/panel/panel-playful-earthy/panel-playful-earthy.stories';
 import {Showcase as QuantityInputShowcase} from 'component-library/components/input/input-quantity-playful-earthy/input-quantity-playful-earthy.stories';
 import {
   ButtonPlayfulEarthyComponent,
-  CheckboxPlayfulEarthyComponent,
+  InputCheckboxCritterComponent,
   PanelPlayfulEarthyComponent,
   InputQuantityPlayfulEarthyComponent
 } from 'component-library';
@@ -43,7 +43,7 @@ export const Checkboxes: StoryObj = {
   decorators: [
     moduleMetadata({
       imports: [
-        CheckboxPlayfulEarthyComponent
+        InputCheckboxCritterComponent
       ]
     })
   ],
