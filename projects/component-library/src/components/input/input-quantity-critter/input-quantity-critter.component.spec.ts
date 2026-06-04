@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {beforeEach, expect, describe} from 'vitest';
+import {beforeEach, describe, expect, it} from 'vitest';
 import {InputQuantityCritterComponent} from './input-quantity-critter.component';
 
 describe('InputQuantityCritterComponent', () => {
