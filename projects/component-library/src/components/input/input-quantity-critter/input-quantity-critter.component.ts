@@ -1,12 +1,8 @@
 import {ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, signal, viewChild} from '@angular/core';
-import {ButtonCritterComponent} from 'component-library';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'mbr-input-quantity-critter',
-  imports: [
-    ButtonCritterComponent
-  ],
   templateUrl: './input-quantity-critter.component.html',
   styleUrl: './input-quantity-critter.component.scss',
   providers: [
@@ -73,9 +69,7 @@ export class InputQuantityCritterComponent implements ControlValueAccessor {
     this.onTouched();
   }
 
-  // --- ControlValueAccessor Implementation ---
   public writeValue(value: number): void {
-    // Defensively handle incoming null/undefined values from forms
     this.value.set(value ?? this.min());
   }
 
