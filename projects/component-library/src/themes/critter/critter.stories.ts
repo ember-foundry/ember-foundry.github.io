@@ -2,13 +2,14 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {Showcase as CheckboxShowcase} from 'component-library/components/input/input-checkbox-critter/input-checkbox-critter.stories';
 import {Showcase as ButtonShowcase} from 'component-library/components/button/button-critter/button-critter.stories';
 import {Showcase as BadgeShowcase} from 'component-library/components/badge/badge-critter/badge-critter.stories';
+import {Showcase as ChipShowcase} from 'component-library/components/chip/chip-critter/chip-critter.stories';
 import {Showcase as PanelShowcase} from 'component-library/components/panel/panel-critter/panel-critter.stories';
 import {Showcase as QuantityInputShowcase} from 'component-library/components/input/input-quantity-critter/input-quantity-critter.stories';
 import {
   ButtonCritterComponent,
   InputCheckboxCritterComponent,
   PanelCritterComponent,
-  InputQuantityCritterComponent, BadgeCritterDirective
+  InputQuantityCritterComponent, BadgeCritterDirective, ChipCritterComponent
 } from 'component-library';
 import {BadgeCritterComponent} from 'component-library/components/badge/badge-critter/badge-critter.component';
 
@@ -48,6 +49,17 @@ export const Badges: StoryObj = {
     })
   ],
   ...BadgeShowcase
+};
+
+export const Chips: StoryObj = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        ChipCritterComponent
+      ]
+    })
+  ],
+  ...ChipShowcase
 };
 
 export const Panels: StoryObj = {

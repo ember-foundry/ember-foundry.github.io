@@ -1,0 +1,46 @@
+@import 'https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap';
+
+:host {
+  font-family: Fredoka, sans-serif;
+}
+
+$COLORS: (
+  disabled: (
+    '--color-background': #E6DFD5,
+    '--color-border': #A69D92,
+    '--color-text': #8C8378
+  ),
+  danger-tonal: (
+    '--color-background': #E84A3B33,
+    '--color-border': #E84A3B66,
+    '--color-text': #8A1A10,
+  ),
+  success: (
+    '--color-background': #6BC235,
+    '--color-border': #3A7316,
+    '--color-text': white
+  ),
+  success-tonal: (
+    '--color-background': rgb(107 194 53 / 40%),
+    '--color-border': rgb(107 194 53 / 20%),
+    '--color-text': #3A7316
+  ),
+  warning: (
+    '--color-background': rgb(255 203 43),
+    '--color-border': rgb(163 122 0),
+    '--color-text': rgb(74 42 12)
+  ),
+  warning-tonal: (
+    '--color-background': rgb(255 203 43 / 30%),
+    '--color-border': rgb(255 203 43 / 50%),
+    '--color-text': rgb(163 122 0)
+  )
+);
+
+@each $color-name, $prop-and-value in $COLORS {
+  :host(.color-#{$color-name}) {
+    @each $property, $value in $prop-and-value {
+      #{$property}: $value;
+    }
+  }
+}

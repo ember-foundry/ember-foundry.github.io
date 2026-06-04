@@ -11,6 +11,7 @@ export * from './components/button/button-critter/button-critter.component';
 export * from './components/callback-status/callback-status.component';
 export * from './components/card/card.component';
 export * from './components/card/card-web-gradients/card-web-gradients.component';
+export * from './components/chip/chip-critter/chip-critter.component';
 export * from './components/input/input-checkbox-critter/input-checkbox-critter.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle-with-view-transition/color-scheme-toggle-with-view-transition.component';
