@@ -10,7 +10,7 @@ const meta: Meta<InputCheckboxCritterComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'checkbox', 'playful earthy']
+  tags: ['autodocs', 'checkbox', 'critter']
 };
 
 export default meta;
@@ -54,7 +54,7 @@ export const Showcase: StoryObj = {
     template: `
       <span></span><h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
 
-      <h4>Checkboxes</h4>
+      <span></span>
       <input type="checkbox" mbrCritter />
       <input type="checkbox" mbrCritter [checked]="true" />
       <input type="checkbox" mbrCritter disabled />

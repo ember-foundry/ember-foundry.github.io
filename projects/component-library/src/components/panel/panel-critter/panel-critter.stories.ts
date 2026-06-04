@@ -1,17 +1,17 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonPlayfulEarthyComponent, PanelPlayfulEarthyComponent} from 'component-library';
+import {ButtonCritterComponent, PanelCritterComponent} from 'component-library';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
 
-const meta: Meta<PanelPlayfulEarthyComponent> = {
-  component: PanelPlayfulEarthyComponent,
+const meta: Meta<PanelCritterComponent> = {
+  component: PanelCritterComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        ButtonPlayfulEarthyComponent
+        ButtonCritterComponent
       ]
     })
   ],
-  tags: ['autodocs', 'panel', 'playful earthy'],
+  tags: ['autodocs', 'panel', 'critter'],
   argTypes: {
     title: {
       control: { type: 'text' },
@@ -27,15 +27,15 @@ const meta: Meta<PanelPlayfulEarthyComponent> = {
 
 export default meta;
 
-export const PantryStatus: StoryObj<PanelPlayfulEarthyComponent> = {
+export const PantryStatus: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'PANTRY STATUS'
   },
   render:(args) => ({
     template: `
-      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
+      <mbr-panel-critter ${args_to_angular_inputs(args)}>
         <button
-          mbrButtonPlayfulEarthy
+          mbrCritter
           flat
           color="warning"
           size="small"
@@ -61,21 +61,21 @@ export const PantryStatus: StoryObj<PanelPlayfulEarthyComponent> = {
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <button mbrButtonPlayfulEarthy>View</button>
-      </mbr-panel-playful-earthy>
+        <button mbrCritter>View</button>
+      </mbr-panel-critter>
     `
   })
 }
 
-export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
+export const ActiveShopping: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'ACTIVE SHOPPING'
   },
   render:(args) => ({
     template: `
-      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
+      <mbr-panel-critter ${args_to_angular_inputs(args)}>
       <button
-        mbrButtonPlayfulEarthy
+        mbrCritter
         flat
         color="success"
         size="small"
@@ -99,27 +99,27 @@ export const ActiveShopping: StoryObj<PanelPlayfulEarthyComponent> = {
         <h3 class="m-0 font-semibold">4 items</h3>
         <small>to buy right now</small>
       </div>
-      <button mbrButtonPlayfulEarthy color="success">Go Shop</button>
-    </mbr-panel-playful-earthy>
+      <button mbrCritter color="success">Go Shop</button>
+    </mbr-panel-critter>
     `
   })
 }
 
-export const EmptyPanel: StoryObj<PanelPlayfulEarthyComponent> = {
+export const EmptyPanel: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'NO CONTENT'
   }
 }
 
-export const HouseholdItems: StoryObj<PanelPlayfulEarthyComponent> = {
+export const HouseholdItems: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'HOUSEHOLD ITEMS'
   },
   render:(args) => ({
     template: `
-      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
-        <div class="playful-earthy-list flex flex-col flex-grow-1">
-          <div class="playful-earthy-list-item flex justify-content-between justify-between">
+      <mbr-panel-critter ${args_to_angular_inputs(args)}>
+        <div class="flex flex-col flex-grow-1">
+          <div class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                   <h4 class="m-0">Milk</h4>
                   <small>Food</small>
@@ -128,30 +128,30 @@ export const HouseholdItems: StoryObj<PanelPlayfulEarthyComponent> = {
                   <div class="tag">In List</div>
               </div>
           </div>
-          <div class="playful-earthy-list flex justify-content-between justify-between">
+          <div class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                  <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <button mbrButtonPlayfulEarthy></button>
+                  <button mbrCritter></button>
               </div>
           </div>
         </div>
-      </mbr-panel-playful-earthy>
+      </mbr-panel-critter>
     `
   })
 }
 
-export const CartPanel: StoryObj<PanelPlayfulEarthyComponent> = {
+export const CartPanel: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'TO BUY'
   },
   render:(args) => ({
     template: `
-      <mbr-panel-playful-earthy ${args_to_angular_inputs(args)}>
-        <div class="playful-earthy-list flex flex-col flex-grow-1">
-          <div class="playful-earthy-list-item flex justify-content-between justify-between">
+      <mbr-panel-critter ${args_to_angular_inputs(args)}>
+        <div class="flex flex-col flex-grow-1">
+          <div class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                   <h4 class="m-0">Milk</h4>
                   <small>Food</small>
@@ -160,17 +160,17 @@ export const CartPanel: StoryObj<PanelPlayfulEarthyComponent> = {
                   <div class="tag">In List</div>
               </div>
           </div>
-          <div class="playful-earthy-list flex justify-content-between justify-between">
+          <div class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                  <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <button mbrButtonPlayfulEarthy></button>
+                  <button mbrCritter></button>
               </div>
           </div>
         </div>
-      </mbr-panel-playful-earthy>
+      </mbr-panel-critter>
     `
   })
 }
@@ -180,9 +180,9 @@ export const Showcase: StoryObj = {
     ...context,
     styles: [':host { gap: 1rem; display: flex; flex-direction: column;}'],
     template: `
-      <mbr-panel-playful-earthy title="PANTRY STATUS">
+      <mbr-panel-critter title="PANTRY STATUS">
         <button
-          mbrButtonPlayfulEarthy
+          mbrCritter
           flat
           color="warning"
           size="small"
@@ -208,12 +208,12 @@ export const Showcase: StoryObj = {
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <button mbrButtonPlayfulEarthy>View</button>
-      </mbr-panel-playful-earthy>
+        <button mbrCritter>View</button>
+      </mbr-panel-critter>
 
-      <mbr-panel-playful-earthy title="ACTIVE SHOPPING">
+      <mbr-panel-critter title="ACTIVE SHOPPING">
       <button
-        mbrButtonPlayfulEarthy
+        mbrCritter
         flat
         color="success"
         size="small"
@@ -237,10 +237,10 @@ export const Showcase: StoryObj = {
         <h3 class="m-0 font-semibold">4 items</h3>
         <small>to buy right now</small>
       </div>
-      <button mbrButtonPlayfulEarthy color="success">Go Shop</button>
-      </mbr-panel-playful-earthy>
+      <button mbrCritter color="success">Go Shop</button>
+      </mbr-panel-critter>
 
-      <mbr-panel-playful-earthy title="EMPTY PANEL"></mbr-panel-playful-earthy>
+      <mbr-panel-critter title="EMPTY PANEL"></mbr-panel-critter>
     `
   })
 }

@@ -1,10 +1,10 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonPlayfulEarthyComponent} from 'component-library';
+import {ButtonCritterComponent} from 'component-library';
 import {NgTemplateOutlet} from '@angular/common';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
 
-const meta: Meta<ButtonPlayfulEarthyComponent> = {
-  component: ButtonPlayfulEarthyComponent,
+const meta: Meta<ButtonCritterComponent> = {
+  component: ButtonCritterComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -12,7 +12,7 @@ const meta: Meta<ButtonPlayfulEarthyComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'button', 'playful earthy'],
+  tags: ['autodocs', 'button', 'critter'],
   argTypes: {
     color: {
       control: 'select',
@@ -34,63 +34,63 @@ const meta: Meta<ButtonPlayfulEarthyComponent> = {
 
 export default meta;
 
-export const Standard: StoryObj<ButtonPlayfulEarthyComponent> = {}
+export const Standard: StoryObj<ButtonCritterComponent> = {}
 
-export const Success: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Success: StoryObj<ButtonCritterComponent> = {
   args: {
     color: 'success'
   }
 }
 
-export const Warning: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Warning: StoryObj<ButtonCritterComponent> = {
   args: {
     color: 'warning'
   }
 }
 
-export const Danger: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Danger: StoryObj<ButtonCritterComponent> = {
   args: {
     color: 'danger'
   }
 }
 
-export const Disabled: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Disabled: StoryObj<ButtonCritterComponent> = {
   render: () => ({
-    template: `<button mbrButtonPlayfulEarthy disabled></button>`
+    template: `<button mbrCritter disabled></button>`
   })
 }
 
-export const Small: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Small: StoryObj<ButtonCritterComponent> = {
   args: {
     size: 'small'
   }
 }
 
-export const Medium: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Medium: StoryObj<ButtonCritterComponent> = {
   args: {
     size: 'medium'
   }
 }
 
-export const Large: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const Large: StoryObj<ButtonCritterComponent> = {
   args: {
     size: 'large'
   }
 }
 
-export const ExtraLarge: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const ExtraLarge: StoryObj<ButtonCritterComponent> = {
   args: {
     size: 'extra-large'
   }
 }
 
-export const IconOnly: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const IconOnly: StoryObj<ButtonCritterComponent> = {
   args: {
     color: 'success'
   },
   render: (args) => ({
     template: `
-        <button mbrButtonPlayfulEarthy ${args_to_angular_inputs(args)}>
+        <button mbrCritter ${args_to_angular_inputs(args)}>
           <svg
             viewBox="0 0 14 14"
             fill="none"
@@ -108,14 +108,14 @@ export const IconOnly: StoryObj<ButtonPlayfulEarthyComponent> = {
   })
 }
 
-export const ExtraLargeRoundedIconOnly: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const ExtraLargeRoundedIconOnly: StoryObj<ButtonCritterComponent> = {
   args: {
     rounded: true,
     size: 'extra-large'
   },
   render: (args) => ({
     template: `
-      <button mbrButtonPlayfulEarthy ${args_to_angular_inputs(args)}>
+      <button mbrCritter ${args_to_angular_inputs(args)}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
           <path d="M9.33332 25.6667C9.97766 25.6667 10.5 25.1444 10.5 24.5C10.5 23.8557 9.97766 23.3334 9.33332 23.3334C8.68899 23.3334 8.16666 23.8557 8.16666 24.5C8.16666 25.1444 8.68899 25.6667 9.33332 25.6667Z" stroke="#4A2A0C" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M22.1667 25.6667C22.811 25.6667 23.3333 25.1444 23.3333 24.5C23.3333 23.8557 22.811 23.3334 22.1667 23.3334C21.5223 23.3334 21 23.8557 21 24.5C21 25.1444 21.5223 25.6667 22.1667 25.6667Z" stroke="#4A2A0C" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
@@ -126,14 +126,14 @@ export const ExtraLargeRoundedIconOnly: StoryObj<ButtonPlayfulEarthyComponent> =
   })
 }
 
-export const FullWidth: StoryObj<ButtonPlayfulEarthyComponent> = {
+export const FullWidth: StoryObj<ButtonCritterComponent> = {
   args: {
     color: 'warning',
     size: 'medium'
   },
   render: (args) => ({
     template: `
-        <button mbrButtonPlayfulEarthy class="w-100" ${args_to_angular_inputs(args)}>
+        <button mbrCritter class="w-100" ${args_to_angular_inputs(args)}>
           <svg
             viewBox="0 0 14 14"
             fill="none"
@@ -193,36 +193,36 @@ export const Showcase: StoryObj = {
 
             @for (color of colors; track color) {
               @if (tag === 'button') {
-                <button mbrButtonPlayfulEarthy [color]="color" [size]="size"></button>
+                <button mbrCritter [color]="color" [size]="size"></button>
               } @else {
-                <a mbrButtonPlayfulEarthy [color]="color" [size]="size"></a>
+                <a mbrCritter [color]="color" [size]="size"></a>
               }
             }
             @if (tag === 'button') {
-              <button mbrButtonPlayfulEarthy disabled [size]="size"></button>
+              <button mbrCritter disabled [size]="size"></button>
             } @else {
-              <a mbrButtonPlayfulEarthy disabled [size]="size"></a>
+              <a mbrCritter disabled [size]="size"></a>
             }
 
             <p>Projected Content [{{ tag }}]</p>
 
             @for (color of colors; track color) {
               @if (tag === 'button') {
-                <button mbrButtonPlayfulEarthy [color]="color" [size]="size">
+                <button mbrCritter [color]="color" [size]="size">
                   <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
                 </button>
               } @else {
-                <a mbrButtonPlayfulEarthy [color]="color" [size]="size">
+                <a mbrCritter [color]="color" [size]="size">
                   <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
                 </a>
               }
             }
             @if (tag === 'button') {
-              <button mbrButtonPlayfulEarthy disabled [size]="size">
+              <button mbrCritter disabled [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
               </button>
             } @else {
-              <a mbrButtonPlayfulEarthy disabled [size]="size">
+              <a mbrCritter disabled [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
               </a>
             }

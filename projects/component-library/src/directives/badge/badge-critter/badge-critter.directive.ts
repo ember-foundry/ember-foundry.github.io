@@ -9,33 +9,31 @@ import {
   OnInit,
   ViewContainerRef
 } from '@angular/core';
-import {
-  BadgePlayfulEarthyComponent
-} from '../../../components/badge/badge-playful-earthy/badge-playful-earthy.component';
+import {BadgeCritterComponent} from '../../../components/badge/badge-critter/badge-critter.component';
 
 @Directive({
-  selector: '[mbrBadgePlayfulEarthy]'
+  selector: '[mbrBadgeCritter]'
 })
-export class BadgePlayfulEarthyDirective implements OnInit, OnDestroy {
-  public mbrBadgePlayfulEarthy = input.required<string>();
-  public mbrBadgePlayfulEarthyOffset = input.required<string>();
-  public mbrBadgePlayfulEarthySize = input.required<string>();
+export class BadgeCritterDirective implements OnInit, OnDestroy {
+  public mbrBadgeCritter = input.required<string>();
+  public mbrBadgeCritterOffset = input.required<string>();
+  public mbrBadgeCritterSize = input.required<string>();
 
   private readonly element_ref = inject(ElementRef<HTMLElement>);
   private readonly view_container = inject(ViewContainerRef);
 
-  private component_ref!: ComponentRef<BadgePlayfulEarthyComponent>;
+  private component_ref!: ComponentRef<BadgeCritterComponent>;
 
   constructor() {
     effect(() => {
-      const content = this.mbrBadgePlayfulEarthy();
+      const content = this.mbrBadgeCritter();
       if (this.component_ref) {
         this.component_ref.setInput('content', content);
-        this.component_ref.setInput('offset', this.mbrBadgePlayfulEarthyOffset())
-        this.component_ref.setInput('size', this.mbrBadgePlayfulEarthySize())
+        this.component_ref.setInput('offset', this.mbrBadgeCritterOffset())
+        this.component_ref.setInput('size', this.mbrBadgeCritterSize())
         console.log('this.element_ref.nativeElement;', this.element_ref.nativeElement)
       } else {
-        console.warn('BadgePlayfulEarthyDirective: component_ref is undefined, cannot set input');
+        console.warn('BadgeCritterDirective: component_ref is undefined, cannot set input');
       }
     });
   }
@@ -47,7 +45,7 @@ export class BadgePlayfulEarthyDirective implements OnInit, OnDestroy {
       host.style.position = 'relative';
     }
 
-    this.component_ref = this.view_container.createComponent(BadgePlayfulEarthyComponent);
+    this.component_ref = this.view_container.createComponent(BadgeCritterComponent);
 
     /**
      * Removing this will insert the badge as a sibling of the directive host element.

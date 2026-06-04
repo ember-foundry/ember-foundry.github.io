@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {InputCheckboxCritterComponent} from './input-checkbox-critter.component';
 
-import { InputCheckboxCritterComponent } from './input-checkbox-critter.component';
-
-describe('CheckboxPlayfulEarthyComponent', () => {
+describe('InputCheckboxCritterComponent', () => {
   let component: InputCheckboxCritterComponent;
   let fixture: ComponentFixture<InputCheckboxCritterComponent>;
 
@@ -10,7 +10,7 @@ describe('CheckboxPlayfulEarthyComponent', () => {
     await TestBed.configureTestingModule({
       imports: [InputCheckboxCritterComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(InputCheckboxCritterComponent);
     component = fixture.componentInstance;

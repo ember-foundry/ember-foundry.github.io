@@ -1,24 +1,24 @@
 import {ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, signal, viewChild} from '@angular/core';
-import {ButtonPlayfulEarthyComponent} from 'component-library';
+import {ButtonCritterComponent} from 'component-library';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'mbr-input-quantity-playful-earthy',
+  selector: 'mbr-input-quantity-critter',
   imports: [
-    ButtonPlayfulEarthyComponent
+    ButtonCritterComponent
   ],
-  templateUrl: './input-quantity-playful-earthy.component.html',
-  styleUrl: './input-quantity-playful-earthy.component.scss',
+  templateUrl: './input-quantity-critter.component.html',
+  styleUrl: './input-quantity-critter.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputQuantityPlayfulEarthyComponent),
+      useExisting: forwardRef(() => InputQuantityCritterComponent),
       multi: true
     }
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputQuantityPlayfulEarthyComponent implements ControlValueAccessor {
+export class InputQuantityCritterComponent implements ControlValueAccessor {
 
   public min = input<number>(0);
   public max = input<number>(100);

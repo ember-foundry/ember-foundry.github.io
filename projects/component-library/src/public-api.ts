@@ -7,7 +7,7 @@ export * from './components/avatar-with-label/avatar-label.directive';
 export * from './components/baseline-availability/baseline-availability.component';
 export * from './components/button/button-basic/button-basic.component';
 export * from './components/button/button-monochromatic/button-monochromatic.component';
-export * from './components/button/button-playful-earthy/button-playful-earthy.component';
+export * from './components/button/button-critter/button-critter.component';
 export * from './components/callback-status/callback-status.component';
 export * from './components/card/card.component';
 export * from './components/card/card-web-gradients/card-web-gradients.component';
@@ -24,7 +24,7 @@ export * from './components/github/github-action-progress/github-action-progress
 export * from './components/github/github-corner/github-corner.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/info-reveal/info-reveal.component';
-export * from './components/input/input-quantity-playful-earthy/input-quantity-playful-earthy.component';
+export * from './components/input/input-quantity-critter/input-quantity-critter.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';
 export * from './components/lando-norris/lando-norris-card/lando-norris-card.component';
@@ -33,7 +33,7 @@ export * from './components/ludo-player-ui-front/ludo-player-ui-front.component'
 export * from './components/marquee/marquee.component';
 export * from './components/menu-toggle/menu-toggle.component';
 export * from './components/multi-toggle-switch/multi-toggle-switch.component';
-export * from './components/panel/panel-playful-earthy/panel-playful-earthy.component';
+export * from './components/panel/panel-critter/panel-critter.component';
 export * from './components/player-select/player-select.component';
 export * from './components/post-it/post-it.component';
 export * from './components/price-plan/price-plan.component';
@@ -51,7 +51,7 @@ export * from './components/svg-loader/svg-loader-ring-resize/svg-loader-ring-re
 export * from './components/toggle-switch/toggle-switch.component';
 export * from './components/toggle-switch-seesaw/toggle-switch-seesaw.component';
 export * from './components/vuexy/vuexy-theme-customizer-trigger/vuexy-theme-customizer-trigger.component';
-export * from './directives/badge/badge-playful-earthy/badge-playful-earthy.directive';
+export * from './directives/badge/badge-critter/badge-critter.directive';
 export * from './directives/grid-background/grid-background.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/toggle/toggle.directive';
