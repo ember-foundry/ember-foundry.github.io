@@ -1,7 +1,7 @@
 import {booleanAttribute, Directive, input, model, output} from '@angular/core';
 
 @Directive({
-  selector: '[mbrToggle]',
+  selector: 'input[type="checkbox"][mbrToggle]',
   host: {
     '(click)': 'toggle()',
     '[checked]': 'checked()',
