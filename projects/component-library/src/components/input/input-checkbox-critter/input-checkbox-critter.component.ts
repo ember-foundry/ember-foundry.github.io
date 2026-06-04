@@ -3,7 +3,7 @@ import {ToggleDirective} from '../../../directives/toggle/toggle.directive';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[type="checkbox"][mbrPlayfulEarthy]',
+  selector: 'input[type="checkbox"][mbrCritter]',
   templateUrl: './input-checkbox-critter.component.html',
   styleUrl: './input-checkbox-critter.component.scss',
   hostDirectives: [

@@ -18,28 +18,28 @@ export default meta;
 export const Unchecked: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
-    template: `<input type="checkbox" mbrPlayfulEarthy />`
+    template: `<input type="checkbox" mbrCritter />`
   })
 };
 
 export const Checked: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
-    template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true"/>`
+    template: `<input type="checkbox" mbrCritter [checked]="true"/>`
   })
 };
 
 export const Disabled: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
-    template: `<input type="checkbox" mbrPlayfulEarthy disabled />`
+    template: `<input type="checkbox" mbrCritter disabled />`
   })
 };
 
 export const CheckedDisabled: StoryObj<InputCheckboxCritterComponent> = {
   render: (args, context) => ({
     ...context,
-    template: `<input type="checkbox" mbrPlayfulEarthy [checked]="true" disabled/>`
+    template: `<input type="checkbox" mbrCritter [checked]="true" disabled/>`
   })
 };
 
@@ -55,10 +55,10 @@ export const Showcase: StoryObj = {
       <span></span><h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
 
       <h4>Checkboxes</h4>
-      <input type="checkbox" mbrPlayfulEarthy />
-      <input type="checkbox" mbrPlayfulEarthy [checked]="true" />
-      <input type="checkbox" mbrPlayfulEarthy disabled />
-      <input type="checkbox" mbrPlayfulEarthy [checked]="true" [disabled]="true" />
+      <input type="checkbox" mbrCritter />
+      <input type="checkbox" mbrCritter [checked]="true" />
+      <input type="checkbox" mbrCritter disabled />
+      <input type="checkbox" mbrCritter [checked]="true" [disabled]="true" />
     `
   })
 };
