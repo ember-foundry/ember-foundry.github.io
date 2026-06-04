@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+$font-weights: (
+  'thin': 100,
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'heavy': 800,
+  'black': 900,
+);
+
+@function get-font-weight($weight) {
+  @if not map.has-key($font-weights, $weight) {
+    @warn 'Breakpoint '#{$weight}' not found.';
+  }
+
+  @return map.get($font-weights, $weight);
+}
+
+@mixin font-weight($weight) {
+  $result: get-font-weight($weight);
+
+  font-weight: $result;
+}
