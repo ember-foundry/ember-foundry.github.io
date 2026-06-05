@@ -15,6 +15,6 @@ import {BaseComponent} from '../../_base/base.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChipCritterComponent extends BaseComponent {
-  public color = input<COLORS_TONAl>('success-tonal');
+  public color = input<COLORS_TONAl>();
   protected readonly host_css_classes = this.computed_host_css_classes_from('color');
 }

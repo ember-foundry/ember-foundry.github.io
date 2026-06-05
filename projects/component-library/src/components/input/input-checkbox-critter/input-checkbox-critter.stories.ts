@@ -10,7 +10,7 @@ const meta: Meta<InputCheckboxCritterComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'checkbox', 'critter']
+  tags: ['autodocs', 'critter', 'checkbox']
 };
 
 export default meta;

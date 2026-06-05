@@ -5,6 +5,12 @@
 }
 
 $COLORS: (
+  '': (
+    '--color-background': #D1A354,
+    '--color-border': #805429,
+    '--color-shadow': var(--color-border),
+    '--color-text': #4A2A0C
+  ),
   ':disabled, [disabled], .color-disabled': (
     '--color-background': #E6DFD5,
     '--color-border': #A69D92,
@@ -50,9 +56,17 @@ $COLORS: (
 );
 
 @each $selector, $prop-and-value in $COLORS {
-  :host(#{$selector}) {
-    @each $property, $value in $prop-and-value {
-      #{$property}: $value;
+  @if $selector == '' {
+    :host {
+      @each $property, $value in $prop-and-value {
+        #{$property}: $value;
+      }
+    }
+  } @else {
+    :host(#{$selector}) {
+      @each $property, $value in $prop-and-value {
+        #{$property}: $value;
+      }
     }
   }
 }

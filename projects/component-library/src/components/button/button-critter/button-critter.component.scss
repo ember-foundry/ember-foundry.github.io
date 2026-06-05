@@ -1,11 +1,6 @@
 $default-box-shadow-depth: 4px;
 
 :host {
-  --color-background: #D1A354;
-  --color-border: #805429;
-  --color-text: #4A2A0C;
-  --color-shadow: var(--color-border);
-
   align-items: center;
   background: var(--color-background);
   border: 3px solid var(--color-border);
@@ -73,6 +68,9 @@ $default-box-shadow-depth: 4px;
   height: 1em;
 }
 
+/**
+ *  Only 1 child
+ */
 :host:has(>*:first-child:last-child) {
   aspect-ratio: 1;
 }

@@ -12,7 +12,7 @@ const meta: Meta<ButtonCritterComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'button', 'critter'],
+  tags: ['autodocs', 'critter', 'button'],
   argTypes: {
     color: {
       control: 'select',

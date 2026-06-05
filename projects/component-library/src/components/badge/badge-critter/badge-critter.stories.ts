@@ -10,7 +10,7 @@ const meta: Meta = {
       ]
     })
   ],
-  tags: ['autodocs', 'badge', 'critter'],
+  tags: ['autodocs', 'critter', 'badge'],
   argTypes: {
     button_size: {
       options: ['small', 'medium', 'large', 'extra-large'],

@@ -11,7 +11,7 @@ const meta: Meta<PanelCritterComponent> = {
       ]
     })
   ],
-  tags: ['autodocs', 'panel', 'critter'],
+  tags: ['autodocs', 'critter', 'panel'],
   argTypes: {
     title: {
       control: { type: 'text' },
