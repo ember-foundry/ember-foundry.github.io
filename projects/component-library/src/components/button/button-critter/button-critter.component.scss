@@ -46,13 +46,6 @@ $default-box-shadow-depth: 4px;
   translate: 0 var(--box-shadow-depth, #{$default-box-shadow-depth});
 }
 
-:host(:disabled), :host([disabled]){
-  --color-background: #E6DFD5; /* Desaturated, muted warm gray */
-  --color-border: #A69D92;     /* Low-contrast outline */
-  --color-text: #8C8378;       /* Faded text, passes basic contrast for readability but looks dead */
-  --color-shadow: transparent; /* Disable the shadow entirely to "flatten" the button */
-}
-
 :host(.size-small){
   font-size: 12px;
   line-height: 133.333%;

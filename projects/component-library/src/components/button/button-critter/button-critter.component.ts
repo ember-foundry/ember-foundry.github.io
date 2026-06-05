@@ -1,5 +1,6 @@
 import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {BaseComponent} from '../../_base/base.component';
+import {COLORS} from '../../../themes/critter/colors.type';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -18,7 +19,7 @@ import {BaseComponent} from '../../_base/base.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonCritterComponent extends BaseComponent {
-  public color = input<'success' | 'warning' | 'danger' | undefined>();
+  public color = input<COLORS | undefined>();
   public size = input<'small' | 'medium' | undefined | 'large' | 'extra-large'>();
   public rounded = input(false, {transform: booleanAttribute});
   public flat = input(false, {transform: booleanAttribute});

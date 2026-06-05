@@ -16,7 +16,7 @@ const meta: Meta<ButtonCritterComponent> = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['success', 'warning', 'danger'],
+      options: ['danger', 'disabled', 'success', 'warning'],
       description: 'Set the color of the button'
 
     },
