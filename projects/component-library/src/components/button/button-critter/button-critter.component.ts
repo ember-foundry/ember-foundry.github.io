@@ -6,6 +6,7 @@ import {BaseComponent} from '../../_base/base.component';
   selector: 'button[mbrCritter], a[mbrCritter]',
   templateUrl: './button-critter.component.html',
   styleUrls: [
+    '../../../themes/critter/critter.scss',
     '../button.component.scss',
     './button-critter.component.scss'
   ],

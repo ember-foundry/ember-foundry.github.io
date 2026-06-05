@@ -4,7 +4,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 @Component({
   selector: 'mbr-input-quantity-critter',
   templateUrl: './input-quantity-critter.component.html',
-  styleUrl: './input-quantity-critter.component.scss',
+  styleUrls: [
+    '../../../themes/critter/critter.scss',
+    './input-quantity-critter.component.scss'
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

@@ -35,7 +35,14 @@ export const Buttons: StoryObj = {
       ]
     })
   ],
-  ...ButtonShowcase
+  ...ButtonShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-button-button-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
 
 export const Badges: StoryObj = {
@@ -48,7 +55,14 @@ export const Badges: StoryObj = {
       ]
     })
   ],
-  ...BadgeShowcase
+  ...BadgeShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-badge-badge-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
 
 export const Chips: StoryObj = {
@@ -59,7 +73,14 @@ export const Chips: StoryObj = {
       ]
     })
   ],
-  ...ChipShowcase
+  ...ChipShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-chip-chip-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
 
 export const Panels: StoryObj = {
@@ -71,7 +92,14 @@ export const Panels: StoryObj = {
       ]
     })
   ],
-  ...PanelShowcase
+  ...PanelShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-panel-panel-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
 
 export const Checkboxes: StoryObj = {
@@ -82,7 +110,14 @@ export const Checkboxes: StoryObj = {
       ]
     })
   ],
-  ...CheckboxShowcase
+  ...CheckboxShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-input-input-checkbox-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
 
 
@@ -94,5 +129,12 @@ export const QuantityInput: StoryObj<InputQuantityCritterComponent> = {
       ]
     })
   ],
-  ...QuantityInputShowcase
+  ...QuantityInputShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-input-input-quantity-critter--docs">original story here</a>'
+      }
+    }
+  }
 };
