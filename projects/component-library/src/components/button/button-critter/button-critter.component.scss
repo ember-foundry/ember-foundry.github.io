@@ -36,23 +36,6 @@ $default-box-shadow-depth: 4px;
   box-shadow: none;
 }
 
-:host(.color-success) {
-  --color-background: #6BC235;
-  --color-border: #3A7316;
-  --color-text: white;
-}
-
-:host(.color-warning){
-  --color-background: #FFCB2B;
-  --color-border: #A37A00;
-}
-
-:host(.color-danger){
-  --color-background: #E84A3B;
-  --color-border: #8A1A10;
-  --color-text: white;
-}
-
 :host(.rounded) {
   aspect-ratio: 1;
   border-radius: 50%;
