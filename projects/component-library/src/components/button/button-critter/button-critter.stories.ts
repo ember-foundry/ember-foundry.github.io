@@ -158,7 +158,7 @@ export const Showcase: StoryObj = {
     props: {
       ...args,
       placements: ['button', 'a'],
-      colors: [undefined, ...COLOR_VALUES],
+      colors: COLOR_VALUES,
       sizes: ['small', undefined, 'medium', 'large', 'extra-large']
     },
     styles: [
@@ -177,11 +177,11 @@ export const Showcase: StoryObj = {
       <section class="comparison-grid">
         <span></span>
         @for (color of colors; track color) {
-          <p class="font-bold">{{color || 'Standard'}}</p>
+          <p class="font-bold">{{color || 'Default'}}</p>
         }
 
         @for (size of sizes; track size) {
-          <div class="font-bold mt-4 title-row">Size: {{ size || 'Standard' }}</div>
+          <div class="font-bold mt-4 title-row">Size: {{ size || 'Default' }}</div>
 
           @for (tag of placements; track tag) {
             <p>Content-less [{{ tag }}]</p>

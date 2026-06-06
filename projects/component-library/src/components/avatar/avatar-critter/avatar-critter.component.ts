@@ -20,6 +20,6 @@ import {BaseComponent} from '../../_base/base.component';
 })
 export class AvatarCritterComponent extends BaseComponent {
   public name = input<string>('Unknown User');
-  public color = input<COLORS>('info');
+  public color = input<COLORS>();
   protected readonly host_css_classes = this.computed_host_css_classes_from('color');
 }

@@ -1,4 +1,5 @@
 export const COLOR_VALUES = [
+  undefined,
   'danger',
   'disabled',
   'info',

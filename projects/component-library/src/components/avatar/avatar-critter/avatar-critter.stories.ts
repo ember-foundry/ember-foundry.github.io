@@ -28,13 +28,13 @@ export const Showcase: StoryObj = {
       colors: COLOR_VALUES
     },
     styles: [
-      ':host{ display: inline-grid; grid-template-columns: repeat(5, auto); gap: 1em; ',
+      ':host{ display: inline-grid; grid-template-columns: repeat(6, auto); gap: 1em; ',
       'h4 { text-transform: capitalize; text-align: center; }',
       'mbr-avatar-critter { justify-self: center; }'
     ],
     template: `
       @for(color of colors; track color){
-        <h4>{{color}}</h4>
+        <h4>{{color || 'Default'}}</h4>
       }
       @for(color of colors; track color){
         <mbr-avatar-critter [color]="color" />
