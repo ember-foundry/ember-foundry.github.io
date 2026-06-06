@@ -22,6 +22,12 @@ $color-variables: (
     '--color-shadow': transparent,
     '--color-text': #8C8378
   ),
+  '.color-light': (
+    '--color-background': #E4BA73,
+    '--color-border': #805429,
+    '--color-shadow': var(--color-border),
+    '--color-text': #4A2A0C
+  ),
   '.color-danger': (
     '--color-background': #E84A3B,
     '--color-border': #8A1A10,
