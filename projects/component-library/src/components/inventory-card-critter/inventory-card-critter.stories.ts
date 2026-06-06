@@ -26,6 +26,9 @@ export default meta;
 export const Sample: StoryObj<InventoryCardCritterComponent> = {}
 
 export const Showcase: StoryObj = {
+  args: {
+    label: 'MILK'
+  },
   render: (args, context) => ({
     ...context,
     props: {
