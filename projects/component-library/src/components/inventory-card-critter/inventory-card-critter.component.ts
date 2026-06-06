@@ -2,12 +2,14 @@ import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core
 import {ChipCritterComponent} from '../chip/chip-critter/chip-critter.component';
 import {BaseComponent} from '../_base/base.component';
 import {AvatarCritterComponent} from 'component-library';
+import {CardCritterComponent} from 'component-library/components/card/card-critter/card-critter.component';
 
 @Component({
   selector: 'mbr-inventory-card-critter',
   imports: [
     ChipCritterComponent,
-    AvatarCritterComponent
+    AvatarCritterComponent,
+    CardCritterComponent
   ],
   templateUrl: './inventory-card-critter.component.html',
   styleUrls: [
