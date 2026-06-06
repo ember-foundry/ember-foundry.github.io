@@ -4,7 +4,7 @@
   font-family: Fredoka, sans-serif;
 }
 
-$COLORS: (
+$color-variables: (
   '': (
     '--color-background': #D1A354,
     '--color-border': #805429,
@@ -61,7 +61,7 @@ $COLORS: (
   )
 );
 
-@each $selector, $prop-and-value in $COLORS {
+@each $selector, $prop-and-value in $color-variables {
   @if $selector == '' {
     :host {
       @each $property, $value in $prop-and-value {
