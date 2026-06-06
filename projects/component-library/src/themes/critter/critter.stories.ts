@@ -7,12 +7,13 @@ import {Showcase as PanelShowcase} from 'component-library/components/panel/pane
 import {Showcase as QuantityInputShowcase} from 'component-library/components/input/input-quantity-critter/input-quantity-critter.stories';
 import {Showcase as AvatarShowcase} from 'component-library/components/avatar/avatar-critter/avatar-critter.stories';
 import {Showcase as InventoryCardShowcase} from 'component-library/components/inventory-card-critter/inventory-card-critter.stories';
+import {Showcase as InputTextShowcase} from 'component-library/components/input/input-text-critter/input-text-critter.stories';
 import {
   ButtonCritterComponent,
   InputCheckboxCritterComponent,
   PanelCritterComponent,
   InputQuantityCritterComponent, BadgeCritterDirective, ChipCritterComponent, AvatarCritterComponent,
-  InventoryCardCritterComponent
+  InventoryCardCritterComponent, InputTextCritterComponent
 } from 'component-library';
 import {BadgeCritterComponent} from 'component-library/components/badge/badge-critter/badge-critter.component';
 
@@ -123,7 +124,6 @@ export const Checkboxes: StoryObj = {
   }
 };
 
-
 export const QuantityInput: StoryObj<InputQuantityCritterComponent> = {
   decorators: [
     moduleMetadata({
@@ -137,6 +137,24 @@ export const QuantityInput: StoryObj<InputQuantityCritterComponent> = {
     docs: {
       description: {
         story: 'See the <a href="/docs/components-input-input-quantity-critter--docs">original story here</a>'
+      }
+    }
+  }
+};
+
+export const InputText: StoryObj<InputTextCritterComponent> = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        InputTextCritterComponent
+      ]
+    })
+  ],
+  ...InputTextShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-input-input-text-critter--docs">original story here</a>'
       }
     }
   }

@@ -27,6 +27,7 @@ export * from './components/google-ticket/google-ticket.component';
 export * from './components/info-reveal/info-reveal.component';
 export * from './components/input/input-checkbox-critter/input-checkbox-critter.component';
 export * from './components/input/input-quantity-critter/input-quantity-critter.component';
+export * from './components/input/input-text-critter/input-text-critter.component';
 export * from './components/inventory-card-critter/inventory-card-critter.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';
