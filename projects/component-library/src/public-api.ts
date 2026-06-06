@@ -13,7 +13,6 @@ export * from './components/callback-status/callback-status.component';
 export * from './components/card/card.component';
 export * from './components/card/card-web-gradients/card-web-gradients.component';
 export * from './components/chip/chip-critter/chip-critter.component';
-export * from './components/input/input-checkbox-critter/input-checkbox-critter.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle.component';
 export * from './components/color-scheme-toggle/color-scheme-toggle-with-view-transition/color-scheme-toggle-with-view-transition.component';
 export * from './components/dice-flat/dice-flat.component';
@@ -26,7 +25,9 @@ export * from './components/github/github-action-progress/github-action-progress
 export * from './components/github/github-corner/github-corner.component';
 export * from './components/google-ticket/google-ticket.component';
 export * from './components/info-reveal/info-reveal.component';
+export * from './components/input/input-checkbox-critter/input-checkbox-critter.component';
 export * from './components/input/input-quantity-critter/input-quantity-critter.component';
+export * from './components/inventory-card-critter/inventory-card-critter.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';
 export * from './components/lando-norris/lando-norris-card/lando-norris-card.component';

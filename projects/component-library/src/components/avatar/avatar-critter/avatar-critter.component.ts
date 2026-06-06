@@ -1,6 +1,6 @@
 import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {InitialsPipe} from '../../../pipes/initials/initials.pipe';
-import {COLORS} from '../../../themes/critter/colors.type';
+import {COLORS,COLORS_TONAL} from '../../../themes/critter/colors.type';
 import {BaseComponent} from '../../_base/base.component';
 
 @Component({
@@ -21,7 +21,7 @@ import {BaseComponent} from '../../_base/base.component';
 })
 export class AvatarCritterComponent extends BaseComponent {
   public name = input<string>('Unknown User');
-  public color = input<COLORS>();
+  public color = input<COLORS|COLORS_TONAL>();
   public flat = input(false, {transform: booleanAttribute});
   protected readonly host_css_classes = this.computed_host_css_classes_from('color');
 }

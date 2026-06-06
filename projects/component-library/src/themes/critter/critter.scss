@@ -40,6 +40,12 @@ $color-variables: (
     '--color-shadow': var(--color-border),
     '--color-text': #8A1A10
   ),
+  '.color-danger-tonal-bright': (
+    '--color-background': #E84A3B33,
+    '--color-border': rgb(232 74 59),
+    '--color-shadow': var(--color-border),
+    '--color-text': var(--color-border)
+  ),
   '.color-info': (
     '--color-background': #4FAEE6,
     '--color-border': #2B7AAB,
@@ -58,6 +64,12 @@ $color-variables: (
     '--color-shadow': var(--color-border),
     '--color-text': #3A7316
   ),
+  '.color-success-tonal-bright': (
+    '--color-background': rgba(107, 194, 53, 0.20),
+    '--color-border': rgb(107 194 53),
+    '--color-shadow': var(--color-border),
+    '--color-text': var(--color-border)
+  ),
   '.color-warning': (
     '--color-background': rgb(255 203 43),
     '--color-border': rgb(163 122 0),
@@ -67,6 +79,12 @@ $color-variables: (
   '.color-warning-tonal': (
     '--color-background': rgb(255 203 43 / 30%),
     '--color-border': rgb(255 203 43 / 50%),
+    '--color-shadow': var(--color-border),
+    '--color-text': rgb(163 122 0)
+  ),
+  '.color-warning-tonal-bright': (
+    '--color-background': rgb(255 203 43 / 30%),
+    '--color-border': rgb(255 203 43),
     '--color-shadow': var(--color-border),
     '--color-text': rgb(163 122 0)
   )

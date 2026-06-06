@@ -6,11 +6,13 @@ import {Showcase as ChipShowcase} from 'component-library/components/chip/chip-c
 import {Showcase as PanelShowcase} from 'component-library/components/panel/panel-critter/panel-critter.stories';
 import {Showcase as QuantityInputShowcase} from 'component-library/components/input/input-quantity-critter/input-quantity-critter.stories';
 import {Showcase as AvatarShowcase} from 'component-library/components/avatar/avatar-critter/avatar-critter.stories';
+import {Showcase as InventoryCardShowcase} from 'component-library/components/inventory-card-critter/inventory-card-critter.stories';
 import {
   ButtonCritterComponent,
   InputCheckboxCritterComponent,
   PanelCritterComponent,
-  InputQuantityCritterComponent, BadgeCritterDirective, ChipCritterComponent, AvatarCritterComponent
+  InputQuantityCritterComponent, BadgeCritterDirective, ChipCritterComponent, AvatarCritterComponent,
+  InventoryCardCritterComponent
 } from 'component-library';
 import {BadgeCritterComponent} from 'component-library/components/badge/badge-critter/badge-critter.component';
 
@@ -153,6 +155,24 @@ export const Avatars: StoryObj = {
     docs: {
       description: {
         story: 'See the <a href="/docs/components-avatar-avatar-critter--docs">original story here</a>'
+      }
+    }
+  }
+};
+
+export const InventoryCards: StoryObj = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        InventoryCardCritterComponent
+      ]
+    })
+  ],
+  ...InventoryCardShowcase,
+  parameters: {
+    docs: {
+      description: {
+        story: 'See the <a href="/docs/components-inventory-card-critter--docs">original story here</a>'
       }
     }
   }
