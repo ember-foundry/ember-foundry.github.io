@@ -11,6 +11,9 @@ const meta: Meta<AvatarCritterComponent> = {
       type: 'string',
       options: COLOR_VALUES
     },
+    flat: {
+      control: 'boolean'
+    },
     name: {
       control: 'text',
       type: 'string'

@@ -22,13 +22,8 @@ $default-box-shadow-depth: 4px;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:host([class*='color-']):not(.flat){
+:host([class*='color-']){
   background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) 50%, transparent 50%, transparent)
-}
-
-:host(.flat){
-  background-image: none;
-  box-shadow: none;
 }
 
 :host(.rounded) {
@@ -48,15 +43,6 @@ $default-box-shadow-depth: 4px;
 
 :host(.size-medium){
   font-size: 16px;
-}
-
-:host(.size-large){
-  font-size: 24px;
-}
-
-:host(.size-extra-large){
-  border-width: 4px;
-  font-size: 28px;
 }
 
 :host(:has(>svg)){

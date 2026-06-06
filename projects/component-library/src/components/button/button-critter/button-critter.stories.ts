@@ -27,7 +27,7 @@ const meta: Meta<ButtonCritterComponent> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large', 'extra-large'],
+      options: [undefined, 'small', 'medium'],
       description: 'Set the size of the button'
     }
   }
@@ -154,12 +154,13 @@ export const FullWidth: StoryObj<ButtonCritterComponent> = {
 }
 
 export const Showcase: StoryObj = {
-  render: (args) => ({
+  render: (args, context) => ({
+    ...context,
     props: {
       ...args,
       placements: ['button', 'a'],
       colors: COLOR_VALUES,
-      sizes: ['small', undefined, 'medium', 'large', 'extra-large']
+      sizes: ['small', undefined, 'medium']
     },
     styles: [
       `section.comparison-grid {
@@ -170,43 +171,50 @@ export const Showcase: StoryObj = {
         grid-template-columns: 1fr repeat(6, auto);
       }`,
       '.title-row { grid-column-start: 1; grid-column-end: 8;}',
-      // 'section.comparison-grid >:not(:nth-child(7n + 1)) {justify-self: flex-end}',
-      `section#buttons-misc { display: flex; gap: 8px; }`
+      '[mbrCritter] {justify-self: flex-end}',
+      'section { margin-bottom: 2rem;}'
     ],
     template: `
       <section class="comparison-grid">
-        <span></span>
-        @for (color of colors; track color) {
-          <p class="font-bold">{{color || 'Default'}}</p>
+        @for(size of sizes; track size){
+          <div class="font-bold mt-4 ">Size: {{size || 'Default'}}</div>
+          @for (color of colors; track color) {
+            <button mbrCritter [color]="color" [size]="size"></button>
+          }
         }
+      </section>
 
-        @for (size of sizes; track size) {
-          <div class="font-bold mt-4 title-row">Size: {{ size || 'Default' }}</div>
+      <section class="comparison-grid">
+        @for(size of sizes; track size){
+          <div class="font-bold mt-4 ">With Icon: {{size || 'Default'}}</div>
+          @for (color of colors; track color) {
+            <button mbrCritter [color]="color" [size]="size">
+                <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
+                <span>Add</span>
+            </button>
+          }
+        }
+      </section>
 
-          @for (tag of placements; track tag) {
-            <p>Content-less [{{ tag }}]</p>
+      <section class="comparison-grid">
+        @for(size of sizes; track size){
+          <div class="font-bold mt-4 ">Flat: {{size || 'Default'}}</div>
+          @for (color of colors; track color) {
+            <button mbrCritter flat [color]="color" [size]="size"></button>
+          }
+        }
+      </section>
 
-            @for (color of colors; track color) {
-              @if (tag === 'button') {
-                <button mbrCritter [color]="color" [size]="size"></button>
-              } @else {
-                <a mbrCritter [color]="color" [size]="size"></a>
-              }
-            }
 
-            <p>Projected Content [{{ tag }}]</p>
 
-            @for (color of colors; track color) {
-              @if (tag === 'button') {
-                <button mbrCritter [color]="color" [size]="size">
-                  <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
-                </button>
-              } @else {
-                <a mbrCritter [color]="color" [size]="size">
-                  <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
-                </a>
-              }
-            }
+      <section class="comparison-grid">
+        @for(size of sizes; track size){
+          <div class="font-bold mt-4 ">Flat With Icon: {{size || 'Default'}}</div>
+          @for (color of colors; track color) {
+            <button mbrCritter flat [color]="color" [size]="size">
+                <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
+                <span>Add</span>
+            </button>
           }
         }
       </section>

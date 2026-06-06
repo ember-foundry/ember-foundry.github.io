@@ -4,6 +4,11 @@
   font-family: Fredoka, sans-serif;
 }
 
+:host(.flat){
+  background-image: none;
+  box-shadow: none;
+}
+
 $color-variables: (
   '': (
     '--color-background': #D1A354,

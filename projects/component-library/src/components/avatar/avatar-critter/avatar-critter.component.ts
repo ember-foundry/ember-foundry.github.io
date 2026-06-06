@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {InitialsPipe} from '../../../pipes/initials/initials.pipe';
 import {COLORS} from '../../../themes/critter/colors.type';
 import {BaseComponent} from '../../_base/base.component';
@@ -14,12 +14,14 @@ import {BaseComponent} from '../../_base/base.component';
     './avatar-critter.component.scss'
   ],
   host: {
-    '[class]': 'host_css_classes()'
+    '[class]': 'host_css_classes()',
+    '[class.flat]': 'flat()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarCritterComponent extends BaseComponent {
   public name = input<string>('Unknown User');
   public color = input<COLORS>();
+  public flat = input(false, {transform: booleanAttribute});
   protected readonly host_css_classes = this.computed_host_css_classes_from('color');
 }
