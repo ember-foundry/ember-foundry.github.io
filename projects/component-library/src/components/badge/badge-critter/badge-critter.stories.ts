@@ -1,5 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {BadgeCritterDirective, ButtonCritterComponent} from 'component-library';
+import {COLOR_VALUES} from 'component-library/themes/critter/colors.type';
 
 const meta: Meta = {
   decorators: [
@@ -17,7 +18,7 @@ const meta: Meta = {
       control: { type: 'select' }
     },
     button_color: {
-      options: ['success', 'warning', 'danger'],
+      options: COLOR_VALUES,
       control: { type: 'select' }
     }
   },

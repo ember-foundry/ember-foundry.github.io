@@ -47,14 +47,13 @@ export const Showcase: StoryObj = {
   render: (args, context) => ({
     ...context, // Spreads global decorator imports safely into this dense template layout
     styles: [
-      ':host { display: grid; grid-template-columns: 1fr repeat(4, auto); gap: 1rem; }',
-      ':host >:not(:nth-child(5n + 1)) {justify-self: flex-end}',
-      'h4 { margin: 0 }'
+      ':host{ display: inline-grid; grid-template-columns: repeat(4, auto); gap: 1em; ',
+      'h4 { text-transform: capitalize; text-align: center; }',
+      'input[type="checkbox"] { justify-self: center; }'
     ],
     template: `
-      <span></span><h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
+      <h4>Unchecked</h4><h4>Checked</h4><h4>Disabled</h4><h4>Disabled Checked</h4>
 
-      <span></span>
       <input type="checkbox" mbrCritter />
       <input type="checkbox" mbrCritter [checked]="true" />
       <input type="checkbox" mbrCritter disabled />

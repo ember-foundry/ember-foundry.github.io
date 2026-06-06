@@ -1,2 +1,10 @@
-export type COLORS = 'danger' | 'disabled' | 'success' | 'warning';
-export type COLORS_TONAl = 'danger-tonal' | 'success-tonal' | 'warning-tonal';
+export const COLOR_VALUES = [
+  'danger',
+  'disabled',
+  'info',
+  'success',
+  'warning'
+]
+
+export type COLORS = 'danger' | 'disabled' | 'info' | 'success' | 'warning';
+export type COLORS_TONAL = 'danger-tonal' | 'success-tonal' | 'warning-tonal';

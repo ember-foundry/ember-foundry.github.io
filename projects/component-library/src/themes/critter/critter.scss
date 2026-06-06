@@ -29,6 +29,12 @@ $COLORS: (
     '--color-shadow': var(--color-border),
     '--color-text': #8A1A10
   ),
+  '.color-info': (
+    '--color-background': #4FAEE6,
+    '--color-border': #2B7AAB,
+    '--color-shadow': var(--color-border),
+    '--color-text': white
+  ),
   '.color-success': (
     '--color-background': #6BC235,
     '--color-border': #3A7316,

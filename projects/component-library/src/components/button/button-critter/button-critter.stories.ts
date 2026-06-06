@@ -2,6 +2,7 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {ButtonCritterComponent} from 'component-library';
 import {NgTemplateOutlet} from '@angular/common';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
+import {COLOR_VALUES} from 'component-library/themes/critter/colors.type';
 
 const meta: Meta<ButtonCritterComponent> = {
   component: ButtonCritterComponent,
@@ -16,7 +17,7 @@ const meta: Meta<ButtonCritterComponent> = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['danger', 'disabled', 'success', 'warning'],
+      options: COLOR_VALUES,
       description: 'Set the color of the button'
 
     },
@@ -157,7 +158,7 @@ export const Showcase: StoryObj = {
     props: {
       ...args,
       placements: ['button', 'a'],
-      colors: [undefined, 'success', 'warning', 'danger'],
+      colors: [undefined, ...COLOR_VALUES],
       sizes: ['small', undefined, 'medium', 'large', 'extra-large']
     },
     styles: [
@@ -166,27 +167,21 @@ export const Showcase: StoryObj = {
         display: grid;
         gap: 8px;
         justify-items: flex-start;
-        grid-template-columns: 1fr repeat(5, auto);
+        grid-template-columns: 1fr repeat(6, auto);
       }`,
-      'section.comparison-grid >:not(:nth-child(6n + 1)) {justify-self: flex-end}',
+      '.title-row { grid-column-start: 1; grid-column-end: 8;}',
+      // 'section.comparison-grid >:not(:nth-child(7n + 1)) {justify-self: flex-end}',
       `section#buttons-misc { display: flex; gap: 8px; }`
     ],
     template: `
       <section class="comparison-grid">
         <span></span>
-        <p class="font-bold">Standard</p>
-        <p class="font-bold">Success</p>
-        <p class="font-bold">Warning</p>
-        <p class="font-bold">Danger</p>
-        <p class="font-bold">Disabled</p>
+        @for (color of colors; track color) {
+          <p class="font-bold">{{color || 'Standard'}}</p>
+        }
 
         @for (size of sizes; track size) {
-          <div class="font-bold mt-4">Size: {{ size || 'Standard' }}</div>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <div class="font-bold mt-4 title-row">Size: {{ size || 'Standard' }}</div>
 
           @for (tag of placements; track tag) {
             <p>Content-less [{{ tag }}]</p>
@@ -197,11 +192,6 @@ export const Showcase: StoryObj = {
               } @else {
                 <a mbrCritter [color]="color" [size]="size"></a>
               }
-            }
-            @if (tag === 'button') {
-              <button mbrCritter disabled [size]="size"></button>
-            } @else {
-              <a mbrCritter disabled [size]="size"></a>
             }
 
             <p>Projected Content [{{ tag }}]</p>
@@ -216,15 +206,6 @@ export const Showcase: StoryObj = {
                   <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
                 </a>
               }
-            }
-            @if (tag === 'button') {
-              <button mbrCritter disabled [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
-              </button>
-            } @else {
-              <a mbrCritter disabled [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon" /><span>Add</span>
-              </a>
             }
           }
         }

@@ -1,4 +1,5 @@
 export * from './components/avatar/avatar.component';
+export * from './components/avatar/avatar-critter/avatar-critter.component';
 export * from './components/avatar-badge/avatar-badge.component';
 export * from './components/avatar-checkbox/avatar-checkbox.component';
 export * from './components/avatar-group/avatar-group.component';

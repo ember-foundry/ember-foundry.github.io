@@ -19,7 +19,7 @@ import {COLORS} from '../../../themes/critter/colors.type';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonCritterComponent extends BaseComponent {
-  public color = input<COLORS | undefined>();
+  public color = input<COLORS>();
   public size = input<'small' | 'medium' | undefined | 'large' | 'extra-large'>();
   public rounded = input(false, {transform: booleanAttribute});
   public flat = input(false, {transform: booleanAttribute});
