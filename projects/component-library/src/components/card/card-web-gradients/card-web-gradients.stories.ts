@@ -15,6 +15,11 @@ const meta: Meta = {
 
 const all_gradients = [
   {
+    title: 'Tailwind',
+    styles: 'background-image: repeating-linear-gradient(315deg, currentColor 0 1px, #0000 0 50%); background-repeat: repeat; background-size: 8px 8px',
+    description: 'Repeating Linear'
+  },
+  {
     title: 'TT',
     styles: 'background-image: url(https://www.iomttraces.com/assets/images/header-bg.svg); background-size: auto 100px',
     description: 'Background Image'
