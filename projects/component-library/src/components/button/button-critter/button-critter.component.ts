@@ -4,7 +4,7 @@ import {COLORS} from '../../../themes/critter/colors.type';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[mbrCritter], a[mbrCritter]',
+  selector: 'button[mbrCritter], [mbrButtonCritter]',
   templateUrl: './button-critter.component.html',
   styleUrls: [
     '../../../themes/critter/critter.scss',

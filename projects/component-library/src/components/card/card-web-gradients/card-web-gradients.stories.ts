@@ -82,8 +82,8 @@ const all_gradients = [
   },
   {
     title: 'Dotted v2',
-    description: 'From Tashs Grocery App',
-    styles: 'background-image: radial-gradient(circle, rgb(255, 255, 255) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;'
+    description: 'From Tash\'s Grocery App',
+    styles: 'background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;'
   },
   {
     title: 'Tiled Background',
