@@ -13,7 +13,10 @@
 }
 
 mbr-card-critter {
+  align-items: center;
   flex: 1 1 auto;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 mbr-avatar-critter {

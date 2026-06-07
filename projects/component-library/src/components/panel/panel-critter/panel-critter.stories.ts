@@ -1,6 +1,12 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonCritterComponent, PanelCritterComponent} from 'component-library';
+import {
+  ButtonCritterComponent,
+  ChipCritterComponent,
+  InputCheckboxCritterComponent, InputQuantityCritterComponent,
+  PanelCritterComponent
+} from 'component-library';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
+import {CardCritterComponent} from 'component-library/components/card/card-critter/card-critter.component';
 
 const meta: Meta<PanelCritterComponent> = {
   component: PanelCritterComponent,
@@ -115,28 +121,45 @@ export const HouseholdItems: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'HOUSEHOLD ITEMS'
   },
+  decorators: [
+    moduleMetadata({
+      imports: [
+        CardCritterComponent,
+        ChipCritterComponent
+      ]
+    })
+  ],
   render:(args) => ({
     template: `
       <mbr-panel-critter ${args_to_angular_inputs(args)}>
-        <div class="flex flex-col flex-grow-1">
-          <div class="flex justify-content-between justify-between">
+        <div class="flex flex-col flex-grow-1 space-y-2">
+
+          <mbr-card-critter class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                   <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <div class="tag">In List</div>
+                  <mbr-chip-critter color="success-tonal">In List</mbr-chip-critter>
               </div>
-          </div>
-          <div class="flex justify-content-between justify-between">
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                  <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <button mbrCritter></button>
+                  <button mbrCritter>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2.91669 7H11.0834" />
+                      <path d="M7 2.91666V11.0833" />
+                    </svg>
+                    <span>Add</span>
+                  </button>
               </div>
-          </div>
+          </mbr-card-critter>
+
         </div>
       </mbr-panel-critter>
     `
@@ -147,28 +170,139 @@ export const CartPanel: StoryObj<PanelCritterComponent> = {
   args: {
     title: 'TO BUY'
   },
+  decorators: [
+    moduleMetadata({
+      imports: [
+        CardCritterComponent,
+        InputCheckboxCritterComponent,
+        InputQuantityCritterComponent
+      ]
+    })
+  ],
   render:(args) => ({
+    styles: ['mbr-panel-critter { min-width: 400px }'],
     template: `
-      <mbr-panel-critter ${args_to_angular_inputs(args)}>
-        <div class="flex flex-col flex-grow-1">
-          <div class="flex justify-content-between justify-between">
-              <div class="flex flex-col">
-                  <h4 class="m-0">Milk</h4>
-                  <small>Food</small>
+      <mbr-panel-critter ${args_to_angular_inputs(args)} class="flex-col">
+        <div class="flex flex-col flex-grow-1 space-y-3">
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Milk</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
               </div>
-              <div class="flex flex-col">
-                  <div class="tag">In List</div>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <mbr-input-quantity-critter />
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                <circle cx="9" cy="12" r="1"></circle>
+                <circle cx="9" cy="5" r="1"></circle>
+                <circle cx="9" cy="19" r="1"></circle>
+                <circle cx="15" cy="12" r="1"></circle>
+                <circle cx="15" cy="5" r="1"></circle>
+                <circle cx="15" cy="19" r="1"></circle>
+              </svg>
+            </div>
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Eggs</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
               </div>
-          </div>
-          <div class="flex justify-content-between justify-between">
-              <div class="flex flex-col">
-                 <h4 class="m-0">Milk</h4>
-                  <small>Food</small>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <mbr-input-quantity-critter />
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                  <circle cx="9" cy="12" r="1"></circle>
+                  <circle cx="9" cy="5" r="1"></circle>
+                  <circle cx="9" cy="19" r="1"></circle>
+                  <circle cx="15" cy="12" r="1"></circle>
+                  <circle cx="15" cy="5" r="1"></circle>
+                  <circle cx="15" cy="19" r="1"></circle>
+                </svg>
+            </div>
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Toothpaste</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal"></p>
               </div>
-              <div class="flex flex-col">
-                  <button mbrCritter></button>
-              </div>
-          </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <mbr-input-quantity-critter />
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                  <circle cx="9" cy="12" r="1"></circle>
+                  <circle cx="9" cy="5" r="1"></circle>
+                  <circle cx="9" cy="19" r="1"></circle>
+                  <circle cx="15" cy="12" r="1"></circle>
+                  <circle cx="15" cy="5" r="1"></circle>
+                  <circle cx="15" cy="19" r="1"></circle>
+                </svg>
+            </div>
+          </mbr-card-critter>
         </div>
       </mbr-panel-critter>
     `
@@ -176,9 +310,22 @@ export const CartPanel: StoryObj<PanelCritterComponent> = {
 }
 
 export const Showcase: StoryObj = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        CardCritterComponent,
+        ChipCritterComponent,
+        InputCheckboxCritterComponent,
+        InputQuantityCritterComponent
+      ]
+    })
+  ],
   render: (args, context) => ({
     ...context,
-    styles: [':host { gap: 1rem; display: flex; flex-direction: column;}'],
+    styles: [
+      ':host { gap: 1rem; display: flex; flex-direction: column;}',
+      'mbr-panel-critter { min-width: 400px; }'
+    ],
     template: `
       <mbr-panel-critter title="PANTRY STATUS">
         <button
@@ -241,6 +388,162 @@ export const Showcase: StoryObj = {
       </mbr-panel-critter>
 
       <mbr-panel-critter title="EMPTY PANEL"></mbr-panel-critter>
+
+      <mbr-panel-critter title="TO BUY" class="flex-col">
+        <div class="flex flex-col flex-grow-1 space-y-3">
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Milk</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <mbr-input-quantity-critter />
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                <circle cx="9" cy="12" r="1"></circle>
+                <circle cx="9" cy="5" r="1"></circle>
+                <circle cx="9" cy="19" r="1"></circle>
+                <circle cx="15" cy="12" r="1"></circle>
+                <circle cx="15" cy="5" r="1"></circle>
+                <circle cx="15" cy="19" r="1"></circle>
+              </svg>
+            </div>
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Eggs</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <mbr-input-quantity-critter />
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                  <circle cx="9" cy="12" r="1"></circle>
+                  <circle cx="9" cy="5" r="1"></circle>
+                  <circle cx="9" cy="19" r="1"></circle>
+                  <circle cx="15" cy="12" r="1"></circle>
+                  <circle cx="15" cy="5" r="1"></circle>
+                  <circle cx="15" cy="19" r="1"></circle>
+                </svg>
+            </div>
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-between items-center gap-3">
+            <div class="flex flex-row gap-2 items-center">
+              <input type="checkbox" mbrCritter />
+              <div class="flex-1">
+                <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Toothpaste</h4>
+                <p class="text-xs text-foreground/60 italic truncate m-0 font-normal"></p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <mbr-input-quantity-critter />
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
+                  <circle cx="9" cy="12" r="1"></circle>
+                  <circle cx="9" cy="5" r="1"></circle>
+                  <circle cx="9" cy="19" r="1"></circle>
+                  <circle cx="15" cy="12" r="1"></circle>
+                  <circle cx="15" cy="5" r="1"></circle>
+                  <circle cx="15" cy="19" r="1"></circle>
+                </svg>
+            </div>
+          </mbr-card-critter>
+        </div>
+      </mbr-panel-critter>
+
+      <mbr-panel-critter title="HOUSEHOLD ITEMS">
+        <div class="flex flex-col flex-grow-1 space-y-2">
+
+          <mbr-card-critter class="flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                  <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <mbr-chip-critter color="success-tonal">In List</mbr-chip-critter>
+              </div>
+          </mbr-card-critter>
+
+          <mbr-card-critter class="flex justify-content-between justify-between">
+              <div class="flex flex-col">
+                 <h4 class="m-0">Milk</h4>
+                  <small>Food</small>
+              </div>
+              <div class="flex flex-col">
+                  <button mbrCritter>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2.91669 7H11.0834" />
+                      <path d="M7 2.91666V11.0833" />
+                    </svg>
+                    <span>Add</span>
+                  </button>
+              </div>
+          </mbr-card-critter>
+
+        </div>
+      </mbr-panel-critter>
     `
   })
 }
