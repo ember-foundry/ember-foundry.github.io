@@ -59,8 +59,10 @@ $default-box-shadow-depth: 4px;
 }
 
 /**
- *  Only 1 child
+ *  Just an SVG Icon
  */
-:host:has(>*:first-child:last-child) {
+:host:has(>svg:first-of-type:last-of-type) {
   aspect-ratio: 1;
+  padding-inline: 8px;
+  padding-block: 8px;
 }
