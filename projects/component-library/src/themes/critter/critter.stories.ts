@@ -16,6 +16,7 @@ import {
   InventoryCardCritterComponent, InputTextCritterComponent
 } from 'component-library';
 import {BadgeCritterComponent} from 'component-library/components/badge/badge-critter/badge-critter.component';
+import {CardCritterComponent} from 'component-library/components/card/card-critter/card-critter.component';
 
 const meta: Meta = {
   title: 'themes/Critter',
@@ -88,15 +89,19 @@ export const Chips: StoryObj = {
 };
 
 export const Panels: StoryObj = {
+  ...PanelShowcase,
   decorators: [
     moduleMetadata({
       imports: [
-        PanelCritterComponent,
-        ButtonCritterComponent
+        ButtonCritterComponent,
+        CardCritterComponent,
+        ChipCritterComponent,
+        InputCheckboxCritterComponent,
+        InputQuantityCritterComponent,
+        PanelCritterComponent
       ]
     })
   ],
-  ...PanelShowcase,
   parameters: {
     docs: {
       description: {
