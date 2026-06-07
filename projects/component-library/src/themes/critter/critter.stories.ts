@@ -211,6 +211,7 @@ export const HomeScreen: StoryObj = {
         CardCritterComponent,
         ChipCritterComponent,
         InputCheckboxCritterComponent,
+        InputTextCritterComponent,
         InputQuantityCritterComponent,
         PanelCritterComponent
       ]
@@ -343,6 +344,118 @@ export const HomeScreen: StoryObj = {
             </svg>
             <span>Family Hub</span>
         </button>
+      </section>
+
+      <footer>
+        <h2>Footer</h2>
+      </footer>
+    `
+  })
+}
+
+export const MasterScreen: StoryObj = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        BadgeCritterComponent,
+        BadgeCritterDirective,
+        ButtonCritterComponent,
+        CardCritterComponent,
+        ChipCritterComponent,
+        InputCheckboxCritterComponent,
+        InputTextCritterComponent,
+        InputQuantityCritterComponent,
+        PanelCritterComponent
+      ]
+    })
+  ],
+  parameters: {
+    layout: 'fullscreen'
+  },
+  render: () => ({
+    styles: [
+      `:host {
+        display: flex;
+        color: rgba(74, 42, 12, 0.80);
+        font-family: Fredoka, sans-serif;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        max-width: 460px;
+        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        padding: 24px;
+      }`
+    ],
+    template: `
+      <header class="flex items-center mb-6 w-full">
+        <a mbrButtonCritter class="me-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M24.5 9.33333C24.4996 8.92415 24.3916 8.52228 24.1868 8.16802C23.982 7.81377 23.6877 7.51959 23.3333 7.315L15.1667 2.64833C14.812 2.44354 14.4096 2.33573 14 2.33573C13.5904 2.33573 13.188 2.44354 12.8333 2.64833L4.66667 7.315C4.31231 7.51959 4.01798 7.81377 3.81321 8.16802C3.60843 8.52228 3.50042 8.92415 3.5 9.33333V18.6667C3.50042 19.0758 3.60843 19.4777 3.81321 19.832C4.01798 20.1862 4.31231 20.4804 4.66667 20.685L12.8333 25.3517C13.188 25.5565 13.5904 25.6643 14 25.6643C14.4096 25.6643 14.812 25.5565 15.1667 25.3517L23.3333 20.685C23.6877 20.4804 23.982 20.1862 24.1868 19.832C24.3916 19.4777 24.4996 19.0758 24.5 18.6667V9.33333Z" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.85 8.16667L14 14L24.15 8.16667" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 25.6667V14" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="flex-grow-1">
+          <h1 class="m-0 text-white">FreshStack</h1>
+          <p class="m-0 font-bold">Household Manager</p>
+        </div>
+        <a mbrButtonCritter mbrBadgeCritter="4" color="warning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M8.55667 17.5C8.70296 17.7533 8.91335 17.9637 9.16671 18.11C9.42006 18.2563 9.70746 18.3333 10 18.3333C10.2926 18.3333 10.5799 18.2563 10.8333 18.11C11.0867 17.9637 11.2971 17.7533 11.4433 17.5" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.71833 12.7717C2.60947 12.891 2.53763 13.0394 2.51155 13.1988C2.48547 13.3582 2.50627 13.5217 2.57142 13.6695C2.63658 13.8173 2.74328 13.943 2.87855 14.0312C3.01381 14.1195 3.17182 14.1665 3.33333 14.1667H16.6667C16.8282 14.1667 16.9862 14.1199 17.1216 14.0318C17.2569 13.9437 17.3637 13.8181 17.4291 13.6704C17.4944 13.5227 17.5154 13.3592 17.4895 13.1998C17.4637 13.0404 17.392 12.892 17.2833 12.7725C16.175 11.63 15 10.4158 15 6.66667C15 5.34058 14.4732 4.06881 13.5355 3.13113C12.5979 2.19345 11.3261 1.66667 10 1.66667C8.67392 1.66667 7.40215 2.19345 6.46447 3.13113C5.52679 4.06881 5 5.34058 5 6.66667C5 10.4158 3.82417 11.63 2.71833 12.7717Z" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </header>
+
+      <section class="mb-4 gap-2 flex w-full">
+        <input type="text" placeholder="Search items..." mbrCritter class="flex-grow-1"/>
+        <button mbrCritter color="success">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5V19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </section>
+
+      <section class="flex gap-2 w-full mb-2">
+        <button mbrCritter color="warning">All</button>
+        <button mbrCritter color="light">Food</button>
+        <button mbrCritter color="light">Toiletries</button>
+        <button mbrCritter color="light">Household</button>
+      </section>
+
+      <section class="w-full">
+        <mbr-panel-critter title="HOUSEHOLD ITEMS">
+          <div class="flex flex-col flex-grow-1 space-y-2">
+
+            <mbr-card-critter class="flex justify-content-between justify-between">
+                <div class="flex flex-col">
+                    <h4 class="m-0">Milk</h4>
+                    <small>Food</small>
+                </div>
+                <div class="flex flex-col">
+                    <mbr-chip-critter color="success-tonal">In List</mbr-chip-critter>
+                </div>
+            </mbr-card-critter>
+
+            <mbr-card-critter class="flex justify-content-between justify-between">
+                <div class="flex flex-col">
+                   <h4 class="m-0">Milk</h4>
+                    <small>Food</small>
+                </div>
+                <div class="flex flex-col">
+                    <button mbrCritter>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2.91669 7H11.0834" />
+                        <path d="M7 2.91666V11.0833" />
+                      </svg>
+                      <span>Add</span>
+                    </button>
+                </div>
+            </mbr-card-critter>
+
+          </div>
+        </mbr-panel-critter>
+
       </section>
 
       <footer>

@@ -323,7 +323,7 @@ export const Showcase: StoryObj = {
   render: (args, context) => ({
     ...context,
     styles: [
-      ':host { gap: 1rem; display: flex; flex-direction: column;}',
+      ':host { gap: 2rem; display: flex; flex-direction: column;}',
       'mbr-panel-critter { min-width: 400px; }'
     ],
     template: `

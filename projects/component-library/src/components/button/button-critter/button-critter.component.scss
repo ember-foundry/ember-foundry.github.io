@@ -61,7 +61,7 @@ $default-box-shadow-depth: 4px;
 /**
  *  Just an SVG Icon
  */
-:host:has(>svg:first-of-type:last-of-type) {
+:host:has(>svg:only-child) {
   aspect-ratio: 1;
   padding-inline: 8px;
   padding-block: 8px;
