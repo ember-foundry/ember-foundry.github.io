@@ -1,5 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {
+  AvatarCritterComponent,
   ButtonCritterComponent,
   ChipCritterComponent,
   InputCheckboxCritterComponent, InputQuantityCritterComponent, InventoryCardCritterComponent,
@@ -315,6 +316,7 @@ export const Showcase: StoryObj = {
   decorators: [
     moduleMetadata({
       imports: [
+        AvatarCritterComponent,
         CardCritterComponent,
         ChipCritterComponent,
         InputCheckboxCritterComponent,
@@ -578,6 +580,58 @@ export const Showcase: StoryObj = {
           <mbr-inventory-card-critter label="Apples" status="stocked"/>
           <mbr-inventory-card-critter label="Toothpaste" status="out"/>
           <mbr-inventory-card-critter label="Landry Detergent" status="out"/>
+        </div>
+      </mbr-panel-critter>
+
+      <mbr-panel-critter title="YOUR HOUSEHOLD">
+        <div class="flex flex-col gap-2 w-full">
+          <div class="flex w-full">
+              <mbr-avatar-critter name="You" color="info" class="me-2"/>
+              <div>
+                  <h4 class="m-0">You (Admin)</h4>
+                  <small>Joined 2 months ago</small>
+              </div>
+          </div>
+          <div class="flex w-full">
+              <mbr-avatar-critter name="Natasha" color="warning"  class="me-2"/>
+              <div>
+                  <h4 class="m-0">Natasha</h4>
+                  <small>Joined 1 months ago</small>
+              </div>
+          </div>
+          <button mbrCritter color="warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3.75 9H14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 3.75V14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Invite Member</span>
+          </button>
+        </div>
+      </mbr-panel-critter>
+
+      <mbr-panel-critter title="RECENT ACTIVITY">
+        <div class="flex flex-col gap-2">
+            <div class="flex">
+              <mbr-avatar-critter color="light" flat name="Natasha" class="me-2" />
+              <div>
+                <h4 class="m-0">Natasha added milk to the shopping list</h4>
+                <small>2 min ago</small>
+              </div>
+            </div>
+            <div class="flex">
+              <mbr-avatar-critter color="light" flat name="Dad" class="me-2" />
+              <div>
+                <h4 class="m-0">Dad bought eggs</h4>
+                <small>1 hr ago</small>
+              </div>
+            </div>
+            <div class="flex">
+              <mbr-avatar-critter color="light" flat name="Craig" class="me-2" />
+              <div>
+                <h4 class="m-0">Craig marked Bread as stocked</h4>
+                <small>3 hrs ago</small>
+              </div>
+            </div>
         </div>
       </mbr-panel-critter>
     `
