@@ -16,8 +16,8 @@ import {BadgeCritterComponent} from '../../../components/badge/badge-critter/bad
 })
 export class BadgeCritterDirective implements OnInit, OnDestroy {
   public mbrBadgeCritter = input.required<string>();
-  public mbrBadgeCritterOffset = input.required<string>();
-  public mbrBadgeCritterSize = input.required<string>();
+  public mbrBadgeCritterOffset = input<string>();
+  public mbrBadgeCritterSize = input<string>();
 
   private readonly element_ref = inject(ElementRef<HTMLElement>);
   private readonly view_container = inject(ViewContainerRef);
