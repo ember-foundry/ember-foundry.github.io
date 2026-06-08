@@ -23,6 +23,7 @@ export * from './components/dribbble/dribbble-author-details-bar/dribbble-author
 export * from './components/flexbox/column/flexbox-column.component';
 export * from './components/flexbox/row/flexbox-row.component';
 export * from './components/flip-card/flip-card.component';
+export * from './components/footer/footer-critter/footer-critter.component';
 export * from './components/github/github-action-progress/github-action-progress.component';
 export * from './components/github/github-corner/github-corner.component';
 export * from './components/google-ticket/google-ticket.component';
