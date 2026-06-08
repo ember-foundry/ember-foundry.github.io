@@ -2,7 +2,7 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {
   ButtonCritterComponent,
   ChipCritterComponent,
-  InputCheckboxCritterComponent, InputQuantityCritterComponent,
+  InputCheckboxCritterComponent, InputQuantityCritterComponent, InventoryCardCritterComponent,
   PanelCritterComponent
 } from 'component-library';
 import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
@@ -318,7 +318,8 @@ export const Showcase: StoryObj = {
         CardCritterComponent,
         ChipCritterComponent,
         InputCheckboxCritterComponent,
-        InputQuantityCritterComponent
+        InputQuantityCritterComponent,
+        InventoryCardCritterComponent
       ]
     })
   ],
@@ -544,6 +545,39 @@ export const Showcase: StoryObj = {
               </div>
           </mbr-card-critter>
 
+        </div>
+      </mbr-panel-critter>
+
+      <mbr-panel-critter title="NEED TO BUY">
+        <mbr-card-critter class="w-full items-center">
+            <mbr-chip-critter color="danger-tonal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M9 3L3 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 3L9 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>OUT</span>
+            </mbr-chip-critter>
+
+            <h4 class="flex-grow-1 m-0">Laundry Detergent</h4>
+            <button mbrCritter color="success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.91663 7H11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 2.91666V11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>List</span>
+            </button>
+        </mbr-card-critter>
+      </mbr-panel-critter>
+
+      <mbr-panel-critter title="MY PANTRY">
+        <div class="grid grid-cols-2 w-full gap-2">
+          <mbr-inventory-card-critter label="Milk" status="low"/>
+          <mbr-inventory-card-critter label="Eggs" status="out"/>
+          <mbr-inventory-card-critter label="Bread" status="stocked"/>
+          <mbr-inventory-card-critter label="Dish Soap" status="low"/>
+          <mbr-inventory-card-critter label="Apples" status="stocked"/>
+          <mbr-inventory-card-critter label="Toothpaste" status="out"/>
+          <mbr-inventory-card-critter label="Landry Detergent" status="out"/>
         </div>
       </mbr-panel-critter>
     `
