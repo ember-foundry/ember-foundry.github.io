@@ -38,6 +38,7 @@ export const PantryStatus: StoryObj<PanelCritterComponent> = {
     title: 'PANTRY STATUS'
   },
   render:(args) => ({
+    styles: ['mbr-panel-critter { max-width: 500px; }'],
     template: `
       <mbr-panel-critter ${args_to_angular_inputs(args)}>
         <button
@@ -78,6 +79,7 @@ export const ActiveShopping: StoryObj<PanelCritterComponent> = {
     title: 'ACTIVE SHOPPING'
   },
   render:(args) => ({
+    styles: ['mbr-panel-critter { max-width: 500px; }'],
     template: `
       <mbr-panel-critter ${args_to_angular_inputs(args)}>
       <button
