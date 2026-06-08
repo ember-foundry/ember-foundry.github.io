@@ -20,7 +20,7 @@ import {COLORS} from '../../../themes/critter/colors.type';
 })
 export class ButtonCritterComponent extends BaseComponent {
   public color = input<COLORS>();
-  public size = input<'small' | 'medium' | undefined | 'large' | 'extra-large'>();
+  public size = input<'small' | 'medium' | undefined>();
   public rounded = input(false, {transform: booleanAttribute});
   public flat = input(false, {transform: booleanAttribute});
   protected readonly host_css_classes = this.computed_host_css_classes_from('size', 'color');

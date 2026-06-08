@@ -14,7 +14,7 @@ const meta: Meta = {
   tags: ['autodocs', 'critter', 'badge'],
   argTypes: {
     button_size: {
-      options: ['small', 'medium', 'large', 'extra-large'],
+      options: ['small', 'medium'],
       control: { type: 'select' }
     },
     button_color: {
@@ -24,18 +24,15 @@ const meta: Meta = {
   },
   args: {
     badge_text: '4',
-    button_color: 'success',
-    button_size: 'medium'
+    button_color: 'success'
   }
 }
 
 export default meta;
 
 export const OnButton: StoryObj = {
-  args: {
-    button_size: 'extra-large'
-  },
   render: (args) => ({
+    styles: ['button { font-size: 2em; }'],
     template: `
       <button
        mbrCritter
@@ -43,7 +40,6 @@ export const OnButton: StoryObj = {
        [mbrBadgeCritter]="${args['badge_text']}"
        [mbrBadgeCritterOffset]="'-7px'"
        [mbrBadgeCritterSize]="'16px'"
-       [size]="'${args['button_size']}'"
        [color]="'${args['button_color']}'"
       >
         <svg
@@ -67,14 +63,13 @@ export const OnButton: StoryObj = {
 export const OnInnerIcon: StoryObj = {
   args: {
     button_color: 'warning',
-    button_size: 'extra-large',
     badge_text: '1'
   },
   render: (args) => ({
+    styles: ['button { font-size: 1.5em; }'],
     template: `
       <button
        mbrCritter
-       [size]="'${args['button_size']}'"
        [color]="'${args['button_color']}'"
       >
         <span
@@ -84,8 +79,6 @@ export const OnInnerIcon: StoryObj = {
             class="inline-flex"
         >
           <svg
-            width="20"
-            height="20"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="none"
@@ -106,7 +99,10 @@ export const OnInnerIcon: StoryObj = {
 export const Showcase: StoryObj = {
   render: (args, context) => ({
     ...context,
-    styles: [':host { align-items: flex-end; display: flex; gap: 1rem;'],
+    styles: [
+      ':host { align-items: flex-end; display: flex; gap: 1rem;',
+      'button:first-child { font-size: 2em; } button:last-child { font-size: 1.5em; }'
+    ],
     template: `
       <button
          mbrCritter
@@ -114,7 +110,6 @@ export const Showcase: StoryObj = {
          mbrBadgeCritter="1"
          mbrBadgeCritterOffset='-7px'
          mbrBadgeCritterSize='16px'
-         size='extra-large'
          color='success'
       >
         <svg
@@ -134,7 +129,6 @@ export const Showcase: StoryObj = {
 
       <button
        mbrCritter
-       size='extra-large'
        color='warning'
       >
         <span
@@ -144,8 +138,6 @@ export const Showcase: StoryObj = {
           class="inline-flex"
         >
           <svg
-            width="20"
-            height="20"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="none"
