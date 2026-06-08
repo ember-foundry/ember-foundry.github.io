@@ -818,21 +818,21 @@ export const FamilyScreen: StoryObj = {
           <div class="flex flex-col gap-2">
               <div class="flex">
                 <mbr-avatar-critter color="light" flat name="Natasha" class="me-2" />
-                <div>
+                <div class="flex flex-col justify-center">
                   <h4 class="m-0">Natasha added milk to the shopping list</h4>
                   <small>2 min ago</small>
                 </div>
               </div>
               <div class="flex">
                 <mbr-avatar-critter color="light" flat name="Dad" class="me-2" />
-                <div>
+                <div class="flex flex-col justify-center">
                   <h4 class="m-0">Dad bought eggs</h4>
                   <small>1 hr ago</small>
                 </div>
               </div>
               <div class="flex">
                 <mbr-avatar-critter color="light" flat name="Craig" class="me-2" />
-                <div>
+                <div class="flex flex-col justify-center">
                   <h4 class="m-0">Craig marked Bread as stocked</h4>
                   <small>3 hrs ago</small>
                 </div>
