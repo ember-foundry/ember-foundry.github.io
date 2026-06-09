@@ -1,7 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonBasicComponent, ButtonMonochromaticComponent, ButtonCritterComponent} from 'component-library';
+import {ButtonBasicComponent, ButtonMonochromaticComponent} from 'component-library';
 import {NgTemplateOutlet} from '@angular/common';
-import {Showcase as CritterShowcase} from 'component-library/components/button/button-critter/button-critter.stories';
 
 const meta: Meta = {
   decorators: [
@@ -9,7 +8,6 @@ const meta: Meta = {
       imports: [
         ButtonBasicComponent,
         ButtonMonochromaticComponent,
-        ButtonCritterComponent,
         NgTemplateOutlet
       ]
     })
@@ -125,8 +123,4 @@ export const Monochromatic: StoryObj = {
       </a>
     `
   })
-}
-
-export const Critter: StoryObj = {
-  ...CritterShowcase
 }

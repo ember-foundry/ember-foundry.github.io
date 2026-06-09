@@ -56,16 +56,5 @@ cypress/screenshots/**/*(failed)*.png
 /storybook-static
 *.storybook.log
 projects/component-library/documentation.json
-projects/component-library/src/stories/assets/
-projects/component-library/src/stories/Configure.mdx
-projects/component-library/src/stories/button.component.ts
-projects/component-library/src/stories/button.css
-projects/component-library/src/stories/button.stories.ts
-projects/component-library/src/stories/header.component.ts
-projects/component-library/src/stories/header.css
-projects/component-library/src/stories/header.stories.ts
-projects/component-library/src/stories/page.component.ts
-projects/component-library/src/stories/page.css
-projects/component-library/src/stories/page.stories.ts
-projects/component-library/src/stories/user.ts
+projects/critter/documentation.json
 .husky/_/
