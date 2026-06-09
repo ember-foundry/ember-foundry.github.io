@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {ToggleDirective} from 'component-library';
+import {ToggleDirective} from '@ember-foundry/component-library';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

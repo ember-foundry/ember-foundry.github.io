@@ -1,5 +1,5 @@
 import {booleanAttribute, ChangeDetectionStrategy, Component, input} from '@angular/core';
-import {BaseComponent, InitialsPipe} from 'component-library';
+import {BaseComponent, InitialsPipe} from '@ember-foundry/component-library';
 import {COLORS,COLORS_TONAL} from '../../types/colors.type';
 
 @Component({

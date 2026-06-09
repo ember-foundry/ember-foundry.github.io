@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
-import {BaseComponent} from 'component-library';
+import {BaseComponent} from '@ember-foundry/component-library';
 import {COLORS_TONAL} from '../../types/colors.type';
 
 @Component({

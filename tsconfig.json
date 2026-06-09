@@ -4,11 +4,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "component-library": [
-        "./projects/component-library/src/public-api"
+      "@ember-foundry/component-library": [
+        "./dist/component-library"
       ],
-      "component-library/*": [
-        "./projects/component-library/src/*"
+      "@ember-foundry/component-library/*": [
+        "./dist/component-library/*"
       ],
       "critter": [
         "./projects/critter/src/public-api"

@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {args_to_angular_inputs} from 'component-library';
+import {args_to_angular_inputs} from '@ember-foundry/component-library';
 import {
   AvatarComponent,
   ButtonComponent,

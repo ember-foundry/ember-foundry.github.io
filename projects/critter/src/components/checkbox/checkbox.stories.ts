@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ToggleDirective} from 'component-library';
+import {ToggleDirective} from '@ember-foundry/component-library';
 import {CheckboxComponent} from 'critter';
 
 const meta: Meta<CheckboxComponent> = {

@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {NgTemplateOutlet} from '@angular/common';
-import {args_to_angular_inputs} from 'component-library';
+import {args_to_angular_inputs} from '@ember-foundry/component-library';
 import {ButtonComponent, COLOR_VALUES} from 'critter';
 
 const meta: Meta<ButtonComponent> = {
