@@ -81,6 +81,10 @@ git add .gitattributes
 git add **/__screenshots__/**/*.png
 ```
 
+---
+
+## Libraries
+
 ### New Library
 ```shell
 LIBRARY_NAME='critter';
@@ -111,4 +115,10 @@ ng config "projects.$LIBRARY_NAME.architect.storybook.options.compodocArgs[3]" "
 ng config "projects.$LIBRARY_NAME.architect.storybook.options.port" 6006
 ng config "projects.$LIBRARY_NAME.architect.storybook.options.styles[0]" "projects/$LIBRARY_NAME/.storybook/styles.scss"
 ng config "projects.$LIBRARY_NAME.architect.storybook.options.styles[1]" "projects/$LIBRARY_NAME/src/styles/global.scss"
+```
+
+### Testing locally
+```shell
+cd dist/$LIBRARY_NAME
+npm pack
 ```

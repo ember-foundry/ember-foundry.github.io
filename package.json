@@ -6,7 +6,8 @@
     "node": ">=24.12.0"
   },
   "scripts": {
-    "build": "ng build component-library",
+    "build:component-library": "ng build component-library",
+    "build:critter": "ng build component-library && ng build critter && tsc -p projects/critter/schematics/tsconfig.schematics.json",
     "build:storybook:component-library": "ng run component-library:build-storybook",
     "build:storybook:critter": "ng run critter:build-storybook",
     "lint": "ng lint --cache",
@@ -44,7 +45,6 @@
     "@angular/platform-browser": "^21.2.15",
     "@angular/router": "^21.2.15",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^4.2.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -81,7 +81,7 @@
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.1",
-    "tailwindcss": "^4.1.12",
+    "tailwindcss": "^4.2.2",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.33.1",
     "vite-tsconfig-paths": "^6.0.3",

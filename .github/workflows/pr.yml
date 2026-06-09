@@ -70,12 +70,13 @@ jobs:
       - run: npm run lint:styles
 
   build:
-    name: Build
+    name: Build Component Library
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-project
-      - run: npm run build
+      - run: npm run build:component-library
+      - run: npm run build:critter
 
   build_storybook:
     name: Build Storybook
@@ -83,7 +84,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-project
-      - run: npm run build:storybook
+      - run: npm run build:storybook:component-library
+      - run: npm run build:storybook:critter
 
   cypress_component_tests:
     name: Cypress Tests
