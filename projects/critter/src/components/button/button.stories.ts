@@ -145,12 +145,13 @@ export const Showcase: StoryObj = {
     ],
     template: `
       <section class="comparison-grid">
-          <span></span>
-          @for (color of colors; track color) {
-            <div class="font-bold mt-4 justify-self-end">{{color || 'Default'}}</div>
-          }
+        <span></span>
+        @for (color of colors; track color) {
+          <span class="mt-4 justify-self-end">{{color || 'Default'}}</span>
+        }
+
         @for(size of sizes; track size){
-          <div class="font-bold mt-4">Size: {{size || 'Default'}}</div>
+          <span class="mt-4">Size: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrButton [color]="color" [size]="size"></button>
           }
@@ -159,7 +160,7 @@ export const Showcase: StoryObj = {
 
       <section class="comparison-grid">
         @for(size of sizes; track size){
-          <div class="font-bold mt-4 ">With Icon: {{size || 'Default'}}</div>
+          <span class="mt-4 ">With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrButton [color]="color" [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
@@ -171,7 +172,7 @@ export const Showcase: StoryObj = {
 
       <section class="comparison-grid">
         @for(size of sizes; track size){
-          <div class="font-bold mt-4 ">Flat: {{size || 'Default'}}</div>
+          <span class="mt-4 ">Flat: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrButton flat [color]="color" [size]="size"></button>
           }
@@ -182,7 +183,7 @@ export const Showcase: StoryObj = {
 
       <section class="comparison-grid">
         @for(size of sizes; track size){
-          <div class="font-bold mt-4 ">Flat With Icon: {{size || 'Default'}}</div>
+          <span class="mt-4 ">Flat With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrButton flat [color]="color" [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>

@@ -792,14 +792,14 @@ export const FamilyScreen: StoryObj = {
           <div class="flex flex-col gap-2 w-full">
             <div class="flex w-full">
                 <mbr-avatar name="You" color="info" class="me-2"/>
-                <div>
+                <div class="flex flex-col justify-center">
                     <h4 class="m-0">You (Admin)</h4>
                     <small>Joined 2 months ago</small>
                 </div>
             </div>
             <div class="flex w-full">
                 <mbr-avatar name="Natasha" color="warning"  class="me-2"/>
-                <div>
+                <div class="flex flex-col justify-center">
                     <h4 class="m-0">Natasha</h4>
                     <small>Joined 1 months ago</small>
                 </div>

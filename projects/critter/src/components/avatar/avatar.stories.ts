@@ -31,19 +31,18 @@ export const Showcase: StoryObj = {
     },
     styles: [
       ':host{ display: inline-grid; grid-template-columns: repeat(8, auto); gap: 1em; ',
-      'h4 { text-transform: capitalize; text-align: center; align-self: center; margin: 0;}',
       'mbr-avatar { justify-self: center; }'
     ],
     template: `
       <span></span>
       @for(color of colors; track color){
-        <h4>{{color || 'Default'}}</h4>
+        <span>{{color || 'Default'}}</span>
       }
-      <h4>Normal</h4>
+      <span>Normal</span>
       @for(color of colors; track color){
         <mbr-avatar [color]="color" />
       }
-      <h4>Flat</h4>
+      <span>Flat</span>
       @for(color of colors; track color){
         <mbr-avatar flat [color]="color" />
       }
