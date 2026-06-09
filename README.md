@@ -80,3 +80,35 @@ git lfs track **/__screenshots__/**/*.png
 git add .gitattributes
 git add **/__screenshots__/**/*.png
 ```
+
+### New Library
+```shell
+LIBRARY_NAME='critter';
+ng generate library $LIBRARY_NAME
+mkdir -p projects/$LIBRARY_NAME/.storybook
+touch projects/$LIBRARY_NAME/.storybook/styles.scss
+mkdir -p projects/$LIBRARY_NAME/src/components
+mkdir -p projects/$LIBRARY_NAME/src/directives
+mkdir -p projects/$LIBRARY_NAME/src/styles
+touch projects/$LIBRARY_NAME/src/styles/global.scss
+
+ng config projects.$LIBRARY_NAME.architect.build-storybook.builder '@storybook/angular:build-storybook'
+ng config projects.$LIBRARY_NAME.architect.build-storybook.options.browserTarget "$LIBRARY_NAME:build"
+ng config projects.$LIBRARY_NAME.architect.build-storybook.options.configDir "projects/$LIBRARY_NAME/.storybook"
+ng config projects.$LIBRARY_NAME.architect.build-storybook.options.compodoc true
+ng config "projects.$LIBRARY_NAME.architect.build-storybook.options.compodocArgs" '["-e", "json", "-d"]'
+ng config "projects.$LIBRARY_NAME.architect.build-storybook.options.compodocArgs[3]" "projects/$LIBRARY_NAME"
+ng config projects.$LIBRARY_NAME.architect.build-storybook.options.outputDir 'dist/storybook/$LIBRARY_NAME'
+ng config "projects.$LIBRARY_NAME.architect.build-storybook.options.styles[0]" "projects/$LIBRARY_NAME/src/styles/global.scss"
+ng config projects.$LIBRARY_NAME.architect.build-storybook.options.webpackStatsJson true
+
+ng config projects.$LIBRARY_NAME.architect.storybook.builder '@storybook/angular:start-storybook'
+ng config projects.$LIBRARY_NAME.architect.storybook.options.browserTarget "$LIBRARY_NAME:build"
+ng config projects.$LIBRARY_NAME.architect.storybook.options.configDir "projects/$LIBRARY_NAME/.storybook"
+ng config projects.$LIBRARY_NAME.architect.storybook.options.compodoc true
+ng config "projects.$LIBRARY_NAME.architect.storybook.options.compodocArgs" '["-e", "json", "-d"]'
+ng config "projects.$LIBRARY_NAME.architect.storybook.options.compodocArgs[3]" "projects/$LIBRARY_NAME"
+ng config "projects.$LIBRARY_NAME.architect.storybook.options.port" 6006
+ng config "projects.$LIBRARY_NAME.architect.storybook.options.styles[0]" "projects/$LIBRARY_NAME/.storybook/styles.scss"
+ng config "projects.$LIBRARY_NAME.architect.storybook.options.styles[1]" "projects/$LIBRARY_NAME/src/styles/global.scss"
+```

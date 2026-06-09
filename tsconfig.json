@@ -9,6 +9,12 @@
       ],
       "component-library/*": [
         "./projects/component-library/src/*"
+      ],
+      "critter": [
+        "./projects/critter/src/public-api"
+      ],
+      "critter/*": [
+        "./projects/critter/src/*"
       ]
     },
     "experimentalDecorators": true,
@@ -43,6 +49,12 @@
     },
     {
       "path": "./projects/component-library/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/critter/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/critter/tsconfig.spec.json"
     }
   ]
 }

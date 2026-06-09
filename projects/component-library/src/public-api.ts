@@ -1,3 +1,4 @@
+export * from './components/_base/base.component';
 export * from './components/avatar/avatar.component';
 export * from './components/avatar/avatar-critter/avatar-critter.component';
 export * from './components/avatar-badge/avatar-badge.component';
@@ -64,6 +65,8 @@ export * from './directives/grid-background/grid-background.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/toggle/toggle.directive';
 export * from './directives/tooltip/tooltip.directive';
+export * from './helpers/storybook/args_to_angular_inputs'
+export * from './helpers/storybook/array_to_angular_input'
 export * from './pipes/initials/initials.pipe';
 export * from './pipes/pixels/pixels.pipe';
 export * from './pipes/whole-number/whole-number.pipe';

@@ -1,0 +1,43 @@
+import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
+import {AvatarComponent} from '../avatar/avatar.component';
+import {ChipComponent} from '../chip/chip.component';
+import {CardComponent} from '../card/card.component';
+
+@Component({
+  selector: 'mbr-inventory-card',
+  imports: [
+    ChipComponent,
+    AvatarComponent,
+    CardComponent
+  ],
+  templateUrl: './inventory-card.component.html',
+  styleUrl: './inventory-card.component.scss',
+  host: {
+    '[class]': 'host_css_classes()'
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class InventoryCardComponent {
+  public status = input<'out' | 'low' | 'stocked'>('stocked');
+  public label = input<string>('ITEM');
+
+  protected color = computed<'danger-tonal-bright'|'warning-tonal-bright'|'success-tonal-bright'>(() => {
+    let _color: 'danger'|'warning'|'success' = 'success';
+    switch(this.status()){
+      case 'out':
+        _color = 'danger';
+        break;
+      case 'low':
+        _color = 'warning';
+        break;
+      case 'stocked':
+        _color = 'success';
+        break;
+    }
+    return `${_color}-tonal-bright`
+  });
+
+  protected host_css_classes = computed<string>(() => {
+    return `color-${this.color()} ${this.status()}`
+  })
+}

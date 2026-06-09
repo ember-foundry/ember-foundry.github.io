@@ -1,0 +1,17 @@
+:host {
+  align-items: center;
+  aspect-ratio: 1;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text);
+  display: inline-flex;
+  font-size: 1.25em;
+  font-weight: 700;
+  justify-content: center;
+  width: 48px;
+}
+
+:host:not(.flat){
+  box-shadow: 0 2px 0 0 var(--color-shadow);
+}

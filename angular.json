@@ -176,6 +176,69 @@
           "typeSeparator": "."
         }
       }
+    },
+    "critter": {
+      "projectType": "library",
+      "root": "projects/critter",
+      "sourceRoot": "projects/critter/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/critter/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/critter/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "styles": [
+              "projects/critter/src/styles/global.scss"
+            ],
+            "browserTarget": "critter:build",
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/critter"
+            ],
+            "configDir": "projects/critter/.storybook",
+            "compodoc": true,
+            "webpackStatsJson": true
+          }
+        },
+        "storybook": {
+          "options": {
+            "styles": [
+              "projects/critter/.storybook/styles.scss",
+              "projects/critter/src/styles/global.scss"
+            ],
+            "browserTarget": "critter:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/critter"
+            ],
+            "configDir": "projects/critter/.storybook",
+            "port": 6007
+          },
+          "builder": "@storybook/angular:start-storybook"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/critter/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }
