@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build:component-library": "ng build component-library",
-    "build:critter": "ng build component-library && ng build critter && tsc -p projects/critter/schematics/tsconfig.schematics.json",
+    "build:critter": "ng build critter",
     "build:storybook:component-library": "ng run component-library:build-storybook",
     "build:storybook:critter": "ng run critter:build-storybook",
     "lint": "ng lint --cache",

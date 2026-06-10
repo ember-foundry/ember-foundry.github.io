@@ -282,13 +282,13 @@ export const HomeScreen: StoryObj = {
       `:host {
         display: flex;
         color: rgba(74, 42, 12, 0.80);
-        font-family: Fredoka, sans-serif;
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
+        min-height: 100cb;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
-      'main { padding: 24px; display: flex; flex-direction: column; }'
+      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>
@@ -419,13 +419,13 @@ export const MasterScreen: StoryObj = {
       `:host {
         display: flex;
         color: rgba(74, 42, 12, 0.80);
-        font-family: Fredoka, sans-serif;
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
+        min-height: 100cb;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
-      'main { padding: 24px; display: flex; flex-direction: column; }'
+      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>
@@ -515,13 +515,13 @@ export const CartScreen: StoryObj = {
       `:host {
         display: flex;
         color: rgba(74, 42, 12, 0.80);
-        font-family: Fredoka, sans-serif;
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
+        min-height: 100cb;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
-      'main { padding: 24px; display: flex; flex-direction: column; }'
+      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>
@@ -694,13 +694,13 @@ export const PantryScreen: StoryObj = {
       `:host {
         display: flex;
         color: rgba(74, 42, 12, 0.80);
-        font-family: Fredoka, sans-serif;
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
+        min-height: 100cb;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
-      'main { padding: 24px; display: flex; flex-direction: column; }'
+      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>
@@ -776,13 +776,13 @@ export const FamilyScreen: StoryObj = {
       `:host {
         display: flex;
         color: rgba(74, 42, 12, 0.80);
-        font-family: Fredoka, sans-serif;
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
+        min-height: 100cb;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
-      'main { padding: 24px; display: flex; flex-direction: column; }'
+      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>

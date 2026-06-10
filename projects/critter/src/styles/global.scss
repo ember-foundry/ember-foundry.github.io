@@ -12,8 +12,13 @@ For flexbox shit
 
 @import 'https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@400..700&display=swap';
 
+:root {
+  --font-neutral: Fredoka, sans-serif;
+  --font-heading: 'Fredoka One', var(--font-neutral);
+}
+
 body {
-  font-family: Fredoka, sans-serif;
+  font-family: var(--font-neutral);
 }
 
 .flat {
