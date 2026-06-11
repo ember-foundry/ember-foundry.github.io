@@ -422,7 +422,7 @@ export const MasterScreen: StoryObj = {
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
-        min-height: 100cb;
+        min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
@@ -518,7 +518,7 @@ export const CartScreen: StoryObj = {
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
-        min-height: 100cb;
+        min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
@@ -697,7 +697,7 @@ export const PantryScreen: StoryObj = {
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
-        min-height: 100cb;
+        min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
@@ -779,7 +779,7 @@ export const FamilyScreen: StoryObj = {
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
-        min-height: 100cb;
+        min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
