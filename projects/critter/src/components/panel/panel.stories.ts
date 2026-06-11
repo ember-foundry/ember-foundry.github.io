@@ -41,11 +41,11 @@ export const PantryStatus: StoryObj<PanelComponent> = {
     title: 'PANTRY STATUS'
   },
   render: (args) => ({
-    styles: ['mbr-panel { max-width: 500px; }'],
+    styles: ['mbr-critter-panel { max-width: 500px; }'],
     template: `
-      <mbr-panel ${args_to_angular_inputs(args)}>
+      <mbr-critter-panel ${args_to_angular_inputs(args)}>
         <button
-          mbrButton
+          mbrCritterButton
           flat
           color="warning"
           size="small"
@@ -71,8 +71,8 @@ export const PantryStatus: StoryObj<PanelComponent> = {
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <button mbrButton>View</button>
-      </mbr-panel>
+        <button mbrCritterButton>View</button>
+      </mbr-critter-panel>
     `
   })
 }
@@ -82,11 +82,11 @@ export const ActiveShopping: StoryObj<PanelComponent> = {
     title: 'ACTIVE SHOPPING'
   },
   render: (args) => ({
-    styles: ['mbr-panel { max-width: 500px; }'],
+    styles: ['mbr-critter-panel { max-width: 500px; }'],
     template: `
-      <mbr-panel ${args_to_angular_inputs(args)}>
+      <mbr-critter-panel ${args_to_angular_inputs(args)}>
       <button
-        mbrButton
+        mbrCritterButton
         flat
         color="success"
         size="small"
@@ -110,8 +110,8 @@ export const ActiveShopping: StoryObj<PanelComponent> = {
         <h3 class="m-0 font-semibold">4 items</h3>
         <small>to buy right now</small>
       </div>
-      <button mbrButton color="success">Go Shop</button>
-    </mbr-panel>
+      <button mbrCritterButton color="success">Go Shop</button>
+    </mbr-critter-panel>
     `
   })
 }
@@ -136,26 +136,26 @@ export const HouseholdItems: StoryObj<PanelComponent> = {
   ],
   render: (args) => ({
     template: `
-      <mbr-panel ${args_to_angular_inputs(args)}>
+      <mbr-critter-panel ${args_to_angular_inputs(args)}>
         <div class="flex flex-col flex-grow-1 space-y-2">
 
-          <mbr-card class="flex justify-content-between justify-between">
+          <mbr-critter-card class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                   <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <mbr-chip color="success-tonal">In List</mbr-chip>
+                  <mbr-critter-chip color="success-tonal">In List</mbr-critter-chip>
               </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-content-between justify-between">
+          <mbr-critter-card class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                  <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <button mbrButton>
+                  <button mbrCritterButton>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M2.91669 7H11.0834" />
                       <path d="M7 2.91666V11.0833" />
@@ -163,10 +163,10 @@ export const HouseholdItems: StoryObj<PanelComponent> = {
                     <span>Add</span>
                   </button>
               </div>
-          </mbr-card>
+          </mbr-critter-card>
 
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
     `
   })
 }
@@ -185,13 +185,13 @@ export const CartPanel: StoryObj<PanelComponent> = {
     })
   ],
   render: (args) => ({
-    styles: ['mbr-panel { min-width: 400px }'],
+    styles: ['mbr-critter-panel { min-width: 400px }'],
     template: `
-      <mbr-panel ${args_to_angular_inputs(args)} class="flex-col">
+      <mbr-critter-panel ${args_to_angular_inputs(args)} class="flex-col">
         <div class="flex flex-col flex-grow-1 space-y-3">
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Milk</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
@@ -199,7 +199,7 @@ export const CartPanel: StoryObj<PanelComponent> = {
             </div>
 
             <div class="flex items-center gap-3">
-               <mbr-input-quantity />
+               <mbr-critter-input-quantity />
                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -227,11 +227,11 @@ export const CartPanel: StoryObj<PanelComponent> = {
                 <circle cx="15" cy="19" r="1"></circle>
               </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Eggs</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
@@ -239,7 +239,7 @@ export const CartPanel: StoryObj<PanelComponent> = {
             </div>
 
             <div class="flex items-center gap-3">
-                <mbr-input-quantity />
+                <mbr-critter-input-quantity />
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -267,11 +267,11 @@ export const CartPanel: StoryObj<PanelComponent> = {
                   <circle cx="15" cy="19" r="1"></circle>
                 </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Toothpaste</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal"></p>
@@ -279,7 +279,7 @@ export const CartPanel: StoryObj<PanelComponent> = {
             </div>
 
             <div class="flex items-center gap-3">
-                <mbr-input-quantity />
+                <mbr-critter-input-quantity />
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -307,9 +307,9 @@ export const CartPanel: StoryObj<PanelComponent> = {
                   <circle cx="15" cy="19" r="1"></circle>
                 </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
     `
   })
 }
@@ -333,9 +333,9 @@ export const Showcase: StoryObj = {
       ':host { gap: 2rem; display: flex; flex-direction: column;}',
     ],
     template: `
-      <mbr-panel title="PANTRY STATUS">
+      <mbr-critter-panel title="PANTRY STATUS">
         <button
-          mbrButton
+          mbrCritterButton
           flat
           color="warning"
           size="small"
@@ -361,12 +361,12 @@ export const Showcase: StoryObj = {
           <h3 class="m-0 font-semibold">5 items</h3>
           <small>needs restocking</small>
         </div>
-        <button mbrButton>View</button>
-      </mbr-panel>
+        <button mbrCritterButton>View</button>
+      </mbr-critter-panel>
 
-      <mbr-panel title="ACTIVE SHOPPING">
+      <mbr-critter-panel title="ACTIVE SHOPPING">
         <button
-          mbrButton
+          mbrCritterButton
           flat
           color="success"
           size="small"
@@ -390,16 +390,16 @@ export const Showcase: StoryObj = {
           <h3 class="m-0 font-semibold">4 items</h3>
           <small>to buy right now</small>
         </div>
-        <button mbrButton color="success">Go Shop</button>
-      </mbr-panel>
+        <button mbrCritterButton color="success">Go Shop</button>
+      </mbr-critter-panel>
 
-      <mbr-panel title="EMPTY PANEL"></mbr-panel>
+      <mbr-critter-panel title="EMPTY PANEL"></mbr-critter-panel>
 
-      <mbr-panel title="TO BUY" class="flex-col">
+      <mbr-critter-panel title="TO BUY" class="flex-col">
         <div class="flex flex-col flex-grow-1 space-y-3">
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Milk</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
@@ -407,7 +407,7 @@ export const Showcase: StoryObj = {
             </div>
 
             <div class="flex items-center gap-3">
-               <mbr-input-quantity />
+               <mbr-critter-input-quantity />
                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -435,11 +435,11 @@ export const Showcase: StoryObj = {
                 <circle cx="15" cy="19" r="1"></circle>
               </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Eggs</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal">Free range</p>
@@ -447,7 +447,7 @@ export const Showcase: StoryObj = {
             </div>
 
             <div class="flex items-center gap-3">
-                <mbr-input-quantity />
+                <mbr-critter-input-quantity />
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -475,11 +475,11 @@ export const Showcase: StoryObj = {
                   <circle cx="15" cy="19" r="1"></circle>
                 </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-between items-center gap-3">
+          <mbr-critter-card class="flex justify-between items-center gap-3">
             <div class="flex flex-row gap-2 items-center">
-              <input type="checkbox" mbrCheckbox />
+              <input type="checkbox" mbrCritterCheckbox />
               <div class="flex-1">
                 <h4 class="font-bold text-foreground text-lg leading-tight truncate m-0">Toothpaste</h4>
                 <p class="text-xs text-foreground/60 italic truncate m-0 font-normal"></p>
@@ -487,7 +487,7 @@ export const Showcase: StoryObj = {
             </div>
 
             <div class="flex items-center gap-3">
-                <mbr-input-quantity />
+                <mbr-critter-input-quantity />
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
@@ -515,30 +515,30 @@ export const Showcase: StoryObj = {
                   <circle cx="15" cy="19" r="1"></circle>
                 </svg>
             </div>
-          </mbr-card>
+          </mbr-critter-card>
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
 
-      <mbr-panel title="HOUSEHOLD ITEMS">
+      <mbr-critter-panel title="HOUSEHOLD ITEMS">
         <div class="flex flex-col flex-grow-1 space-y-2">
 
-          <mbr-card class="flex justify-content-between justify-between">
+          <mbr-critter-card class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                   <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <mbr-chip color="success-tonal">In List</mbr-chip>
+                  <mbr-critter-chip color="success-tonal">In List</mbr-critter-chip>
               </div>
-          </mbr-card>
+          </mbr-critter-card>
 
-          <mbr-card class="flex justify-content-between justify-between">
+          <mbr-critter-card class="flex justify-content-between justify-between">
               <div class="flex flex-col">
                  <h4 class="m-0">Milk</h4>
                   <small>Food</small>
               </div>
               <div class="flex flex-col">
-                  <button mbrButton>
+                  <button mbrCritterButton>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M2.91669 7H11.0834" />
                       <path d="M7 2.91666V11.0833" />
@@ -546,61 +546,61 @@ export const Showcase: StoryObj = {
                     <span>Add</span>
                   </button>
               </div>
-          </mbr-card>
+          </mbr-critter-card>
 
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
 
-      <mbr-panel title="NEED TO BUY">
-        <mbr-card class="w-full items-center">
-            <mbr-chip color="danger-tonal">
+      <mbr-critter-panel title="NEED TO BUY">
+        <mbr-critter-card class="w-full items-center">
+            <mbr-critter-chip color="danger-tonal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M9 3L3 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M3 3L9 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <span>OUT</span>
-            </mbr-chip>
+            </mbr-critter-chip>
 
             <h4 class="flex-grow-1 m-0">Laundry Detergent</h4>
-            <button mbrButton color="success">
+            <button mbrCritterButton color="success">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M2.91663 7H11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M7 2.91666V11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <span>List</span>
             </button>
-        </mbr-card>
-      </mbr-panel>
+        </mbr-critter-card>
+      </mbr-critter-panel>
 
-      <mbr-panel title="MY PANTRY">
+      <mbr-critter-panel title="MY PANTRY">
         <div class="grid grid-cols-2 w-full gap-2">
-          <mbr-inventory-card label="Milk" status="low"/>
-          <mbr-inventory-card label="Eggs" status="out"/>
-          <mbr-inventory-card label="Bread" status="stocked"/>
-          <mbr-inventory-card label="Dish Soap" status="low"/>
-          <mbr-inventory-card label="Apples" status="stocked"/>
-          <mbr-inventory-card label="Toothpaste" status="out"/>
-          <mbr-inventory-card label="Landry Detergent" status="out"/>
+          <mbr-critter-inventory-card label="Milk" status="low"/>
+          <mbr-critter-inventory-card label="Eggs" status="out"/>
+          <mbr-critter-inventory-card label="Bread" status="stocked"/>
+          <mbr-critter-inventory-card label="Dish Soap" status="low"/>
+          <mbr-critter-inventory-card label="Apples" status="stocked"/>
+          <mbr-critter-inventory-card label="Toothpaste" status="out"/>
+          <mbr-critter-inventory-card label="Landry Detergent" status="out"/>
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
 
-      <mbr-panel title="YOUR HOUSEHOLD">
+      <mbr-critter-panel title="YOUR HOUSEHOLD">
         <div class="flex flex-col gap-2 w-full">
           <div class="flex w-full">
-              <mbr-avatar name="You" color="info" class="me-2"/>
+              <mbr-critter-avatar name="You" color="info" class="me-2"/>
               <div>
                   <h4 class="m-0">You (Admin)</h4>
                   <small>Joined 2 months ago</small>
               </div>
           </div>
           <div class="flex w-full">
-              <mbr-avatar name="Natasha" color="warning"  class="me-2"/>
+              <mbr-critter-avatar name="Natasha" color="warning"  class="me-2"/>
               <div>
                   <h4 class="m-0">Natasha</h4>
                   <small>Joined 1 months ago</small>
               </div>
           </div>
-          <button mbrButton color="warning">
+          <button mbrCritterButton color="warning">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M3.75 9H14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M9 3.75V14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -608,33 +608,33 @@ export const Showcase: StoryObj = {
             <span>Invite Member</span>
           </button>
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
 
-      <mbr-panel title="RECENT ACTIVITY">
+      <mbr-critter-panel title="RECENT ACTIVITY">
         <div class="flex flex-col gap-2">
             <div class="flex">
-              <mbr-avatar color="light" flat name="Natasha" class="me-2" />
+              <mbr-critter-avatar color="light" flat name="Natasha" class="me-2" />
               <div>
                 <h4 class="m-0">Natasha added milk to the shopping list</h4>
                 <small>2 min ago</small>
               </div>
             </div>
             <div class="flex">
-              <mbr-avatar color="light" flat name="Dad" class="me-2" />
+              <mbr-critter-avatar color="light" flat name="Dad" class="me-2" />
               <div>
                 <h4 class="m-0">Dad bought eggs</h4>
                 <small>1 hr ago</small>
               </div>
             </div>
             <div class="flex">
-              <mbr-avatar color="light" flat name="Craig" class="me-2" />
+              <mbr-critter-avatar color="light" flat name="Craig" class="me-2" />
               <div>
                 <h4 class="m-0">Craig marked Bread as stocked</h4>
                 <small>3 hrs ago</small>
               </div>
             </div>
         </div>
-      </mbr-panel>
+      </mbr-critter-panel>
     `
   })
 }

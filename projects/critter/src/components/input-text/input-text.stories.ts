@@ -10,6 +10,6 @@ export default meta;
 
 export const Showcase: StoryObj<InputTextComponent> = {
   render: () => ({
-    template: '<input type="text" mbrInput placeholder="Search items..." />'
+    template: '<input type="text" mbrCritterInput placeholder="Search items..." />'
   })
 }

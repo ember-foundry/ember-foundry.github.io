@@ -56,7 +56,7 @@ export const Danger: StoryObj<ButtonComponent> = {
 
 export const Disabled: StoryObj<ButtonComponent> = {
   render: () => ({
-    template: `<button mbrButton disabled></button>`
+    template: `<button mbrCritterButton disabled></button>`
   })
 }
 
@@ -78,7 +78,7 @@ export const IconOnly: StoryObj<ButtonComponent> = {
   },
   render: (args) => ({
     template: `
-        <button mbrButton ${args_to_angular_inputs(args)}>
+        <button mbrCritterButton ${args_to_angular_inputs(args)}>
           <svg
             viewBox="0 0 14 14"
             fill="none"
@@ -103,7 +103,7 @@ export const FullWidth: StoryObj<ButtonComponent> = {
   },
   render: (args) => ({
     template: `
-        <button mbrButton class="w-full" ${args_to_angular_inputs(args)}>
+        <button mbrCritterButton class="w-full" ${args_to_angular_inputs(args)}>
           <svg
             viewBox="0 0 14 14"
             fill="none"
@@ -140,7 +140,7 @@ export const Showcase: StoryObj = {
         grid-template-columns: 1fr repeat(7, auto);
       }`,
       '.title-row { grid-column-start: 1; grid-column-end: 9;}',
-      '[mbrButton] {justify-self: flex-end}',
+      '[mbrCritterButton] {justify-self: flex-end}',
       'section { margin-bottom: 2rem;}'
     ],
     template: `
@@ -153,7 +153,7 @@ export const Showcase: StoryObj = {
         @for(size of sizes; track size){
           <span class="mt-4">Size: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
-            <button mbrButton [color]="color" [size]="size"></button>
+            <button mbrCritterButton [color]="color" [size]="size"></button>
           }
         }
       </section>
@@ -162,7 +162,7 @@ export const Showcase: StoryObj = {
         @for(size of sizes; track size){
           <span class="mt-4 ">With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
-            <button mbrButton [color]="color" [size]="size">
+            <button mbrCritterButton [color]="color" [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
                 <span>Add</span>
             </button>
@@ -174,7 +174,7 @@ export const Showcase: StoryObj = {
         @for(size of sizes; track size){
           <span class="mt-4 ">Flat: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
-            <button mbrButton flat [color]="color" [size]="size"></button>
+            <button mbrCritterButton flat [color]="color" [size]="size"></button>
           }
         }
       </section>
@@ -185,7 +185,7 @@ export const Showcase: StoryObj = {
         @for(size of sizes; track size){
           <span class="mt-4 ">Flat With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
-            <button mbrButton flat [color]="color" [size]="size">
+            <button mbrCritterButton flat [color]="color" [size]="size">
                 <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
                 <span>Add</span>
             </button>

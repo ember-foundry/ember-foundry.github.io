@@ -3,7 +3,7 @@ import {BaseComponent} from '@ember-foundry/component-library';
 import {COLORS_TONAL} from '../../types/colors.type';
 
 @Component({
-  selector: 'mbr-chip',
+  selector: 'mbr-critter-chip',
   templateUrl: './chip.component.html',
   styleUrl: './chip.component.scss',
   host: {

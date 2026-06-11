@@ -3,7 +3,7 @@ import {ButtonComponent} from '../button/button.component';
 import {BadgeDirective} from '../badge/badge.directive';
 
 @Component({
-  selector: 'mbr-footer, footer[mbrFooter]',
+  selector: 'mbr-critter-footer',
   imports: [
     ButtonComponent,
     BadgeDirective

@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, signa
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'mbr-input-quantity',
+  selector: 'mbr-critter-input-quantity',
   templateUrl: './input-quantity.component.html',
   styleUrl: './input-quantity.component.scss',
   providers: [

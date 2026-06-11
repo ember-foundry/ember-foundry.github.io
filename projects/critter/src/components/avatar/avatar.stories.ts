@@ -31,7 +31,7 @@ export const Showcase: StoryObj = {
     },
     styles: [
       ':host{ align-items: center; display: inline-grid; grid-template-columns: repeat(8, auto); gap: 1em; ',
-      'mbr-avatar { justify-self: center; }'
+      'mbr-critter-avatar { justify-self: center; }'
     ],
     template: `
       <span></span>
@@ -40,11 +40,11 @@ export const Showcase: StoryObj = {
       }
       <span>Normal</span>
       @for(color of colors; track color){
-        <mbr-avatar [color]="color" />
+        <mbr-critter-avatar [color]="color" />
       }
       <span>Flat</span>
       @for(color of colors; track color){
-        <mbr-avatar flat [color]="color" />
+        <mbr-critter-avatar flat [color]="color" />
       }
     `
   })

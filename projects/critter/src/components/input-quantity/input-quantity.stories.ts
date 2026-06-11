@@ -10,6 +10,6 @@ export default meta;
 
 export const Showcase: StoryObj<InputQuantityComponent> = {
   render: () => ({
-    template: '<mbr-input-quantity />'
+    template: '<mbr-critter-input-quantity />'
   })
 }

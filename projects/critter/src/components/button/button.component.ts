@@ -4,7 +4,7 @@ import {COLORS} from '../../types/colors.type';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[mbrButton]',
+  selector: '[mbrCritterButton]',
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   host: {

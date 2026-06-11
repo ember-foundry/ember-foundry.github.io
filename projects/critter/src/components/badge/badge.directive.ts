@@ -12,12 +12,12 @@ import {
 import {BadgeComponent} from './badge.component';
 
 @Directive({
-  selector: '[mbrBadge]'
+  selector: '[mbrCritterBadge]'
 })
 export class BadgeDirective implements OnInit, OnDestroy {
-  public mbrBadge = input.required<string>();
-  public mbrBadgeOffset = input<string>();
-  public mbrBadgeSize = input<string>();
+  public mbrCritterBadge = input.required<string>();
+  public mbrCritterBadgeOffset = input<string>();
+  public mbrCritterBadgeSize = input<string>();
 
   private readonly element_ref = inject(ElementRef<HTMLElement>);
   private readonly view_container = inject(ViewContainerRef);
@@ -26,11 +26,11 @@ export class BadgeDirective implements OnInit, OnDestroy {
 
   constructor() {
     effect(() => {
-      const content = this.mbrBadge();
+      const content = this.mbrCritterBadge();
       if (this.component_ref) {
         this.component_ref.setInput('content', content);
-        this.component_ref.setInput('offset', this.mbrBadgeOffset())
-        this.component_ref.setInput('size', this.mbrBadgeSize())
+        this.component_ref.setInput('offset', this.mbrCritterBadgeOffset())
+        this.component_ref.setInput('size', this.mbrCritterBadgeSize())
         console.log('this.element_ref.nativeElement;', this.element_ref.nativeElement)
       } else {
         console.warn('BadgeComponent: component_ref is undefined, cannot set input');

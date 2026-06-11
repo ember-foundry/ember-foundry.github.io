@@ -37,22 +37,22 @@ export const Showcase: StoryObj = {
     ],
     template: `
         @for(color of colors; track color) {
-            <mbr-chip [color]="color">{{color}}</mbr-chip>
+            <mbr-critter-chip [color]="color">{{color}}</mbr-critter-chip>
         }
-        <mbr-chip color="danger-tonal">
+        <mbr-critter-chip color="danger-tonal">
           <ng-container [ngTemplateOutlet]="icon_cross" />
           OUT
-        </mbr-chip>
+        </mbr-critter-chip>
 
-        <mbr-chip color="success-tonal">
+        <mbr-critter-chip color="success-tonal">
           <ng-container [ngTemplateOutlet]="icon_check" />
           STOCKED
-        </mbr-chip>
+        </mbr-critter-chip>
 
-        <mbr-chip color="warning-tonal">
+        <mbr-critter-chip color="warning-tonal">
           <ng-container [ngTemplateOutlet]="icon_warning" />
           LOW
-        </mbr-chip>
+        </mbr-critter-chip>
 
         <ng-template #icon_warning>
           <svg

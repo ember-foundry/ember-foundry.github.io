@@ -3,7 +3,7 @@ import {BaseComponent, InitialsPipe} from '@ember-foundry/component-library';
 import {COLORS,COLORS_TONAL} from '../../types/colors.type';
 
 @Component({
-  selector: 'mbr-avatar',
+  selector: 'mbr-critter-avatar',
   imports: [
     InitialsPipe
   ],

@@ -34,11 +34,11 @@ export const OnButton: StoryObj = {
     styles: ['button { font-size: 2em; }'],
     template: `
       <button
-       mbrButton
+       mbrCritterButton
        rounded="true"
-       [mbrBadge]="${args['badge_text']}"
-       [mbrBadgeOffset]="'-7px'"
-       [mbrBadgeSize]="'16px'"
+       [mbrCritterBadge]="${args['badge_text']}"
+       [mbrCritterBadgeOffset]="'-7px'"
+       [mbrCritterBadgeSize]="'16px'"
        [color]="'${args['button_color']}'"
       >
         <svg
@@ -68,13 +68,13 @@ export const OnInnerIcon: StoryObj = {
     styles: ['button { font-size: 1.5em; }'],
     template: `
       <button
-       mbrButton
+       mbrCritterButton
        [color]="'${args['button_color']}'"
       >
         <span
-            [mbrBadge]="${args['badge_text']}"
-            [mbrBadgeOffset]="'-4px'"
-            [mbrBadgeSize]="'9px'"
+            [mbrCritterBadge]="${args['badge_text']}"
+            [mbrCritterBadgeOffset]="'-4px'"
+            [mbrCritterBadgeSize]="'9px'"
             class="inline-flex"
         >
           <svg
@@ -104,11 +104,11 @@ export const Showcase: StoryObj = {
     ],
     template: `
       <button
-         mbrButton
+         mbrCritterButton
          rounded="true"
-         mbrBadge="1"
-         mbrBadgeOffset='-7px'
-         mbrBadgeSize='16px'
+         mbrCritterBadge="1"
+         mbrCritterBadgeOffset='-7px'
+         mbrCritterBadgeSize='16px'
          color='success'
       >
         <svg
@@ -127,13 +127,13 @@ export const Showcase: StoryObj = {
       </button>
 
       <button
-       mbrButton
+       mbrCritterButton
        color='warning'
       >
         <span
-          mbrBadge="1"
-          mbrBadgeOffset='-4px'
-          mbrBadgeSize='9px'
+          mbrCritterBadge="1"
+          mbrCritterBadgeOffset='-4px'
+          mbrCritterBadgeSize='9px'
           class="inline-flex"
         >
           <svg

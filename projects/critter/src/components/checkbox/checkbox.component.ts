@@ -3,7 +3,7 @@ import {ToggleDirective} from '@ember-foundry/component-library';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[type="checkbox"][mbrCheckbox]',
+  selector: 'input[type="checkbox"][mbrCritterCheckbox]',
   template: ``,
   styleUrl: './checkbox.component.scss',
   hostDirectives: [

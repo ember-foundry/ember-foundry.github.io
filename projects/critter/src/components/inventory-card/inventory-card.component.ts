@@ -5,7 +5,7 @@ import {CardComponent} from '../card/card.component';
 import {COLORS_TONAL_BRIGHT} from '../../types/colors.type';
 
 @Component({
-  selector: 'mbr-inventory-card',
+  selector: 'mbr-critter-inventory-card',
   imports: [
     ChipComponent,
     AvatarComponent,

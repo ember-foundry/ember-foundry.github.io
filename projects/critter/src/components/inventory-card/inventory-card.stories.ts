@@ -43,7 +43,7 @@ export const Showcase: StoryObj = {
     ],
     template: `
       @for(status of statuses; track status){
-        <mbr-inventory-card [status]="status" label="${args['label']}" />
+        <mbr-critter-inventory-card [status]="status" label="${args['label']}" />
       }
     `
   })

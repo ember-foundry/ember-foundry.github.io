@@ -6,7 +6,6 @@ export * from './components/card/card.component';
 export * from './components/checkbox/checkbox.component';
 export * from './components/chip/chip.component';
 export * from './components/footer/footer.component';
-export * from './components/header/header.component';
 export * from './components/input-quantity/input-quantity.component';
 export * from './components/input-text/input-text.component';
 export * from './components/inventory-card/inventory-card.component';
