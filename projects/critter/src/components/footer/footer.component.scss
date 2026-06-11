@@ -17,7 +17,11 @@ a {
   letter-spacing: 0.5px;
 }
 
-:host button {
+button {
   font-size: 28px;
-  transform: translateY(-25%)
+  transform: translateY(-25%);
+
+  svg {
+    stroke-width: 2.5;
+  }
 }
