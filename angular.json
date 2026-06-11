@@ -181,7 +181,7 @@
       "projectType": "library",
       "root": "projects/critter",
       "sourceRoot": "projects/critter/src",
-      "prefix": "lib",
+      "prefix": "mbr-critter",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

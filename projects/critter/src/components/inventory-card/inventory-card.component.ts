@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core
 import {AvatarComponent} from '../avatar/avatar.component';
 import {ChipComponent} from '../chip/chip.component';
 import {CardComponent} from '../card/card.component';
+import {COLORS_TONAL_BRIGHT} from '../../types/colors.type';
 
 @Component({
   selector: 'mbr-inventory-card',
@@ -21,7 +22,7 @@ export class InventoryCardComponent {
   public status = input<'out' | 'low' | 'stocked'>('stocked');
   public label = input<string>('ITEM');
 
-  protected color = computed<'danger-tonal-bright'|'warning-tonal-bright'|'success-tonal-bright'>(() => {
+  protected color = computed<COLORS_TONAL_BRIGHT>(() => {
     let _color: 'danger'|'warning'|'success' = 'success';
     switch(this.status()){
       case 'out':

@@ -173,7 +173,7 @@ export const Header: StoryObj = {
   },
   render: () => ({
     styles: [':host { background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244; display: flex; padding: 1rem;}'],
-    template: `<mbr-header />`
+    template: `<mbr-critter-header />`
   })
 };
 
@@ -285,14 +285,14 @@ export const HomeScreen: StoryObj = {
         flex-direction: column;
         justify-content: flex-start !important;
         max-width: 460px;
-        min-height: 100cb;
+        min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
     template: `
       <main>
-      <mbr-header class="mb-6" />
+      <mbr-critter-header />
 
       <section class="mb-4 gap-6 flex flex-col w-full">
         <mbr-panel class="w-full" title="PANTRY STATUS">
@@ -429,7 +429,7 @@ export const MasterScreen: StoryObj = {
     ],
     template: `
       <main>
-        <mbr-header class="mb-6" />
+        <mbr-critter-header />
 
         <section class="mb-4 gap-2 flex w-full">
           <input type="text" placeholder="Search items..." mbrInput class="flex-grow-1"/>
@@ -525,7 +525,7 @@ export const CartScreen: StoryObj = {
     ],
     template: `
       <main>
-        <mbr-header class="mb-6" />
+        <mbr-critter-header />
 
         <button mbrButton color="success" class="w-full  mb-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -704,7 +704,7 @@ export const PantryScreen: StoryObj = {
     ],
     template: `
       <main>
-        <mbr-header class="mb-6" />
+        <mbr-critter-header />
 
         <mbr-panel title="NEED TO BUY" class="mb-2">
           <mbr-card class="w-full items-center">
@@ -786,7 +786,7 @@ export const FamilyScreen: StoryObj = {
     ],
     template: `
       <main>
-        <mbr-header class="mb-6" />
+        <mbr-critter-header />
 
         <mbr-panel title="YOUR HOUSEHOLD" class="mb-3 w-full">
           <div class="flex flex-col gap-2 w-full">
