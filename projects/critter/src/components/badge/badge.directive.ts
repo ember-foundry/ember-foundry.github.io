@@ -15,7 +15,7 @@ import {BadgeComponent} from './badge.component';
   selector: '[mbrCritterBadge]'
 })
 export class BadgeDirective implements OnInit, OnDestroy {
-  public mbrCritterBadge = input.required<string>();
+  public mbrCritterBadge = input.required<string|number>();
   public mbrCritterBadgeOffset = input<string>();
   public mbrCritterBadgeSize = input<string>();
 

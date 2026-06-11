@@ -1,4 +1,4 @@
-import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {applicationConfig, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {Showcase as AvatarShowcase} from './avatar/avatar.stories';
 import {Showcase as BadgeShowcase} from './badge/badge.stories';
 import {Showcase as ButtonShowcase} from './button/button.stories';
@@ -23,6 +23,7 @@ import {
   InventoryCardComponent,
   PanelComponent
 } from 'critter';
+import {ActivatedRoute, provideRouter, RouterLink} from '@angular/router';
 
 const meta: Meta = {
   parameters: {
@@ -130,12 +131,13 @@ export const Chips: StoryObj = {
 };
 
 export const Footer: StoryObj = {
-  ...FooterShowcase,
   decorators: [
     moduleMetadata({
       imports: [
         ButtonComponent,
-        FooterComponent
+        FooterComponent,
+        ActivatedRoute,
+        RouterLink
       ]
     })
   ],
@@ -277,6 +279,11 @@ export const QuantityInput: StoryObj<InputQuantityComponent> = {
 
 export const HomeScreen: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         BadgeComponent,
@@ -414,6 +421,11 @@ export const HomeScreen: StoryObj = {
 
 export const MasterScreen: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         BadgeComponent,
@@ -510,6 +522,11 @@ export const MasterScreen: StoryObj = {
 
 export const CartScreen: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         BadgeComponent,
@@ -688,6 +705,11 @@ export const CartScreen: StoryObj = {
 
 export const PantryScreen: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         BadgeComponent,
@@ -769,6 +791,11 @@ export const PantryScreen: StoryObj = {
 
 export const FamilyScreen: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         AvatarComponent,
