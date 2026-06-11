@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {MultiToggleSwitchComponent} from 'component-library';
+import {MultiToggleSwitchComponent} from '@ember-foundry/component-library';
+import {pause} from '../../helpers/pause';
+import {array_to_angular_input} from '../../helpers/storybook/array_to_angular_input';
 import {action} from 'storybook/actions';
 import {expect, fn} from 'storybook/test';
-import {array_to_angular_input} from 'component-library/helpers/storybook/array_to_angular_input';
-import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<MultiToggleSwitchComponent> = {
   parameters: {
@@ -96,7 +96,7 @@ export const InteractionTest: Story = {
 
     await userEvent.click(third_option);
     await pause(1);
-    await expect(args.selected_index_changed).toHaveBeenCalledWith({ index: 2, value: 'Maybe'});
+    await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 2, value: 'Maybe'});
   }
 };
 
@@ -123,7 +123,7 @@ export const InteractionTestWhenTurnedOnInitially: Story = {
 
     await userEvent.click(third_option);
     await pause(1);
-    await expect(args.selected_index_changed).toHaveBeenCalledWith({ index: 2, value: 'Maybe'});
+    await expect(args.selected_index_changed).toHaveBeenCalledWith({index: 2, value: 'Maybe'});
   }
 };
 

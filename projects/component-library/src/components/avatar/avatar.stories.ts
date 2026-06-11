@@ -1,8 +1,8 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {AvatarComponent, AvatarImageDirective} from 'component-library';
+import {AvatarComponent, AvatarImageDirective} from '@ember-foundry/component-library';
 import {expect} from 'storybook/test';
 import {InputType} from 'storybook/internal/csf';
-import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
+import {tailwind_sizes_values} from '../../constants/tailwind-sizes';
 
 const size_arg_type: InputType = {
   options: tailwind_sizes_values,

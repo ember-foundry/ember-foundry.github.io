@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {DragAndDropComponent} from 'component-library';
+import {DragAndDropComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<DragAndDropComponent> = {
   component: DragAndDropComponent,

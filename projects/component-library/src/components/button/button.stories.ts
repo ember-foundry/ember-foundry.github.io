@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonBasicComponent, ButtonMonochromaticComponent} from 'component-library';
+import {ButtonBasicComponent, ButtonMonochromaticComponent} from '@ember-foundry/component-library';
 import {NgTemplateOutlet} from '@angular/common';
 
 const meta: Meta = {

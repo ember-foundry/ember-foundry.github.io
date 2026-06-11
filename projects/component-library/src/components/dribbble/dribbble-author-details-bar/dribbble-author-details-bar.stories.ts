@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {DribbbleAuthorDetailsBarComponent} from 'component-library';
+import {DribbbleAuthorDetailsBarComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<DribbbleAuthorDetailsBarComponent> = {
   component: DribbbleAuthorDetailsBarComponent,

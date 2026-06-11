@@ -1,7 +1,7 @@
 import {Meta} from '@storybook/angular';
 import {expect, fn} from 'storybook/test';
-import {pause} from 'component-library/helpers/pause';
-import {KoFiMenuToggleComponent} from 'component-library';
+import {KoFiMenuToggleComponent} from '@ember-foundry/component-library';
+import {pause} from '../../../helpers/pause';
 
 const meta: Meta<KoFiMenuToggleComponent> = {
   component: KoFiMenuToggleComponent,

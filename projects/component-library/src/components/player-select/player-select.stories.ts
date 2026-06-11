@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {MBRPlayerSelectComponent} from 'component-library';
+import {MBRPlayerSelectComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<MBRPlayerSelectComponent> = {
   component: MBRPlayerSelectComponent,

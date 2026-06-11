@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {args_to_angular_inputs} from 'component-library/helpers/storybook/args_to_angular_inputs';
-import {CardWebGradientsComponent} from 'component-library';
+import {args_to_angular_inputs} from '../../../helpers/storybook/args_to_angular_inputs';
+import {CardWebGradientsComponent} from '@ember-foundry/component-library';
 
 const meta: Meta = {
   decorators: [

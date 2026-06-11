@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {PostItComponent} from 'component-library';
+import {PostItComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<PostItComponent> = {
   parameters: {

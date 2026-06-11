@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {SVGLoaderComponent} from 'component-library';
+import {SVGLoaderComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<SVGLoaderComponent> = {
   component: SVGLoaderComponent,

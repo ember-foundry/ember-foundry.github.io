@@ -52,6 +52,7 @@ export * from './directives/grid-background/grid-background.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/toggle/toggle.directive';
 export * from './directives/tooltip/tooltip.directive';
+export * from './helpers/pause'
 export * from './helpers/storybook/args_to_angular_inputs'
 export * from './helpers/storybook/array_to_angular_input'
 export * from './pipes/initials/initials.pipe';

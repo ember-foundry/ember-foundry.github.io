@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {IOMTakeHomePayComponent} from 'component-library';
+import {IOMTakeHomePayComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<IOMTakeHomePayComponent> = {
   component: IOMTakeHomePayComponent,

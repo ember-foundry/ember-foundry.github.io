@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {SVGCheckmarkCircleOutlineAlexanderHaniotisComponent} from 'component-library';
+import {SVGCheckmarkCircleOutlineAlexanderHaniotisComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<SVGCheckmarkCircleOutlineAlexanderHaniotisComponent> = {
   component: SVGCheckmarkCircleOutlineAlexanderHaniotisComponent,

@@ -1,11 +1,11 @@
 {
   "name": "@ember-foundry/critter",
-  "version": "0.0.19",
+  "version": "0.0.22",
   "peerDependencies": {
     "@angular/cdk": "^21.2.13",
     "@angular/common": "^21.2.0",
     "@angular/core": "^21.2.0",
-    "@ember-foundry/component-library": "0.0.8",
+    "@ember-foundry/component-library": "0.0.14",
     "@tailwindcss/postcss": "^4.1.12",
     "postcss": "^8.5.11",
     "tailwindcss": "^4.2.2"

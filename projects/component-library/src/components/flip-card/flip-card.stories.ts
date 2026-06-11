@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {FlipCardComponent} from 'component-library';
+import {FlipCardComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<FlipCardComponent> = {
   component: FlipCardComponent,

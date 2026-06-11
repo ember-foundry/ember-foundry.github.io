@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/angular';
-import {VuexyThemeCustomizerTriggerComponent} from 'component-library';
+import {VuexyThemeCustomizerTriggerComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<VuexyThemeCustomizerTriggerComponent> = {
   component: VuexyThemeCustomizerTriggerComponent,

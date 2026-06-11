@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata} from '@storybook/angular';
-import {ColorSchemeToggleComponent, ColorSchemeToggleWithViewTransitionComponent} from 'component-library';
+import {ColorSchemeToggleComponent, ColorSchemeToggleWithViewTransitionComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<ColorSchemeToggleComponent> = {
   component: ColorSchemeToggleComponent,

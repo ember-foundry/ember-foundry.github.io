@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata} from '@storybook/angular';
-import {CallbackStatusComponent, SVGCheckmarkCircleFilledComponent} from 'component-library';
+import {CallbackStatusComponent, SVGCheckmarkCircleFilledComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<CallbackStatusComponent> = {
   component: CallbackStatusComponent,

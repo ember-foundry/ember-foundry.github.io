@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {FlipCardComponent, LudoPlayerUIFrontComponent} from 'component-library';
+import {FlipCardComponent, LudoPlayerUIFrontComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<LudoPlayerUIFrontComponent> = {
   component: LudoPlayerUIFrontComponent,

@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {DiceFlatComponent} from 'component-library';
+import {DiceFlatComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<DiceFlatComponent> = {
   component: DiceFlatComponent,

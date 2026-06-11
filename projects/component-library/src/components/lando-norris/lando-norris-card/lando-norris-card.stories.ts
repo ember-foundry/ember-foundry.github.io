@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {LandoNorrisCardComponent} from 'component-library';
+import {LandoNorrisCardComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<LandoNorrisCardComponent> = {
   component: LandoNorrisCardComponent,

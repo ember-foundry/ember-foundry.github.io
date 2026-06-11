@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { GoogleTicketComponent } from 'component-library';
+import { GoogleTicketComponent } from '@ember-foundry/component-library';
 
 const meta: Meta<GoogleTicketComponent> = {
   component: GoogleTicketComponent,
