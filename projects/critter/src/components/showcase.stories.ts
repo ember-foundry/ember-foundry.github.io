@@ -144,10 +144,11 @@ export const Footer: StoryObj = {
       description: {
         story: 'See the <a href="/docs/components-footer--docs">original story here</a>'
       }
-    }
+    },
+    layout: 'fullscreen'
   },
   render: () => ({
-    styles: [':host { background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244; display: flex; padding: 3rem 0 0;}'],
+    styles: [':host { min-height: 150px; flex-direction: column-reverse; display: flex; }'],
     template: `<mbr-critter-footer />`
   })
 };
@@ -178,13 +179,17 @@ export const Header: StoryObj = {
   decorators: [
     moduleMetadata({
       imports: [
+        BadgeDirective,
         ButtonComponent
       ]
     })
   ],
+  parameters: {
+    layout: 'fullscreen'
+  },
   render: () => ({
     styles: [
-      ':host { background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244; display: flex; padding: 1rem;}',
+      ':host { padding: 1rem;}',
       'h1 { font-family: var(--font-heading); -webkit-text-stroke: 1.5px rgb(74, 42, 12); text-shadow: rgb(74, 42, 12) 0 2px 0; }'
     ],
     template: header_html
@@ -300,6 +305,7 @@ export const HomeScreen: StoryObj = {
         max-width: 460px;
         min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        margin: auto;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
@@ -436,6 +442,7 @@ export const MasterScreen: StoryObj = {
         max-width: 460px;
         min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        margin: auto;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
@@ -531,6 +538,7 @@ export const CartScreen: StoryObj = {
         max-width: 460px;
         min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        margin: auto;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
@@ -709,6 +717,7 @@ export const PantryScreen: StoryObj = {
         max-width: 460px;
         min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        margin: auto;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
@@ -790,6 +799,7 @@ export const FamilyScreen: StoryObj = {
         max-width: 460px;
         min-height: 100dvh;
         background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
+        margin: auto;
       }`,
       'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
     ],
