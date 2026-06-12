@@ -25,6 +25,22 @@ import {
 } from 'critter';
 import {provideRouter, RouterLink} from '@angular/router';
 
+const all_imports = [
+  AvatarComponent,
+  BadgeComponent,
+  BadgeDirective,
+  ButtonComponent,
+  CardComponent,
+  CheckboxComponent,
+  ChipComponent,
+  FooterComponent,
+  InputTextComponent,
+  InputQuantityComponent,
+  InventoryCardComponent,
+  PanelComponent,
+  RouterLink
+]
+
 const meta: Meta = {
   parameters: {
     docs: {
@@ -41,9 +57,7 @@ export default meta;
 export const Avatars: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        AvatarComponent
-      ]
+      imports: all_imports
     })
   ],
   ...AvatarShowcase,
@@ -59,9 +73,7 @@ export const Avatars: StoryObj = {
 export const Buttons: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        ButtonComponent
-      ]
+      imports: all_imports
     })
   ],
   ...ButtonShowcase,
@@ -77,11 +89,7 @@ export const Buttons: StoryObj = {
 export const Badges: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        ButtonComponent,
-        BadgeDirective,
-        BadgeComponent
-      ]
+      imports: all_imports
     })
   ],
   ...BadgeShowcase,
@@ -97,9 +105,7 @@ export const Badges: StoryObj = {
 export const Checkboxes: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        CheckboxComponent
-      ]
+      imports: all_imports
     })
   ],
   ...CheckboxShowcase,
@@ -115,9 +121,7 @@ export const Checkboxes: StoryObj = {
 export const Chips: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        ChipComponent
-      ]
+      imports: all_imports
     })
   ],
   ...ChipShowcase,
@@ -138,11 +142,7 @@ export const Footer: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        ButtonComponent,
-        FooterComponent,
-        RouterLink
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -184,10 +184,7 @@ const header_html = `
 export const Header: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        BadgeDirective,
-        ButtonComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -205,9 +202,7 @@ export const Header: StoryObj = {
 export const InputText: StoryObj<InputTextComponent> = {
   decorators: [
     moduleMetadata({
-      imports: [
-        InputTextComponent
-      ]
+      imports: all_imports
     })
   ],
   ...InputTextShowcase,
@@ -223,9 +218,7 @@ export const InputText: StoryObj<InputTextComponent> = {
 export const InventoryCards: StoryObj = {
   decorators: [
     moduleMetadata({
-      imports: [
-        InventoryCardComponent
-      ]
+      imports: all_imports
     })
   ],
   ...InventoryCardShowcase,
@@ -242,16 +235,7 @@ export const Panels: StoryObj = {
   ...PanelShowcase,
   decorators: [
     moduleMetadata({
-      imports: [
-        AvatarComponent,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        CheckboxComponent,
-        InputQuantityComponent,
-        InventoryCardComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -266,9 +250,7 @@ export const Panels: StoryObj = {
 export const QuantityInput: StoryObj<InputQuantityComponent> = {
   decorators: [
     moduleMetadata({
-      imports: [
-        InputQuantityComponent
-      ]
+      imports:all_imports
     })
   ],
   ...QuantityInputShowcase,
@@ -289,18 +271,7 @@ export const HomeScreen: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        BadgeComponent,
-        BadgeDirective,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        FooterComponent,
-        CheckboxComponent,
-        InputTextComponent,
-        InputQuantityComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -431,18 +402,7 @@ export const MasterScreen: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        BadgeComponent,
-        BadgeDirective,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        FooterComponent,
-        CheckboxComponent,
-        InputTextComponent,
-        InputQuantityComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -532,18 +492,7 @@ export const CartScreen: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        BadgeComponent,
-        BadgeDirective,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        FooterComponent,
-        CheckboxComponent,
-        InputTextComponent,
-        InputQuantityComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -715,19 +664,7 @@ export const PantryScreen: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        BadgeComponent,
-        BadgeDirective,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        FooterComponent,
-        CheckboxComponent,
-        InputTextComponent,
-        InputQuantityComponent,
-        InventoryCardComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
@@ -801,20 +738,7 @@ export const FamilyScreen: StoryObj = {
       ]
     }),
     moduleMetadata({
-      imports: [
-        AvatarComponent,
-        BadgeComponent,
-        BadgeDirective,
-        ButtonComponent,
-        CardComponent,
-        ChipComponent,
-        FooterComponent,
-        CheckboxComponent,
-        InputTextComponent,
-        InputQuantityComponent,
-        InventoryCardComponent,
-        PanelComponent
-      ]
+      imports: all_imports
     })
   ],
   parameters: {
