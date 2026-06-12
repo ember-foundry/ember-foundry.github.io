@@ -23,7 +23,7 @@ import {
   InventoryCardComponent,
   PanelComponent
 } from 'critter';
-import {ActivatedRoute, provideRouter, RouterLink} from '@angular/router';
+import {provideRouter, RouterLink} from '@angular/router';
 
 const meta: Meta = {
   parameters: {
@@ -132,11 +132,15 @@ export const Chips: StoryObj = {
 
 export const Footer: StoryObj = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: [
         ButtonComponent,
         FooterComponent,
-        ActivatedRoute,
         RouterLink
       ]
     })

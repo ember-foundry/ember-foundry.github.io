@@ -10,11 +10,11 @@ import {
   LucideShoppingCart,
   LucideUsers
 } from '@lucide/angular';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
-interface FooterItem {
+export interface FooterMenuItem {
   title: string
-  icon: LucideIconInput
+  lucide_icon: LucideIconInput
   route?: string
 }
 
@@ -25,36 +25,36 @@ interface FooterItem {
     BadgeDirective,
     LucideDynamicIcon,
     RouterLink,
-    LucideHouse
+    RouterLinkActive
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   host: {
-    'class': 'px-5'
+    'class': 'px-5 pb-3'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  public items = input<[FooterItem, FooterItem, FooterItem, FooterItem, FooterItem]>([
+  public items = input<[FooterMenuItem, FooterMenuItem, FooterMenuItem, FooterMenuItem, FooterMenuItem]>([
     {
       title: 'Home',
-      icon: LucideHouse
+      lucide_icon: LucideHouse
     },
     {
       title: 'Master',
-      icon: LucideList
+      lucide_icon: LucideList
     },
     {
       title: 'Cart',
-      icon: LucideShoppingCart
+      lucide_icon: LucideShoppingCart
     },
     {
       title: 'Pantry',
-      icon: LucideBox
+      lucide_icon: LucideBox
     },
     {
       title: 'Family',
-      icon: LucideUsers
+      lucide_icon: LucideUsers
     }
   ]);
 
