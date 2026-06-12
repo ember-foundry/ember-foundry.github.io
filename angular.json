@@ -235,9 +235,13 @@
           }
         },
         "test": {
-          "builder": "@angular/build:unit-test",
+          "builder": "@analogjs/vitest-angular:test",
           "options": {
-            "tsConfig": "projects/critter/tsconfig.spec.json"
+            "watch": true,
+            "coverage": true,
+            "styles": [
+              "projects/critter/src/styles/global.scss"
+            ]
           }
         }
       }

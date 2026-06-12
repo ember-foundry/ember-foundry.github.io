@@ -43,8 +43,8 @@ testem.log
 Thumbs.db
 
 # Vitest
-projects/component-library/.vitest-attachments
-projects/component-library/coverage
+projects/*/.vitest-attachments
+projects/*/coverage
 
 # Eslint
 .eslintcache

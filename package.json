@@ -18,8 +18,10 @@
     "start:cypress": "cypress open",
     "start:storybook:component-library": "ng run component-library:storybook",
     "start:storybook:critter": "ng run critter:storybook",
-    "test": "VITEST_HEADLESS=false ng run component-library:test",
-    "test:ci": "ng run component-library:test --no-watch",
+    "test:component-library": "VITEST_HEADLESS=false ng run component-library:test",
+    "test:critter": "VITEST_HEADLESS=false ng run critter:test",
+    "test:ci:component-library": "ng run component-library:test --no-watch",
+    "test:ci:critter": "ng run critter:test --no-watch",
     "test:cypress": "cypress run --component",
     "watch": "ng build --watch --configuration development"
   },
