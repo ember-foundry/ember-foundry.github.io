@@ -8,7 +8,6 @@ import {Showcase as PanelShowcase} from './panel/panel.stories';
 import {Showcase as QuantityInputShowcase} from './input-quantity/input-quantity.stories';
 import {Showcase as InventoryCardShowcase} from './inventory-card/inventory-card.stories';
 import {Showcase as InputTextShowcase} from './input-text/input-text.stories';
-import {Showcase as FooterShowcase} from './footer/footer.stories';
 import {
   AvatarComponent,
   BadgeComponent,
@@ -174,7 +173,6 @@ export const Footer: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [':host { min-height: 150px; flex-direction: column-reverse; display: flex; }'],
     template: `<mbr-critter-footer />`
   })
 };

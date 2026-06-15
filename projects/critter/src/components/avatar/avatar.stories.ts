@@ -30,7 +30,7 @@ export const Showcase: StoryObj = {
       colors: COLOR_VALUES
     },
     styles: [
-      ':host{ align-items: center; display: inline-grid; grid-template-columns: repeat(8, auto); gap: 1em; ',
+      ':host{ align-items: center; display: inline-grid; grid-template-columns: repeat(9, auto); gap: 1em; ',
       'mbr-critter-avatar { justify-self: center; }'
     ],
     template: `
