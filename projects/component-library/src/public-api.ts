@@ -22,6 +22,7 @@ export * from './components/flip-card/flip-card.component';
 export * from './components/github/github-action-progress/github-action-progress.component';
 export * from './components/github/github-corner/github-corner.component';
 export * from './components/google-ticket/google-ticket.component';
+export * from './components/icon/icon-google-super-g/icon-google-super-g.component';
 export * from './components/info-reveal/info-reveal.component';
 export * from './components/iom-take-home-pay/iom-take-home-pay.component';
 export * from './components/ko-fi/ko-fi-menu-toggle/ko-fi-menu-toggle.component';

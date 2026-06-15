@@ -1,6 +1,6 @@
 {
   "name": "@ember-foundry/component-library",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "peerDependencies": {
     "@angular/common": "^21.1.3",
     "@angular/core": "^21.1.3",

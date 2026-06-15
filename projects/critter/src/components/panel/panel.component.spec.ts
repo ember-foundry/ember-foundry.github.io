@@ -28,5 +28,5 @@ describe('PanelComponent', () => {
   it('should visually match', async () => {
     await pause(1.5)
     await expect(host).toMatchScreenshot('avatar-badge');
-  })
+  });
 });

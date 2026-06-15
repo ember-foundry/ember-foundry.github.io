@@ -106,7 +106,25 @@ $color-variables: (
     '--color-border': rgb(255 203 43),
     '--color-shadow': var(--color-border),
     '--color-text': rgb(163 122 0)
-  )
+  ),
+  '.color-white': (
+    '--color-background': white,
+    '--color-border': hsl(214.29deg 31.82% 91.37%),
+    '--color-shadow': hsl(214.29deg 31.82% 91.37%),
+    '--color-text': hsl(222.22deg 47.37% 11.18%)
+  ),
+  //'.color-white-tonal': (
+  //  '--color-background': rgba(255, 255, 255, 0.4),
+  //  '--color-border': rgba(226, 232, 240, 0.6),
+  //  '--color-shadow': transparent,
+  //  '--color-text': #0F172A
+  //),
+  //'.color-white-tonal-bright': (
+  //  '--color-background': rgba(255, 255, 255, 0.2),
+  //  '--color-border': #FFFFFF,
+  //  '--color-shadow': transparent,
+  //  '--color-text': #FFFFFF
+  //)
 );
 
 @each $selector, $prop-and-value in $color-variables {

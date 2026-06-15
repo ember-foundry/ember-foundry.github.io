@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {NgTemplateOutlet} from '@angular/common';
-import {args_to_angular_inputs} from '@ember-foundry/component-library';
+import {args_to_angular_inputs, IconGoogleSuperGComponent} from '@ember-foundry/component-library';
 import {ButtonComponent, COLOR_VALUES} from 'critter';
 
 const meta: Meta<ButtonComponent> = {
@@ -54,6 +54,12 @@ export const Danger: StoryObj<ButtonComponent> = {
   }
 }
 
+export const White: StoryObj<ButtonComponent> = {
+  args: {
+    color: 'white'
+  }
+}
+
 export const Disabled: StoryObj<ButtonComponent> = {
   render: () => ({
     template: `<button mbrCritterButton disabled></button>`
@@ -91,6 +97,26 @@ export const IconOnly: StoryObj<ButtonComponent> = {
             <path d="M2.91666 7H11.0833" />
             <path d="M7 2.91663V11.0833" />
           </svg>
+        </button>
+    `
+  })
+}
+
+export const GoogleSignIn: StoryObj<ButtonComponent> = {
+  args: {
+    color: 'white',
+    size: 'medium'
+  },
+  decorators: [
+    moduleMetadata({
+      imports: [IconGoogleSuperGComponent]
+    })
+  ],
+  render: (args) => ({
+    template: `
+        <button mbrCritterButton ${args_to_angular_inputs(args)}>
+          <span mbrIcon="GoogleSuperG" class="me-1"></span>
+          <span>Continue with Google</span>
         </button>
     `
   })
@@ -137,9 +163,8 @@ export const Showcase: StoryObj = {
         display: grid;
         gap: 8px;
         justify-items: flex-start;
-        grid-template-columns: 1fr repeat(7, auto);
+        grid-template-columns: 1fr repeat(8, auto);
       }`,
-      '.title-row { grid-column-start: 1; grid-column-end: 9;}',
       '[mbrCritterButton] {justify-self: flex-end}',
       'section { margin-bottom: 2rem;}'
     ],
@@ -178,8 +203,6 @@ export const Showcase: StoryObj = {
           }
         }
       </section>
-
-
 
       <section class="comparison-grid">
         @for(size of sizes; track size){

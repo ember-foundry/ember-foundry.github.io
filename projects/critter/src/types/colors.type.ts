@@ -5,9 +5,10 @@ export const COLOR_VALUES = [
   'disabled',
   'info',
   'success',
-  'warning'
+  'warning',
+  'white'
 ]
 
-export type COLORS = 'danger' | 'disabled' | 'info' | 'light' | 'success' | 'warning';
+export type COLORS = 'danger' | 'disabled' | 'info' | 'light' | 'success' | 'warning' | 'white';
 export type COLORS_TONAL_BRIGHT = 'danger-tonal-bright' | 'success-tonal-bright' | 'warning-tonal-bright';
 export type COLORS_TONAL = 'danger-tonal' | 'success-tonal' | 'warning-tonal' | COLORS_TONAL_BRIGHT

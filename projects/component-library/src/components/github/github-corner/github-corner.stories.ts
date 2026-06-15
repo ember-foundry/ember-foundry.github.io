@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { GithubCornerComponent, pause } from '@ember-foundry/component-library';
+import { GithubCornerComponent } from '@ember-foundry/component-library';
+import { pause } from '../../../helpers/pause';
 
 const default_story_styles = `:host { display:block; min-height: 120px; }`;
 

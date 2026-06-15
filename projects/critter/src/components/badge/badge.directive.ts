@@ -31,9 +31,6 @@ export class BadgeDirective implements OnInit, OnDestroy {
         this.component_ref.setInput('content', content);
         this.component_ref.setInput('offset', this.mbrCritterBadgeOffset())
         this.component_ref.setInput('size', this.mbrCritterBadgeSize())
-        console.log('this.element_ref.nativeElement;', this.element_ref.nativeElement)
-      } else {
-        console.warn('BadgeComponent: component_ref is undefined, cannot set input');
       }
     });
   }
