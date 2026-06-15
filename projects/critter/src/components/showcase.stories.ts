@@ -25,11 +25,11 @@ import {
 import {provideRouter, RouterLink} from '@angular/router';
 import {
   LucideBell,
-  LucideBox,
+  LucideBox, LucideCheck, LucideChevronsDown,
   LucideGripVertical, LucideList,
   LucidePlus,
   LucideRefreshCw,
-  LucideShoppingCart, LucideTrash2, LucideUsers
+  LucideShoppingCart, LucideTrash2, LucideUsers, LucideX
 } from '@lucide/angular';
 
 const all_imports = [
@@ -48,6 +48,8 @@ const all_imports = [
   InventoryChipComponent,
   LucideBell,
   LucideBox,
+  LucideCheck,
+  LucideChevronsDown,
   LucideGripVertical,
   LucideList,
   LucidePlus,
@@ -55,6 +57,7 @@ const all_imports = [
   LucideShoppingCart,
   LucideTrash2,
   LucideUsers,
+  LucideX,
   PanelComponent,
   RouterLink,
   StickyDirective
@@ -74,12 +77,12 @@ const meta: Meta = {
 export default meta;
 
 export const Avatars: StoryObj = {
+  ...AvatarShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...AvatarShowcase,
   parameters: {
     docs: {
       description: {
@@ -90,12 +93,12 @@ export const Avatars: StoryObj = {
 };
 
 export const Buttons: StoryObj = {
+  ...ButtonShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...ButtonShowcase,
   parameters: {
     docs: {
       description: {
@@ -106,12 +109,12 @@ export const Buttons: StoryObj = {
 };
 
 export const Badges: StoryObj = {
+  ...BadgeShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...BadgeShowcase,
   parameters: {
     docs: {
       description: {
@@ -122,12 +125,12 @@ export const Badges: StoryObj = {
 };
 
 export const Checkboxes: StoryObj = {
+  ...CheckboxShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...CheckboxShowcase,
   parameters: {
     docs: {
       description: {
@@ -138,12 +141,12 @@ export const Checkboxes: StoryObj = {
 };
 
 export const Chips: StoryObj = {
+  ...ChipShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...ChipShowcase,
   parameters: {
     docs: {
       description: {
@@ -169,35 +172,36 @@ export const Footer: StoryObj = {
       description: {
         story: 'See the <a href="/docs/components-footer--docs">original story here</a>'
       }
-    },
-    layout: 'fullscreen'
+    }
   },
   render: () => ({
     template: `<mbr-critter-footer />`
   })
 };
 
-export const Header: StoryObj = {
+export const Header: StoryObj<HeaderComponent> = {
   decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
     moduleMetadata({
       imports: all_imports
     })
   ],
-  parameters: {
-    layout: 'fullscreen'
-  },
   render: () => ({
     template: `<mbr-critter-header />`
   })
 };
 
 export const InputText: StoryObj<InputTextComponent> = {
+  ...InputTextShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...InputTextShowcase,
   parameters: {
     docs: {
       description: {
@@ -208,12 +212,12 @@ export const InputText: StoryObj<InputTextComponent> = {
 };
 
 export const InventoryCards: StoryObj = {
+  ...InventoryCardShowcase,
   decorators: [
     moduleMetadata({
       imports: all_imports
     })
   ],
-  ...InventoryCardShowcase,
   parameters: {
     docs: {
       description: {
@@ -240,12 +244,12 @@ export const Panels: StoryObj = {
 };
 
 export const QuantityInput: StoryObj<InputQuantityComponent> = {
+  ...QuantityInputShowcase,
   decorators: [
     moduleMetadata({
       imports:all_imports
     })
   ],
-  ...QuantityInputShowcase,
   parameters: {
     docs: {
       description: {
