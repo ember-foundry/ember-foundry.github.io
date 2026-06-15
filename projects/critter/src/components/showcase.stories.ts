@@ -64,6 +64,16 @@ const all_imports = [
 ]
 
 const meta: Meta = {
+  decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([])
+      ]
+    }),
+    moduleMetadata({
+      imports: all_imports
+    })
+  ],
   parameters: {
     docs: {
       description: {
@@ -78,11 +88,6 @@ export default meta;
 
 export const Avatars: StoryObj = {
   ...AvatarShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -94,11 +99,6 @@ export const Avatars: StoryObj = {
 
 export const Buttons: StoryObj = {
   ...ButtonShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -110,11 +110,6 @@ export const Buttons: StoryObj = {
 
 export const Badges: StoryObj = {
   ...BadgeShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -126,11 +121,6 @@ export const Badges: StoryObj = {
 
 export const Checkboxes: StoryObj = {
   ...CheckboxShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -142,11 +132,6 @@ export const Checkboxes: StoryObj = {
 
 export const Chips: StoryObj = {
   ...ChipShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -157,16 +142,6 @@ export const Chips: StoryObj = {
 };
 
 export const Footer: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -180,16 +155,6 @@ export const Footer: StoryObj = {
 };
 
 export const Header: StoryObj<HeaderComponent> = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   render: () => ({
     template: `<mbr-critter-header />`
   })
@@ -197,11 +162,6 @@ export const Header: StoryObj<HeaderComponent> = {
 
 export const InputText: StoryObj<InputTextComponent> = {
   ...InputTextShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -213,11 +173,6 @@ export const InputText: StoryObj<InputTextComponent> = {
 
 export const InventoryCards: StoryObj = {
   ...InventoryCardShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -229,11 +184,6 @@ export const InventoryCards: StoryObj = {
 
 export const Panels: StoryObj = {
   ...PanelShowcase,
-  decorators: [
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -245,11 +195,6 @@ export const Panels: StoryObj = {
 
 export const QuantityInput: StoryObj<InputQuantityComponent> = {
   ...QuantityInputShowcase,
-  decorators: [
-    moduleMetadata({
-      imports:all_imports
-    })
-  ],
   parameters: {
     docs: {
       description: {
@@ -267,20 +212,14 @@ const screen_host_styles = [
   max-width: 460px;
   min-height: 100dvh;
   margin: auto;
+  background-color: #84C244;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+  background-repeat: repeat;
+  background-size: 40px 40px;
 }`
 ];
 
 export const HomeScreen: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     layout: 'fullscreen'
   },
@@ -341,16 +280,6 @@ export const HomeScreen: StoryObj = {
 }
 
 export const MasterScreen: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     layout: 'fullscreen'
   },
@@ -409,16 +338,6 @@ export const MasterScreen: StoryObj = {
 }
 
 export const CartScreen: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     layout: 'fullscreen'
   },
@@ -491,16 +410,6 @@ export const CartScreen: StoryObj = {
 }
 
 export const PantryScreen: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     layout: 'fullscreen'
   },
@@ -539,16 +448,6 @@ export const PantryScreen: StoryObj = {
 }
 
 export const FamilyScreen: StoryObj = {
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter([])
-      ]
-    }),
-    moduleMetadata({
-      imports: all_imports
-    })
-  ],
   parameters: {
     layout: 'fullscreen'
   },
