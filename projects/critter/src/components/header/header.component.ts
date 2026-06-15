@@ -2,7 +2,7 @@ import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {ButtonComponent} from 'critter/components/button/button.component';
 import {BadgeDirective} from 'critter/components/badge/badge.directive';
 import {RouterLink} from '@angular/router';
-import {LucideBox} from '@lucide/angular';
+import {LucideBell, LucideBox} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-critter-header',
@@ -15,7 +15,8 @@ import {LucideBox} from '@lucide/angular';
     ButtonComponent,
     BadgeDirective,
     RouterLink,
-    LucideBox
+    LucideBox,
+    LucideBell
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -3,17 +3,7 @@
   [disabled]="disabled() || value() <= min()"
   aria-label="Decrease quantity"
 >
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 16 16"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M3.33337 8H12.6667" />
-  </svg>
+  <svg lucideMinus [size]="16" [strokeWidth]="3" />
 </button>
 <input
   #input
@@ -30,16 +20,5 @@
   [disabled]="disabled() || value() >= max()"
   aria-label="Increase quantity"
 >
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 16 16"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M3.33337 8H12.6667" />
-    <path d="M8 3.33333V12.6667" />
-  </svg>
+  <svg lucidePlus [size]="16" [strokeWidth]="3" />
 </button>

@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, signal, viewChild} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {LucideMinus, LucidePlus} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-critter-input-quantity',
@@ -11,6 +12,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
       useExisting: forwardRef(() => InputQuantityComponent),
       multi: true
     }
+  ],
+  imports: [
+    LucideMinus,
+    LucidePlus
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
