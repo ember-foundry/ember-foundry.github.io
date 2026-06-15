@@ -179,23 +179,6 @@ export const Footer: StoryObj = {
   })
 };
 
-const header_html = `
-<header mbrSticky stickyTopOffset="0px" class="flex items-center w-full p-4 top-0">
-  <a href="#" class="flex items-center flex-1 text-inherit no-underline">
-    <button mbrCritterButton class="me-2" href="#">
-        <svg lucideBox [size]="28" [strokeWidth]="2.91667" color="white"/>
-    </button>
-    <div class="flex-grow-1">
-      <h1 class="m-0 text-white text-shadow">FreshStack</h1>
-      <p class="m-0 font-bold">Household Manager</p>
-    </div>
-  </a>
-  <a mbrCritterButton mbrCritterBadge="4" color="warning">
-    <svg lucideBell [size]="20" [strokeWidth]="2.5"/>
-  </a>
-</header>
-`
-
 export const Header: StoryObj = {
   decorators: [
     moduleMetadata({
@@ -206,10 +189,7 @@ export const Header: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      ':host { padding: 1rem;}'
-    ],
-    template: header_html
+    template: `<mbr-critter-header />`
   })
 };
 
@@ -277,6 +257,17 @@ export const QuantityInput: StoryObj<InputQuantityComponent> = {
   }
 };
 
+const screen_host_styles = [
+`:host {
+  display: flex;
+  color: rgba(74, 42, 12, 0.80);
+  flex-direction: column;
+  max-width: 460px;
+  min-height: 100dvh;
+  margin: auto;
+}`
+];
+
 export const HomeScreen: StoryObj = {
   decorators: [
     applicationConfig({
@@ -292,58 +283,46 @@ export const HomeScreen: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      `:host {
-        display: flex;
-        color: rgba(74, 42, 12, 0.80);
-        flex-direction: column;
-        justify-content: flex-start !important;
-        max-width: 460px;
-        min-height: 100dvh;
-        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
-        margin: auto;
-      }`,
-      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
-    ],
+    styles: screen_host_styles,
     template: `
-      <main>
-      ${header_html}
-      <section class="mb-4 gap-6 flex flex-col w-full">
-        <mbr-critter-panel class="w-full" title="PANTRY STATUS">
-          <button
-            mbrCritterButton
-            flat
-            color="warning"
-            size="small"
-            class="me-3"
-          >
-            <svg lucideRefreshCw [size]="24" [strokeWidth]="2.5"/>
-          </button>
-          <div class="flex-grow-1">
-            <h3 class="m-0 font-semibold">5 items</h3>
-            <small>needs restocking</small>
-          </div>
-          <button mbrCritterButton>View</button>
-        </mbr-critter-panel>
+      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <main class="p-4 flex flex-col flex-1">
+        <section class="mb-4 gap-6 flex flex-col w-full">
+          <mbr-critter-panel class="w-full" title="PANTRY STATUS">
+            <button
+              mbrCritterButton
+              flat
+              color="warning"
+              size="small"
+              class="me-3"
+            >
+              <svg lucideRefreshCw [size]="24" [strokeWidth]="2.5"/>
+            </button>
+            <div class="flex-grow-1">
+              <h3 class="m-0 font-semibold">5 items</h3>
+              <small>needs restocking</small>
+            </div>
+            <button mbrCritterButton>View</button>
+          </mbr-critter-panel>
 
-        <mbr-critter-panel class="w-full" title="ACTIVE SHOPPING">
-          <button
-            mbrCritterButton
-            flat
-            color="success"
-            size="small"
-            class="me-3"
-          >
-            <svg lucideShoppingCart [size]="24" [strokeWidth]="2.5" />
-          </button>
-          <div class="flex-grow-1">
-            <h3 class="m-0 font-semibold">4 items</h3>
-            <small>to buy right now</small>
-          </div>
-          <button mbrCritterButton color="success">Go Shop</button>
-        </mbr-critter-panel>
-      </section>
-      <section class="flex h-[80px] gap-3 w-full">
+          <mbr-critter-panel class="w-full" title="ACTIVE SHOPPING">
+            <button
+              mbrCritterButton
+              flat
+              color="success"
+              size="small"
+              class="me-3"
+            >
+              <svg lucideShoppingCart [size]="24" [strokeWidth]="2.5" />
+            </button>
+            <div class="flex-grow-1">
+              <h3 class="m-0 font-semibold">4 items</h3>
+              <small>to buy right now</small>
+            </div>
+            <button mbrCritterButton color="success">Go Shop</button>
+          </mbr-critter-panel>
+        </section>
+        <section class="flex h-[80px] gap-3 w-full">
         <button mbrCritterButton class="grow-1" color="light">
           <svg lucideList [size]="24" [strokeWidth]="2.5" />
           <span>Master List</span>
@@ -374,37 +353,22 @@ export const MasterScreen: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      `:host {
-        display: flex;
-        color: rgba(74, 42, 12, 0.80);
-        flex-direction: column;
-        justify-content: flex-start !important;
-        max-width: 460px;
-        min-height: 100dvh;
-        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
-        margin: auto;
-      }`,
-      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
-    ],
+    styles: screen_host_styles,
     template: `
-      <main>
-        ${header_html}
-
+      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <main class="p-4 flex flex-col flex-1">
         <section class="mb-4 gap-2 flex w-full">
           <input type="text" placeholder="Search items..." mbrCritterInput class="flex-grow-1"/>
           <button mbrCritterButton color="success">
             <svg lucidePlus [size]="24" [strokeWidth]="3" />
           </button>
         </section>
-
         <section class="flex gap-2 w-full mb-2">
           <button mbrCritterButton color="warning">All</button>
           <button mbrCritterButton color="light">Food</button>
           <button mbrCritterButton color="light">Toiletries</button>
           <button mbrCritterButton color="light">Household</button>
         </section>
-
         <section class="w-full">
           <mbr-critter-panel title="HOUSEHOLD ITEMS" class="w-full">
             <div class="flex flex-col flex-grow-1 space-y-2">
@@ -437,7 +401,6 @@ export const MasterScreen: StoryObj = {
 
         </section>
       </main>
-
       <mbr-critter-footer />
     `
   })
@@ -458,28 +421,14 @@ export const CartScreen: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      `:host {
-        display: flex;
-        color: rgba(74, 42, 12, 0.80);
-        flex-direction: column;
-        justify-content: flex-start !important;
-        max-width: 460px;
-        min-height: 100dvh;
-        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
-        margin: auto;
-      }`,
-      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
-    ],
+    styles: screen_host_styles,
     template: `
-      <main>
-        ${header_html}
-
+      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <main class="p-4 flex flex-col flex-1">
         <button mbrCritterButton color="success" class="w-full mb-3">
           <svg lucidePlus [size]="20" [strokeWidth]="2.5" />
           <span>From Master List</span>
         </button>
-
         <section class="w-full">
          <mbr-critter-panel title="TO BUY" class="flex-col w-full">
           <div class="flex flex-col flex-grow-1 space-y-3">
@@ -534,7 +483,6 @@ export const CartScreen: StoryObj = {
          </mbr-critter-panel>
         </section>
       </main>
-
       <mbr-critter-footer />
     `
   })
@@ -555,23 +503,10 @@ export const PantryScreen: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      `:host {
-        display: flex;
-        color: rgba(74, 42, 12, 0.80);
-        flex-direction: column;
-        justify-content: flex-start !important;
-        max-width: 460px;
-        min-height: 100dvh;
-        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
-        margin: auto;
-      }`,
-      'main { flex: 1 1 0; padding: 24px; display: flex; flex-direction: column; }'
-    ],
+    styles: screen_host_styles,
     template: `
-      <main>
-        ${header_html}
-
+      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <main class="p-4 flex flex-col flex-1">
         <mbr-critter-panel title="NEED TO BUY" class="mb-2">
           <mbr-critter-card class="w-full items-center">
               <mbr-critter-inventory-chip status="out" />
@@ -582,7 +517,6 @@ export const PantryScreen: StoryObj = {
               </button>
           </mbr-critter-card>
         </mbr-critter-panel>
-
         <section class="w-full">
           <mbr-critter-panel title="MY PANTRY" class="w-full">
             <div class="grid grid-cols-2 w-full gap-2">
@@ -597,8 +531,6 @@ export const PantryScreen: StoryObj = {
           </mbr-critter-panel>
         </section>
       </main>
-
-
       <mbr-critter-footer />
     `
   })
@@ -619,17 +551,7 @@ export const FamilyScreen: StoryObj = {
     layout: 'fullscreen'
   },
   render: () => ({
-    styles: [
-      `:host {
-        display: flex;
-        color: rgba(74, 42, 12, 0.80);
-        flex-direction: column;
-        max-width: 460px;
-        min-height: 100dvh;
-        background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244;
-        margin: auto;
-      }`
-    ],
+    styles: screen_host_styles,
     template: `
       <mbr-critter-header mbrSticky stickyTopOffset="0px" />
       <main class="p-4 flex flex-col flex-1">
