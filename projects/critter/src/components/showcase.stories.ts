@@ -24,7 +24,14 @@ import {
   PanelComponent, StickyDirective, HeaderComponent, InventoryChipComponent
 } from 'critter';
 import {provideRouter, RouterLink} from '@angular/router';
-import {LucideBell, LucideBox, LucidePlus, LucideRefreshCw, LucideShoppingCart} from '@lucide/angular';
+import {
+  LucideBell,
+  LucideBox,
+  LucideGripVertical, LucideList,
+  LucidePlus,
+  LucideRefreshCw,
+  LucideShoppingCart, LucideTrash2, LucideUsers
+} from '@lucide/angular';
 
 const all_imports = [
   AvatarComponent,
@@ -42,9 +49,13 @@ const all_imports = [
   InventoryChipComponent,
   LucideBell,
   LucideBox,
+  LucideGripVertical,
+  LucideList,
   LucidePlus,
   LucideRefreshCw,
   LucideShoppingCart,
+  LucideTrash2,
+  LucideUsers,
   PanelComponent,
   RouterLink,
   StickyDirective
@@ -334,31 +345,12 @@ export const HomeScreen: StoryObj = {
       </section>
       <section class="flex h-[80px] gap-3 w-full">
         <button mbrCritterButton class="grow-1" color="light">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M3 12H3.01" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M3 18H3.01" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M3 6H3.01" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 12H21" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 18H21" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 6H21" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>Master List</span>
+          <svg lucideList [size]="24" [strokeWidth]="2.5" />
+          <span>Master List</span>
         </button>
         <button mbrCritterButton class="grow-1" color="light">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <g clip-path="url(#clip0_1_367)">
-                <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H6C4.93913 15 3.92172 15.4214 3.17157 16.1716C2.42143 16.9217 2 17.9391 2 19V21" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M22 21V19C21.9993 18.1137 21.7044 17.2528 21.1614 16.5523C20.6184 15.8519 19.8581 15.3516 19 15.13" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1_367">
-                  <rect width="24" height="24" fill="white"/>
-                </clipPath>
-              </defs>
-            </svg>
-            <span>Family Hub</span>
+          <svg lucideUsers [size]="24" [strokeWidth]="2.5" />
+          <span>Family Hub</span>
         </button>
       </section>
       </main>
@@ -402,10 +394,7 @@ export const MasterScreen: StoryObj = {
         <section class="mb-4 gap-2 flex w-full">
           <input type="text" placeholder="Search items..." mbrCritterInput class="flex-grow-1"/>
           <button mbrCritterButton color="success">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 5V19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg lucidePlus [size]="24" [strokeWidth]="3" />
           </button>
         </section>
 
@@ -431,19 +420,16 @@ export const MasterScreen: StoryObj = {
               </mbr-critter-card>
 
               <mbr-critter-card class="flex justify-content-between justify-between">
-                  <div class="flex flex-col">
-                     <h4 class="m-0">Milk</h4>
-                      <small>Food</small>
-                  </div>
-                  <div class="flex flex-col">
-                      <button mbrCritterButton>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M2.91669 7H11.0834" />
-                          <path d="M7 2.91666V11.0833" />
-                        </svg>
-                        <span>Add</span>
-                      </button>
-                  </div>
+                <div class="flex flex-col">
+                   <h4 class="m-0">Milk</h4>
+                    <small>Food</small>
+                </div>
+                <div class="flex flex-col">
+                  <button mbrCritterButton>
+                    <svg lucidePlus [size]="14" [strokeWidth]="3" />
+                    <span>Add</span>
+                  </button>
+                </div>
               </mbr-critter-card>
 
             </div>
@@ -489,11 +475,8 @@ export const CartScreen: StoryObj = {
       <main>
         ${header_html}
 
-        <button mbrCritterButton color="success" class="w-full  mb-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M3.75 9H14.25" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 3.75V14.25" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <button mbrCritterButton color="success" class="w-full mb-3">
+          <svg lucidePlus [size]="20" [strokeWidth]="2.5" />
           <span>From Master List</span>
         </button>
 
@@ -510,33 +493,9 @@ export const CartScreen: StoryObj = {
               </div>
 
               <div class="flex items-center gap-3">
-                 <mbr-critter-input-quantity />
-                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
-                  <circle cx="9" cy="12" r="1"></circle>
-                  <circle cx="9" cy="5" r="1"></circle>
-                  <circle cx="9" cy="19" r="1"></circle>
-                  <circle cx="15" cy="12" r="1"></circle>
-                  <circle cx="15" cy="5" r="1"></circle>
-                  <circle cx="15" cy="19" r="1"></circle>
-                </svg>
+                <mbr-critter-input-quantity />
+                <svg lucideTrash2 [size]="20" [strokeWidth]="2.5" color="#E84A3B"/>
+                <svg lucideGripVertical [size]="20" [strokeWidth]="2.5" />
               </div>
             </mbr-critter-card>
 
@@ -550,33 +509,9 @@ export const CartScreen: StoryObj = {
               </div>
 
               <div class="flex items-center gap-3">
-                  <mbr-critter-input-quantity />
-                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
-                    <circle cx="9" cy="12" r="1"></circle>
-                    <circle cx="9" cy="5" r="1"></circle>
-                    <circle cx="9" cy="19" r="1"></circle>
-                    <circle cx="15" cy="12" r="1"></circle>
-                    <circle cx="15" cy="5" r="1"></circle>
-                    <circle cx="15" cy="19" r="1"></circle>
-                  </svg>
+                <mbr-critter-input-quantity />
+                <svg lucideTrash2 [size]="20" [strokeWidth]="2.5" color="#E84A3B"/>
+                <svg lucideGripVertical [size]="20" [strokeWidth]="2.5" />
               </div>
             </mbr-critter-card>
 
@@ -590,33 +525,9 @@ export const CartScreen: StoryObj = {
               </div>
 
               <div class="flex items-center gap-3">
-                  <mbr-critter-input-quantity />
-                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M2.25 4.5H15.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14.25 4.5V15C14.25 15.75 13.5 16.5 12.75 16.5H5.25C4.5 16.5 3.75 15.75 3.75 15V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6 4.5V3C6 2.25 6.75 1.5 7.5 1.5H10.5C11.25 1.5 12 2.25 12 3V4.5" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.5 8.25V12.75" stroke="#E84A3B" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-foreground/30 flex-shrink-0 cursor-grab active:cursor-grabbing">
-                    <circle cx="9" cy="12" r="1"></circle>
-                    <circle cx="9" cy="5" r="1"></circle>
-                    <circle cx="9" cy="19" r="1"></circle>
-                    <circle cx="15" cy="12" r="1"></circle>
-                    <circle cx="15" cy="5" r="1"></circle>
-                    <circle cx="15" cy="19" r="1"></circle>
-                  </svg>
+                <mbr-critter-input-quantity />
+                <svg lucideTrash2 [size]="20" [strokeWidth]="2.5" color="#E84A3B"/>
+                <svg lucideGripVertical [size]="20" [strokeWidth]="2.5" />
               </div>
             </mbr-critter-card>
           </div>
