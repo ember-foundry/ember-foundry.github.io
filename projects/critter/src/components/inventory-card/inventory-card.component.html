@@ -3,8 +3,5 @@
     <svg lucideBox [size]="24" [strokeWidth]="2.5" />
   </mbr-critter-avatar>
   <h4 class="label">{{ label() }}</h4>
-  <mbr-critter-chip [color]="color()">
-    <svg [lucideIcon]="icon()" [size]="12" [strokeWidth]="4" />
-    <span class="uppercase">{{status()}}</span>
-  </mbr-critter-chip>
+  <mbr-critter-inventory-chip [status]="status()" />
 </mbr-critter-card>

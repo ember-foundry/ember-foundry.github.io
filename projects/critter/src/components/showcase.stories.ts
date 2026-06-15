@@ -21,9 +21,10 @@ import {
   InputQuantityComponent,
   InputTextComponent,
   InventoryCardComponent,
-  PanelComponent, StickyDirective, HeaderComponent
+  PanelComponent, StickyDirective, HeaderComponent, InventoryChipComponent
 } from 'critter';
 import {provideRouter, RouterLink} from '@angular/router';
+import {LucideBell, LucideBox, LucidePlus, LucideRefreshCw, LucideShoppingCart} from '@lucide/angular';
 
 const all_imports = [
   AvatarComponent,
@@ -38,6 +39,12 @@ const all_imports = [
   InputTextComponent,
   InputQuantityComponent,
   InventoryCardComponent,
+  InventoryChipComponent,
+  LucideBell,
+  LucideBox,
+  LucidePlus,
+  LucideRefreshCw,
+  LucideShoppingCart,
   PanelComponent,
   RouterLink,
   StickyDirective
@@ -165,11 +172,7 @@ const header_html = `
 <header mbrSticky stickyTopOffset="0px" class="flex items-center w-full p-4 top-0">
   <a href="#" class="flex items-center flex-1 text-inherit no-underline">
     <button mbrCritterButton class="me-2" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M24.5 9.33333C24.4996 8.92415 24.3916 8.52228 24.1868 8.16802C23.982 7.81377 23.6877 7.51959 23.3333 7.315L15.1667 2.64833C14.812 2.44354 14.4096 2.33573 14 2.33573C13.5904 2.33573 13.188 2.44354 12.8333 2.64833L4.66667 7.315C4.31231 7.51959 4.01798 7.81377 3.81321 8.16802C3.60843 8.52228 3.50042 8.92415 3.5 9.33333V18.6667C3.50042 19.0758 3.60843 19.4777 3.81321 19.832C4.01798 20.1862 4.31231 20.4804 4.66667 20.685L12.8333 25.3517C13.188 25.5565 13.5904 25.6643 14 25.6643C14.4096 25.6643 14.812 25.5565 15.1667 25.3517L23.3333 20.685C23.6877 20.4804 23.982 20.1862 24.1868 19.832C24.3916 19.4777 24.4996 19.0758 24.5 18.6667V9.33333Z" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M3.85 8.16667L14 14L24.15 8.16667" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 25.6667V14" stroke="white" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+        <svg lucideBox [size]="28" [strokeWidth]="2.91667" color="white"/>
     </button>
     <div class="flex-grow-1">
       <h1 class="m-0 text-white text-shadow">FreshStack</h1>
@@ -177,10 +180,7 @@ const header_html = `
     </div>
   </a>
   <a mbrCritterButton mbrCritterBadge="4" color="warning">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M8.55667 17.5C8.70296 17.7533 8.91335 17.9637 9.16671 18.11C9.42006 18.2563 9.70746 18.3333 10 18.3333C10.2926 18.3333 10.5799 18.2563 10.8333 18.11C11.0867 17.9637 11.2971 17.7533 11.4433 17.5" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M2.71833 12.7717C2.60947 12.891 2.53763 13.0394 2.51155 13.1988C2.48547 13.3582 2.50627 13.5217 2.57142 13.6695C2.63658 13.8173 2.74328 13.943 2.87855 14.0312C3.01381 14.1195 3.17182 14.1665 3.33333 14.1667H16.6667C16.8282 14.1667 16.9862 14.1199 17.1216 14.0318C17.2569 13.9437 17.3637 13.8181 17.4291 13.6704C17.4944 13.5227 17.5154 13.3592 17.4895 13.1998C17.4637 13.0404 17.392 12.892 17.2833 12.7725C16.175 11.63 15 10.4158 15 6.66667C15 5.34058 14.4732 4.06881 13.5355 3.13113C12.5979 2.19345 11.3261 1.66667 10 1.66667C8.67392 1.66667 7.40215 2.19345 6.46447 3.13113C5.52679 4.06881 5 5.34058 5 6.66667C5 10.4158 3.82417 11.63 2.71833 12.7717Z" stroke="#4A2A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg lucideBell [size]="20" [strokeWidth]="2.5"/>
   </a>
 </header>
 `
@@ -297,7 +297,6 @@ export const HomeScreen: StoryObj = {
     template: `
       <main>
       ${header_html}
-
       <section class="mb-4 gap-6 flex flex-col w-full">
         <mbr-critter-panel class="w-full" title="PANTRY STATUS">
           <button
@@ -307,21 +306,7 @@ export const HomeScreen: StoryObj = {
             size="small"
             class="me-3"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              width="24"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.516 3.00947 16.931 3.99122 18.74 5.74L21 8" />
-              <path d="M21 3V8H16" />
-              <path d="M21 12C21 14.3869 20.0518 16.6761 18.364 18.364C16.6761 20.0518 14.3869 21 12 21C9.48395 20.9905 7.06897 20.0088 5.26 18.26L3 16" />
-              <path d="M8 16H3V21" />
-            </svg>
+            <svg lucideRefreshCw [size]="24" [strokeWidth]="2.5"/>
           </button>
           <div class="flex-grow-1">
             <h3 class="m-0 font-semibold">5 items</h3>
@@ -338,19 +323,7 @@ export const HomeScreen: StoryObj = {
             size="small"
             class="me-3"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 28 28" fill="none"
-              stroke="currentColor"
-              stroke-width="2.91667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              width="24"
-            >
-              <path d="M9.33332 25.6667C9.97766 25.6667 10.5 25.1444 10.5 24.5C10.5 23.8557 9.97766 23.3334 9.33332 23.3334C8.68899 23.3334 8.16666 23.8557 8.16666 24.5C8.16666 25.1444 8.68899 25.6667 9.33332 25.6667Z" />
-              <path d="M22.1667 25.6667C22.811 25.6667 23.3333 25.1444 23.3333 24.5C23.3333 23.8557 22.811 23.3334 22.1667 23.3334C21.5223 23.3334 21 23.8557 21 24.5C21 25.1444 21.5223 25.6667 22.1667 25.6667Z" />
-              <path d="M2.39166 2.39172H4.725L7.82833 16.8817C7.94217 17.4124 8.23744 17.8868 8.66333 18.2232C9.08921 18.5597 9.61905 18.7371 10.1617 18.7251H21.5717C22.1027 18.7242 22.6176 18.5422 23.0312 18.2092C23.4448 17.8762 23.7325 17.412 23.8467 16.8934L25.7717 8.22506H5.97333" />
-            </svg>
+            <svg lucideShoppingCart [size]="24" [strokeWidth]="2.5" />
           </button>
           <div class="flex-grow-1">
             <h3 class="m-0 font-semibold">4 items</h3>
@@ -359,7 +332,6 @@ export const HomeScreen: StoryObj = {
           <button mbrCritterButton color="success">Go Shop</button>
         </mbr-critter-panel>
       </section>
-
       <section class="flex h-[80px] gap-3 w-full">
         <button mbrCritterButton class="grow-1" color="light">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -390,8 +362,6 @@ export const HomeScreen: StoryObj = {
         </button>
       </section>
       </main>
-
-
       <mbr-critter-footer />
     `
   })
@@ -693,20 +663,10 @@ export const PantryScreen: StoryObj = {
 
         <mbr-critter-panel title="NEED TO BUY" class="mb-2">
           <mbr-critter-card class="w-full items-center">
-              <mbr-critter-chip color="danger-tonal">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M9 3L3 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 3L9 9" stroke="#8A1A10" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span>OUT</span>
-              </mbr-critter-chip>
-
+              <mbr-critter-inventory-chip status="out" />
               <h4 class="flex-grow-1 m-0">Laundry Detergent</h4>
               <button mbrCritterButton color="success">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2.91663 7H11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M7 2.91666V11.0833" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg lucidePlus [size]="14" [strokeWidth]="3" />
                 <span>List</span>
               </button>
           </mbr-critter-card>
@@ -779,10 +739,7 @@ export const FamilyScreen: StoryObj = {
                 </div>
             </div>
             <button mbrCritterButton color="warning">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M3.75 9H14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 3.75V14.25" stroke="#4A2A0C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg lucidePlus [size]="18" [strokeWidth]="3"/>
               <span>Invite Member</span>
             </button>
           </div>

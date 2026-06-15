@@ -10,6 +10,8 @@ export * from './components/header/header.component';
 export * from './components/input-quantity/input-quantity.component';
 export * from './components/input-text/input-text.component';
 export * from './components/inventory-card/inventory-card.component';
+export * from './components/inventory-chip/inventory-chip.component';
 export * from './components/panel/panel.component';
 export * from './directives/sticky/sticky.directive';
 export * from './types/colors.type';
+export * from './types/inventory-status.type';
