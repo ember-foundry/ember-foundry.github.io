@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {BadgeDirective, ButtonComponent, COLOR_VALUES} from 'critter';
-import {LucideBell, LucideDynamicIcon, LucideShoppingCart} from '@lucide/angular';
+import {LucideBell, LucideShoppingCart} from '@lucide/angular';
 
 const meta: Meta = {
   decorators: [
@@ -34,8 +34,7 @@ export const OnButton: StoryObj = {
   decorators: [
     moduleMetadata({
       imports: [
-        LucideShoppingCart,
-        LucideDynamicIcon
+        LucideShoppingCart
       ]
     })
   ],
@@ -60,8 +59,7 @@ export const OnInnerIcon: StoryObj = {
   decorators: [
     moduleMetadata({
       imports: [
-        LucideBell,
-        LucideDynamicIcon
+        LucideBell
       ]
     })
   ],
@@ -94,8 +92,7 @@ export const Showcase: StoryObj = {
     moduleMetadata({
       imports: [
         LucideBell,
-        LucideShoppingCart,
-        LucideDynamicIcon
+        LucideShoppingCart
       ]
     })
   ],

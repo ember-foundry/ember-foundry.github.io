@@ -17,7 +17,7 @@ const meta: Meta = {
   tags: ['autodocs', 'footer'],
   render: (args) => ({
     props: args,
-    styles: [':host { background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px); background-repeat: repeat; background-size: 40px 40px; background-color: #84C244; display: flex; padding: 3rem 0 0;}']
+    styles: [':host { display: flex; padding: 3rem 0 0}']
   })
 }
 

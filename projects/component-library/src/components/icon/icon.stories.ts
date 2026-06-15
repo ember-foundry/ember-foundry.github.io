@@ -8,9 +8,10 @@ const meta: Meta<IconGoogleSuperGComponent> = {
 
 export default meta;
 
-export const Default: StoryObj<IconGoogleSuperGComponent> = {
+export const Sample: StoryObj<IconGoogleSuperGComponent> = {
   tags: ['google'],
   render: () => ({
+    styles: [':host { min-height: 40px; aspect-ratio: 1; display: inline-flex;}'],
     template: `<span mbrIcon="GoogleSuperG"></span>`
   })
 };

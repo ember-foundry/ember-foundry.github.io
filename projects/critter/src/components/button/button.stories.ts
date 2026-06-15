@@ -2,6 +2,7 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {NgTemplateOutlet} from '@angular/common';
 import {args_to_angular_inputs, IconGoogleSuperGComponent} from '@ember-foundry/component-library';
 import {ButtonComponent, COLOR_VALUES} from 'critter';
+import {LucidePlus} from '@lucide/angular';
 
 const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
@@ -82,21 +83,17 @@ export const IconOnly: StoryObj<ButtonComponent> = {
   args: {
     color: 'success'
   },
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LucidePlus
+      ]
+    })
+  ],
   render: (args) => ({
     template: `
         <button mbrCritterButton ${args_to_angular_inputs(args)}>
-          <svg
-            viewBox="0 0 14 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M2.91666 7H11.0833" />
-            <path d="M7 2.91663V11.0833" />
-          </svg>
+          <svg lucidePlus [size]="14"/>
         </button>
     `
   })
@@ -127,21 +124,17 @@ export const FullWidth: StoryObj<ButtonComponent> = {
     color: 'warning',
     size: 'medium'
   },
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LucidePlus
+      ]
+    })
+  ],
   render: (args) => ({
     template: `
         <button mbrCritterButton class="w-full" ${args_to_angular_inputs(args)}>
-          <svg
-            viewBox="0 0 14 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M2.91666 7H11.0833" />
-            <path d="M7 2.91663V11.0833" />
-          </svg>
+          <svg lucidePlus [size]="14" />
           <span>Invite Member</span>
         </button>
     `
@@ -149,6 +142,13 @@ export const FullWidth: StoryObj<ButtonComponent> = {
 }
 
 export const Showcase: StoryObj = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LucidePlus
+      ]
+    })
+  ],
   render: (args, context) => ({
     ...context,
     props: {
@@ -188,8 +188,8 @@ export const Showcase: StoryObj = {
           <span class="mt-4 ">With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrCritterButton [color]="color" [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
-                <span>Add</span>
+              <svg lucidePlus [size]="14" />
+              <span>Add</span>
             </button>
           }
         }
@@ -209,18 +209,12 @@ export const Showcase: StoryObj = {
           <span class="mt-4 ">Flat With Icon: {{size || 'Default'}}</span>
           @for (color of colors; track color) {
             <button mbrCritterButton flat [color]="color" [size]="size">
-                <ng-container [ngTemplateOutlet]="plus_icon"></ng-container>
-                <span>Add</span>
+              <svg lucidePlus [size]="14" />
+              <span>Add</span>
             </button>
           }
         }
       </section>
-
-      <ng-template #plus_icon>
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2.91666 7H11.0833" /><path d="M7 2.91663V11.0833" />
-        </svg>
-      </ng-template>
     `
   })
 };

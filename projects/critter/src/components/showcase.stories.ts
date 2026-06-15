@@ -172,7 +172,7 @@ const header_html = `
       </svg>
     </button>
     <div class="flex-grow-1">
-      <h1 class="m-0 text-white">FreshStack</h1>
+      <h1 class="m-0 text-white text-shadow">FreshStack</h1>
       <p class="m-0 font-bold">Household Manager</p>
     </div>
   </a>
@@ -196,8 +196,7 @@ export const Header: StoryObj = {
   },
   render: () => ({
     styles: [
-      ':host { padding: 1rem;}',
-      'h1 { font-family: var(--font-heading); -webkit-text-stroke: 1.5px rgb(74, 42, 12); text-shadow: rgb(74, 42, 12) 0 2px 0; }'
+      ':host { padding: 1rem;}'
     ],
     template: header_html
   })

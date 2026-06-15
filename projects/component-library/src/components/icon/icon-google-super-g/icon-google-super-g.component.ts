@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
-import {LucideDynamicIcon} from '@lucide/angular';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -12,5 +11,5 @@ import {LucideDynamicIcon} from '@lucide/angular';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IconGoogleSuperGComponent extends LucideDynamicIcon {
+export class IconGoogleSuperGComponent {
 }
