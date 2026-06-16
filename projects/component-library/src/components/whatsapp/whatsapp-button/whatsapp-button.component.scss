@@ -1,9 +1,9 @@
 :host {
   align-items: center;
+  background-color: hsl(142deg 70% 49%);
   color: white;
   display: inline-flex;
   justify-content: center;
-  background-color: hsl(142 70% 49%);
 }
 
 a {
@@ -25,9 +25,11 @@ svg {
 
   a {
     gap: 9.69px;
-    //height: 36px;
+
+    // height: 36px;
     padding: 8.25px 10.04px;
-    //width: 160px;
+
+    // width: 160px;
   }
 }
 
@@ -37,9 +39,11 @@ svg {
 
   a {
     gap: 9.5px;
-    //height: 40px;
+
+    // height: 40px;
     padding: 8px 9.6px;
-    //width: 189px;
+
+    // width: 189px;
   }
 }
 
@@ -49,8 +53,10 @@ svg {
 
   a {
     gap: 9.64px;
-    //height: 48px;
+
+    // height: 48px;
     padding: 10.5px 9px;
-    //width: 207px;
+
+    // width: 207px;
   }
 }
