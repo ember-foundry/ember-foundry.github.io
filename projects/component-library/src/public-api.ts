@@ -49,6 +49,7 @@ export * from './components/svg-loader/svg-loader-ring-resize/svg-loader-ring-re
 export * from './components/toggle-switch/toggle-switch.component';
 export * from './components/toggle-switch-seesaw/toggle-switch-seesaw.component';
 export * from './components/vuexy/vuexy-theme-customizer-trigger/vuexy-theme-customizer-trigger.component';
+export * from './components/whatsapp/whatsapp-button/whatsapp-button.component';
 export * from './directives/grid-background/grid-background.directive';
 export * from './directives/random-milky-background/random-milky-background.directive';
 export * from './directives/toggle/toggle.directive';
@@ -56,5 +57,6 @@ export * from './directives/tooltip/tooltip.directive';
 export * from './helpers/storybook/args_to_angular_inputs'
 export * from './helpers/storybook/array_to_angular_input'
 export * from './pipes/initials/initials.pipe';
+export * from './pipes/numeric-string/numeric-string.pipe';
 export * from './pipes/pixels/pixels.pipe';
 export * from './pipes/whole-number/whole-number.pipe';

@@ -9,7 +9,7 @@ import {LucideBell, LucideBox} from '@lucide/angular';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   host: {
-    class: 'flex items-center w-full top-0 p-4'
+    class: 'top-0 px-4 pt-4 w-full'
   },
   imports: [
     ButtonComponent,

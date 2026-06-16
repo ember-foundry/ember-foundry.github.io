@@ -160,6 +160,71 @@ export const Header: StoryObj<HeaderComponent> = {
   })
 };
 
+export const HeaderSticky: StoryObj<HeaderComponent> = {
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        story: 'View this story in <a href="/story/components-showcase--header-sticky">full screen</a> to view the sticky header effect'
+      }
+    }
+  },
+  render: () => ({
+    styles: screen_host_styles,
+    template: `
+      <mbr-critter-header mbrSticky />
+      <main class="p-4 flex flex-col flex-1">
+        <mbr-critter-panel title="NEED TO BUY" class="mb-2">
+          <mbr-critter-card class="w-full items-center">
+              <mbr-critter-inventory-chip status="out" />
+              <h4 class="flex-grow-1 m-0">Laundry Detergent</h4>
+              <button mbrCritterButton color="success">
+                <svg lucidePlus [size]="14" [strokeWidth]="3" />
+                <span>List</span>
+              </button>
+          </mbr-critter-card>
+        </mbr-critter-panel>
+        <section class="w-full">
+          <mbr-critter-panel title="MY PANTRY" class="w-full mb-2">
+            <div class="grid grid-cols-2 w-full gap-2">
+              <mbr-critter-inventory-card label="Milk" status="low"/>
+              <mbr-critter-inventory-card label="Eggs" status="out"/>
+              <mbr-critter-inventory-card label="Bread" status="stocked"/>
+              <mbr-critter-inventory-card label="Dish Soap" status="low"/>
+              <mbr-critter-inventory-card label="Apples" status="stocked"/>
+              <mbr-critter-inventory-card label="Toothpaste" status="out"/>
+              <mbr-critter-inventory-card label="Landry Detergent" status="out"/>
+            </div>
+          </mbr-critter-panel>
+          <mbr-critter-panel title="MY PANTRY" class="w-full mb-2">
+            <div class="grid grid-cols-2 w-full gap-2">
+              <mbr-critter-inventory-card label="Milk" status="low"/>
+              <mbr-critter-inventory-card label="Eggs" status="out"/>
+              <mbr-critter-inventory-card label="Bread" status="stocked"/>
+              <mbr-critter-inventory-card label="Dish Soap" status="low"/>
+              <mbr-critter-inventory-card label="Apples" status="stocked"/>
+              <mbr-critter-inventory-card label="Toothpaste" status="out"/>
+              <mbr-critter-inventory-card label="Landry Detergent" status="out"/>
+            </div>
+          </mbr-critter-panel>
+          <mbr-critter-panel title="MY PANTRY" class="w-full mb-2">
+            <div class="grid grid-cols-2 w-full gap-2">
+              <mbr-critter-inventory-card label="Milk" status="low"/>
+              <mbr-critter-inventory-card label="Eggs" status="out"/>
+              <mbr-critter-inventory-card label="Bread" status="stocked"/>
+              <mbr-critter-inventory-card label="Dish Soap" status="low"/>
+              <mbr-critter-inventory-card label="Apples" status="stocked"/>
+              <mbr-critter-inventory-card label="Toothpaste" status="out"/>
+              <mbr-critter-inventory-card label="Landry Detergent" status="out"/>
+            </div>
+          </mbr-critter-panel>
+        </section>
+      </main>
+      <mbr-critter-footer />
+    `
+  })
+};
+
 export const InputText: StoryObj<InputTextComponent> = {
   ...InputTextShowcase,
   parameters: {
@@ -209,7 +274,6 @@ const screen_host_styles = [
   display: flex;
   color: rgba(74, 42, 12, 0.80);
   flex-direction: column;
-  max-width: 460px;
   min-height: 100dvh;
   margin: auto;
   background-color: #84C244;
@@ -226,7 +290,7 @@ export const HomeScreen: StoryObj = {
   render: () => ({
     styles: screen_host_styles,
     template: `
-      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <mbr-critter-header mbrSticky />
       <main class="p-4 flex flex-col flex-1">
         <section class="mb-4 gap-6 flex flex-col w-full">
           <mbr-critter-panel class="w-full" title="PANTRY STATUS">
@@ -286,7 +350,7 @@ export const MasterScreen: StoryObj = {
   render: () => ({
     styles: screen_host_styles,
     template: `
-      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <mbr-critter-header mbrSticky />
       <main class="p-4 flex flex-col flex-1">
         <section class="mb-4 gap-2 flex w-full">
           <input type="text" placeholder="Search items..." mbrCritterInput class="flex-grow-1"/>
@@ -344,7 +408,7 @@ export const CartScreen: StoryObj = {
   render: () => ({
     styles: screen_host_styles,
     template: `
-      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <mbr-critter-header mbrSticky />
       <main class="p-4 flex flex-col flex-1">
         <button mbrCritterButton color="success" class="w-full mb-3">
           <svg lucidePlus [size]="20" [strokeWidth]="2.5" />
@@ -416,7 +480,7 @@ export const PantryScreen: StoryObj = {
   render: () => ({
     styles: screen_host_styles,
     template: `
-      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <mbr-critter-header mbrSticky />
       <main class="p-4 flex flex-col flex-1">
         <mbr-critter-panel title="NEED TO BUY" class="mb-2">
           <mbr-critter-card class="w-full items-center">
@@ -454,7 +518,7 @@ export const FamilyScreen: StoryObj = {
   render: () => ({
     styles: screen_host_styles,
     template: `
-      <mbr-critter-header mbrSticky stickyTopOffset="0px" />
+      <mbr-critter-header mbrSticky />
       <main class="p-4 flex flex-col flex-1">
         <mbr-critter-panel title="YOUR HOUSEHOLD" class="mb-3 w-full">
           <div class="flex flex-col gap-2 w-full">
