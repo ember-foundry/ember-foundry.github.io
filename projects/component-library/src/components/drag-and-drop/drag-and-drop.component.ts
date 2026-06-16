@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, input, output, signal} from '@angular/core';
 import {SVGCheckmarkCircleFilledComponent} from '../svg-checkmark-circle-filled/svg-checkmark-circle-filled.component';
 import {NgTemplateOutlet} from '@angular/common';
+import {LucideCloudUpload, LucideFiles, LucideTriangleAlert} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-drag-and-drop',
@@ -14,7 +15,10 @@ import {NgTemplateOutlet} from '@angular/common';
   },
   imports: [
     SVGCheckmarkCircleFilledComponent,
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    LucideCloudUpload,
+    LucideFiles,
+    LucideTriangleAlert
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

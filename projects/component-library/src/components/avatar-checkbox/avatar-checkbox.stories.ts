@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {AvatarCheckboxComponent} from '@ember-foundry/component-library';
+import {AvatarCheckboxComponent} from './avatar-checkbox.component';
 import {tailwind_sizes_values} from '../../constants/tailwind-sizes';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 

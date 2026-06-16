@@ -1,10 +1,13 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
+import {LucideCheck, LucideStar} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-price-plan',
   imports: [
-    CurrencyPipe
+    CurrencyPipe,
+    LucideStar,
+    LucideCheck
   ],
   templateUrl: './price-plan.component.html',
   styleUrl: './price-plan.component.scss',

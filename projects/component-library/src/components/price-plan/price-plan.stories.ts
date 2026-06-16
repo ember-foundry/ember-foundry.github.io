@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {PricePlanComponent} from '@ember-foundry/component-library';
+import {PricePlanComponent} from './price-plan.component';
 import {array_to_angular_input} from '../../helpers/storybook/array_to_angular_input';
 
 const meta: Meta<PricePlanComponent> = {

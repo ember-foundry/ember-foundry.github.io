@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {DragAndDropComponent} from '@ember-foundry/component-library';
+import {DragAndDropComponent} from './drag-and-drop.component';
 
 const meta: Meta<DragAndDropComponent> = {
   component: DragAndDropComponent,
@@ -31,5 +31,11 @@ export const NatashaDragAndDrop: StoryObj<DragAndDropComponent> = {
         story: 'This is a drag and drop component created by Natasha Hinter'
       }
     }
+  }
+}
+
+export const OnlyImagesAllowed: StoryObj<DragAndDropComponent> = {
+  args: {
+    accept: 'image/*'
   }
 }

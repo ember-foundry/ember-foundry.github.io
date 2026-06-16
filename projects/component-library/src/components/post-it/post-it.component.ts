@@ -1,12 +1,16 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {LucideLightbulb} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-post-it',
   templateUrl: './post-it.component.html',
   styleUrl: './post-it.component.scss',
   host: {
-    '[style.--color-chosen]': `!color() ? undefined : 'var(--color-'+color()+')'`
+    '[style.--color-chosen]': `!color() ? undefined : 'var(--color-' + color() + ')'`
   },
+  imports: [
+    LucideLightbulb
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostItComponent {

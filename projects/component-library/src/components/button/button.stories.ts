@@ -1,6 +1,8 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {ButtonBasicComponent, ButtonMonochromaticComponent} from '@ember-foundry/component-library';
+import {ButtonBasicComponent} from './button-basic/button-basic.component';
+import {ButtonMonochromaticComponent} from './button-monochromatic/button-monochromatic.component';
 import {NgTemplateOutlet} from '@angular/common';
+import {LucideDownload} from '@lucide/angular';
 
 const meta: Meta = {
   decorators: [
@@ -8,7 +10,7 @@ const meta: Meta = {
       imports: [
         ButtonBasicComponent,
         ButtonMonochromaticComponent,
-        NgTemplateOutlet
+        LucideDownload
       ]
     })
   ],
@@ -56,69 +58,21 @@ export const Monochromatic: StoryObj = {
 
       <p>Projected Content using "button" tag</p>
       <button mbrButtonChromatic>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" x2="12" y1="15" y2="3"/>
-          </svg>
-          Download Resume
-        </button>
+        <svg lucideDownload [size]="14" />
+        Download Resume
+      </button>
       <button mbrButtonChromatic disabled>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" x2="12" y1="15" y2="3"/>
-        </svg>
+        <svg lucideDownload [size]="14" />
         Download Resume
       </button>
 
       <p>Projected Content using "a" tag </p>
       <a mbrButtonChromatic>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" x2="12" y1="15" y2="3"/>
-        </svg>
+        <svg lucideDownload [size]="14" />
         Download Resume
       </a>
       <a mbrButtonChromatic disabled>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" x2="12" y1="15" y2="3"/>
-        </svg>
+        <svg lucideDownload [size]="14" />
         Download Resume
       </a>
     `
