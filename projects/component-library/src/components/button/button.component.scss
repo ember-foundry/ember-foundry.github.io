@@ -1,8 +1,10 @@
 :host {
   cursor: pointer;
+  display: inline-flex;
+  user-select: none;
 }
 
 :host(:disabled), :host([disabled]) {
   cursor: not-allowed;
-  user-select: none;
+  pointer-events: none;
 }

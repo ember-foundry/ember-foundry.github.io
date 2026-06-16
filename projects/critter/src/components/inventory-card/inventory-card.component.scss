@@ -1,0 +1,24 @@
+:host {
+  display: inline-flex;
+}
+
+.label {
+  color: #4A2A0C;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17.5px; /* 125% */
+  margin: 0;
+}
+
+mbr-critter-card {
+  align-items: center;
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+mbr-critter-avatar {
+  border-width: 4px;
+}

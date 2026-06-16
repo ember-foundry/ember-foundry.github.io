@@ -1,0 +1,24 @@
+<button
+  (click)="decrement()"
+  [disabled]="disabled() || value() <= min()"
+  aria-label="Decrease quantity"
+>
+  <svg lucideMinus [size]="16" [strokeWidth]="3" />
+</button>
+<input
+  #input
+  type="number"
+  [value]="value()"
+  [min]="min()"
+  [max]="max()"
+  [disabled]="disabled()"
+  (input)="changed_manually($event)"
+  (blur)="onTouched()"
+/>
+<button
+  (click)="increment()"
+  [disabled]="disabled() || value() >= max()"
+  aria-label="Increase quantity"
+>
+  <svg lucidePlus [size]="16" [strokeWidth]="3" />
+</button>

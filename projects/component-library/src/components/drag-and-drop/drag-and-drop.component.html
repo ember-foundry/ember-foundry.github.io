@@ -28,22 +28,8 @@
 
 <ng-template #placeholder>
   <div class="content placeholder">
-    <div class="icon-wrapper">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 256 256"
-        stroke="currentColor"
-        stroke-linecap="round"
-        fill="none"
-        stroke-width="16"
-        stroke-linejoin="round"
-        class="icon"
-      >
-        <path d="M112,208H72A56,56,0,1,1,85.92,97.74"/>
-        <polyline points="120 160 152 128 184 160"/>
-        <line x1="152" y1="208" x2="152" y2="128"/>
-        <path d="M80,128a80,80,0,1,1,112,73.34"/>
-      </svg>
+    <div class="icon-wrapper flex items-center justify-center">
+      <svg lucideCloudUpload [size]="30" />
     </div>
     <div class="instruction">
       <h4>Drag & drop your files</h4>
@@ -56,22 +42,8 @@
 
 <ng-template #overlay_valid>
   <div class="content overlay">
-    <div class="icon-wrapper">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 256 256"
-        class="icon"
-        stroke="currentColor"
-        stroke-linecap="round"
-        fill="none"
-        stroke-width="16"
-        stroke-linejoin="round"
-      >
-        <path d="M168,224H56a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8h80l40,40V216A8,8,0,0,1,168,224Z"/>
-        <path d="M80,64V40a8,8,0,0,1,8-8h80l40,40V184a8,8,0,0,1-8,8H176"/>
-        <line x1="88" y1="152" x2="136" y2="152"/>
-        <line x1="88" y1="184" x2="136" y2="184"/>
-      </svg>
+    <div class="icon-wrapper flex items-center justify-center">
+      <svg lucideFiles [size]="30" />
     </div>
 
     <div class="instruction">
@@ -93,16 +65,8 @@
 
 <ng-template #overlay_error>
   <div class="content overlay">
-    <div class="icon-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="icon">
-        <rect width="256" height="256" fill="none"/>
-        <path
-          d="M142.41,40.22l87.46,151.87C236,202.79,228.08,216,215.46,216H40.54C27.92,216,20,202.79,26.13,192.09L113.59,40.22C119.89,29.26,136.11,29.26,142.41,40.22Z"
-          fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <line x1="128" y1="144" x2="128" y2="104" fill="none" stroke="currentColor" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="16"/>
-        <circle cx="128" cy="180" r="12" fill="currentColor"/>
-      </svg>
+    <div class="icon-wrapper flex items-center justify-center">
+      <svg lucideTriangleAlert [size]="30" />
     </div>
     <div class="instruction">
       <h4>Unsupported file format detected</h4>

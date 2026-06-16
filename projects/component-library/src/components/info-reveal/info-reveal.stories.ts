@@ -1,7 +1,7 @@
 import {Meta} from '@storybook/angular';
-import {InfoRevealComponent} from 'component-library';
+import {InfoRevealComponent} from '@ember-foundry/component-library';
+import {pause} from '../../helpers/pause';
 import {expect} from 'storybook/test';
-import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<InfoRevealComponent> = {
   component: InfoRevealComponent,

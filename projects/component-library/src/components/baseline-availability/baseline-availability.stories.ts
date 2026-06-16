@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {BaselineAvailabilityComponent} from 'component-library';
-import {tailwind_sizes_values} from 'component-library/constants/tailwind-sizes';
-import {tailwind_sizes} from 'component-library/enums/tailwind-sizes.enum';
+import {BaselineAvailabilityComponent} from '@ember-foundry/component-library';
+import {tailwind_sizes_values} from '../../constants/tailwind-sizes';
+import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 
 const meta: Meta<BaselineAvailabilityComponent> = {
   parameters: {

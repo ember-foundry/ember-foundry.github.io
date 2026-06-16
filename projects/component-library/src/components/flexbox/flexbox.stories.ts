@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {FlexboxColumnComponent, FlexboxRowComponent} from 'component-library';
+import {FlexboxColumnComponent, FlexboxRowComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<FlexboxRowComponent> = {
   component: FlexboxRowComponent,

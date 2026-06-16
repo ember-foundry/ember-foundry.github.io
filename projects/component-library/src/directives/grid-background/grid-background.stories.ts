@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {GridBackgroundDirective} from 'component-library';
+import {GridBackgroundDirective} from '@ember-foundry/component-library';
 import {args_to_angular_inputs} from '../../helpers/storybook/args_to_angular_inputs';
 
 const meta: Meta<GridBackgroundDirective> = {

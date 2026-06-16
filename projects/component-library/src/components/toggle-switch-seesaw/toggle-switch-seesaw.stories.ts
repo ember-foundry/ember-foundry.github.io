@@ -1,6 +1,6 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {ToggleSwitchSeesawComponent} from 'component-library';
-import {pause} from 'component-library/helpers/pause';
+import {ToggleSwitchSeesawComponent} from '@ember-foundry/component-library';
+import {pause} from '../../helpers/pause';
 import {expect, fn} from 'storybook/test';
 
 const meta: Meta<ToggleSwitchSeesawComponent> = {

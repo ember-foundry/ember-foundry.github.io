@@ -1,6 +1,6 @@
 import {Meta} from '@storybook/angular';
-import {LandoNorrisSlidingTextComponent} from 'component-library';
-import {pause} from 'component-library/helpers/pause';
+import {LandoNorrisSlidingTextComponent} from '@ember-foundry/component-library';
+import {pause} from '../../../helpers/pause';
 
 const stylesForTheseStories = `
 :host{

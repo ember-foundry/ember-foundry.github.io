@@ -176,6 +176,75 @@
           "typeSeparator": "."
         }
       }
+    },
+    "critter": {
+      "projectType": "library",
+      "root": "projects/critter",
+      "sourceRoot": "projects/critter/src",
+      "prefix": "mbr-critter",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/critter/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/critter/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "critter:build",
+            "styles": [
+              "projects/component-library/src/styles/_reset.scss",
+              "projects/critter/src/styles/global.scss"
+            ],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/critter"
+            ],
+            "configDir": "projects/critter/.storybook",
+            "compodoc": true,
+            "webpackStatsJson": true
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "critter:build",
+            "configDir": "projects/critter/.storybook",
+            "styles": [
+              "projects/component-library/src/styles/_reset.scss",
+              "projects/critter/.storybook/styles.scss",
+              "projects/critter/src/styles/global.scss"
+            ],
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/critter"
+            ],
+            "port": 6007
+          }
+        },
+        "test": {
+          "builder": "@analogjs/vitest-angular:test",
+          "options": {
+            "watch": true,
+            "coverage": true,
+            "styles": [
+              "projects/critter/src/styles/global.scss"
+            ]
+          }
+        }
+      }
     }
   }
 }

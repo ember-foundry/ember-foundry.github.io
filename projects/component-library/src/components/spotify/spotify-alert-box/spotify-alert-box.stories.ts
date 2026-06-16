@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {SpotifyAlertBoxComponent} from 'component-library';
+import {SpotifyAlertBoxComponent} from './spotify-alert-box.component';
 
 const meta: Meta<SpotifyAlertBoxComponent> = {
   component: SpotifyAlertBoxComponent,

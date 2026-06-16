@@ -4,11 +4,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "component-library": [
-        "./projects/component-library/src/public-api"
+      "@ember-foundry/component-library": [
+        "./dist/component-library"
       ],
-      "component-library/*": [
-        "./projects/component-library/src/*"
+      "@ember-foundry/component-library/*": [
+        "./dist/component-library/*"
+      ],
+      "critter": [
+        "./projects/critter/src/public-api"
+      ],
+      "critter/*": [
+        "./projects/critter/src/*"
       ]
     },
     "experimentalDecorators": true,
@@ -43,6 +49,12 @@
     },
     {
       "path": "./projects/component-library/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/critter/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/critter/tsconfig.spec.json"
     }
   ]
 }

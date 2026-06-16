@@ -3,12 +3,15 @@ import {AvatarComponent} from '../avatar/avatar.component';
 import {AvatarBadgeComponent} from '../avatar-badge/avatar-badge.component';
 import {tailwind_sizes} from '../../enums/tailwind-sizes.enum';
 import {BaseComponent} from '../_base/base.component';
+import {LucideCheck, LucideCircleCheck} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-avatar-checkbox',
   imports: [
     AvatarBadgeComponent,
-    AvatarComponent
+    AvatarComponent,
+    LucideCircleCheck,
+    LucideCheck
   ],
   templateUrl: './avatar-checkbox.component.html',
   styleUrl: './avatar-checkbox.component.scss',

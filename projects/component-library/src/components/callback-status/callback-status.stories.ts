@@ -1,5 +1,7 @@
 import {Meta, moduleMetadata} from '@storybook/angular';
-import {CallbackStatusComponent, SVGCheckmarkCircleFilledComponent} from 'component-library';
+import {CallbackStatusComponent} from './callback-status.component';
+import {SVGCheckmarkCircleFilledComponent} from '../svg-checkmark-circle-filled/svg-checkmark-circle-filled.component';
+import {LucideSmile} from '@lucide/angular';
 
 const meta: Meta<CallbackStatusComponent> = {
   component: CallbackStatusComponent,
@@ -63,11 +65,18 @@ export const CustomTitles: Story = {
 };
 
 export const CustomSuccessIcon: Story = {
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LucideSmile
+      ]
+    })
+  ],
   render: () => {
     return {
       template: `
           <mbr-callback-status status="success">
-            <mbr-svg-checkmark-circle-filled ngProjectAs="icon-success" style="width: 80px; display: flex" />
+            <svg lucideSmile ngProjectAs="icon-success" [size]="80"/>
           </mbr-callback-status>
       `
     }

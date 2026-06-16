@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata} from '@storybook/angular';
-import {MarqueeComponent, MarqueeItemTemplateDirective} from 'component-library';
+import {MarqueeComponent, MarqueeItemTemplateDirective} from '@ember-foundry/component-library';
 
 const meta: Meta<MarqueeComponent> = {
   component: MarqueeComponent,

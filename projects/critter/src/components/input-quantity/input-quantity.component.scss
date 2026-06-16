@@ -1,0 +1,77 @@
+:host {
+  --color-background: #D1A354;
+  --color-border: #805429;
+  --color-shadow: var(--color-border);
+  --color-text: #4A2A0C;
+
+  align-items: center;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 0 0 var(--color-shadow);
+  color: var(--color-text);
+  display: inline-grid;
+  font-size: 16px;
+  grid-template-columns: repeat(3, 32px);
+  height: 36px;
+}
+
+:host > * {
+  align-self: stretch;
+  border: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  align-items: center;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  font-size: inherit;
+  justify-content: center;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+svg {
+  height: 1em;
+  width: 1em;
+}
+
+input[type="number"] {
+  align-items: center;
+  animation: font-pop 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  appearance: textfield;
+  border: none;
+  display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  justify-content: center;
+  outline: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  transform-origin: center;
+  will-change: font-size;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}
+
+@keyframes font-pop {
+  0%, 100% {
+    font-size: 1em;
+  }
+
+  40% {
+    font-size: 1.2em;
+  }
+}

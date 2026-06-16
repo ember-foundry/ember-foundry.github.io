@@ -1,5 +1,8 @@
 npm run lint
 npm run lint:styles
-npm run build
+npm run build:component-library
+npm run build:critter
+npm run build:storybook:component-library
+npm run build:storybook:critter
 ng generate @angular/core:cleanup-unused-imports
 npm run test:ci

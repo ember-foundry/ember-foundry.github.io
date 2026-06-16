@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/angular';
-import {GithubActionProgressComponent} from 'component-library';
+import {GithubActionProgressComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<GithubActionProgressComponent> = {
   component: GithubActionProgressComponent,

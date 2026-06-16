@@ -1,0 +1,153 @@
+/**
+ For responsive shit
+ */
+@use 'tailwindcss/theme';
+
+/**
+For flexbox shit
+ */
+@use 'tailwindcss/utilities';
+
+@import 'https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@400..700&display=swap';
+
+:root {
+  --font-neutral: Fredoka, sans-serif;
+  --font-heading: 'Fredoka One', var(--font-neutral);
+}
+
+body {
+  background-color: #84C244;
+  background-image: radial-gradient(circle, rgb(255, 255, 255, 0.2) 2px, transparent 2px);
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  font-family: var(--font-neutral), sans-serif;
+}
+
+h1 {
+  font-family: var(--font-heading);
+}
+
+.flat {
+  background-image: none;
+  box-shadow: none;
+}
+
+.text-shadow {
+  -webkit-text-stroke: 1.5px rgb(74, 42, 12);
+  text-shadow: rgb(74, 42, 12) 0 2px 0;
+}
+
+$color-variables: (
+  '': (
+    '--color-background': #D1A354,
+    '--color-border': #805429,
+    '--color-shadow': var(--color-border),
+    '--color-text': #4A2A0C
+  ),
+  ':disabled, [disabled], .color-disabled': (
+    '--color-background': #E6DFD5,
+    '--color-border': #A69D92,
+    '--color-shadow': transparent,
+    '--color-text': #8C8378
+  ),
+  '.color-light': (
+    '--color-background': #E4BA73,
+    '--color-border': #805429,
+    '--color-shadow': var(--color-border),
+    '--color-text': #4A2A0C
+  ),
+  '.color-danger': (
+    '--color-background': #E84A3B,
+    '--color-border': #8A1A10,
+    '--color-shadow': var(--color-border),
+    '--color-text': white
+  ),
+  '.color-danger-tonal': (
+    '--color-background': #E84A3B33,
+    '--color-border': #E84A3B66,
+    '--color-shadow': var(--color-border),
+    '--color-text': #8A1A10
+  ),
+  '.color-danger-tonal-bright': (
+    '--color-background': #E84A3B33,
+    '--color-border': rgb(232 74 59),
+    '--color-shadow': var(--color-border),
+    '--color-text': var(--color-border)
+  ),
+  '.color-info': (
+    '--color-background': #4FAEE6,
+    '--color-border': #2B7AAB,
+    '--color-shadow': var(--color-border),
+    '--color-text': white
+  ),
+  '.color-success': (
+    '--color-background': #6BC235,
+    '--color-border': #3A7316,
+    '--color-shadow': var(--color-border),
+    '--color-text': white
+  ),
+  '.color-success-tonal': (
+    '--color-background': rgb(107 194 53 / 40%),
+    '--color-border': rgb(107 194 53 / 20%),
+    '--color-shadow': var(--color-border),
+    '--color-text': #3A7316
+  ),
+  '.color-success-tonal-bright': (
+    '--color-background': rgba(107, 194, 53, 0.20),
+    '--color-border': rgb(107 194 53),
+    '--color-shadow': var(--color-border),
+    '--color-text': var(--color-border)
+  ),
+  '.color-warning': (
+    '--color-background': rgb(255 203 43),
+    '--color-border': rgb(163 122 0),
+    '--color-shadow': var(--color-border),
+    '--color-text': rgb(74 42 12)
+  ),
+  '.color-warning-tonal': (
+    '--color-background': rgb(255 203 43 / 30%),
+    '--color-border': rgb(255 203 43 / 50%),
+    '--color-shadow': var(--color-border),
+    '--color-text': rgb(163 122 0)
+  ),
+  '.color-warning-tonal-bright': (
+    '--color-background': rgb(255 203 43 / 30%),
+    '--color-border': rgb(255 203 43),
+    '--color-shadow': var(--color-border),
+    '--color-text': rgb(163 122 0)
+  ),
+  '.color-white': (
+    '--color-background': white,
+    '--color-border': hsl(214.29deg 31.82% 91.37%),
+    '--color-shadow': hsl(214.29deg 31.82% 91.37%),
+    '--color-text': hsl(222.22deg 47.37% 11.18%)
+  ),
+  //'.color-white-tonal': (
+  //  '--color-background': rgba(255, 255, 255, 0.4),
+  //  '--color-border': rgba(226, 232, 240, 0.6),
+  //  '--color-shadow': transparent,
+  //  '--color-text': #0F172A
+  //),
+  //'.color-white-tonal-bright': (
+  //  '--color-background': rgba(255, 255, 255, 0.2),
+  //  '--color-border': #FFFFFF,
+  //  '--color-shadow': transparent,
+  //  '--color-text': #FFFFFF
+  //)
+);
+
+@each $selector, $prop-and-value in $color-variables {
+  @if $selector == '' {
+    :root {
+      @each $property, $value in $prop-and-value {
+        #{$property}: $value;
+      }
+    }
+  } @else {
+    #{$selector} {
+      @each $property, $value in $prop-and-value {
+        #{$property}: $value;
+      }
+    }
+  }
+}

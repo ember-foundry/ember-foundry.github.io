@@ -1,0 +1,22 @@
+@for(item of items(); track $index) {
+  @if($index !== 2){
+    <a class="flex flex-col items-center no-underline" [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <svg [lucideIcon]="item.lucide_icon" />
+      <span>{{item.title}}</span>
+    </a>
+  }
+  @else {
+    <button
+      #cart_button=routerLinkActive
+      mbrCritterButton
+      rounded
+      [color]="cart_button.isActive ? 'success' : 'light'"
+      mbrCritterBadgeSize="16px"
+      routerLinkActive
+      [mbrCritterBadge]="cart_count()"
+      [routerLink]="item.route"
+    >
+      <svg [lucideIcon]="item.lucide_icon" [strokeWidth]="2.91667" />
+    </button>
+  }
+}

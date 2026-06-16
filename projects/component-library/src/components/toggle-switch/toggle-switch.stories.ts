@@ -1,8 +1,8 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {ToggleSwitchComponent} from 'component-library';
+import {ToggleSwitchComponent} from '@ember-foundry/component-library';
+import {pause} from '../../helpers/pause';
 import {action} from 'storybook/actions';
 import {expect, fn} from 'storybook/test';
-import {pause} from 'component-library/helpers/pause';
 
 const meta: Meta<ToggleSwitchComponent> = {
   parameters: {
@@ -16,7 +16,7 @@ const meta: Meta<ToggleSwitchComponent> = {
   tags: ['autodocs', 'toggle', 'switch'],
   argTypes: {
     active: {
-      control: { type: 'boolean' }
+      control: {type: 'boolean'}
     },
     state_change: {
       action: 'state_changed'

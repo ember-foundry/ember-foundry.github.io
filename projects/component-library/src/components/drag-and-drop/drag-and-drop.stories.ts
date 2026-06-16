@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/angular';
-import {DragAndDropComponent} from 'component-library';
+import {DragAndDropComponent} from './drag-and-drop.component';
 
 const meta: Meta<DragAndDropComponent> = {
   component: DragAndDropComponent,
@@ -23,9 +23,7 @@ const meta: Meta<DragAndDropComponent> = {
 
 export default meta;
 
-type Story = StoryObj<DragAndDropComponent>;
-
-export const NatashaDragAndDrop: Story = {
+export const NatashaDragAndDrop: StoryObj<DragAndDropComponent> = {
   name: 'Natasha\'s Drag and Drop',
   parameters: {
     docs: {
@@ -33,5 +31,11 @@ export const NatashaDragAndDrop: Story = {
         story: 'This is a drag and drop component created by Natasha Hinter'
       }
     }
+  }
+}
+
+export const OnlyImagesAllowed: StoryObj<DragAndDropComponent> = {
+  args: {
+    accept: 'image/*'
   }
 }

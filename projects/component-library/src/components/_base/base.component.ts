@@ -23,9 +23,14 @@ export class BaseComponent {
       return keys
         .map(key => {
           const css_prefix = String(key);
-          const source = this[key] as unknown as Signal<string>;
-          return `${css_prefix}-${source()}`;
+          const prop_signal = this[key] as unknown as Signal<string>;
+          const value = prop_signal();
+          if(value === undefined){
+            return undefined
+          }
+          return `${css_prefix}-${value}`;
         })
+        .filter(_ => !!_)
         .join(' ');
     });
   }

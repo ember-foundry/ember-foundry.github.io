@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {SunburstChartComponent} from 'component-library';
+import {SunburstChartComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<SunburstChartComponent> = {
   component: SunburstChartComponent,

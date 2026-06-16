@@ -1,5 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
-import {FlipCardComponent, LudoPlayerUIFrontComponent} from 'component-library';
+import {LudoPlayerUIFrontComponent} from './ludo-player-ui-front.component';
+import {FlipCardComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<LudoPlayerUIFrontComponent> = {
   component: LudoPlayerUIFrontComponent,
@@ -43,9 +44,9 @@ export const FlippingLudoUI: Story = {
     return {
       template: `
         <mbr-flip-card>
-            <mbr-ludo-player-ui-front ngProjectAs="front" ${inputs}/>
-            <mbr-ludo-player-ui-front ngProjectAs="back" [name]="'John Doe'" [color]="'blue'" [avatar]="'http://localhost:4200/assets/images/ahmed.png'" />
-       </mbr-flip-card>
+          <mbr-ludo-player-ui-front ngProjectAs="front" ${inputs}/>
+          <mbr-ludo-player-ui-front ngProjectAs="back" [name]="'John Doe'" [color]="'blue'" [avatar]="'http://localhost:4200/assets/images/ahmed.png'" />
+        </mbr-flip-card>
       `
     }
   }

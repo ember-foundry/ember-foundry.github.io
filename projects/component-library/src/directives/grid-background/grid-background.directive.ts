@@ -9,7 +9,7 @@ import {Directive, input} from '@angular/core';
     '[style.--grid-size]': 'mbrGridBackgroundSize()',
     '[style.background-repeat]': 'mbrGridBackgroundRepeat()',
     '[style.background-image]': 'background_image()',
-    '[style.background-size]': `'var(--grid-size) 100%, 100% var(--grid-size)'`
+    'style.background-size': 'var(--grid-size) 100%, 100% var(--grid-size)'
   }
 })
 export class GridBackgroundDirective {

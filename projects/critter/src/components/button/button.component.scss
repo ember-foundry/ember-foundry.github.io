@@ -1,0 +1,83 @@
+$default-box-shadow-depth: 4px;
+
+:host {
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  user-select: none;
+}
+
+:host(:disabled), :host([disabled]) {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+:host {
+  align-items: center;
+  background-color: var(--color-background);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  color: var(--color-text);
+  font-optical-sizing: auto;
+  font-size: 14px;
+  font-variation-settings: "wdth" 100;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 0.7px;
+  line-height: 142.875%;
+  padding-block: 6px;
+  padding-inline: 12px;
+  text-align: center;
+  transition-duration: 150ms;
+  transition-property: translate, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:host:not(.flat){
+  box-shadow: 0 var(--box-shadow-depth, #{$default-box-shadow-depth}) 0 0 var(--color-shadow);
+}
+
+:host([class*='color-']:not(.color-light):not(.flat)){
+  background-image: linear-gradient(to bottom, hsl(0deg 0% 100% / 20%), hsl(0deg 0% 100% / 20%) 50%, transparent 50%, transparent);
+}
+
+:host(.flat){
+  border-radius: 12px;
+}
+
+:host(.rounded) {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+:host(:active:not(.flat)) {
+  box-shadow: none;
+  translate: 0 var(--box-shadow-depth, #{$default-box-shadow-depth});
+}
+
+:host(.size-small){
+  font-size: 12px;
+  line-height: 133.333%;
+}
+
+:host(.size-medium){
+  font-size: 16px;
+}
+
+:host(:has(>svg)){
+  gap: 0.5em;
+}
+
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+:host ::ng-deep svg:not([width], [height]) {
+  height: 1em;
+}
+
+/**
+ *  Just an SVG Icon
+ */
+:host:has(>svg:only-child) {
+  aspect-ratio: 1;
+  padding-inline: 8px;
+  padding-block: 8px;
+}

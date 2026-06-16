@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/angular';
-import { PricePlanComponent } from 'component-library';
-import {array_to_angular_input} from 'component-library/helpers/storybook/array_to_angular_input';
+import {Meta, StoryObj} from '@storybook/angular';
+import {PricePlanComponent} from './price-plan.component';
+import {array_to_angular_input} from '../../helpers/storybook/array_to_angular_input';
 
 const meta: Meta<PricePlanComponent> = {
   parameters: {
@@ -13,21 +13,21 @@ const meta: Meta<PricePlanComponent> = {
       control: 'boolean',
       description: 'Whether the price plan is popular or not',
       table: {
-        type: { summary: 'boolean' }
+        type: {summary: 'boolean'}
       }
     },
     selected: {
       control: 'boolean',
       description: 'Whether the plan is select or not',
       table: {
-        type: { summary: 'boolean' }
+        type: {summary: 'boolean'}
       }
     },
     title: {
       control: 'text',
       description: 'The title of the price plan',
       table: {
-        type: { summary: 'string' }
+        type: {summary: 'string'}
       }
     },
     price: {
@@ -35,28 +35,28 @@ const meta: Meta<PricePlanComponent> = {
       min: 0,
       description: 'The title of the price plan',
       table: {
-        type: { summary: 'string' }
+        type: {summary: 'string'}
       }
     },
     description: {
       control: 'text',
       description: 'The description of the price plan',
       table: {
-        type: { summary: 'string' }
+        type: {summary: 'string'}
       }
     },
     features: {
       control: 'object',
       description: 'The features available for this price plan',
       table: {
-        type: { summary: 'string[]' }
+        type: {summary: 'string[]'}
       }
     },
     cta_text: {
       control: 'text',
       description: 'The text of the button',
       table: {
-        type: { summary: 'string' }
+        type: {summary: 'string'}
       }
     }
   },

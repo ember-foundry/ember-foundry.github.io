@@ -29,7 +29,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - run: npm run build:storybook
+      - run: npm run build:storybook:component-library
+      - run: npm run build:storybook:critter
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

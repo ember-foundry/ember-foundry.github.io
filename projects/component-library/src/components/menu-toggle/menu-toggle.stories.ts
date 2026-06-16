@@ -1,5 +1,5 @@
 import {Meta} from '@storybook/angular';
-import {MenuToggleComponent} from 'component-library';
+import {MenuToggleComponent} from '@ember-foundry/component-library';
 
 const meta: Meta<MenuToggleComponent> = {
   component: MenuToggleComponent,
