@@ -119,11 +119,11 @@ jobs:
       - run: npx playwright install
 
       - name: 'Unit Tests | Component Library'
-        id: vitest_unit_tests
+        id: vitest_unit_tests_component_library
         run: npm run test:ci:component-library
 
       - name: 'Upload Vitest Screenshots | Component Library'
-        if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
+        if: ${{ always() && steps.vitest_unit_tests_component_library.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
           path: projects/component-library/.vitest-attachments
@@ -132,11 +132,11 @@ jobs:
           include-hidden-files: true
 
       - name: 'Unit Tests | Critter'
-        id: vitest_unit_tests
+        id: vitest_unit_tests_critter
         run: npm run test:ci:critter
 
       - name: 'Upload Vitest Screenshots | Critter'
-        if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
+        if: ${{ always() && steps.vitest_unit_tests_critter.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
           path: projects/critter/.vitest-attachments
