@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, input, model} from '@angular/core';
 import {BaseComponent} from '../_base/base.component';
 import {DiceFlatComponent} from '../dice-flat/dice-flat.component';
-import {LucideSkull, LucideSwords} from '@lucide/angular';
 
 @Component({
   selector: 'mbr-ludo-player-ui-front',
