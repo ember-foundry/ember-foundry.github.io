@@ -330,7 +330,7 @@ export const Showcase: StoryObj = {
   render: (args, context) => ({
     ...context,
     styles: [
-      ':host { gap: 2rem; display: flex; flex-direction: column;}',
+      ':host { gap: 2rem; display: flex; flex-direction: column;}'
     ],
     template: `
       <mbr-critter-panel title="PANTRY STATUS">

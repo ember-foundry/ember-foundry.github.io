@@ -12,9 +12,7 @@ import {LucideSkull, LucideSwords} from '@lucide/angular';
     '[style.--character-color]': 'color()'
   },
   imports: [
-    DiceFlatComponent,
-    LucideSkull,
-    LucideSwords
+    DiceFlatComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

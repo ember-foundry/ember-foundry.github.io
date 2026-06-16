@@ -1,7 +1,6 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {ButtonBasicComponent} from './button-basic/button-basic.component';
 import {ButtonMonochromaticComponent} from './button-monochromatic/button-monochromatic.component';
-import {NgTemplateOutlet} from '@angular/common';
 import {LucideDownload} from '@lucide/angular';
 
 const meta: Meta = {

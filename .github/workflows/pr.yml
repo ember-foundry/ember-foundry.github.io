@@ -69,8 +69,8 @@ jobs:
       - uses: ./.github/actions/setup-project
       - run: npm run lint:styles
 
-  build:
-    name: Build Component Library
+  build_libraries:
+    name: Build Libraries
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -118,16 +118,29 @@ jobs:
 
       - run: npx playwright install
 
-      - name: 'Vitest Unit Tests'
+      - name: 'Unit Tests | Component Library'
         id: vitest_unit_tests
-        run: npm run test:ci
+        run: npm run test:ci:component-library
 
-      - name: Upload Vitest Screenshots
+      - name: 'Upload Vitest Screenshots | Component Library'
         if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
           path: projects/component-library/.vitest-attachments
-          name: vitest-visual-test-errors
+          name: vitest-visual-test-errors-component-library
+          if-no-files-found: ignore
+          include-hidden-files: true
+
+      - name: 'Unit Tests | Critter'
+        id: vitest_unit_tests
+        run: npm run test:ci:critter
+
+      - name: 'Upload Vitest Screenshots | Critter'
+        if: ${{ always() && steps.vitest_unit_tests.outcome == 'failure' }}
+        uses: actions/upload-artifact@v6
+        with:
+          path: projects/critter/.vitest-attachments
+          name: vitest-visual-test-errors-critter
           if-no-files-found: ignore
           include-hidden-files: true
 
